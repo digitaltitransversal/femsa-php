@@ -1,4 +1,4 @@
-FROM php:8.2.1-cli-alpine
+FROM php:8.4.11-cli-alpine
 
 RUN apk add --no-cache $PHPIZE_DEPS \
 	libxml2-dev \
