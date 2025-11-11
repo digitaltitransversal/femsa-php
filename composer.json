@@ -1,6 +1,6 @@
 {
     "name": "digitalfemsa/femsa-php",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "DigitalFemsa PHP Library",
     "type": "library",
     "keywords": [

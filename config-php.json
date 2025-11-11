@@ -1,13 +1,13 @@
 {
   "packageName": "digitalfemsa",
   "generateSourceCodeOnly": "false",
-  "artifactVersion": "1.0.4",
+  "artifactVersion": "1.0.5",
   "packageUrl": "https://developers.femsa.com/",
   "projectName": "femsa-php",
   "appDescriptionV2" : "DigitalFemsa PHP Library",
   "useOneOfDiscriminatorLookup" : true,
   "nonCompliantUseDiscriminatorIfCompositionFails" : false,
-  "httpUserAgent": "Femsa/v2 PhpBindings/1.0.4",
+  "httpUserAgent": "Femsa/v2 PhpBindings/1.0.5",
   "packageAuthors" : "engineering@digitalfemsa.io",
   "files": {
     "/local/CODE_OF_CONDUCT.md" : {},

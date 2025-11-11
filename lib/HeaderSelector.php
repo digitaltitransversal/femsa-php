@@ -262,14 +262,14 @@ class HeaderSelector
        $uname = $uname_disabled ? '(disabled)' : \php_uname();
 
       $userAgent = [
-        'bindings_version' => "1.0.4",
+        'bindings_version' => "1.0.5",
         'lang'             => 'php',
         'lang_version'     => phpversion(),
         'publisher'        => 'digitalfemsa',
         'uname'            => $uname,
       ];
        $headers = [];
-       $headers['X-Femsa-Client-User-Agent'] = json_encode($userAgent);
+       $headers['X-DigitalFemsa-Client-User-Agent'] = json_encode($userAgent);
 
        return $headers;
     }
