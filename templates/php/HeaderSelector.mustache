@@ -259,7 +259,7 @@ class HeaderSelector
         'uname'            => $uname,
       ];
        $headers = [];
-       $headers['X-Femsa-Client-User-Agent'] = json_encode($userAgent);
+       $headers['X-DigitalFemsa-Client-User-Agent'] = json_encode($userAgent);
 
        return $headers;
     }
