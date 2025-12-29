@@ -101,7 +101,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'Femsa/v2 PhpBindings/1.0.5';
+    protected $userAgent = 'Femsa/v2 PhpBindings/1.0.6';
 
     /**
      * Debug switch (default set to false)
@@ -456,7 +456,7 @@ class Configuration
         $report .= '    OS: ' . $uname . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 2.1.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 1.0.5' . PHP_EOL;
+        $report .= '    SDK Package Version: 1.0.6' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
@@ -510,7 +510,7 @@ class Configuration
     * @param array|null $variables    hash of variable and the corresponding value (optional)
     * @return string URL based on host settings
     */
-    public static function getHostString(array $hostsSettings, $hostIndex, array $variables = null)
+    public static function getHostString(array $hostsSettings, int $hostIndex, ?array $variables = null)
     {
         if (null === $variables) {
             $variables = [];
