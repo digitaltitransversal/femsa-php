@@ -28,7 +28,6 @@ version-update:
 	@sed -i '' 's/SDK Package Version: [^\n]*/SDK Package Version: $(NEW_VERSION)'\'' . PHP_EOL;/' lib/Configuration.php
 	@sed -i '' 's/"artifactVersion": "[^"]*"/"artifactVersion": "$(NEW_VERSION)"/' config-php.json
 	@sed -i '' "s/\"httpUserAgent\": \"Femsa\/v2 PhpBindings\/[0-9.]*\"/\"httpUserAgent\": \"Femsa\/v2 PhpBindings\/$(NEW_VERSION)\"/" config-php.json
-	@sed -i '' "s/'bindings_version' => \"[^\"]*\"/'bindings_version' => \"$(NEW_VERSION)\"/" lib/HeaderSelector.php
+	@sed -i '' "s/\$sdk_version = \"[^\"]*\"/\$sdk_version = \"$(NEW_VERSION)\"/" lib/HeaderSelector.php
 	@sed -i '' 's/Package version: `[^"]*`/Package version: `$(NEW_VERSION)`/' README.md
 	@echo "Version updated successfully to $(NEW_VERSION)"
-
