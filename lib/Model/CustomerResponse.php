@@ -73,9 +73,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_fiscal_entity_id' => 'string',
         'default_shipping_contact_id' => 'string',
         'metadata' => 'array<string,mixed>',
-        'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsResponse',
-        'fiscal_entities' => '\DigitalFemsa\Model\CreateCustomerFiscalEntitiesResponse[]',
-        'shipping_contacts' => '\DigitalFemsa\Model\CustomerShippingContactsResponse[]'
+        'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsResponse'
     ];
 
     /**
@@ -100,9 +98,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_fiscal_entity_id' => null,
         'default_shipping_contact_id' => null,
         'metadata' => null,
-        'payment_sources' => null,
-        'fiscal_entities' => null,
-        'shipping_contacts' => null
+        'payment_sources' => null
     ];
 
     /**
@@ -125,9 +121,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_fiscal_entity_id' => true,
         'default_shipping_contact_id' => true,
         'metadata' => true,
-        'payment_sources' => false,
-        'fiscal_entities' => true,
-        'shipping_contacts' => true
+        'payment_sources' => false
     ];
 
     /**
@@ -230,9 +224,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_fiscal_entity_id' => 'default_fiscal_entity_id',
         'default_shipping_contact_id' => 'default_shipping_contact_id',
         'metadata' => 'metadata',
-        'payment_sources' => 'payment_sources',
-        'fiscal_entities' => 'fiscal_entities',
-        'shipping_contacts' => 'shipping_contacts'
+        'payment_sources' => 'payment_sources'
     ];
 
     /**
@@ -255,9 +247,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_fiscal_entity_id' => 'setDefaultFiscalEntityId',
         'default_shipping_contact_id' => 'setDefaultShippingContactId',
         'metadata' => 'setMetadata',
-        'payment_sources' => 'setPaymentSources',
-        'fiscal_entities' => 'setFiscalEntities',
-        'shipping_contacts' => 'setShippingContacts'
+        'payment_sources' => 'setPaymentSources'
     ];
 
     /**
@@ -280,9 +270,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_fiscal_entity_id' => 'getDefaultFiscalEntityId',
         'default_shipping_contact_id' => 'getDefaultShippingContactId',
         'metadata' => 'getMetadata',
-        'payment_sources' => 'getPaymentSources',
-        'fiscal_entities' => 'getFiscalEntities',
-        'shipping_contacts' => 'getShippingContacts'
+        'payment_sources' => 'getPaymentSources'
     ];
 
     /**
@@ -370,8 +358,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('default_shipping_contact_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('payment_sources', $data ?? [], null);
-        $this->setIfExists('fiscal_entities', $data ?? [], null);
-        $this->setIfExists('shipping_contacts', $data ?? [], null);
     }
 
     /**
@@ -919,74 +905,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable payment_sources cannot be null');
         }
         $this->container['payment_sources'] = $payment_sources;
-
-        return $this;
-    }
-
-    /**
-     * Gets fiscal_entities
-     *
-     * @return \DigitalFemsa\Model\CreateCustomerFiscalEntitiesResponse[]|null
-     */
-    public function getFiscalEntities()
-    {
-        return $this->container['fiscal_entities'];
-    }
-
-    /**
-     * Sets fiscal_entities
-     *
-     * @param \DigitalFemsa\Model\CreateCustomerFiscalEntitiesResponse[]|null $fiscal_entities fiscal_entities
-     *
-     * @return self
-     */
-    public function setFiscalEntities($fiscal_entities)
-    {
-        if (is_null($fiscal_entities)) {
-            array_push($this->openAPINullablesSetToNull, 'fiscal_entities');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fiscal_entities', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['fiscal_entities'] = $fiscal_entities;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_contacts
-     *
-     * @return \DigitalFemsa\Model\CustomerShippingContactsResponse[]|null
-     */
-    public function getShippingContacts()
-    {
-        return $this->container['shipping_contacts'];
-    }
-
-    /**
-     * Sets shipping_contacts
-     *
-     * @param \DigitalFemsa\Model\CustomerShippingContactsResponse[]|null $shipping_contacts shipping_contacts
-     *
-     * @return self
-     */
-    public function setShippingContacts($shipping_contacts)
-    {
-        if (is_null($shipping_contacts)) {
-            array_push($this->openAPINullablesSetToNull, 'shipping_contacts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('shipping_contacts', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['shipping_contacts'] = $shipping_contacts;
 
         return $this;
     }
