@@ -74,7 +74,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'default_shipping_contact_id' => 'string',
         'metadata' => 'array<string,mixed>',
         'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsResponse',
-        'fiscal_entities' => '\DigitalFemsa\Model\UpdateCustomerFiscalEntitiesResponse[]',
+        'fiscal_entities' => '\DigitalFemsa\Model\CreateCustomerFiscalEntitiesResponse[]',
         'shipping_contacts' => '\DigitalFemsa\Model\CustomerShippingContactsResponse[]'
     ];
 
@@ -926,7 +926,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fiscal_entities
      *
-     * @return \DigitalFemsa\Model\UpdateCustomerFiscalEntitiesResponse[]|null
+     * @return \DigitalFemsa\Model\CreateCustomerFiscalEntitiesResponse[]|null
      */
     public function getFiscalEntities()
     {
@@ -936,7 +936,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fiscal_entities
      *
-     * @param \DigitalFemsa\Model\UpdateCustomerFiscalEntitiesResponse[]|null $fiscal_entities fiscal_entities
+     * @param \DigitalFemsa\Model\CreateCustomerFiscalEntitiesResponse[]|null $fiscal_entities fiscal_entities
      *
      * @return self
      */
