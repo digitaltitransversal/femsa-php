@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**antifraud_info** | **array<string,object>** |  | [optional]
 **description** | **string** |  | [optional]
 **sku** | **string** |  | [optional]
 **name** | **string** |  | [optional]

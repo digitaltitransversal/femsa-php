@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**customer_id** | **string** |  | [optional]
 **name** | **string** |  |
 **email** | **string** |  |
 **phone** | **string** |  |

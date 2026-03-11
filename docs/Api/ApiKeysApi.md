@@ -4,11 +4,11 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createApiKey()**](ApiKeysApi.md#createApiKey) | **POST** /api_keys | Create Api Key |
-| [**deleteApiKey()**](ApiKeysApi.md#deleteApiKey) | **DELETE** /api_keys/{id} | Delete Api Key |
-| [**getApiKey()**](ApiKeysApi.md#getApiKey) | **GET** /api_keys/{id} | Get Api Key |
-| [**getApiKeys()**](ApiKeysApi.md#getApiKeys) | **GET** /api_keys | Get list of Api Keys |
-| [**updateApiKey()**](ApiKeysApi.md#updateApiKey) | **PUT** /api_keys/{id} | Update Api Key |
+| [**createApiKey()**](ApiKeysApi.md#createApiKey) | **POST** /api_keys | Create API key |
+| [**deleteApiKey()**](ApiKeysApi.md#deleteApiKey) | **DELETE** /api_keys/{id} | Delete API key |
+| [**getApiKey()**](ApiKeysApi.md#getApiKey) | **GET** /api_keys/{id} | Get API key |
+| [**getApiKeys()**](ApiKeysApi.md#getApiKeys) | **GET** /api_keys | List API keys |
+| [**updateApiKey()**](ApiKeysApi.md#updateApiKey) | **PUT** /api_keys/{id} | Update API key |
 
 
 ## `createApiKey()`
@@ -17,9 +17,9 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 createApiKey($api_key_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\ApiKeyCreateResponse
 ```
 
-Create Api Key
+Create API key
 
-Create a api key
+Creates a new API key.  The response includes an `authentication_token` that is shown only once (at creation time). Copy and store it securely.
 
 ### Example
 
@@ -69,7 +69,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -81,9 +81,9 @@ try {
 deleteApiKey($id, $accept_language): \DigitalFemsa\Model\DeleteApiKeysResponse
 ```
 
-Delete Api Key
+Delete API key
 
-Deletes a api key that corresponds to a api key ID
+Deletes an API key by its ID.
 
 ### Example
 
@@ -131,7 +131,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -143,9 +143,9 @@ try {
 getApiKey($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\ApiKeyResponse
 ```
 
-Get Api Key
+Get API key
 
-Gets a api key that corresponds to a api key ID
+Retrieves the details of an API key by its ID.
 
 ### Example
 
@@ -195,7 +195,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -207,9 +207,9 @@ try {
 getApiKeys($accept_language, $x_child_company_id, $limit, $next, $previous, $search): \DigitalFemsa\Model\GetApiKeysResponse
 ```
 
-Get list of Api Keys
+List API keys
 
-Consume the list of api keys you have
+Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (`limit`, `next_page`, `previous_page`) to navigate through results. Use the `search` query parameter to perform a general search (for example by key `id` or description).
 
 ### Example
 
@@ -233,7 +233,7 @@ $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a hol
 $limit = 20; // int | The numbers of items to return, the maximum value is 250
 $next = 'next_example'; // string | next page
 $previous = 'previous_example'; // string | previous page
-$search = 'search_example'; // string | General search, e.g. by id, description, prefix
+$search = 'search_example'; // string | General search, e.g. by id or description
 
 try {
     $result = $apiInstance->getApiKeys($accept_language, $x_child_company_id, $limit, $next, $previous, $search);
@@ -252,7 +252,7 @@ try {
 | **limit** | **int**| The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
 | **next** | **string**| next page | [optional] |
 | **previous** | **string**| previous page | [optional] |
-| **search** | **string**| General search, e.g. by id, description, prefix | [optional] |
+| **search** | **string**| General search, e.g. by id or description | [optional] |
 
 ### Return type
 
@@ -265,7 +265,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -274,12 +274,12 @@ try {
 ## `updateApiKey()`
 
 ```php
-updateApiKey($id, $accept_language, $api_key_update_request): \DigitalFemsa\Model\ApiKeyResponse
+updateApiKey($id, $api_key_update_request, $accept_language): \DigitalFemsa\Model\ApiKeyResponse
 ```
 
-Update Api Key
+Update API key
 
-Update an existing api key
+Updates an existing API key by its ID.  Use this endpoint to change the key's status (active/inactive) or update its description.
 
 ### Example
 
@@ -299,11 +299,11 @@ $apiInstance = new DigitalFemsa\Api\ApiKeysApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$accept_language = es; // string | Use for knowing which language to use
 $api_key_update_request = new \DigitalFemsa\Model\ApiKeyUpdateRequest(); // \DigitalFemsa\Model\ApiKeyUpdateRequest
+$accept_language = es; // string | Use for knowing which language to use
 
 try {
-    $result = $apiInstance->updateApiKey($id, $accept_language, $api_key_update_request);
+    $result = $apiInstance->updateApiKey($id, $api_key_update_request, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApiKeysApi->updateApiKey: ', $e->getMessage(), PHP_EOL;
@@ -315,8 +315,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
+| **api_key_update_request** | [**\DigitalFemsa\Model\ApiKeyUpdateRequest**](../Model/ApiKeyUpdateRequest.md)|  | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **api_key_update_request** | [**\DigitalFemsa\Model\ApiKeyUpdateRequest**](../Model/ApiKeyUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -329,7 +329,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/json`, `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

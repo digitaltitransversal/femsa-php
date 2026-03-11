@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **int** |  | [optional]
-**channel** | [**\DigitalFemsa\Model\ChargeResponseChannel**](ChargeResponseChannel.md) |  | [optional]
+**channel** | [**\DigitalFemsa\Model\ChargeOrderResponseChannel**](ChargeOrderResponseChannel.md) |  | [optional]
 **created_at** | **int** |  | [optional]
 **currency** | **string** |  | [optional]
 **customer_id** | **string** |  | [optional]

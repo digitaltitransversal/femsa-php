@@ -10,12 +10,12 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 ## `getBalance()`
 
 ```php
-getBalance($accept_language): \DigitalFemsa\Model\BalanceResponse
+getBalance($accept_language, $x_child_company_id): \DigitalFemsa\Model\BalanceResponse
 ```
 
 Get a company's balance
 
-Get a company's balance
+Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency.
 
 ### Example
 
@@ -35,9 +35,10 @@ $apiInstance = new DigitalFemsa\Api\BalancesApi(
     $config
 );
 $accept_language = es; // string | Use for knowing which language to use
+$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->getBalance($accept_language);
+    $result = $apiInstance->getBalance($accept_language, $x_child_company_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BalancesApi->getBalance: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +50,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -61,7 +63,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

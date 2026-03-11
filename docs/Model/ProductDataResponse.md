@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**antifraud_info** | **array<string,mixed>** |  | [optional]
 **brand** | **string** | The brand of the item. | [optional]
 **description** | **string** | Short description of the item | [optional]
 **metadata** | **array<string,string>** | It is a key/value hash that can hold custom fields. Maximum 100 elements and allows special characters. | [optional]

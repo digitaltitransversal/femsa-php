@@ -4,23 +4,23 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createWebhook()**](WebhooksApi.md#createWebhook) | **POST** /webhooks | Create Webhook |
-| [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete Webhook |
-| [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{id} | Get Webhook |
-| [**getWebhooks()**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get List of Webhooks |
-| [**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /webhooks/{id}/test | Test Webhook |
-| [**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /webhooks/{id} | Update Webhook |
+| [**createWebhook()**](WebhooksApi.md#createWebhook) | **POST** /webhooks | Create webhook |
+| [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete webhook |
+| [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{id} | Get webhook |
+| [**getWebhooks()**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get webhooks |
+| [**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /webhooks/{id}/test | Test webhook |
+| [**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /webhooks/{id} | Update webhook |
 
 
 ## `createWebhook()`
 
 ```php
-createWebhook($webhook_request, $accept_language): \DigitalFemsa\Model\WebhookResponse
+createWebhook($accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Create Webhook
+Create webhook
 
-What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
+Creates a webhook and subscribes it to events so your system can receive notifications when those events occur.
 
 ### Example
 
@@ -39,11 +39,11 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | requested field for webhook
 $accept_language = es; // string | Use for knowing which language to use
+$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->createWebhook($webhook_request, $accept_language);
+    $result = $apiInstance->createWebhook($accept_language, $x_child_company_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->createWebhook: ', $e->getMessage(), PHP_EOL;
@@ -54,8 +54,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| requested field for webhook | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -67,8 +67,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Content-Type**: Not defined
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -77,10 +77,12 @@ try {
 ## `deleteWebhook()`
 
 ```php
-deleteWebhook($id, $accept_language): \DigitalFemsa\Model\WebhookResponse
+deleteWebhook($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Delete Webhook
+Delete webhook
+
+Deletes a webhook.
 
 ### Example
 
@@ -101,9 +103,10 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
+$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->deleteWebhook($id, $accept_language);
+    $result = $apiInstance->deleteWebhook($id, $accept_language, $x_child_company_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
@@ -116,6 +119,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -128,7 +132,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -140,7 +144,9 @@ try {
 getWebhook($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Get Webhook
+Get webhook
+
+Retrieves the details of a webhook by its ID.
 
 ### Example
 
@@ -190,7 +196,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -199,12 +205,12 @@ try {
 ## `getWebhooks()`
 
 ```php
-getWebhooks($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous): \DigitalFemsa\Model\GetWebhooksResponse
+getWebhooks($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous): \DigitalFemsa\Model\GetWebhooksResponse
 ```
 
-Get List of Webhooks
+Get webhooks
 
-Consume the list of webhooks you have, each environment supports 10 webhooks (For production and testing)
+Returns a paginated list of webhooks.
 
 ### Example
 
@@ -223,6 +229,7 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
+$webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | Webhook creation/update request payload.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 $limit = 20; // int | The numbers of items to return, the maximum value is 250
@@ -232,7 +239,7 @@ $next = 'next_example'; // string | next page
 $previous = 'previous_example'; // string | previous page
 
 try {
-    $result = $apiInstance->getWebhooks($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous);
+    $result = $apiInstance->getWebhooks($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhooks: ', $e->getMessage(), PHP_EOL;
@@ -243,6 +250,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| Webhook creation/update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 | **limit** | **int**| The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
@@ -261,8 +269,8 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Content-Type**: `application/json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -271,12 +279,12 @@ try {
 ## `testWebhook()`
 
 ```php
-testWebhook($id, $accept_language): \DigitalFemsa\Model\WebhookResponse
+testWebhook($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Test Webhook
+Test webhook
 
-Send a webhook.ping event
+Sends a test event to the specified webhook to verify it can receive events.
 
 ### Example
 
@@ -297,9 +305,10 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
+$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->testWebhook($id, $accept_language);
+    $result = $apiInstance->testWebhook($id, $accept_language, $x_child_company_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->testWebhook: ', $e->getMessage(), PHP_EOL;
@@ -312,6 +321,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -324,7 +334,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -336,9 +346,9 @@ try {
 updateWebhook($id, $webhook_update_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Update Webhook
+Update webhook
 
-updates an existing webhook
+Updates an existing webhook.
 
 ### Example
 
@@ -358,7 +368,7 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$webhook_update_request = new \DigitalFemsa\Model\WebhookUpdateRequest(); // \DigitalFemsa\Model\WebhookUpdateRequest | requested fields in order to update a webhook
+$webhook_update_request = new \DigitalFemsa\Model\WebhookUpdateRequest(); // \DigitalFemsa\Model\WebhookUpdateRequest | Webhook update request payload.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -375,7 +385,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
-| **webhook_update_request** | [**\DigitalFemsa\Model\WebhookUpdateRequest**](../Model/WebhookUpdateRequest.md)| requested fields in order to update a webhook | |
+| **webhook_update_request** | [**\DigitalFemsa\Model\WebhookUpdateRequest**](../Model/WebhookUpdateRequest.md)| Webhook update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
@@ -390,7 +400,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

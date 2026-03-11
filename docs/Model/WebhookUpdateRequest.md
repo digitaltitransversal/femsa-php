@@ -4,8 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **string** | Here you must place the URL of your Webhook remember that you must program what you will do with the events received. Also do not forget to handle the HTTPS protocol for greater security. |
-**synchronous** | **bool** | It is a value that allows to decide if the events will be synchronous or asynchronous. We recommend asynchronous &#x3D; false | [optional] [default to false]
-**events** | **string[]** |  | [optional]
+**url** | **string** | Webhook endpoint URL. Local URLs are not allowed. | [optional]
+**subscribed_events** | **string[]** | List of event types the webhook is subscribed to. | [optional]
+**events** | **string[]** | Alias for subscribed_events. | [optional]
+**synchronous** | **bool** | Indicates whether the webhook uses synchronous delivery behavior. | [optional] [default to false]
+**active** | **bool** | Activates or deactivates the webhook. | [optional]
+**description** | **string** | Optional description of the webhook. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

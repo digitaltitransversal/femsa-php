@@ -4,13 +4,13 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createCustomer()**](CustomersApi.md#createCustomer) | **POST** /customers | Create customer |
+| [**createCustomer()**](CustomersApi.md#createCustomer) | **POST** /customers | Create a customer |
 | [**createCustomerFiscalEntities()**](CustomersApi.md#createCustomerFiscalEntities) | **POST** /customers/{id}/fiscal_entities | Create Fiscal Entity |
 | [**deleteCustomerById()**](CustomersApi.md#deleteCustomerById) | **DELETE** /customers/{id} | Delete Customer |
 | [**getCustomerById()**](CustomersApi.md#getCustomerById) | **GET** /customers/{id} | Get Customer |
 | [**getCustomers()**](CustomersApi.md#getCustomers) | **GET** /customers | Get a list of customers |
 | [**updateCustomer()**](CustomersApi.md#updateCustomer) | **PUT** /customers/{id} | Update customer |
-| [**updateCustomerFiscalEntities()**](CustomersApi.md#updateCustomerFiscalEntities) | **PUT** /customers/{id}/fiscal_entities/{fiscal_entities_id} | Update  Fiscal Entity |
+| [**updateCustomerFiscalEntities()**](CustomersApi.md#updateCustomerFiscalEntities) | **PUT** /customers/{id}/fiscal_entities/{fiscal_entities_id} | Update Fiscal Entity |
 
 
 ## `createCustomer()`
@@ -19,9 +19,9 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 createCustomer($customer, $accept_language, $x_child_company_id): \DigitalFemsa\Model\CustomerResponse
 ```
 
-Create customer
+Create a customer
 
-The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer.
+Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources.
 
 ### Example
 
@@ -71,7 +71,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -85,7 +85,7 @@ createCustomerFiscalEntities($id, $customer_fiscal_entities_request, $accept_lan
 
 Create Fiscal Entity
 
-Create Fiscal entity resource that corresponds to a customer ID.
+Create a fiscal entity resource for a given customer ID.
 
 ### Example
 
@@ -137,7 +137,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -201,7 +201,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -265,7 +265,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -279,7 +279,7 @@ getCustomers($accept_language, $x_child_company_id, $limit, $search, $next, $pre
 
 Get a list of customers
 
-The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results.  Monetary fields are returned as arrays of amounts grouped by currency.
 
 ### Example
 
@@ -335,7 +335,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -401,7 +401,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -413,7 +413,7 @@ try {
 updateCustomerFiscalEntities($id, $fiscal_entities_id, $customer_update_fiscal_entities_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\UpdateCustomerFiscalEntitiesResponse
 ```
 
-Update  Fiscal Entity
+Update Fiscal Entity
 
 Update Fiscal Entity resource that corresponds to a customer ID.
 
@@ -469,7 +469,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -4,8 +4,8 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getTransfer()**](TransfersApi.md#getTransfer) | **GET** /transfers/{id} | Get Transfer |
-| [**getTransfers()**](TransfersApi.md#getTransfers) | **GET** /transfers | Get a list of transfers |
+| [**getTransfer()**](TransfersApi.md#getTransfer) | **GET** /transfers/{id} | Get transfer |
+| [**getTransfers()**](TransfersApi.md#getTransfers) | **GET** /transfers | List transfers |
 
 
 ## `getTransfer()`
@@ -14,9 +14,9 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 getTransfer($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\TransferResponse
 ```
 
-Get Transfer
+Get transfer
 
-Get the details of a Transfer
+Retrieves the details of a transfer by its ID.
 
 ### Example
 
@@ -66,7 +66,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -78,9 +78,9 @@ try {
 getTransfers($accept_language, $x_child_company_id, $limit, $search, $next, $previous): \DigitalFemsa\Model\GetTransfersResponse
 ```
 
-Get a list of transfers
+List transfers
 
-Get transfers details in the form of a list
+Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions.
 
 ### Example
 
@@ -136,7 +136,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

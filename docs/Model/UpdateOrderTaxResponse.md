@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **id** | **string** |  |
 **object** | **string** |  | [optional]
 **parent_id** | **string** |  | [optional]
+**deleted** | **bool** | Present only when the tax line was deleted. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
