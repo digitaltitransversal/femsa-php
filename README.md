@@ -231,6 +231,7 @@ Class | Method | HTTP request | Description
 - [GetWebhooksResponse](docs/Model/GetWebhooksResponse.md)
 - [LogResponse](docs/Model/LogResponse.md)
 - [LogsResponse](docs/Model/LogsResponse.md)
+- [LogsResponseData](docs/Model/LogsResponseData.md)
 - [OrderCaptureRequest](docs/Model/OrderCaptureRequest.md)
 - [OrderCustomerInfoResponse](docs/Model/OrderCustomerInfoResponse.md)
 - [OrderDiscountLinesRequest](docs/Model/OrderDiscountLinesRequest.md)

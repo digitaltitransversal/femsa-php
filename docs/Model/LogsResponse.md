@@ -4,21 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  |
-**object** | **string** |  |
-**created_at** | **int** |  |
-**livemode** | **bool** |  |
-**method** | **string** |  |
-**url** | **string** |  |
-**status** | **string** |  |
-**version** | **string** |  |
-**ip_address** | **string** |  |
-**related** | **string** |  |
-**query_string** | **array<string,mixed>** |  | [optional]
-**request_body** | **array<string,mixed>** |  | [optional]
-**response_body** | **array<string,mixed>** |  | [optional]
-**request_headers** | **array<string,string>** |  | [optional]
-**response_headers** | **array<string,string>** |  | [optional]
-**searchable_tags** | **string[]** |  | [optional]
+**has_more** | **bool** | True, if there are more pages. | [optional] [readonly]
+**object** | **string** | The object type | [optional] [readonly]
+**next_page_url** | **string** | URL of the next page. | [optional]
+**previous_page_url** | **string** | Url of the previous page. | [optional]
+**data** | [**\DigitalFemsa\Model\LogsResponseData[]**](LogsResponseData.md) | set to page results. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

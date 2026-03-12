@@ -59,22 +59,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
+        'has_more' => 'bool',
         'object' => 'string',
-        'created_at' => 'int',
-        'livemode' => 'bool',
-        'method' => 'string',
-        'url' => 'string',
-        'status' => 'string',
-        'version' => 'string',
-        'ip_address' => 'string',
-        'related' => 'string',
-        'query_string' => 'array<string,mixed>',
-        'request_body' => 'array<string,mixed>',
-        'response_body' => 'array<string,mixed>',
-        'request_headers' => 'array<string,string>',
-        'response_headers' => 'array<string,string>',
-        'searchable_tags' => 'string[]'
+        'next_page_url' => 'string',
+        'previous_page_url' => 'string',
+        'data' => '\DigitalFemsa\Model\LogsResponseData[]'
     ];
 
     /**
@@ -85,22 +74,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
+        'has_more' => null,
         'object' => null,
-        'created_at' => 'int64',
-        'livemode' => null,
-        'method' => null,
-        'url' => null,
-        'status' => null,
-        'version' => null,
-        'ip_address' => 'ipv4',
-        'related' => null,
-        'query_string' => null,
-        'request_body' => null,
-        'response_body' => null,
-        'request_headers' => null,
-        'response_headers' => null,
-        'searchable_tags' => null
+        'next_page_url' => null,
+        'previous_page_url' => null,
+        'data' => null
     ];
 
     /**
@@ -109,22 +87,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
+        'has_more' => false,
         'object' => false,
-        'created_at' => false,
-        'livemode' => false,
-        'method' => false,
-        'url' => false,
-        'status' => false,
-        'version' => false,
-        'ip_address' => false,
-        'related' => false,
-        'query_string' => true,
-        'request_body' => true,
-        'response_body' => true,
-        'request_headers' => true,
-        'response_headers' => true,
-        'searchable_tags' => false
+        'next_page_url' => true,
+        'previous_page_url' => true,
+        'data' => true
     ];
 
     /**
@@ -213,22 +180,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
+        'has_more' => 'has_more',
         'object' => 'object',
-        'created_at' => 'created_at',
-        'livemode' => 'livemode',
-        'method' => 'method',
-        'url' => 'url',
-        'status' => 'status',
-        'version' => 'version',
-        'ip_address' => 'ip_address',
-        'related' => 'related',
-        'query_string' => 'query_string',
-        'request_body' => 'request_body',
-        'response_body' => 'response_body',
-        'request_headers' => 'request_headers',
-        'response_headers' => 'response_headers',
-        'searchable_tags' => 'searchable_tags'
+        'next_page_url' => 'next_page_url',
+        'previous_page_url' => 'previous_page_url',
+        'data' => 'data'
     ];
 
     /**
@@ -237,22 +193,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
+        'has_more' => 'setHasMore',
         'object' => 'setObject',
-        'created_at' => 'setCreatedAt',
-        'livemode' => 'setLivemode',
-        'method' => 'setMethod',
-        'url' => 'setUrl',
-        'status' => 'setStatus',
-        'version' => 'setVersion',
-        'ip_address' => 'setIpAddress',
-        'related' => 'setRelated',
-        'query_string' => 'setQueryString',
-        'request_body' => 'setRequestBody',
-        'response_body' => 'setResponseBody',
-        'request_headers' => 'setRequestHeaders',
-        'response_headers' => 'setResponseHeaders',
-        'searchable_tags' => 'setSearchableTags'
+        'next_page_url' => 'setNextPageUrl',
+        'previous_page_url' => 'setPreviousPageUrl',
+        'data' => 'setData'
     ];
 
     /**
@@ -261,22 +206,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
+        'has_more' => 'getHasMore',
         'object' => 'getObject',
-        'created_at' => 'getCreatedAt',
-        'livemode' => 'getLivemode',
-        'method' => 'getMethod',
-        'url' => 'getUrl',
-        'status' => 'getStatus',
-        'version' => 'getVersion',
-        'ip_address' => 'getIpAddress',
-        'related' => 'getRelated',
-        'query_string' => 'getQueryString',
-        'request_body' => 'getRequestBody',
-        'response_body' => 'getResponseBody',
-        'request_headers' => 'getRequestHeaders',
-        'response_headers' => 'getResponseHeaders',
-        'searchable_tags' => 'getSearchableTags'
+        'next_page_url' => 'getNextPageUrl',
+        'previous_page_url' => 'getPreviousPageUrl',
+        'data' => 'getData'
     ];
 
     /**
@@ -320,19 +254,6 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_LOG = 'log';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_LOG,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -349,22 +270,11 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('has_more', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('method', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('ip_address', $data ?? [], null);
-        $this->setIfExists('related', $data ?? [], null);
-        $this->setIfExists('query_string', $data ?? [], null);
-        $this->setIfExists('request_body', $data ?? [], null);
-        $this->setIfExists('response_body', $data ?? [], null);
-        $this->setIfExists('request_headers', $data ?? [], null);
-        $this->setIfExists('response_headers', $data ?? [], null);
-        $this->setIfExists('searchable_tags', $data ?? [], null);
+        $this->setIfExists('next_page_url', $data ?? [], null);
+        $this->setIfExists('previous_page_url', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -394,45 +304,6 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['method'] === null) {
-            $invalidProperties[] = "'method' can't be null";
-        }
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['version'] === null) {
-            $invalidProperties[] = "'version' can't be null";
-        }
-        if ($this->container['ip_address'] === null) {
-            $invalidProperties[] = "'ip_address' can't be null";
-        }
-        if ($this->container['related'] === null) {
-            $invalidProperties[] = "'related' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -449,28 +320,28 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets has_more
      *
-     * @return string
+     * @return bool|null
      */
-    public function getId()
+    public function getHasMore()
     {
-        return $this->container['id'];
+        return $this->container['has_more'];
     }
 
     /**
-     * Sets id
+     * Sets has_more
      *
-     * @param string $id id
+     * @param bool|null $has_more True, if there are more pages.
      *
      * @return self
      */
-    public function setId($id)
+    public function setHasMore($has_more)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($has_more)) {
+            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['has_more'] = $has_more;
 
         return $this;
     }
@@ -478,7 +349,7 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -488,7 +359,7 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object The object type
      *
      * @return self
      */
@@ -497,430 +368,109 @@ class LogsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['object'] = $object;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets next_page_url
      *
-     * @return int
+     * @return string|null
      */
-    public function getCreatedAt()
+    public function getNextPageUrl()
     {
-        return $this->container['created_at'];
+        return $this->container['next_page_url'];
     }
 
     /**
-     * Sets created_at
+     * Sets next_page_url
      *
-     * @param int $created_at created_at
+     * @param string|null $next_page_url URL of the next page.
      *
      * @return self
      */
-    public function setCreatedAt($created_at)
+    public function setNextPageUrl($next_page_url)
     {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets livemode
-     *
-     * @return bool
-     */
-    public function getLivemode()
-    {
-        return $this->container['livemode'];
-    }
-
-    /**
-     * Sets livemode
-     *
-     * @param bool $livemode livemode
-     *
-     * @return self
-     */
-    public function setLivemode($livemode)
-    {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
-        }
-        $this->container['livemode'] = $livemode;
-
-        return $this;
-    }
-
-    /**
-     * Gets method
-     *
-     * @return string
-     */
-    public function getMethod()
-    {
-        return $this->container['method'];
-    }
-
-    /**
-     * Sets method
-     *
-     * @param string $method method
-     *
-     * @return self
-     */
-    public function setMethod($method)
-    {
-        if (is_null($method)) {
-            throw new \InvalidArgumentException('non-nullable method cannot be null');
-        }
-        $this->container['method'] = $method;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     *
-     * @param string $url url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
-        }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string $version version
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        if (is_null($version)) {
-            throw new \InvalidArgumentException('non-nullable version cannot be null');
-        }
-        $this->container['version'] = $version;
-
-        return $this;
-    }
-
-    /**
-     * Gets ip_address
-     *
-     * @return string
-     */
-    public function getIpAddress()
-    {
-        return $this->container['ip_address'];
-    }
-
-    /**
-     * Sets ip_address
-     *
-     * @param string $ip_address ip_address
-     *
-     * @return self
-     */
-    public function setIpAddress($ip_address)
-    {
-        if (is_null($ip_address)) {
-            throw new \InvalidArgumentException('non-nullable ip_address cannot be null');
-        }
-        $this->container['ip_address'] = $ip_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets related
-     *
-     * @return string
-     */
-    public function getRelated()
-    {
-        return $this->container['related'];
-    }
-
-    /**
-     * Sets related
-     *
-     * @param string $related related
-     *
-     * @return self
-     */
-    public function setRelated($related)
-    {
-        if (is_null($related)) {
-            throw new \InvalidArgumentException('non-nullable related cannot be null');
-        }
-        $this->container['related'] = $related;
-
-        return $this;
-    }
-
-    /**
-     * Gets query_string
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getQueryString()
-    {
-        return $this->container['query_string'];
-    }
-
-    /**
-     * Sets query_string
-     *
-     * @param array<string,mixed>|null $query_string query_string
-     *
-     * @return self
-     */
-    public function setQueryString($query_string)
-    {
-        if (is_null($query_string)) {
-            array_push($this->openAPINullablesSetToNull, 'query_string');
+        if (is_null($next_page_url)) {
+            array_push($this->openAPINullablesSetToNull, 'next_page_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('query_string', $nullablesSetToNull);
+            $index = array_search('next_page_url', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['query_string'] = $query_string;
+        $this->container['next_page_url'] = $next_page_url;
 
         return $this;
     }
 
     /**
-     * Gets request_body
+     * Gets previous_page_url
      *
-     * @return array<string,mixed>|null
+     * @return string|null
      */
-    public function getRequestBody()
+    public function getPreviousPageUrl()
     {
-        return $this->container['request_body'];
+        return $this->container['previous_page_url'];
     }
 
     /**
-     * Sets request_body
+     * Sets previous_page_url
      *
-     * @param array<string,mixed>|null $request_body request_body
+     * @param string|null $previous_page_url Url of the previous page.
      *
      * @return self
      */
-    public function setRequestBody($request_body)
+    public function setPreviousPageUrl($previous_page_url)
     {
-        if (is_null($request_body)) {
-            array_push($this->openAPINullablesSetToNull, 'request_body');
+        if (is_null($previous_page_url)) {
+            array_push($this->openAPINullablesSetToNull, 'previous_page_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('request_body', $nullablesSetToNull);
+            $index = array_search('previous_page_url', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['request_body'] = $request_body;
+        $this->container['previous_page_url'] = $previous_page_url;
 
         return $this;
     }
 
     /**
-     * Gets response_body
+     * Gets data
      *
-     * @return array<string,mixed>|null
+     * @return \DigitalFemsa\Model\LogsResponseData[]|null
      */
-    public function getResponseBody()
+    public function getData()
     {
-        return $this->container['response_body'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets response_body
+     * Sets data
      *
-     * @param array<string,mixed>|null $response_body response_body
+     * @param \DigitalFemsa\Model\LogsResponseData[]|null $data set to page results.
      *
      * @return self
      */
-    public function setResponseBody($response_body)
+    public function setData($data)
     {
-        if (is_null($response_body)) {
-            array_push($this->openAPINullablesSetToNull, 'response_body');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('response_body', $nullablesSetToNull);
+            $index = array_search('data', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['response_body'] = $response_body;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_headers
-     *
-     * @return array<string,string>|null
-     */
-    public function getRequestHeaders()
-    {
-        return $this->container['request_headers'];
-    }
-
-    /**
-     * Sets request_headers
-     *
-     * @param array<string,string>|null $request_headers request_headers
-     *
-     * @return self
-     */
-    public function setRequestHeaders($request_headers)
-    {
-        if (is_null($request_headers)) {
-            array_push($this->openAPINullablesSetToNull, 'request_headers');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('request_headers', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['request_headers'] = $request_headers;
-
-        return $this;
-    }
-
-    /**
-     * Gets response_headers
-     *
-     * @return array<string,string>|null
-     */
-    public function getResponseHeaders()
-    {
-        return $this->container['response_headers'];
-    }
-
-    /**
-     * Sets response_headers
-     *
-     * @param array<string,string>|null $response_headers response_headers
-     *
-     * @return self
-     */
-    public function setResponseHeaders($response_headers)
-    {
-        if (is_null($response_headers)) {
-            array_push($this->openAPINullablesSetToNull, 'response_headers');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('response_headers', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['response_headers'] = $response_headers;
-
-        return $this;
-    }
-
-    /**
-     * Gets searchable_tags
-     *
-     * @return string[]|null
-     */
-    public function getSearchableTags()
-    {
-        return $this->container['searchable_tags'];
-    }
-
-    /**
-     * Sets searchable_tags
-     *
-     * @param string[]|null $searchable_tags searchable_tags
-     *
-     * @return self
-     */
-    public function setSearchableTags($searchable_tags)
-    {
-        if (is_null($searchable_tags)) {
-            throw new \InvalidArgumentException('non-nullable searchable_tags cannot be null');
-        }
-        $this->container['searchable_tags'] = $searchable_tags;
+        $this->container['data'] = $data;
 
         return $this;
     }

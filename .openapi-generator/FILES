@@ -102,6 +102,7 @@ docs/Model/GetWebhookKeysResponse.md
 docs/Model/GetWebhooksResponse.md
 docs/Model/LogResponse.md
 docs/Model/LogsResponse.md
+docs/Model/LogsResponseData.md
 docs/Model/OrderCaptureRequest.md
 docs/Model/OrderCustomerInfoResponse.md
 docs/Model/OrderDiscountLinesRequest.md
@@ -256,6 +257,7 @@ lib/Model/GetWebhookKeysResponse.php
 lib/Model/GetWebhooksResponse.php
 lib/Model/LogResponse.php
 lib/Model/LogsResponse.php
+lib/Model/LogsResponseData.php
 lib/Model/ModelInterface.php
 lib/Model/OrderCaptureRequest.php
 lib/Model/OrderCustomerInfoResponse.php

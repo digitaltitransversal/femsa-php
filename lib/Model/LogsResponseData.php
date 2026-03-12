@@ -1,6 +1,6 @@
 <?php
 /**
- * LogResponse
+ * LogsResponseData
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \DigitalFemsa\ObjectSerializer;
 
 /**
- * LogResponse Class Doc Comment
+ * LogsResponseData Class Doc Comment
  *
  * @category Class
- * @description Log model representing a recorded request/response cycle for troubleshooting and auditing.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class LogsResponseData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'log_response';
+    protected static $openAPIModelName = 'logs_response_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -409,15 +408,6 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -436,7 +426,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -446,7 +436,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int $created_at created_at
+     * @param int|null $created_at created_at
      *
      * @return self
      */
@@ -463,7 +453,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -473,7 +463,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string|null $id id
      *
      * @return self
      */
@@ -517,7 +507,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets livemode
      *
-     * @return bool
+     * @return bool|null
      */
     public function getLivemode()
     {
@@ -527,7 +517,7 @@ class LogResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets livemode
      *
-     * @param bool $livemode livemode
+     * @param bool|null $livemode livemode
      *
      * @return self
      */

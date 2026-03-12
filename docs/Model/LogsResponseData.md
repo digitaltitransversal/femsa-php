@@ -1,13 +1,13 @@
-# # LogResponse
+# # LogsResponseData
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_at** | **int** |  |
-**id** | **string** |  |
+**created_at** | **int** |  | [optional]
+**id** | **string** |  | [optional]
 **ip_address** | **string** |  | [optional]
-**livemode** | **bool** |  |
+**livemode** | **bool** |  | [optional]
 **loggable_id** | **string** |  | [optional]
 **loggable_type** | **string** |  | [optional]
 **method** | **string** |  | [optional]
