@@ -143,6 +143,7 @@ class WebhooksApi
      *
      * Create webhook
      *
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
@@ -151,9 +152,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function createWebhook($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhook($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
-        list($response) = $this->createWebhookWithHttpInfo($accept_language, $x_child_company_id, $contentType);
+        list($response) = $this->createWebhookWithHttpInfo($webhook_request, $accept_language, $x_child_company_id, $contentType);
         return $response;
     }
 
@@ -162,6 +163,7 @@ class WebhooksApi
      *
      * Create webhook
      *
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
@@ -170,9 +172,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWebhookWithHttpInfo($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookWithHttpInfo($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
-        $request = $this->createWebhookRequest($accept_language, $x_child_company_id, $contentType);
+        $request = $this->createWebhookRequest($webhook_request, $accept_language, $x_child_company_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -357,6 +359,7 @@ class WebhooksApi
      *
      * Create webhook
      *
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
@@ -364,9 +367,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookAsync($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookAsync($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
-        return $this->createWebhookAsyncWithHttpInfo($accept_language, $x_child_company_id, $contentType)
+        return $this->createWebhookAsyncWithHttpInfo($webhook_request, $accept_language, $x_child_company_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -379,6 +382,7 @@ class WebhooksApi
      *
      * Create webhook
      *
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
@@ -386,10 +390,10 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookAsyncWithHttpInfo($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
         $returnType = '\DigitalFemsa\Model\WebhookResponse';
-        $request = $this->createWebhookRequest($accept_language, $x_child_company_id, $contentType);
+        $request = $this->createWebhookRequest($webhook_request, $accept_language, $x_child_company_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -430,6 +434,7 @@ class WebhooksApi
     /**
      * Create request for operation 'createWebhook'
      *
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
@@ -437,8 +442,15 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWebhookRequest($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookRequest($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
+
+        // verify the required parameter 'webhook_request' is set
+        if ($webhook_request === null || (is_array($webhook_request) && count($webhook_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $webhook_request when calling createWebhook'
+            );
+        }
 
 
 
@@ -473,7 +485,14 @@ class WebhooksApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($webhook_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($webhook_request));
+            } else {
+                $httpBody = $webhook_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -530,16 +549,15 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function deleteWebhook($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhook($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-        list($response) = $this->deleteWebhookWithHttpInfo($id, $accept_language, $x_child_company_id, $contentType);
+        list($response) = $this->deleteWebhookWithHttpInfo($id, $accept_language, $contentType);
         return $response;
     }
 
@@ -550,16 +568,15 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWebhookWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-        $request = $this->deleteWebhookRequest($id, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->deleteWebhookRequest($id, $accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -781,15 +798,14 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookAsync($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookAsync($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhook'][0])
     {
-        return $this->deleteWebhookAsyncWithHttpInfo($id, $accept_language, $x_child_company_id, $contentType)
+        return $this->deleteWebhookAsyncWithHttpInfo($id, $accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -804,16 +820,15 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookAsyncWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookAsyncWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhook'][0])
     {
         $returnType = '\DigitalFemsa\Model\WebhookResponse';
-        $request = $this->deleteWebhookRequest($id, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->deleteWebhookRequest($id, $accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -856,13 +871,12 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWebhookRequest($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhook'][0])
+    public function deleteWebhookRequest($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhook'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -871,7 +885,6 @@ class WebhooksApi
                 'Missing the required parameter $id when calling deleteWebhook'
             );
         }
-
 
 
 
@@ -886,10 +899,6 @@ class WebhooksApi
         // header params
         if ($accept_language !== null) {
             $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-        // header params
-        if ($x_child_company_id !== null) {
-            $headerParams['X-Child-Company-Id'] = ObjectSerializer::toHeaderValue($x_child_company_id);
         }
 
         // path params
@@ -1895,16 +1904,15 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhook'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function testWebhook($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['testWebhook'][0])
+    public function testWebhook($id, $accept_language = 'es', string $contentType = self::contentTypes['testWebhook'][0])
     {
-        list($response) = $this->testWebhookWithHttpInfo($id, $accept_language, $x_child_company_id, $contentType);
+        list($response) = $this->testWebhookWithHttpInfo($id, $accept_language, $contentType);
         return $response;
     }
 
@@ -1915,16 +1923,15 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhook'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function testWebhookWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['testWebhook'][0])
+    public function testWebhookWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['testWebhook'][0])
     {
-        $request = $this->testWebhookRequest($id, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->testWebhookRequest($id, $accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2146,15 +2153,14 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testWebhookAsync($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['testWebhook'][0])
+    public function testWebhookAsync($id, $accept_language = 'es', string $contentType = self::contentTypes['testWebhook'][0])
     {
-        return $this->testWebhookAsyncWithHttpInfo($id, $accept_language, $x_child_company_id, $contentType)
+        return $this->testWebhookAsyncWithHttpInfo($id, $accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2169,16 +2175,15 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testWebhookAsyncWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['testWebhook'][0])
+    public function testWebhookAsyncWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['testWebhook'][0])
     {
         $returnType = '\DigitalFemsa\Model\WebhookResponse';
-        $request = $this->testWebhookRequest($id, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->testWebhookRequest($id, $accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2221,13 +2226,12 @@ class WebhooksApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function testWebhookRequest($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['testWebhook'][0])
+    public function testWebhookRequest($id, $accept_language = 'es', string $contentType = self::contentTypes['testWebhook'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2236,7 +2240,6 @@ class WebhooksApi
                 'Missing the required parameter $id when calling testWebhook'
             );
         }
-
 
 
 
@@ -2251,10 +2254,6 @@ class WebhooksApi
         // header params
         if ($accept_language !== null) {
             $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-        // header params
-        if ($x_child_company_id !== null) {
-            $headerParams['X-Child-Company-Id'] = ObjectSerializer::toHeaderValue($x_child_company_id);
         }
 
         // path params

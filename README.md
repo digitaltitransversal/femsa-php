@@ -143,7 +143,7 @@ Class | Method | HTTP request | Description
 *WebhookKeysApi* | [**createWebhookKey**](docs/Api/WebhookKeysApi.md#createwebhookkey) | **POST** /webhook_keys | Create Webhook Key
 *WebhookKeysApi* | [**deleteWebhookKey**](docs/Api/WebhookKeysApi.md#deletewebhookkey) | **DELETE** /webhook_keys/{id} | Delete webhook key
 *WebhookKeysApi* | [**getWebhookKey**](docs/Api/WebhookKeysApi.md#getwebhookkey) | **GET** /webhook_keys/{id} | Get webhook key
-*WebhookKeysApi* | [**getWebhookKeys**](docs/Api/WebhookKeysApi.md#getwebhookkeys) | **GET** /webhook_keys | Get List of Webhooks
+*WebhookKeysApi* | [**getWebhookKeys**](docs/Api/WebhookKeysApi.md#getwebhookkeys) | **GET** /webhook_keys | Get List of Webhook Keys
 *WebhookKeysApi* | [**updateWebhookKey**](docs/Api/WebhookKeysApi.md#updatewebhookkey) | **PUT** /webhook_keys/{id} | Update webhook key
 *WebhooksApi* | [**createWebhook**](docs/Api/WebhooksApi.md#createwebhook) | **POST** /webhooks | Create webhook
 *WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete webhook
@@ -187,7 +187,9 @@ Class | Method | HTTP request | Description
 - [CreateCustomerPaymentMethodsResponse](docs/Model/CreateCustomerPaymentMethodsResponse.md)
 - [Customer](docs/Model/Customer.md)
 - [CustomerAddress](docs/Model/CustomerAddress.md)
+- [CustomerFiscalEntitiesDataResponse](docs/Model/CustomerFiscalEntitiesDataResponse.md)
 - [CustomerFiscalEntitiesRequest](docs/Model/CustomerFiscalEntitiesRequest.md)
+- [CustomerFiscalEntitiesResponse](docs/Model/CustomerFiscalEntitiesResponse.md)
 - [CustomerInfo](docs/Model/CustomerInfo.md)
 - [CustomerInfoJustCustomerIdResponse](docs/Model/CustomerInfoJustCustomerIdResponse.md)
 - [CustomerPaymentMethodRequest](docs/Model/CustomerPaymentMethodRequest.md)
@@ -196,8 +198,10 @@ Class | Method | HTTP request | Description
 - [CustomerPaymentMethodsResponse](docs/Model/CustomerPaymentMethodsResponse.md)
 - [CustomerPaymentSourcesInner](docs/Model/CustomerPaymentSourcesInner.md)
 - [CustomerResponse](docs/Model/CustomerResponse.md)
+- [CustomerResponseShippingContacts](docs/Model/CustomerResponseShippingContacts.md)
 - [CustomerShippingContacts](docs/Model/CustomerShippingContacts.md)
 - [CustomerShippingContactsAddress](docs/Model/CustomerShippingContactsAddress.md)
+- [CustomerShippingContactsDataResponse](docs/Model/CustomerShippingContactsDataResponse.md)
 - [CustomerShippingContactsResponse](docs/Model/CustomerShippingContactsResponse.md)
 - [CustomerShippingContactsResponseAddress](docs/Model/CustomerShippingContactsResponseAddress.md)
 - [CustomerUpdateFiscalEntitiesRequest](docs/Model/CustomerUpdateFiscalEntitiesRequest.md)

@@ -218,7 +218,7 @@ createOrder($order_request, $accept_language, $x_child_company_id): \DigitalFems
 
 Create order
 
-Creates a new order. Optionally, you can include `charges` to create payment charges for the order during creation. If checkout parameters are provided and a checkout is created/linked, the response may include a `checkout` object.
+Creates a new order (products + amounts + customer data).  Minimum required fields: - `currency` - `line_items` - `customer_info`  About `customer_info`: - You can reference an existing customer using `customer_info.customer_id`, or - You can provide customer details at minimum `customer_info.name` and `customer_info.email` to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include `charges`. - Create an order with a checkout configuration (for a hosted payment flow): include `checkout`.  Important rules: - You cannot send `charges` and `checkout` in the same request (they are mutually exclusive). - If you send `shipping_contact_id` and/or `fiscal_entity_id`, you must also send `customer_info.customer_id` so the API can validate those IDs against that customer.
 
 ### Example
 
@@ -237,7 +237,7 @@ $apiInstance = new DigitalFemsa\Api\OrdersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$order_request = new \DigitalFemsa\Model\OrderRequest(); // \DigitalFemsa\Model\OrderRequest | Fields used to create an Order.  Required: - `currency` - `line_items` - `customer_info`  Customer information is required to successfully create an order in this API, since downstream flows (such as creating charges, checkout configuration, and validating referenced customer sub-documents) require customer context.  Provide `customer_info` in one of the following ways: - Reference an existing customer using [customer_info.customer_id] OR - Provide customer details (at minimum `customer_info.name` and `customer_info.email`) to create the order with customer context.  You can create the order in one of these ways: - Include `charges` to create the order and attempt charging it immediately (only one charge object is allowed). - Include `checkout` to create the order with embedded checkout configuration.  Important validation rules: - `charges` and `checkout` are mutually exclusive in the same request. - If you provide `shipping_contact_id` or `fiscal_entity_id`, you must also provide [customer_info.customer_id] so the API can validate the referenced customer sub-documents.
+$order_request = new \DigitalFemsa\Model\OrderRequest(); // \DigitalFemsa\Model\OrderRequest | requested field for order
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -253,7 +253,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **order_request** | [**\DigitalFemsa\Model\OrderRequest**](../Model/OrderRequest.md)| Fields used to create an Order.  Required: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  Customer information is required to successfully create an order in this API, since downstream flows (such as creating charges, checkout configuration, and validating referenced customer sub-documents) require customer context.  Provide &#x60;customer_info&#x60; in one of the following ways: - Reference an existing customer using [customer_info.customer_id] OR - Provide customer details (at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60;) to create the order with customer context.  You can create the order in one of these ways: - Include &#x60;charges&#x60; to create the order and attempt charging it immediately (only one charge object is allowed). - Include &#x60;checkout&#x60; to create the order with embedded checkout configuration.  Important validation rules: - &#x60;charges&#x60; and &#x60;checkout&#x60; are mutually exclusive in the same request. - If you provide &#x60;shipping_contact_id&#x60; or &#x60;fiscal_entity_id&#x60;, you must also provide [customer_info.customer_id] so the API can validate the referenced customer sub-documents. | |
+| **order_request** | [**\DigitalFemsa\Model\OrderRequest**](../Model/OrderRequest.md)| requested field for order | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

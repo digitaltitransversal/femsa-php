@@ -7,7 +7,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | [**createWebhookKey()**](WebhookKeysApi.md#createWebhookKey) | **POST** /webhook_keys | Create Webhook Key |
 | [**deleteWebhookKey()**](WebhookKeysApi.md#deleteWebhookKey) | **DELETE** /webhook_keys/{id} | Delete webhook key |
 | [**getWebhookKey()**](WebhookKeysApi.md#getWebhookKey) | **GET** /webhook_keys/{id} | Get webhook key |
-| [**getWebhookKeys()**](WebhookKeysApi.md#getWebhookKeys) | **GET** /webhook_keys | Get List of Webhooks |
+| [**getWebhookKeys()**](WebhookKeysApi.md#getWebhookKeys) | **GET** /webhook_keys | Get List of Webhook Keys |
 | [**updateWebhookKey()**](WebhookKeysApi.md#updateWebhookKey) | **PUT** /webhook_keys/{id} | Update webhook key |
 
 
@@ -68,7 +68,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/vnd.app-v2.2.0+json`
+- **Content-Type**: `application/json`
 - **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -78,7 +78,7 @@ try {
 ## `deleteWebhookKey()`
 
 ```php
-deleteWebhookKey($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookKeyDeleteResponse
+deleteWebhookKey($id, $accept_language): \DigitalFemsa\Model\WebhookKeyDeleteResponse
 ```
 
 Delete webhook key
@@ -104,10 +104,9 @@ $apiInstance = new DigitalFemsa\Api\WebhookKeysApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->deleteWebhookKey($id, $accept_language, $x_child_company_id);
+    $result = $apiInstance->deleteWebhookKey($id, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookKeysApi->deleteWebhookKey: ', $e->getMessage(), PHP_EOL;
@@ -120,7 +119,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -209,9 +207,9 @@ try {
 getWebhookKeys($accept_language, $x_child_company_id, $limit, $search, $next, $previous): \DigitalFemsa\Model\GetWebhookKeysResponse
 ```
 
-Get List of Webhooks
+Get List of Webhook Keys
 
-Consume the list of webhooks you have, each environment supports 10 webhooks (For production and testing)
+Consume the list of webhook keys you have, each environment supports 10 webhook keys (For production and testing)
 
 ### Example
 
@@ -276,7 +274,7 @@ try {
 ## `updateWebhookKey()`
 
 ```php
-updateWebhookKey($id, $accept_language, $x_child_company_id, $webhook_key_update_request): \DigitalFemsa\Model\WebhookKeyResponse
+updateWebhookKey($id, $accept_language, $webhook_key_update_request): \DigitalFemsa\Model\WebhookKeyResponse
 ```
 
 Update webhook key
@@ -302,11 +300,10 @@ $apiInstance = new DigitalFemsa\Api\WebhookKeysApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 $webhook_key_update_request = new \DigitalFemsa\Model\WebhookKeyUpdateRequest(); // \DigitalFemsa\Model\WebhookKeyUpdateRequest
 
 try {
-    $result = $apiInstance->updateWebhookKey($id, $accept_language, $x_child_company_id, $webhook_key_update_request);
+    $result = $apiInstance->updateWebhookKey($id, $accept_language, $webhook_key_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookKeysApi->updateWebhookKey: ', $e->getMessage(), PHP_EOL;
@@ -319,7 +316,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 | **webhook_key_update_request** | [**\DigitalFemsa\Model\WebhookKeyUpdateRequest**](../Model/WebhookKeyUpdateRequest.md)|  | [optional] |
 
 ### Return type

@@ -58,7 +58,9 @@ docs/Model/CreateCustomerPaymentMethodsRequest.md
 docs/Model/CreateCustomerPaymentMethodsResponse.md
 docs/Model/Customer.md
 docs/Model/CustomerAddress.md
+docs/Model/CustomerFiscalEntitiesDataResponse.md
 docs/Model/CustomerFiscalEntitiesRequest.md
+docs/Model/CustomerFiscalEntitiesResponse.md
 docs/Model/CustomerInfo.md
 docs/Model/CustomerInfoJustCustomerIdResponse.md
 docs/Model/CustomerPaymentMethodRequest.md
@@ -67,8 +69,10 @@ docs/Model/CustomerPaymentMethodsRequest.md
 docs/Model/CustomerPaymentMethodsResponse.md
 docs/Model/CustomerPaymentSourcesInner.md
 docs/Model/CustomerResponse.md
+docs/Model/CustomerResponseShippingContacts.md
 docs/Model/CustomerShippingContacts.md
 docs/Model/CustomerShippingContactsAddress.md
+docs/Model/CustomerShippingContactsDataResponse.md
 docs/Model/CustomerShippingContactsResponse.md
 docs/Model/CustomerShippingContactsResponseAddress.md
 docs/Model/CustomerUpdateFiscalEntitiesRequest.md
@@ -208,7 +212,9 @@ lib/Model/CreateCustomerPaymentMethodsRequest.php
 lib/Model/CreateCustomerPaymentMethodsResponse.php
 lib/Model/Customer.php
 lib/Model/CustomerAddress.php
+lib/Model/CustomerFiscalEntitiesDataResponse.php
 lib/Model/CustomerFiscalEntitiesRequest.php
+lib/Model/CustomerFiscalEntitiesResponse.php
 lib/Model/CustomerInfo.php
 lib/Model/CustomerInfoJustCustomerIdResponse.php
 lib/Model/CustomerPaymentMethodRequest.php
@@ -217,8 +223,10 @@ lib/Model/CustomerPaymentMethodsRequest.php
 lib/Model/CustomerPaymentMethodsResponse.php
 lib/Model/CustomerPaymentSourcesInner.php
 lib/Model/CustomerResponse.php
+lib/Model/CustomerResponseShippingContacts.php
 lib/Model/CustomerShippingContacts.php
 lib/Model/CustomerShippingContactsAddress.php
+lib/Model/CustomerShippingContactsDataResponse.php
 lib/Model/CustomerShippingContactsResponse.php
 lib/Model/CustomerShippingContactsResponseAddress.php
 lib/Model/CustomerUpdateFiscalEntitiesRequest.php

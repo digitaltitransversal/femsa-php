@@ -279,7 +279,7 @@ getCustomers($accept_language, $x_child_company_id, $limit, $search, $next, $pre
 
 Get a list of customers
 
-Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results.  Monetary fields are returned as arrays of amounts grouped by currency.
+Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results.
 
 ### Example
 

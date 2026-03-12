@@ -274,7 +274,7 @@ try {
 ## `updateApiKey()`
 
 ```php
-updateApiKey($id, $api_key_update_request, $accept_language): \DigitalFemsa\Model\ApiKeyResponse
+updateApiKey($id, $accept_language, $api_key_update_request): \DigitalFemsa\Model\ApiKeyResponse
 ```
 
 Update API key
@@ -299,11 +299,11 @@ $apiInstance = new DigitalFemsa\Api\ApiKeysApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$api_key_update_request = new \DigitalFemsa\Model\ApiKeyUpdateRequest(); // \DigitalFemsa\Model\ApiKeyUpdateRequest
 $accept_language = es; // string | Use for knowing which language to use
+$api_key_update_request = new \DigitalFemsa\Model\ApiKeyUpdateRequest(); // \DigitalFemsa\Model\ApiKeyUpdateRequest
 
 try {
-    $result = $apiInstance->updateApiKey($id, $api_key_update_request, $accept_language);
+    $result = $apiInstance->updateApiKey($id, $accept_language, $api_key_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApiKeysApi->updateApiKey: ', $e->getMessage(), PHP_EOL;
@@ -315,8 +315,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
-| **api_key_update_request** | [**\DigitalFemsa\Model\ApiKeyUpdateRequest**](../Model/ApiKeyUpdateRequest.md)|  | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **api_key_update_request** | [**\DigitalFemsa\Model\ApiKeyUpdateRequest**](../Model/ApiKeyUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -329,7 +329,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`, `application/vnd.app-v2.2.0+json`
+- **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

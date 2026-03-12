@@ -1936,17 +1936,17 @@ class ApiKeysApi
      * Update API key
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request api_key_update_request (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
+     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request api_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\ApiKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function updateApiKey($id, $api_key_update_request, $accept_language = 'es', string $contentType = self::contentTypes['updateApiKey'][0])
+    public function updateApiKey($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
-        list($response) = $this->updateApiKeyWithHttpInfo($id, $api_key_update_request, $accept_language, $contentType);
+        list($response) = $this->updateApiKeyWithHttpInfo($id, $accept_language, $api_key_update_request, $contentType);
         return $response;
     }
 
@@ -1956,17 +1956,17 @@ class ApiKeysApi
      * Update API key
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
+     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\ApiKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApiKeyWithHttpInfo($id, $api_key_update_request, $accept_language = 'es', string $contentType = self::contentTypes['updateApiKey'][0])
+    public function updateApiKeyWithHttpInfo($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
-        $request = $this->updateApiKeyRequest($id, $api_key_update_request, $accept_language, $contentType);
+        $request = $this->updateApiKeyRequest($id, $accept_language, $api_key_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2222,16 +2222,16 @@ class ApiKeysApi
      * Update API key
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
+     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApiKeyAsync($id, $api_key_update_request, $accept_language = 'es', string $contentType = self::contentTypes['updateApiKey'][0])
+    public function updateApiKeyAsync($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
-        return $this->updateApiKeyAsyncWithHttpInfo($id, $api_key_update_request, $accept_language, $contentType)
+        return $this->updateApiKeyAsyncWithHttpInfo($id, $accept_language, $api_key_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2245,17 +2245,17 @@ class ApiKeysApi
      * Update API key
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
+     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApiKeyAsyncWithHttpInfo($id, $api_key_update_request, $accept_language = 'es', string $contentType = self::contentTypes['updateApiKey'][0])
+    public function updateApiKeyAsyncWithHttpInfo($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
         $returnType = '\DigitalFemsa\Model\ApiKeyResponse';
-        $request = $this->updateApiKeyRequest($id, $api_key_update_request, $accept_language, $contentType);
+        $request = $this->updateApiKeyRequest($id, $accept_language, $api_key_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2297,14 +2297,14 @@ class ApiKeysApi
      * Create request for operation 'updateApiKey'
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
+     * @param  \DigitalFemsa\Model\ApiKeyUpdateRequest $api_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApiKeyRequest($id, $api_key_update_request, $accept_language = 'es', string $contentType = self::contentTypes['updateApiKey'][0])
+    public function updateApiKeyRequest($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2314,12 +2314,6 @@ class ApiKeysApi
             );
         }
 
-        // verify the required parameter 'api_key_update_request' is set
-        if ($api_key_update_request === null || (is_array($api_key_update_request) && count($api_key_update_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_update_request when calling updateApiKey'
-            );
-        }
 
 
 
@@ -2347,7 +2341,7 @@ class ApiKeysApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/vnd.app-v2.2.0+json', ],
+            ['application/vnd.app-v2.2.0+json', ],
             $contentType,
             $multipart
         );

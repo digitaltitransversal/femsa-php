@@ -15,7 +15,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 ## `createWebhook()`
 
 ```php
-createWebhook($accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
+createWebhook($webhook_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
 Create webhook
@@ -39,11 +39,12 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
+$webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | Webhook creation/update request payload.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->createWebhook($accept_language, $x_child_company_id);
+    $result = $apiInstance->createWebhook($webhook_request, $accept_language, $x_child_company_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->createWebhook: ', $e->getMessage(), PHP_EOL;
@@ -54,6 +55,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| Webhook creation/update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
@@ -67,7 +69,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/vnd.app-v2.2.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -77,7 +79,7 @@ try {
 ## `deleteWebhook()`
 
 ```php
-deleteWebhook($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
+deleteWebhook($id, $accept_language): \DigitalFemsa\Model\WebhookResponse
 ```
 
 Delete webhook
@@ -103,10 +105,9 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->deleteWebhook($id, $accept_language, $x_child_company_id);
+    $result = $apiInstance->deleteWebhook($id, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
@@ -119,7 +120,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -210,7 +210,7 @@ getWebhooks($webhook_request, $accept_language, $x_child_company_id, $limit, $se
 
 Get webhooks
 
-Returns a paginated list of webhooks.
+Consume the list of webhooks you have, each environment supports 10 webhooks (For production and testing)
 
 ### Example
 
@@ -279,7 +279,7 @@ try {
 ## `testWebhook()`
 
 ```php
-testWebhook($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
+testWebhook($id, $accept_language): \DigitalFemsa\Model\WebhookResponse
 ```
 
 Test webhook
@@ -305,10 +305,9 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->testWebhook($id, $accept_language, $x_child_company_id);
+    $result = $apiInstance->testWebhook($id, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->testWebhook: ', $e->getMessage(), PHP_EOL;
@@ -321,7 +320,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 

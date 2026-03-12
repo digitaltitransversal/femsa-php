@@ -129,16 +129,15 @@ class BalancesApi
      * Get a company&#39;s balance
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalance'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\BalanceResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function getBalance($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getBalance'][0])
+    public function getBalance($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
-        list($response) = $this->getBalanceWithHttpInfo($accept_language, $x_child_company_id, $contentType);
+        list($response) = $this->getBalanceWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -148,16 +147,15 @@ class BalancesApi
      * Get a company&#39;s balance
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalance'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\BalanceResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBalanceWithHttpInfo($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getBalance'][0])
+    public function getBalanceWithHttpInfo($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
-        $request = $this->getBalanceRequest($accept_language, $x_child_company_id, $contentType);
+        $request = $this->getBalanceRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -413,15 +411,14 @@ class BalancesApi
      * Get a company&#39;s balance
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBalanceAsync($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getBalance'][0])
+    public function getBalanceAsync($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
-        return $this->getBalanceAsyncWithHttpInfo($accept_language, $x_child_company_id, $contentType)
+        return $this->getBalanceAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -435,16 +432,15 @@ class BalancesApi
      * Get a company&#39;s balance
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBalanceAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getBalance'][0])
+    public function getBalanceAsyncWithHttpInfo($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
         $returnType = '\DigitalFemsa\Model\BalanceResponse';
-        $request = $this->getBalanceRequest($accept_language, $x_child_company_id, $contentType);
+        $request = $this->getBalanceRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -486,15 +482,13 @@ class BalancesApi
      * Create request for operation 'getBalance'
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBalance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBalanceRequest($accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getBalance'][0])
+    public function getBalanceRequest($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
-
 
 
 
@@ -509,10 +503,6 @@ class BalancesApi
         // header params
         if ($accept_language !== null) {
             $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-        // header params
-        if ($x_child_company_id !== null) {
-            $headerParams['X-Child-Company-Id'] = ObjectSerializer::toHeaderValue($x_child_company_id);
         }
 
 

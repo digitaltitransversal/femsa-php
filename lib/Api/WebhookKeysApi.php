@@ -73,7 +73,7 @@ class WebhookKeysApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'createWebhookKey' => [
-            'application/vnd.app-v2.2.0+json',
+            'application/json',
         ],
         'deleteWebhookKey' => [
             'application/json',
@@ -540,16 +540,15 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookKey'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\WebhookKeyDeleteResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function deleteWebhookKey($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhookKey'][0])
+    public function deleteWebhookKey($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhookKey'][0])
     {
-        list($response) = $this->deleteWebhookKeyWithHttpInfo($id, $accept_language, $x_child_company_id, $contentType);
+        list($response) = $this->deleteWebhookKeyWithHttpInfo($id, $accept_language, $contentType);
         return $response;
     }
 
@@ -560,16 +559,15 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookKey'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\WebhookKeyDeleteResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWebhookKeyWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhookKey'][0])
+    public function deleteWebhookKeyWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhookKey'][0])
     {
-        $request = $this->deleteWebhookKeyRequest($id, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->deleteWebhookKeyRequest($id, $accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -791,15 +789,14 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookKeyAsync($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhookKey'][0])
+    public function deleteWebhookKeyAsync($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhookKey'][0])
     {
-        return $this->deleteWebhookKeyAsyncWithHttpInfo($id, $accept_language, $x_child_company_id, $contentType)
+        return $this->deleteWebhookKeyAsyncWithHttpInfo($id, $accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -814,16 +811,15 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookKeyAsyncWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhookKey'][0])
+    public function deleteWebhookKeyAsyncWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhookKey'][0])
     {
         $returnType = '\DigitalFemsa\Model\WebhookKeyDeleteResponse';
-        $request = $this->deleteWebhookKeyRequest($id, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->deleteWebhookKeyRequest($id, $accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -866,13 +862,12 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWebhookKeyRequest($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['deleteWebhookKey'][0])
+    public function deleteWebhookKeyRequest($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteWebhookKey'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -881,7 +876,6 @@ class WebhookKeysApi
                 'Missing the required parameter $id when calling deleteWebhookKey'
             );
         }
-
 
 
 
@@ -896,10 +890,6 @@ class WebhookKeysApi
         // header params
         if ($accept_language !== null) {
             $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-        // header params
-        if ($x_child_company_id !== null) {
-            $headerParams['X-Child-Company-Id'] = ObjectSerializer::toHeaderValue($x_child_company_id);
         }
 
         // path params
@@ -1416,7 +1406,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeys
      *
-     * Get List of Webhooks
+     * Get List of Webhook Keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1439,7 +1429,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeysWithHttpInfo
      *
-     * Get List of Webhooks
+     * Get List of Webhook Keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1638,7 +1628,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeysAsync
      *
-     * Get List of Webhooks
+     * Get List of Webhook Keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1664,7 +1654,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeysAsyncWithHttpInfo
      *
-     * Get List of Webhooks
+     * Get List of Webhook Keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1871,7 +1861,6 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  \DigitalFemsa\Model\WebhookKeyUpdateRequest $webhook_key_update_request webhook_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookKey'] to see the possible values for this operation
      *
@@ -1879,9 +1868,9 @@ class WebhookKeysApi
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\WebhookKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function updateWebhookKey($id, $accept_language = 'es', $x_child_company_id = null, $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
+    public function updateWebhookKey($id, $accept_language = 'es', $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
     {
-        list($response) = $this->updateWebhookKeyWithHttpInfo($id, $accept_language, $x_child_company_id, $webhook_key_update_request, $contentType);
+        list($response) = $this->updateWebhookKeyWithHttpInfo($id, $accept_language, $webhook_key_update_request, $contentType);
         return $response;
     }
 
@@ -1892,7 +1881,6 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  \DigitalFemsa\Model\WebhookKeyUpdateRequest $webhook_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookKey'] to see the possible values for this operation
      *
@@ -1900,9 +1888,9 @@ class WebhookKeysApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\WebhookKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWebhookKeyWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
+    public function updateWebhookKeyWithHttpInfo($id, $accept_language = 'es', $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
     {
-        $request = $this->updateWebhookKeyRequest($id, $accept_language, $x_child_company_id, $webhook_key_update_request, $contentType);
+        $request = $this->updateWebhookKeyRequest($id, $accept_language, $webhook_key_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2124,16 +2112,15 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  \DigitalFemsa\Model\WebhookKeyUpdateRequest $webhook_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebhookKeyAsync($id, $accept_language = 'es', $x_child_company_id = null, $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
+    public function updateWebhookKeyAsync($id, $accept_language = 'es', $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
     {
-        return $this->updateWebhookKeyAsyncWithHttpInfo($id, $accept_language, $x_child_company_id, $webhook_key_update_request, $contentType)
+        return $this->updateWebhookKeyAsyncWithHttpInfo($id, $accept_language, $webhook_key_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2148,17 +2135,16 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  \DigitalFemsa\Model\WebhookKeyUpdateRequest $webhook_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebhookKeyAsyncWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
+    public function updateWebhookKeyAsyncWithHttpInfo($id, $accept_language = 'es', $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
     {
         $returnType = '\DigitalFemsa\Model\WebhookKeyResponse';
-        $request = $this->updateWebhookKeyRequest($id, $accept_language, $x_child_company_id, $webhook_key_update_request, $contentType);
+        $request = $this->updateWebhookKeyRequest($id, $accept_language, $webhook_key_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2201,14 +2187,13 @@ class WebhookKeysApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  \DigitalFemsa\Model\WebhookKeyUpdateRequest $webhook_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateWebhookKeyRequest($id, $accept_language = 'es', $x_child_company_id = null, $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
+    public function updateWebhookKeyRequest($id, $accept_language = 'es', $webhook_key_update_request = null, string $contentType = self::contentTypes['updateWebhookKey'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2217,7 +2202,6 @@ class WebhookKeysApi
                 'Missing the required parameter $id when calling updateWebhookKey'
             );
         }
-
 
 
 
@@ -2233,10 +2217,6 @@ class WebhookKeysApi
         // header params
         if ($accept_language !== null) {
             $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-        // header params
-        if ($x_child_company_id !== null) {
-            $headerParams['X-Child-Company-Id'] = ObjectSerializer::toHeaderValue($x_child_company_id);
         }
 
         // path params

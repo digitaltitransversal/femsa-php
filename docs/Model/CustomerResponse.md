@@ -19,5 +19,7 @@ Name | Type | Description | Notes
 **default_shipping_contact_id** | **string** |  | [optional]
 **metadata** | **array<string,mixed>** | Customer metadata (maps to contextual_data in backend) | [optional]
 **payment_sources** | [**\DigitalFemsa\Model\CustomerPaymentMethodsResponse**](CustomerPaymentMethodsResponse.md) |  | [optional]
+**fiscal_entities** | [**\DigitalFemsa\Model\CustomerFiscalEntitiesResponse**](CustomerFiscalEntitiesResponse.md) |  | [optional]
+**shipping_contacts** | [**\DigitalFemsa\Model\CustomerResponseShippingContacts**](CustomerResponseShippingContacts.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
