@@ -32,6 +32,11 @@ use DigitalFemsa\Api\PaymentMethodsApi;
 use DigitalFemsa\Configuration;
 use DigitalFemsa\Model\CreateCustomerPaymentMethodsRequest;
 use DigitalFemsa\Model\UpdatePaymentMethods;
+use Femsa\Test\Api\BaseTest;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use Psr\Http\Message\RequestInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -52,7 +57,8 @@ class PaymentMethodsApiTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $config = Configuration::getDefaultConfiguration()->setHost(BaseTest::$host);
+        $host = getenv('BASE_PATH') ?: 'https://api.stg.digitalfemsa.io';
+        $config = Configuration::getDefaultConfiguration()->setHost($host);
         self::$apiInstance = new PaymentMethodsApi(null, $config);
     }
 
@@ -85,13 +91,65 @@ class PaymentMethodsApiTest extends TestCase
      */
     public function testCreateCustomerPaymentMethods()
     {
+        echo "\n=== DEBUG: testCreateCustomerPaymentMethods ===\n";
+        
         $accept_language = 'es';
         $rq = new CreateCustomerPaymentMethodsRequest([
             'type' => 'oxxo_recurrent',
             'token_id' => 'tokenID'
         ]);
-        $result = self::$apiInstance->createCustomerPaymentMethods('cus_2tXyF9BwPG14UMkkg', $rq, $accept_language);
-        $this->assertNotEmpty($result, 'expected not empty result');
+        
+        // Debug: Verificar objeto antes de enviar
+        echo "\n1. Objeto CreateCustomerPaymentMethodsRequest creado:\n";
+        echo "   - getType(): " . ($rq->getType() ?? 'NULL') . "\n";
+        echo "   - getExpiresAt(): " . ($rq->getExpiresAt() ?? 'NULL') . "\n";
+        
+        // Debug: Serialización del objeto
+        echo "\n2. Serialización del objeto:\n";
+        echo "   - json_encode(): " . json_encode($rq) . "\n";
+        echo "   - __toString(): " . $rq->__toString() . "\n";
+        
+        // Debug: Configurar Guzzle middleware para capturar request
+        $container = [];
+        $history = Middleware::history($container);
+        $stack = HandlerStack::create();
+        $stack->push($history);
+        $stack->push(Middleware::mapRequest(function (RequestInterface $request) {
+            echo "\n3. Request HTTP capturado por middleware:\n";
+            echo "   - Method: " . $request->getMethod() . "\n";
+            echo "   - URI: " . $request->getUri() . "\n";
+            echo "   - Headers:\n";
+            foreach ($request->getHeaders() as $name => $values) {
+                echo "     * {$name}: " . implode(', ', $values) . "\n";
+            }
+            $body = (string) $request->getBody();
+            echo "   - Body (" . strlen($body) . " bytes): {$body}\n";
+            echo "   - Body hex: " . bin2hex($body) . "\n";
+            return $request;
+        }));
+        
+        // Crear cliente Guzzle con middleware
+        $client = new Client(['handler' => $stack]);
+        
+        // Configurar API instance con cliente custom
+        $config = Configuration::getDefaultConfiguration();
+        $apiWithLogging = new PaymentMethodsApi($client, $config);
+        
+        try {
+            $result = $apiWithLogging->createCustomerPaymentMethods('cus_2tXyF9BwPG14UMkkg', $rq, $accept_language);
+            echo "\n4. Response exitoso\n";
+            $this->assertNotEmpty($result, 'expected not empty result');
+        } catch (\Exception $e) {
+            echo "\n4. Exception capturada:\n";
+            echo "   - Message: " . $e->getMessage() . "\n";
+            echo "   - Code: " . $e->getCode() . "\n";
+            if (method_exists($e, 'getResponseBody')) {
+                echo "   - Response Body: " . $e->getResponseBody() . "\n";
+            }
+            throw $e;
+        }
+        
+        echo "\n=== FIN DEBUG ===\n\n";
     }
 
     /**
