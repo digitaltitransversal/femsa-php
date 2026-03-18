@@ -758,7 +758,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            0
+            JSON_PRETTY_PRINT
         );
     }
 

@@ -658,7 +658,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            0
+            JSON_PRETTY_PRINT
         );
     }
 

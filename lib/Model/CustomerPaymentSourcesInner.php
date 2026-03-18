@@ -436,7 +436,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            0
+            JSON_PRETTY_PRINT
         );
     }
 

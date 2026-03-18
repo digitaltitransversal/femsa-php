@@ -621,7 +621,7 @@ class DiscountLinesDataResponse implements ModelInterface, ArrayAccess, \JsonSer
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            0
+            JSON_PRETTY_PRINT
         );
     }
 
