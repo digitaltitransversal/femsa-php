@@ -364,7 +364,7 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

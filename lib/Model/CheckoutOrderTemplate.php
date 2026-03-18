@@ -517,7 +517,7 @@ class CheckoutOrderTemplate implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

@@ -870,7 +870,7 @@ class ApiKeyCreateResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

@@ -619,7 +619,7 @@ class FiscalEntityAddress implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

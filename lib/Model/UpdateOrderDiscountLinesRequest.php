@@ -508,7 +508,7 @@ class UpdateOrderDiscountLinesRequest implements ModelInterface, ArrayAccess, \J
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

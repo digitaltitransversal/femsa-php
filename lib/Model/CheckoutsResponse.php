@@ -548,7 +548,7 @@ class CheckoutsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

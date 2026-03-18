@@ -548,7 +548,7 @@ class GetPaymentMethodResponse implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

@@ -713,7 +713,7 @@ class GetCustomerPaymentMethodDataResponse implements ModelInterface, ArrayAcces
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 

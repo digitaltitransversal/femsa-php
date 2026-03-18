@@ -565,7 +565,7 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            0
         );
     }
 
