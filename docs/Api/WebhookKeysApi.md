@@ -328,7 +328,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/vnd.app-v2.1.0+json`
+- **Content-Type**: `application/json`
 - **Accept**: `application/vnd.app-v2.1.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

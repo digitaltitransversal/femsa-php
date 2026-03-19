@@ -85,7 +85,7 @@ class WebhookKeysApi
             'application/json',
         ],
         'updateWebhookKey' => [
-            'application/vnd.app-v2.1.0+json',
+            'application/json',
         ],
     ];
 
@@ -1955,7 +1955,7 @@ class WebhookKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
+                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1982,7 +1982,7 @@ class WebhookKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 401:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -2076,7 +2076,7 @@ class WebhookKeysApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 401:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -2084,7 +2084,7 @@ class WebhookKeysApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
