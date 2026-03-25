@@ -648,7 +648,7 @@ class PaymentLinkApi
     /**
      * Operation createCheckout
      *
-     * Create Unique Payment Link
+     * Create Payment Link
      *
      * @param  \DigitalFemsa\Model\Checkout $checkout requested field for checkout (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -668,7 +668,7 @@ class PaymentLinkApi
     /**
      * Operation createCheckoutWithHttpInfo
      *
-     * Create Unique Payment Link
+     * Create Payment Link
      *
      * @param  \DigitalFemsa\Model\Checkout $checkout requested field for checkout (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -934,7 +934,7 @@ class PaymentLinkApi
     /**
      * Operation createCheckoutAsync
      *
-     * Create Unique Payment Link
+     * Create Payment Link
      *
      * @param  \DigitalFemsa\Model\Checkout $checkout requested field for checkout (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -957,7 +957,7 @@ class PaymentLinkApi
     /**
      * Operation createCheckoutAsyncWithHttpInfo
      *
-     * Create Unique Payment Link
+     * Create Payment Link
      *
      * @param  \DigitalFemsa\Model\Checkout $checkout requested field for checkout (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')

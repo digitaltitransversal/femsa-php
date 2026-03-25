@@ -14,7 +14,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 ## `createWebhookKey()`
 
 ```php
-createWebhookKey($accept_language, $x_child_company_id, $webhook_key_request): \DigitalFemsa\Model\WebhookKeyCreateResponse
+createWebhookKey($accept_language, $webhook_key_request): \DigitalFemsa\Model\WebhookKeyCreateResponse
 ```
 
 Create Webhook Key
@@ -39,11 +39,10 @@ $apiInstance = new DigitalFemsa\Api\WebhookKeysApi(
     $config
 );
 $accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 $webhook_key_request = new \DigitalFemsa\Model\WebhookKeyRequest(); // \DigitalFemsa\Model\WebhookKeyRequest
 
 try {
-    $result = $apiInstance->createWebhookKey($accept_language, $x_child_company_id, $webhook_key_request);
+    $result = $apiInstance->createWebhookKey($accept_language, $webhook_key_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookKeysApi->createWebhookKey: ', $e->getMessage(), PHP_EOL;
@@ -55,7 +54,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 | **webhook_key_request** | [**\DigitalFemsa\Model\WebhookKeyRequest**](../Model/WebhookKeyRequest.md)|  | [optional] |
 
 ### Return type
@@ -209,7 +207,7 @@ getWebhookKeys($accept_language, $x_child_company_id, $limit, $search, $next, $p
 
 Get List of Webhook Keys
 
-Consume the list of webhook keys you have, each environment supports 10 webhook keys (For production and testing)
+Consume the list of webhook keys you have
 
 ### Example
 

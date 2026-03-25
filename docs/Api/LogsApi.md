@@ -16,7 +16,7 @@ getLogById($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\LogR
 
 Get Log
 
-Returns a single log by its ID. Logs can be used for troubleshooting and auditing requests and internal operations.
+Get the details of a specific log
 
 ### Example
 

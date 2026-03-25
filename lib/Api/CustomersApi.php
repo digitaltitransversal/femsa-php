@@ -3046,7 +3046,7 @@ class CustomersApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3068,7 +3068,7 @@ class CustomersApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3336,7 +3336,7 @@ class CustomersApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3361,7 +3361,7 @@ class CustomersApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3415,7 +3415,7 @@ class CustomersApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation

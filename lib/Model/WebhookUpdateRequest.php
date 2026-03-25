@@ -60,11 +60,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'url' => 'string',
-        'subscribed_events' => 'string[]',
-        'events' => 'string[]',
         'synchronous' => 'bool',
-        'active' => 'bool',
-        'description' => 'string'
+        'events' => 'string[]'
     ];
 
     /**
@@ -75,12 +72,9 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'url' => 'uri',
-        'subscribed_events' => null,
-        'events' => null,
+        'url' => 'url',
         'synchronous' => null,
-        'active' => null,
-        'description' => null
+        'events' => null
     ];
 
     /**
@@ -90,11 +84,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static array $openAPINullables = [
         'url' => false,
-        'subscribed_events' => false,
-        'events' => false,
         'synchronous' => false,
-        'active' => false,
-        'description' => true
+        'events' => false
     ];
 
     /**
@@ -184,11 +175,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'url' => 'url',
-        'subscribed_events' => 'subscribed_events',
-        'events' => 'events',
         'synchronous' => 'synchronous',
-        'active' => 'active',
-        'description' => 'description'
+        'events' => 'events'
     ];
 
     /**
@@ -198,11 +186,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'url' => 'setUrl',
-        'subscribed_events' => 'setSubscribedEvents',
-        'events' => 'setEvents',
         'synchronous' => 'setSynchronous',
-        'active' => 'setActive',
-        'description' => 'setDescription'
+        'events' => 'setEvents'
     ];
 
     /**
@@ -212,11 +197,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'url' => 'getUrl',
-        'subscribed_events' => 'getSubscribedEvents',
-        'events' => 'getEvents',
         'synchronous' => 'getSynchronous',
-        'active' => 'getActive',
-        'description' => 'getDescription'
+        'events' => 'getEvents'
     ];
 
     /**
@@ -277,11 +259,8 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('subscribed_events', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
         $this->setIfExists('synchronous', $data ?? [], false);
-        $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('events', $data ?? [], null);
     }
 
     /**
@@ -311,7 +290,10 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['url']) && !preg_match("/^(?!.*(localhost|127\\.0\\.0\\.1)).*$/", $this->container['url'])) {
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
+        if (!preg_match("/^(?!.*(localhost|127\\.0\\.0\\.1)).*$/", $this->container['url'])) {
             $invalidProperties[] = "invalid value for 'url', must be conform to the pattern /^(?!.*(localhost|127\\.0\\.0\\.1)).*$/.";
         }
 
@@ -333,7 +315,7 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets url
      *
-     * @return string|null
+     * @return string
      */
     public function getUrl()
     {
@@ -343,7 +325,7 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets url
      *
-     * @param string|null $url Webhook endpoint URL. Local URLs are not allowed.
+     * @param string $url Here you must place the URL of your Webhook remember that you must program what you will do with the events received. Also do not forget to handle the HTTPS protocol for greater security.
      *
      * @return self
      */
@@ -363,62 +345,6 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets subscribed_events
-     *
-     * @return string[]|null
-     */
-    public function getSubscribedEvents()
-    {
-        return $this->container['subscribed_events'];
-    }
-
-    /**
-     * Sets subscribed_events
-     *
-     * @param string[]|null $subscribed_events List of event types the webhook is subscribed to.
-     *
-     * @return self
-     */
-    public function setSubscribedEvents($subscribed_events)
-    {
-        if (is_null($subscribed_events)) {
-            throw new \InvalidArgumentException('non-nullable subscribed_events cannot be null');
-        }
-        $this->container['subscribed_events'] = $subscribed_events;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return string[]|null
-     * @deprecated
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param string[]|null $events Alias for subscribed_events.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setEvents($events)
-    {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
-        }
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
      * Gets synchronous
      *
      * @return bool|null
@@ -431,7 +357,7 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets synchronous
      *
-     * @param bool|null $synchronous Indicates whether the webhook uses synchronous delivery behavior.
+     * @param bool|null $synchronous It is a value that allows to decide if the events will be synchronous or asynchronous. We recommend asynchronous = false
      *
      * @return self
      */
@@ -446,62 +372,28 @@ class WebhookUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets active
+     * Gets events
      *
-     * @return bool|null
+     * @return string[]|null
      */
-    public function getActive()
+    public function getEvents()
     {
-        return $this->container['active'];
+        return $this->container['events'];
     }
 
     /**
-     * Sets active
+     * Sets events
      *
-     * @param bool|null $active Activates or deactivates the webhook.
+     * @param string[]|null $events events
      *
      * @return self
      */
-    public function setActive($active)
+    public function setEvents($events)
     {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+        if (is_null($events)) {
+            throw new \InvalidArgumentException('non-nullable events cannot be null');
         }
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Optional description of the webhook.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
+        $this->container['events'] = $events;
 
         return $this;
     }

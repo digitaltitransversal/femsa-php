@@ -309,9 +309,6 @@ class GetEventsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['object'] === null) {
             $invalidProperties[] = "'object' can't be null";
         }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -452,7 +449,7 @@ class GetEventsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \DigitalFemsa\Model\EventResponse[]
+     * @return \DigitalFemsa\Model\EventResponse[]|null
      */
     public function getData()
     {
@@ -462,7 +459,7 @@ class GetEventsResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \DigitalFemsa\Model\EventResponse[] $data data
+     * @param \DigitalFemsa\Model\EventResponse[]|null $data data
      *
      * @return self
      */

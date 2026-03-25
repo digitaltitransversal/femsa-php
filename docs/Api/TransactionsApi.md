@@ -75,7 +75,7 @@ try {
 ## `getTransactions()`
 
 ```php
-getTransactions($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $charge_id, $type, $currency): \DigitalFemsa\Model\GetTransactionsResponse
+getTransactions($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency): \DigitalFemsa\Model\GetTransactionsResponse
 ```
 
 List transactions
@@ -104,13 +104,13 @@ $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a hol
 $limit = 20; // int | The numbers of items to return, the maximum value is 250
 $next = 'next_example'; // string | next page
 $previous = 'previous_example'; // string | previous page
-$search = 'search_example'; // string | General order search, e.g. by mail, reference etc.
+$id = 65412a893cd69a0001c25892; // string | id of the object to be retrieved
 $charge_id = 65412a893cd69a0001c25892; // string | id of the charge used for filtering
 $type = capture; // string | type of the object to be retrieved
 $currency = MXN; // string | currency of the object to be retrieved
 
 try {
-    $result = $apiInstance->getTransactions($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $charge_id, $type, $currency);
+    $result = $apiInstance->getTransactions($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TransactionsApi->getTransactions: ', $e->getMessage(), PHP_EOL;
@@ -126,7 +126,7 @@ try {
 | **limit** | **int**| The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
 | **next** | **string**| next page | [optional] |
 | **previous** | **string**| previous page | [optional] |
-| **search** | **string**| General order search, e.g. by mail, reference etc. | [optional] |
+| **id** | **string**| id of the object to be retrieved | [optional] |
 | **charge_id** | **string**| id of the charge used for filtering | [optional] |
 | **type** | **string**| type of the object to be retrieved | [optional] |
 | **currency** | **string**| currency of the object to be retrieved | [optional] |

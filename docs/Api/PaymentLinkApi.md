@@ -5,7 +5,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**cancelCheckout()**](PaymentLinkApi.md#cancelCheckout) | **PUT** /checkouts/{id}/cancel | Cancel Payment Link |
-| [**createCheckout()**](PaymentLinkApi.md#createCheckout) | **POST** /checkouts | Create Unique Payment Link |
+| [**createCheckout()**](PaymentLinkApi.md#createCheckout) | **POST** /checkouts | Create Payment Link |
 | [**emailCheckout()**](PaymentLinkApi.md#emailCheckout) | **POST** /checkouts/{id}/email | Send an email |
 | [**getCheckout()**](PaymentLinkApi.md#getCheckout) | **GET** /checkouts/{id} | Get a payment link by ID |
 | [**getCheckouts()**](PaymentLinkApi.md#getCheckouts) | **GET** /checkouts | Get a list of payment links |
@@ -81,9 +81,9 @@ try {
 createCheckout($checkout, $accept_language, $x_child_company_id): \DigitalFemsa\Model\CheckoutResponse
 ```
 
-Create Unique Payment Link
+Create Payment Link
 
-Creates a new payment link. The request body defines the payment link type, allowed payment methods, and expiration settings.
+Creates a Payment Link: a shareable URL that lets your customer pay without you building a custom checkout. Configure the link type, allowed payment methods, and expiration. The request also includes an order_template (currency and line items) used to generate an Order when the customer completes a payment. Use recurrent=false for a single-use link, or recurrent=true to allow multiple payments (limited by payments_limit_count).
 
 ### Example
 

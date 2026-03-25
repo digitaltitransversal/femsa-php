@@ -577,7 +577,7 @@ class ApiKeysApi
     /**
      * Operation deleteApiKey
      *
-     * Delete API key
+     * Delete Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -585,7 +585,7 @@ class ApiKeysApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\DeleteApiKeysResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\DeleteApiKeysResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function deleteApiKey($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteApiKey'][0])
     {
@@ -596,7 +596,7 @@ class ApiKeysApi
     /**
      * Operation deleteApiKeyWithHttpInfo
      *
-     * Delete API key
+     * Delete Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -604,7 +604,7 @@ class ApiKeysApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\DeleteApiKeysResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\DeleteApiKeysResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteApiKeyWithHttpInfo($id, $accept_language = 'es', string $contentType = self::contentTypes['deleteApiKey'][0])
     {
@@ -727,33 +727,6 @@ class ApiKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
-                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\DigitalFemsa\Model\Error' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 500:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -837,14 +810,6 @@ class ApiKeysApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalFemsa\Model\Error',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -861,7 +826,7 @@ class ApiKeysApi
     /**
      * Operation deleteApiKeyAsync
      *
-     * Delete API key
+     * Delete Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -883,7 +848,7 @@ class ApiKeysApi
     /**
      * Operation deleteApiKeyAsyncWithHttpInfo
      *
-     * Delete API key
+     * Delete Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1042,7 +1007,7 @@ class ApiKeysApi
     /**
      * Operation getApiKey
      *
-     * Get API key
+     * Get Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1062,7 +1027,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeyWithHttpInfo
      *
-     * Get API key
+     * Get Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1293,7 +1258,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeyAsync
      *
-     * Get API key
+     * Get Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1316,7 +1281,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeyAsyncWithHttpInfo
      *
-     * Get API key
+     * Get Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1489,7 +1454,7 @@ class ApiKeysApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General search, e.g. by id or description (optional)
+     * @param  string $search General search, e.g. by id, description, prefix (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeys'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1512,7 +1477,7 @@ class ApiKeysApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General search, e.g. by id or description (optional)
+     * @param  string $search General search, e.g. by id, description, prefix (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeys'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1711,7 +1676,7 @@ class ApiKeysApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General search, e.g. by id or description (optional)
+     * @param  string $search General search, e.g. by id, description, prefix (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1737,7 +1702,7 @@ class ApiKeysApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General search, e.g. by id or description (optional)
+     * @param  string $search General search, e.g. by id, description, prefix (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1792,7 +1757,7 @@ class ApiKeysApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General search, e.g. by id or description (optional)
+     * @param  string $search General search, e.g. by id, description, prefix (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1933,7 +1898,7 @@ class ApiKeysApi
     /**
      * Operation updateApiKey
      *
-     * Update API key
+     * Update Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1942,7 +1907,7 @@ class ApiKeysApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\ApiKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\ApiKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function updateApiKey($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
@@ -1953,7 +1918,7 @@ class ApiKeysApi
     /**
      * Operation updateApiKeyWithHttpInfo
      *
-     * Update API key
+     * Update Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1962,7 +1927,7 @@ class ApiKeysApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\ApiKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\ApiKeyResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateApiKeyWithHttpInfo($id, $accept_language = 'es', $api_key_update_request = null, string $contentType = self::contentTypes['updateApiKey'][0])
     {
@@ -2031,33 +1996,6 @@ class ApiKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
-                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\DigitalFemsa\Model\Error' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -2085,7 +2023,7 @@ class ApiKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
+                case 401:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -2179,14 +2117,6 @@ class ApiKeysApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalFemsa\Model\Error',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -2195,7 +2125,7 @@ class ApiKeysApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
+                case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -2219,7 +2149,7 @@ class ApiKeysApi
     /**
      * Operation updateApiKeyAsync
      *
-     * Update API key
+     * Update Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2242,7 +2172,7 @@ class ApiKeysApi
     /**
      * Operation updateApiKeyAsyncWithHttpInfo
      *
-     * Update API key
+     * Update Api Key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')

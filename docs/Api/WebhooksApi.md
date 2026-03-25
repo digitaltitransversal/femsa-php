@@ -4,10 +4,10 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createWebhook()**](WebhooksApi.md#createWebhook) | **POST** /webhooks | Create webhook |
+| [**createWebhook()**](WebhooksApi.md#createWebhook) | **POST** /webhooks | Create Webhook |
 | [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete webhook |
 | [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{id} | Get webhook |
-| [**getWebhooks()**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get webhooks |
+| [**getWebhooks()**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get List of Webhooks |
 | [**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /webhooks/{id}/test | Test webhook |
 | [**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /webhooks/{id} | Update webhook |
 
@@ -15,12 +15,12 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 ## `createWebhook()`
 
 ```php
-createWebhook($webhook_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
+createWebhook($webhook_request, $accept_language): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Create webhook
+Create Webhook
 
-Creates a webhook and subscribes it to events so your system can receive notifications when those events occur.
+What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
 
 ### Example
 
@@ -41,10 +41,9 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
 );
 $webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | Webhook creation/update request payload.
 $accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
 try {
-    $result = $apiInstance->createWebhook($webhook_request, $accept_language, $x_child_company_id);
+    $result = $apiInstance->createWebhook($webhook_request, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->createWebhook: ', $e->getMessage(), PHP_EOL;
@@ -57,7 +56,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| Webhook creation/update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
 ### Return type
 
@@ -205,10 +203,10 @@ try {
 ## `getWebhooks()`
 
 ```php
-getWebhooks($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous): \DigitalFemsa\Model\GetWebhooksResponse
+getWebhooks($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous): \DigitalFemsa\Model\GetWebhooksResponse
 ```
 
-Get webhooks
+Get List of Webhooks
 
 Consume the list of webhooks you have, each environment supports 10 webhooks (For production and testing)
 
@@ -229,7 +227,6 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | Webhook creation/update request payload.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 $limit = 20; // int | The numbers of items to return, the maximum value is 250
@@ -239,7 +236,7 @@ $next = 'next_example'; // string | next page
 $previous = 'previous_example'; // string | previous page
 
 try {
-    $result = $apiInstance->getWebhooks($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous);
+    $result = $apiInstance->getWebhooks($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getWebhooks: ', $e->getMessage(), PHP_EOL;
@@ -250,7 +247,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| Webhook creation/update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 | **limit** | **int**| The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
@@ -269,7 +265,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/vnd.app-v2.1.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

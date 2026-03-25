@@ -5,12 +5,12 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**cancelOrder()**](OrdersApi.md#cancelOrder) | **POST** /orders/{id}/cancel | Cancel Order |
-| [**cancelOrderRefund()**](OrdersApi.md#cancelOrderRefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund |
-| [**captureOrder()**](OrdersApi.md#captureOrder) | **POST** /orders/{id}/capture | Capture Order |
 | [**createOrder()**](OrdersApi.md#createOrder) | **POST** /orders | Create order |
 | [**getOrderById()**](OrdersApi.md#getOrderById) | **GET** /orders/{id} | Get Order |
 | [**getOrders()**](OrdersApi.md#getOrders) | **GET** /orders | Get a list of Orders |
+| [**orderCancelRefund()**](OrdersApi.md#orderCancelRefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund |
 | [**orderRefund()**](OrdersApi.md#orderRefund) | **POST** /orders/{id}/refunds | Refund Order |
+| [**ordersCreateCapture()**](OrdersApi.md#ordersCreateCapture) | **POST** /orders/{id}/capture | Capture Order |
 | [**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /orders/{id} | Update order |
 
 
@@ -72,138 +72,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `cancelOrderRefund()`
-
-```php
-cancelOrderRefund($id, $refund_id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\OrderResponse
-```
-
-Cancel Refund
-
-Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: bearerAuth
-$config = DigitalFemsa\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new DigitalFemsa\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$refund_id = 6407b5bee1329a000175ba11; // string | refund identifier
-$accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
-
-try {
-    $result = $apiInstance->cancelOrderRefund($id, $refund_id, $accept_language, $x_child_company_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->cancelOrderRefund: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Identifier of the resource | |
-| **refund_id** | **string**| refund identifier | |
-| **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
-
-### Return type
-
-[**\DigitalFemsa\Model\OrderResponse**](../Model/OrderResponse.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/vnd.app-v2.1.0+json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `captureOrder()`
-
-```php
-captureOrder($id, $accept_language, $x_child_company_id, $order_capture_request): \DigitalFemsa\Model\OrderResponse
-```
-
-Capture Order
-
-Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: bearerAuth
-$config = DigitalFemsa\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new DigitalFemsa\Api\OrdersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$accept_language = es; // string | Use for knowing which language to use
-$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
-$order_capture_request = new \DigitalFemsa\Model\OrderCaptureRequest(); // \DigitalFemsa\Model\OrderCaptureRequest | Requested fields for capturing an order
-
-try {
-    $result = $apiInstance->captureOrder($id, $accept_language, $x_child_company_id, $order_capture_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrdersApi->captureOrder: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Identifier of the resource | |
-| **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
-| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
-| **order_capture_request** | [**\DigitalFemsa\Model\OrderCaptureRequest**](../Model/OrderCaptureRequest.md)| Requested fields for capturing an order | [optional] |
-
-### Return type
-
-[**\DigitalFemsa\Model\OrderResponse**](../Model/OrderResponse.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/vnd.app-v2.1.0+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -408,6 +276,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `orderCancelRefund()`
+
+```php
+orderCancelRefund($id, $refund_id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\OrderResponse
+```
+
+Cancel Refund
+
+Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalFemsa\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalFemsa\Api\OrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 6307a60c41de27127515a575; // string | Identifier of the resource
+$refund_id = 6407b5bee1329a000175ba11; // string | refund identifier
+$accept_language = es; // string | Use for knowing which language to use
+$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
+
+try {
+    $result = $apiInstance->orderCancelRefund($id, $refund_id, $accept_language, $x_child_company_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrdersApi->orderCancelRefund: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of the resource | |
+| **refund_id** | **string**| refund identifier | |
+| **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
+
+### Return type
+
+[**\DigitalFemsa\Model\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/vnd.app-v2.1.0+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `orderRefund()`
 
 ```php
@@ -456,6 +390,72 @@ try {
 | **order_refund_request** | [**\DigitalFemsa\Model\OrderRefundRequest**](../Model/OrderRefundRequest.md)| requested field for a refund | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
+
+### Return type
+
+[**\DigitalFemsa\Model\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/vnd.app-v2.1.0+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `ordersCreateCapture()`
+
+```php
+ordersCreateCapture($id, $accept_language, $x_child_company_id, $order_capture_request): \DigitalFemsa\Model\OrderResponse
+```
+
+Capture Order
+
+Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: bearerAuth
+$config = DigitalFemsa\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new DigitalFemsa\Api\OrdersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 6307a60c41de27127515a575; // string | Identifier of the resource
+$accept_language = es; // string | Use for knowing which language to use
+$x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
+$order_capture_request = new \DigitalFemsa\Model\OrderCaptureRequest(); // \DigitalFemsa\Model\OrderCaptureRequest | Requested fields for capturing an order
+
+try {
+    $result = $apiInstance->ordersCreateCapture($id, $accept_language, $x_child_company_id, $order_capture_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrdersApi->ordersCreateCapture: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Identifier of the resource | |
+| **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
+| **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
+| **order_capture_request** | [**\DigitalFemsa\Model\OrderCaptureRequest**](../Model/OrderCaptureRequest.md)| Requested fields for capturing an order | [optional] |
 
 ### Return type
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * TransfersResponseDestination
+ * OrderFiscalEntityRequest
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \DigitalFemsa\ObjectSerializer;
 
 /**
- * TransfersResponseDestination Class Doc Comment
+ * OrderFiscalEntityRequest Class Doc Comment
  *
  * @category Class
- * @description Destination payout method used to make the transfer.
+ * @description Fiscal entity of the order, Currently it is a purely informative field
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TransfersResponseDestination implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderFiscalEntityRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'transfers_response_destination';
+    protected static $openAPIModelName = 'order_fiscal_entity_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payee_id' => 'string',
-        'id' => 'string',
-        'created_at' => 'int',
-        'object' => 'string',
-        'type' => 'string',
-        'last4' => 'string',
-        'account_holder_name' => 'string',
-        'bank' => 'string'
+        'address' => '\DigitalFemsa\Model\FiscalEntityAddress',
+        'email' => 'string',
+        'metadata' => 'array<string,mixed>',
+        'name' => 'string',
+        'phone' => 'string',
+        'tax_id' => 'string'
     ];
 
     /**
@@ -77,14 +75,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'payee_id' => null,
-        'id' => null,
-        'created_at' => 'int64',
-        'object' => null,
-        'type' => null,
-        'last4' => null,
-        'account_holder_name' => null,
-        'bank' => null
+        'address' => null,
+        'email' => null,
+        'metadata' => null,
+        'name' => null,
+        'phone' => null,
+        'tax_id' => null
     ];
 
     /**
@@ -93,14 +89,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'payee_id' => false,
-        'id' => false,
-        'created_at' => false,
-        'object' => true,
-        'type' => true,
-        'last4' => true,
-        'account_holder_name' => true,
-        'bank' => true
+        'address' => false,
+        'email' => false,
+        'metadata' => false,
+        'name' => true,
+        'phone' => false,
+        'tax_id' => true
     ];
 
     /**
@@ -189,14 +183,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'payee_id' => 'payee_id',
-        'id' => 'id',
-        'created_at' => 'created_at',
-        'object' => 'object',
-        'type' => 'type',
-        'last4' => 'last4',
-        'account_holder_name' => 'account_holder_name',
-        'bank' => 'bank'
+        'address' => 'address',
+        'email' => 'email',
+        'metadata' => 'metadata',
+        'name' => 'name',
+        'phone' => 'phone',
+        'tax_id' => 'tax_id'
     ];
 
     /**
@@ -205,14 +197,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'payee_id' => 'setPayeeId',
-        'id' => 'setId',
-        'created_at' => 'setCreatedAt',
-        'object' => 'setObject',
-        'type' => 'setType',
-        'last4' => 'setLast4',
-        'account_holder_name' => 'setAccountHolderName',
-        'bank' => 'setBank'
+        'address' => 'setAddress',
+        'email' => 'setEmail',
+        'metadata' => 'setMetadata',
+        'name' => 'setName',
+        'phone' => 'setPhone',
+        'tax_id' => 'setTaxId'
     ];
 
     /**
@@ -221,14 +211,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'payee_id' => 'getPayeeId',
-        'id' => 'getId',
-        'created_at' => 'getCreatedAt',
-        'object' => 'getObject',
-        'type' => 'getType',
-        'last4' => 'getLast4',
-        'account_holder_name' => 'getAccountHolderName',
-        'bank' => 'getBank'
+        'address' => 'getAddress',
+        'email' => 'getEmail',
+        'metadata' => 'getMetadata',
+        'name' => 'getName',
+        'phone' => 'getPhone',
+        'tax_id' => 'getTaxId'
     ];
 
     /**
@@ -288,14 +276,12 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('payee_id', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('last4', $data ?? [], null);
-        $this->setIfExists('account_holder_name', $data ?? [], null);
-        $this->setIfExists('bank', $data ?? [], null);
+        $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('tax_id', $data ?? [], null);
     }
 
     /**
@@ -325,15 +311,13 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['payee_id'] === null) {
-            $invalidProperties[] = "'payee_id' can't be null";
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
         }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -350,252 +334,181 @@ class TransfersResponseDestination implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets payee_id
+     * Gets address
      *
-     * @return string
+     * @return \DigitalFemsa\Model\FiscalEntityAddress
      */
-    public function getPayeeId()
+    public function getAddress()
     {
-        return $this->container['payee_id'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets payee_id
+     * Sets address
      *
-     * @param string $payee_id Unique identifier of the payee.
+     * @param \DigitalFemsa\Model\FiscalEntityAddress $address address
      *
      * @return self
      */
-    public function setPayeeId($payee_id)
+    public function setAddress($address)
     {
-        if (is_null($payee_id)) {
-            throw new \InvalidArgumentException('non-nullable payee_id cannot be null');
+        if (is_null($address)) {
+            throw new \InvalidArgumentException('non-nullable address cannot be null');
         }
-        $this->container['payee_id'] = $payee_id;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Unique identifier of the payout method.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int $created_at Date and time of creation of the payout method in Unix format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
+     * Gets email
      *
      * @return string|null
      */
-    public function getObject()
+    public function getEmail()
     {
-        return $this->container['object'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets object
+     * Sets email
      *
-     * @param string|null $object Object name, present for bank transfer destination.
+     * @param string|null $email Email of the fiscal entity
      *
      * @return self
      */
-    public function setObject($object)
+    public function setEmail($email)
     {
-        if (is_null($object)) {
-            array_push($this->openAPINullablesSetToNull, 'object');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,mixed>|null $metadata Metadata associated with the fiscal entity
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+
+        if ((count($metadata) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $metadata when calling OrderFiscalEntityRequest., number of items must be less than or equal to 100.');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name of the fiscal entity
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('object', $nullablesSetToNull);
+            $index = array_search('name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['object'] = $object;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets phone
      *
      * @return string|null
      */
-    public function getType()
+    public function getPhone()
     {
-        return $this->container['type'];
+        return $this->container['phone'];
     }
 
     /**
-     * Sets type
+     * Sets phone
      *
-     * @param string|null $type Destination type.
+     * @param string|null $phone Phone of the fiscal entity
      *
      * @return self
      */
-    public function setType($type)
+    public function setPhone($phone)
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($phone)) {
+            throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['phone'] = $phone;
 
         return $this;
     }
 
     /**
-     * Gets last4
+     * Gets tax_id
      *
      * @return string|null
      */
-    public function getLast4()
+    public function getTaxId()
     {
-        return $this->container['last4'];
+        return $this->container['tax_id'];
     }
 
     /**
-     * Sets last4
+     * Sets tax_id
      *
-     * @param string|null $last4 Last 4 digits of the destination account number.
+     * @param string|null $tax_id Tax ID of the fiscal entity
      *
      * @return self
      */
-    public function setLast4($last4)
+    public function setTaxId($tax_id)
     {
-        if (is_null($last4)) {
-            array_push($this->openAPINullablesSetToNull, 'last4');
+        if (is_null($tax_id)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('last4', $nullablesSetToNull);
+            $index = array_search('tax_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['last4'] = $last4;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_holder_name
-     *
-     * @return string|null
-     */
-    public function getAccountHolderName()
-    {
-        return $this->container['account_holder_name'];
-    }
-
-    /**
-     * Sets account_holder_name
-     *
-     * @param string|null $account_holder_name Name of the account holder.
-     *
-     * @return self
-     */
-    public function setAccountHolderName($account_holder_name)
-    {
-        if (is_null($account_holder_name)) {
-            array_push($this->openAPINullablesSetToNull, 'account_holder_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('account_holder_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['account_holder_name'] = $account_holder_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets bank
-     *
-     * @return string|null
-     */
-    public function getBank()
-    {
-        return $this->container['bank'];
-    }
-
-    /**
-     * Sets bank
-     *
-     * @param string|null $bank Name of the bank.
-     *
-     * @return self
-     */
-    public function setBank($bank)
-    {
-        if (is_null($bank)) {
-            array_push($this->openAPINullablesSetToNull, 'bank');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('bank', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['bank'] = $bank;
+        $this->container['tax_id'] = $tax_id;
 
         return $this;
     }

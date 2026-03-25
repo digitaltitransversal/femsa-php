@@ -62,7 +62,7 @@ class CustomerUpdateFiscalEntitiesRequest implements ModelInterface, ArrayAccess
         'tax_id' => 'string',
         'email' => 'string',
         'phone' => 'string',
-        'metadata' => 'array<string,mixed>',
+        'metadata' => 'array<string,object>',
         'company_name' => 'string'
     ];
 
@@ -436,7 +436,7 @@ class CustomerUpdateFiscalEntitiesRequest implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return array<string,mixed>|null
+     * @return array<string,object>|null
      */
     public function getMetadata()
     {
@@ -446,7 +446,7 @@ class CustomerUpdateFiscalEntitiesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata metadata
+     * @param array<string,object>|null $metadata metadata
      *
      * @return self
      */

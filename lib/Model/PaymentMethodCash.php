@@ -283,19 +283,6 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_CASH_PAYMENT = 'cash_payment';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_CASH_PAYMENT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -354,15 +341,6 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['object'] === null) {
             $invalidProperties[] = "'object' can't be null";
         }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -391,7 +369,7 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets type
      *
-     * @param string|null $type Cash payment type
+     * @param string|null $type type
      *
      * @return self
      */
@@ -426,16 +404,6 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['object'] = $object;
 

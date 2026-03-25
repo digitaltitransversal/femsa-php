@@ -13,8 +13,6 @@ Name | Type | Description | Notes
 **phone** | **string** | Customer&#39;s phone number | [optional]
 **corporate** | **bool** | true if the customer is a company | [optional]
 **custom_reference** | **string** | Custom reference | [optional]
-**referrer** | **string** | Referrer information (if available) | [optional]
-**vertical_info** | **array<string,mixed>** | Vertical-specific information (shape depends on integration) | [optional]
 **default_fiscal_entity_id** | **string** |  | [optional]
 **default_shipping_contact_id** | **string** |  | [optional]
 **metadata** | **array<string,mixed>** | Customer metadata (maps to contextual_data in backend) | [optional]

@@ -60,11 +60,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'url' => 'string',
-        'subscribed_events' => 'string[]',
-        'events' => 'string[]',
-        'synchronous' => 'bool',
-        'active' => 'bool',
-        'description' => 'string'
+        'synchronous' => 'bool'
     ];
 
     /**
@@ -75,12 +71,8 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'url' => 'uri',
-        'subscribed_events' => null,
-        'events' => null,
-        'synchronous' => null,
-        'active' => null,
-        'description' => null
+        'url' => 'url',
+        'synchronous' => null
     ];
 
     /**
@@ -90,11 +82,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'url' => false,
-        'subscribed_events' => false,
-        'events' => false,
-        'synchronous' => false,
-        'active' => false,
-        'description' => true
+        'synchronous' => false
     ];
 
     /**
@@ -184,11 +172,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'url' => 'url',
-        'subscribed_events' => 'subscribed_events',
-        'events' => 'events',
-        'synchronous' => 'synchronous',
-        'active' => 'active',
-        'description' => 'description'
+        'synchronous' => 'synchronous'
     ];
 
     /**
@@ -198,11 +182,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'url' => 'setUrl',
-        'subscribed_events' => 'setSubscribedEvents',
-        'events' => 'setEvents',
-        'synchronous' => 'setSynchronous',
-        'active' => 'setActive',
-        'description' => 'setDescription'
+        'synchronous' => 'setSynchronous'
     ];
 
     /**
@@ -212,11 +192,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'url' => 'getUrl',
-        'subscribed_events' => 'getSubscribedEvents',
-        'events' => 'getEvents',
-        'synchronous' => 'getSynchronous',
-        'active' => 'getActive',
-        'description' => 'getDescription'
+        'synchronous' => 'getSynchronous'
     ];
 
     /**
@@ -277,11 +253,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('subscribed_events', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
         $this->setIfExists('synchronous', $data ?? [], false);
-        $this->setIfExists('active', $data ?? [], true);
-        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -318,6 +290,9 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'url', must be conform to the pattern /^(?!.*(localhost|127\\.0\\.0\\.1)).*$/.";
         }
 
+        if ($this->container['synchronous'] === null) {
+            $invalidProperties[] = "'synchronous' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -346,7 +321,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url Webhook endpoint URL. Local URLs are not allowed.
+     * @param string $url Here you must place the URL of your Webhook remember that you must program what you will do with the events received. Also do not forget to handle the HTTPS protocol for greater security.
      *
      * @return self
      */
@@ -366,65 +341,9 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets subscribed_events
-     *
-     * @return string[]|null
-     */
-    public function getSubscribedEvents()
-    {
-        return $this->container['subscribed_events'];
-    }
-
-    /**
-     * Sets subscribed_events
-     *
-     * @param string[]|null $subscribed_events List of event types the webhook is subscribed to.
-     *
-     * @return self
-     */
-    public function setSubscribedEvents($subscribed_events)
-    {
-        if (is_null($subscribed_events)) {
-            throw new \InvalidArgumentException('non-nullable subscribed_events cannot be null');
-        }
-        $this->container['subscribed_events'] = $subscribed_events;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return string[]|null
-     * @deprecated
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param string[]|null $events Alias for subscribed_events.
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setEvents($events)
-    {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
-        }
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
      * Gets synchronous
      *
-     * @return bool|null
+     * @return bool
      */
     public function getSynchronous()
     {
@@ -434,7 +353,7 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets synchronous
      *
-     * @param bool|null $synchronous Indicates whether the webhook uses synchronous delivery behavior.
+     * @param bool $synchronous It is a value that allows to decide if the events will be synchronous or asynchronous. We recommend asynchronous = false
      *
      * @return self
      */
@@ -444,67 +363,6 @@ class WebhookRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable synchronous cannot be null');
         }
         $this->container['synchronous'] = $synchronous;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool|null
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool|null $active Indicates whether the webhook is active.
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-        }
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Optional description of the webhook.
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
 
         return $this;
     }

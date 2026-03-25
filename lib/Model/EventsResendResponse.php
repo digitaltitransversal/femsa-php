@@ -78,7 +78,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         'failed_attempts' => null,
         'id' => null,
         'last_attempted_at' => null,
-        'last_http_response_status' => null,
+        'last_http_response_status' => 'int32',
         'response_data' => null,
         'url' => 'uri'
     ];
@@ -311,28 +311,10 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['failed_attempts'] === null) {
-            $invalidProperties[] = "'failed_attempts' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['last_attempted_at'] === null) {
-            $invalidProperties[] = "'last_attempted_at' can't be null";
-        }
-        if ($this->container['last_http_response_status'] === null) {
-            $invalidProperties[] = "'last_http_response_status' can't be null";
-        }
-        if ($this->container['response_data'] === null) {
-            $invalidProperties[] = "'response_data' can't be null";
-        }
-        if ((count($this->container['response_data']) > 100)) {
+        if (!is_null($this->container['response_data']) && (count($this->container['response_data']) > 100)) {
             $invalidProperties[] = "invalid value for 'response_data', number of items must be less than or equal to 100.";
         }
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -351,7 +333,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets failed_attempts
      *
-     * @return int
+     * @return int|null
      */
     public function getFailedAttempts()
     {
@@ -361,7 +343,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets failed_attempts
      *
-     * @param int $failed_attempts failed_attempts
+     * @param int|null $failed_attempts failed_attempts
      *
      * @return self
      */
@@ -378,7 +360,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -388,7 +370,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string|null $id id
      *
      * @return self
      */
@@ -405,7 +387,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets last_attempted_at
      *
-     * @return int
+     * @return int|null
      */
     public function getLastAttemptedAt()
     {
@@ -415,7 +397,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets last_attempted_at
      *
-     * @param int $last_attempted_at last_attempted_at
+     * @param int|null $last_attempted_at last_attempted_at
      *
      * @return self
      */
@@ -432,7 +414,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets last_http_response_status
      *
-     * @return int
+     * @return int|null
      */
     public function getLastHttpResponseStatus()
     {
@@ -442,7 +424,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets last_http_response_status
      *
-     * @param int $last_http_response_status last_http_response_status
+     * @param int|null $last_http_response_status last_http_response_status
      *
      * @return self
      */
@@ -459,7 +441,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets response_data
      *
-     * @return array<string,mixed>
+     * @return array<string,mixed>|null
      */
     public function getResponseData()
     {
@@ -469,7 +451,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets response_data
      *
-     * @param array<string,mixed> $response_data response_data
+     * @param array<string,mixed>|null $response_data response_data
      *
      * @return self
      */
@@ -490,7 +472,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets url
      *
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -500,7 +482,7 @@ class EventsResendResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets url
      *
-     * @param string $url url
+     * @param string|null $url url
      *
      * @return self
      */

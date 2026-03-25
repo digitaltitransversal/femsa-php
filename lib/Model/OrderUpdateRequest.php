@@ -59,20 +59,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'string',
         'currency' => 'string',
-        'customer_info' => '\DigitalFemsa\Model\CustomerInfo',
+        'customer_info' => '\DigitalFemsa\Model\OrderUpdateRequestCustomerInfo',
         'line_items' => '\DigitalFemsa\Model\Product[]',
-        'shipping_lines' => '\DigitalFemsa\Model\ShippingRequest[]',
-        'tax_lines' => '\DigitalFemsa\Model\OrderTaxRequest[]',
-        'discount_lines' => '\DigitalFemsa\Model\OrderDiscountLinesRequest[]',
-        'metadata' => 'array<string,mixed>',
-        'return_url' => 'string',
         'charges' => '\DigitalFemsa\Model\ChargeRequest[]',
+        'discount_lines' => '\DigitalFemsa\Model\OrderDiscountLinesRequest[]',
+        'tax_lines' => '\DigitalFemsa\Model\OrderTaxRequest[]',
         'shipping_contact_id' => 'string',
         'shipping_contact' => '\DigitalFemsa\Model\CustomerShippingContacts',
+        'shipping_lines' => '\DigitalFemsa\Model\ShippingRequest[]',
         'fiscal_entity_id' => 'string',
-        'fiscal_entity' => '\DigitalFemsa\Model\OrderUpdateFiscalEntityRequest'
+        'fiscal_entity' => '\DigitalFemsa\Model\OrderUpdateFiscalEntityRequest',
+        'return_url' => 'string',
+        'metadata' => 'array<string,mixed>',
+        'status' => 'string'
     ];
 
     /**
@@ -83,20 +83,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
         'currency' => null,
         'customer_info' => null,
         'line_items' => null,
-        'shipping_lines' => null,
-        'tax_lines' => null,
-        'discount_lines' => null,
-        'metadata' => null,
-        'return_url' => null,
         'charges' => null,
+        'discount_lines' => null,
+        'tax_lines' => null,
         'shipping_contact_id' => null,
         'shipping_contact' => null,
+        'shipping_lines' => null,
         'fiscal_entity_id' => null,
-        'fiscal_entity' => null
+        'fiscal_entity' => null,
+        'return_url' => null,
+        'metadata' => null,
+        'status' => null
     ];
 
     /**
@@ -105,20 +105,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
         'currency' => false,
         'customer_info' => false,
         'line_items' => false,
-        'shipping_lines' => false,
-        'tax_lines' => false,
-        'discount_lines' => false,
-        'metadata' => false,
-        'return_url' => false,
         'charges' => false,
+        'discount_lines' => false,
+        'tax_lines' => false,
         'shipping_contact_id' => true,
         'shipping_contact' => false,
+        'shipping_lines' => false,
         'fiscal_entity_id' => true,
-        'fiscal_entity' => false
+        'fiscal_entity' => false,
+        'return_url' => false,
+        'metadata' => false,
+        'status' => false
     ];
 
     /**
@@ -207,20 +207,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
         'currency' => 'currency',
         'customer_info' => 'customer_info',
         'line_items' => 'line_items',
-        'shipping_lines' => 'shipping_lines',
-        'tax_lines' => 'tax_lines',
-        'discount_lines' => 'discount_lines',
-        'metadata' => 'metadata',
-        'return_url' => 'return_url',
         'charges' => 'charges',
+        'discount_lines' => 'discount_lines',
+        'tax_lines' => 'tax_lines',
         'shipping_contact_id' => 'shipping_contact_id',
         'shipping_contact' => 'shipping_contact',
+        'shipping_lines' => 'shipping_lines',
         'fiscal_entity_id' => 'fiscal_entity_id',
-        'fiscal_entity' => 'fiscal_entity'
+        'fiscal_entity' => 'fiscal_entity',
+        'return_url' => 'return_url',
+        'metadata' => 'metadata',
+        'status' => 'status'
     ];
 
     /**
@@ -229,20 +229,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
         'currency' => 'setCurrency',
         'customer_info' => 'setCustomerInfo',
         'line_items' => 'setLineItems',
-        'shipping_lines' => 'setShippingLines',
-        'tax_lines' => 'setTaxLines',
-        'discount_lines' => 'setDiscountLines',
-        'metadata' => 'setMetadata',
-        'return_url' => 'setReturnUrl',
         'charges' => 'setCharges',
+        'discount_lines' => 'setDiscountLines',
+        'tax_lines' => 'setTaxLines',
         'shipping_contact_id' => 'setShippingContactId',
         'shipping_contact' => 'setShippingContact',
+        'shipping_lines' => 'setShippingLines',
         'fiscal_entity_id' => 'setFiscalEntityId',
-        'fiscal_entity' => 'setFiscalEntity'
+        'fiscal_entity' => 'setFiscalEntity',
+        'return_url' => 'setReturnUrl',
+        'metadata' => 'setMetadata',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -251,20 +251,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
         'currency' => 'getCurrency',
         'customer_info' => 'getCustomerInfo',
         'line_items' => 'getLineItems',
-        'shipping_lines' => 'getShippingLines',
-        'tax_lines' => 'getTaxLines',
-        'discount_lines' => 'getDiscountLines',
-        'metadata' => 'getMetadata',
-        'return_url' => 'getReturnUrl',
         'charges' => 'getCharges',
+        'discount_lines' => 'getDiscountLines',
+        'tax_lines' => 'getTaxLines',
         'shipping_contact_id' => 'getShippingContactId',
         'shipping_contact' => 'getShippingContact',
+        'shipping_lines' => 'getShippingLines',
         'fiscal_entity_id' => 'getFiscalEntityId',
-        'fiscal_entity' => 'getFiscalEntity'
+        'fiscal_entity' => 'getFiscalEntity',
+        'return_url' => 'getReturnUrl',
+        'metadata' => 'getMetadata',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -324,20 +324,20 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('customer_info', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
-        $this->setIfExists('shipping_lines', $data ?? [], null);
-        $this->setIfExists('tax_lines', $data ?? [], null);
-        $this->setIfExists('discount_lines', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('return_url', $data ?? [], null);
         $this->setIfExists('charges', $data ?? [], null);
+        $this->setIfExists('discount_lines', $data ?? [], null);
+        $this->setIfExists('tax_lines', $data ?? [], null);
         $this->setIfExists('shipping_contact_id', $data ?? [], null);
         $this->setIfExists('shipping_contact', $data ?? [], null);
+        $this->setIfExists('shipping_lines', $data ?? [], null);
         $this->setIfExists('fiscal_entity_id', $data ?? [], null);
         $this->setIfExists('fiscal_entity', $data ?? [], null);
+        $this->setIfExists('return_url', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -371,6 +371,10 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'currency', the character length must be smaller than or equal to 3.";
         }
 
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
+        }
+
         return $invalidProperties;
     }
 
@@ -387,33 +391,6 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status Order status update. Allowed values depend on server-side validations.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
      * Gets currency
      *
      * @return string|null
@@ -426,7 +403,7 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets currency
      *
-     * @param string|null $currency Currency used for the order. Uses ISO 4217 (3-letter code). Allowed values depend on server-side validations.
+     * @param string|null $currency Currency code in ISO 4217 (3-letter uppercase).
      *
      * @return self
      */
@@ -447,7 +424,7 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets customer_info
      *
-     * @return \DigitalFemsa\Model\CustomerInfo|null
+     * @return \DigitalFemsa\Model\OrderUpdateRequestCustomerInfo|null
      */
     public function getCustomerInfo()
     {
@@ -457,7 +434,7 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets customer_info
      *
-     * @param \DigitalFemsa\Model\CustomerInfo|null $customer_info customer_info
+     * @param \DigitalFemsa\Model\OrderUpdateRequestCustomerInfo|null $customer_info customer_info
      *
      * @return self
      */
@@ -484,7 +461,7 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets line_items
      *
-     * @param \DigitalFemsa\Model\Product[]|null $line_items List of products sold in the order.
+     * @param \DigitalFemsa\Model\Product[]|null $line_items List of [products](https://developers.femsa.com/v2.1.0/reference/orderscreateproduct) that are sold in the order. You must have at least one product.
      *
      * @return self
      */
@@ -499,28 +476,55 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets shipping_lines
+     * Gets charges
      *
-     * @return \DigitalFemsa\Model\ShippingRequest[]|null
+     * @return \DigitalFemsa\Model\ChargeRequest[]|null
      */
-    public function getShippingLines()
+    public function getCharges()
     {
-        return $this->container['shipping_lines'];
+        return $this->container['charges'];
     }
 
     /**
-     * Sets shipping_lines
+     * Sets charges
      *
-     * @param \DigitalFemsa\Model\ShippingRequest[]|null $shipping_lines List of shipping costs applied to the order.
+     * @param \DigitalFemsa\Model\ChargeRequest[]|null $charges charges
      *
      * @return self
      */
-    public function setShippingLines($shipping_lines)
+    public function setCharges($charges)
     {
-        if (is_null($shipping_lines)) {
-            throw new \InvalidArgumentException('non-nullable shipping_lines cannot be null');
+        if (is_null($charges)) {
+            throw new \InvalidArgumentException('non-nullable charges cannot be null');
         }
-        $this->container['shipping_lines'] = $shipping_lines;
+        $this->container['charges'] = $charges;
+
+        return $this;
+    }
+
+    /**
+     * Gets discount_lines
+     *
+     * @return \DigitalFemsa\Model\OrderDiscountLinesRequest[]|null
+     */
+    public function getDiscountLines()
+    {
+        return $this->container['discount_lines'];
+    }
+
+    /**
+     * Sets discount_lines
+     *
+     * @param \DigitalFemsa\Model\OrderDiscountLinesRequest[]|null $discount_lines List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount.
+     *
+     * @return self
+     */
+    public function setDiscountLines($discount_lines)
+    {
+        if (is_null($discount_lines)) {
+            throw new \InvalidArgumentException('non-nullable discount_lines cannot be null');
+        }
+        $this->container['discount_lines'] = $discount_lines;
 
         return $this;
     }
@@ -553,114 +557,6 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets discount_lines
-     *
-     * @return \DigitalFemsa\Model\OrderDiscountLinesRequest[]|null
-     */
-    public function getDiscountLines()
-    {
-        return $this->container['discount_lines'];
-    }
-
-    /**
-     * Sets discount_lines
-     *
-     * @param \DigitalFemsa\Model\OrderDiscountLinesRequest[]|null $discount_lines List of discounts applied to the order.
-     *
-     * @return self
-     */
-    public function setDiscountLines($discount_lines)
-    {
-        if (is_null($discount_lines)) {
-            throw new \InvalidArgumentException('non-nullable discount_lines cannot be null');
-        }
-        $this->container['discount_lines'] = $discount_lines;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,mixed>|null $metadata Additional information attached to the order.
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets return_url
-     *
-     * @return string|null
-     */
-    public function getReturnUrl()
-    {
-        return $this->container['return_url'];
-    }
-
-    /**
-     * Sets return_url
-     *
-     * @param string|null $return_url URL to redirect the customer after completing the flow (when applicable).
-     *
-     * @return self
-     */
-    public function setReturnUrl($return_url)
-    {
-        if (is_null($return_url)) {
-            throw new \InvalidArgumentException('non-nullable return_url cannot be null');
-        }
-        $this->container['return_url'] = $return_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets charges
-     *
-     * @return \DigitalFemsa\Model\ChargeRequest[]|null
-     */
-    public function getCharges()
-    {
-        return $this->container['charges'];
-    }
-
-    /**
-     * Sets charges
-     *
-     * @param \DigitalFemsa\Model\ChargeRequest[]|null $charges Add new charges to the order. Subject to server-side validations (for example, maximum charges rules).
-     *
-     * @return self
-     */
-    public function setCharges($charges)
-    {
-        if (is_null($charges)) {
-            throw new \InvalidArgumentException('non-nullable charges cannot be null');
-        }
-        $this->container['charges'] = $charges;
-
-        return $this;
-    }
-
-    /**
      * Gets shipping_contact_id
      *
      * @return string|null
@@ -673,7 +569,7 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets shipping_contact_id
      *
-     * @param string|null $shipping_contact_id References an existing customer shipping contact.
+     * @param string|null $shipping_contact_id Existing shipping contact id from the customer to link to this order.
      *
      * @return self
      */
@@ -722,6 +618,33 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets shipping_lines
+     *
+     * @return \DigitalFemsa\Model\ShippingRequest[]|null
+     */
+    public function getShippingLines()
+    {
+        return $this->container['shipping_lines'];
+    }
+
+    /**
+     * Sets shipping_lines
+     *
+     * @param \DigitalFemsa\Model\ShippingRequest[]|null $shipping_lines List of [shipping costs](https://developers.femsa.com/v2.1.0/reference/orderscreateshipping). If the online store offers digital products.
+     *
+     * @return self
+     */
+    public function setShippingLines($shipping_lines)
+    {
+        if (is_null($shipping_lines)) {
+            throw new \InvalidArgumentException('non-nullable shipping_lines cannot be null');
+        }
+        $this->container['shipping_lines'] = $shipping_lines;
+
+        return $this;
+    }
+
+    /**
      * Gets fiscal_entity_id
      *
      * @return string|null
@@ -734,7 +657,7 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets fiscal_entity_id
      *
-     * @param string|null $fiscal_entity_id References an existing customer fiscal entity.
+     * @param string|null $fiscal_entity_id Existing fiscal entity id from the customer to link to this order.
      *
      * @return self
      */
@@ -778,6 +701,91 @@ class OrderUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable fiscal_entity cannot be null');
         }
         $this->container['fiscal_entity'] = $fiscal_entity;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_url
+     *
+     * @return string|null
+     */
+    public function getReturnUrl()
+    {
+        return $this->container['return_url'];
+    }
+
+    /**
+     * Sets return_url
+     *
+     * @param string|null $return_url URL where the customer should be redirected after completing a payment flow (if applicable).
+     *
+     * @return self
+     */
+    public function setReturnUrl($return_url)
+    {
+        if (is_null($return_url)) {
+            throw new \InvalidArgumentException('non-nullable return_url cannot be null');
+        }
+        $this->container['return_url'] = $return_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,mixed>|null $metadata Arbitrary key-value data that you can attach to the order for your internal use. It is not used for payment processing. Keys should be strings; values can be any JSON value.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+
+        if ((count($metadata) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $metadata when calling OrderUpdateRequest., number of items must be less than or equal to 100.');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status Order status update (only allowed transitions will be accepted).
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

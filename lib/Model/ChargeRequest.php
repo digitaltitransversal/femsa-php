@@ -85,7 +85,7 @@ class ChargeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'amount' => false,
         'payment_method' => false,
-        'reference_id' => true
+        'reference_id' => false
     ];
 
     /**
@@ -382,14 +382,7 @@ class ChargeRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReferenceId($reference_id)
     {
         if (is_null($reference_id)) {
-            array_push($this->openAPINullablesSetToNull, 'reference_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reference_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reference_id cannot be null');
         }
         $this->container['reference_id'] = $reference_id;
 

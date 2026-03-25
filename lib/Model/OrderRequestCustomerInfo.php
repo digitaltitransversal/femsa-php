@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerUpdateShippingContacts
+ * OrderRequestCustomerInfo
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \DigitalFemsa\ObjectSerializer;
 
 /**
- * CustomerUpdateShippingContacts Class Doc Comment
+ * OrderRequestCustomerInfo Class Doc Comment
  *
  * @category Class
- * @description [Shipping](https://developers.femsa.com/v2.1.0/reference/createcustomershippingcontacts) details, required in case of sending a shipping. If we do not receive a shipping_contact on the order, the default shipping_contact of the customer will be used.
+ * @description Customer information
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderRequestCustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
       *
       * @var string
       */
-    protected static $openAPIModelName = 'customer_update_shipping_contacts';
+    protected static $openAPIModelName = 'order_request_customer_info';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
+        'customer_id' => 'string',
+        'name' => 'string',
+        'email' => 'string',
         'phone' => 'string',
-        'receiver' => 'string',
-        'between_streets' => 'string',
-        'address' => '\DigitalFemsa\Model\CustomerShippingContactsAddress',
-        'parent_id' => 'string',
-        'default' => 'bool',
-        'deleted' => 'bool'
+        'corporate' => 'bool'
     ];
 
     /**
@@ -76,13 +74,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'customer_id' => null,
+        'name' => null,
+        'email' => 'email',
         'phone' => null,
-        'receiver' => null,
-        'between_streets' => null,
-        'address' => null,
-        'parent_id' => null,
-        'default' => null,
-        'deleted' => null
+        'corporate' => null
     ];
 
     /**
@@ -91,13 +87,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'customer_id' => false,
+        'name' => false,
+        'email' => false,
         'phone' => false,
-        'receiver' => false,
-        'between_streets' => false,
-        'address' => false,
-        'parent_id' => false,
-        'default' => true,
-        'deleted' => true
+        'corporate' => false
     ];
 
     /**
@@ -186,13 +180,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
+        'customer_id' => 'customer_id',
+        'name' => 'name',
+        'email' => 'email',
         'phone' => 'phone',
-        'receiver' => 'receiver',
-        'between_streets' => 'between_streets',
-        'address' => 'address',
-        'parent_id' => 'parent_id',
-        'default' => 'default',
-        'deleted' => 'deleted'
+        'corporate' => 'corporate'
     ];
 
     /**
@@ -201,13 +193,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
+        'customer_id' => 'setCustomerId',
+        'name' => 'setName',
+        'email' => 'setEmail',
         'phone' => 'setPhone',
-        'receiver' => 'setReceiver',
-        'between_streets' => 'setBetweenStreets',
-        'address' => 'setAddress',
-        'parent_id' => 'setParentId',
-        'default' => 'setDefault',
-        'deleted' => 'setDeleted'
+        'corporate' => 'setCorporate'
     ];
 
     /**
@@ -216,13 +206,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
+        'customer_id' => 'getCustomerId',
+        'name' => 'getName',
+        'email' => 'getEmail',
         'phone' => 'getPhone',
-        'receiver' => 'getReceiver',
-        'between_streets' => 'getBetweenStreets',
-        'address' => 'getAddress',
-        'parent_id' => 'getParentId',
-        'default' => 'getDefault',
-        'deleted' => 'getDeleted'
+        'corporate' => 'getCorporate'
     ];
 
     /**
@@ -282,13 +270,11 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('customer_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('receiver', $data ?? [], null);
-        $this->setIfExists('between_streets', $data ?? [], null);
-        $this->setIfExists('address', $data ?? [], null);
-        $this->setIfExists('parent_id', $data ?? [], null);
-        $this->setIfExists('default', $data ?? [], null);
-        $this->setIfExists('deleted', $data ?? [], null);
+        $this->setIfExists('corporate', $data ?? [], null);
     }
 
     /**
@@ -318,6 +304,15 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
+        if ($this->container['customer_id'] === null) {
+            $invalidProperties[] = "'customer_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -334,6 +329,87 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
 
 
     /**
+     * Gets customer_id
+     *
+     * @return string
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param string $customer_id customer_id
+     *
+     * @return self
+     */
+    public function setCustomerId($customer_id)
+    {
+        if (is_null($customer_id)) {
+            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+        }
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
      * Gets phone
      *
      * @return string|null
@@ -346,7 +422,7 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets phone
      *
-     * @param string|null $phone Phone contact
+     * @param string|null $phone phone
      *
      * @return self
      */
@@ -361,177 +437,28 @@ class CustomerUpdateShippingContacts implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets receiver
-     *
-     * @return string|null
-     */
-    public function getReceiver()
-    {
-        return $this->container['receiver'];
-    }
-
-    /**
-     * Sets receiver
-     *
-     * @param string|null $receiver Name of the person who will receive the order
-     *
-     * @return self
-     */
-    public function setReceiver($receiver)
-    {
-        if (is_null($receiver)) {
-            throw new \InvalidArgumentException('non-nullable receiver cannot be null');
-        }
-        $this->container['receiver'] = $receiver;
-
-        return $this;
-    }
-
-    /**
-     * Gets between_streets
-     *
-     * @return string|null
-     */
-    public function getBetweenStreets()
-    {
-        return $this->container['between_streets'];
-    }
-
-    /**
-     * Sets between_streets
-     *
-     * @param string|null $between_streets The street names between which the order will be delivered.
-     *
-     * @return self
-     */
-    public function setBetweenStreets($between_streets)
-    {
-        if (is_null($between_streets)) {
-            throw new \InvalidArgumentException('non-nullable between_streets cannot be null');
-        }
-        $this->container['between_streets'] = $between_streets;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return \DigitalFemsa\Model\CustomerShippingContactsAddress|null
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param \DigitalFemsa\Model\CustomerShippingContactsAddress|null $address address
-     *
-     * @return self
-     */
-    public function setAddress($address)
-    {
-        if (is_null($address)) {
-            throw new \InvalidArgumentException('non-nullable address cannot be null');
-        }
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets parent_id
-     *
-     * @return string|null
-     */
-    public function getParentId()
-    {
-        return $this->container['parent_id'];
-    }
-
-    /**
-     * Sets parent_id
-     *
-     * @param string|null $parent_id parent_id
-     *
-     * @return self
-     */
-    public function setParentId($parent_id)
-    {
-        if (is_null($parent_id)) {
-            throw new \InvalidArgumentException('non-nullable parent_id cannot be null');
-        }
-        $this->container['parent_id'] = $parent_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets default
+     * Gets corporate
      *
      * @return bool|null
      */
-    public function getDefault()
+    public function getCorporate()
     {
-        return $this->container['default'];
+        return $this->container['corporate'];
     }
 
     /**
-     * Sets default
+     * Sets corporate
      *
-     * @param bool|null $default default
+     * @param bool|null $corporate corporate
      *
      * @return self
      */
-    public function setDefault($default)
+    public function setCorporate($corporate)
     {
-        if (is_null($default)) {
-            array_push($this->openAPINullablesSetToNull, 'default');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('default', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($corporate)) {
+            throw new \InvalidArgumentException('non-nullable corporate cannot be null');
         }
-        $this->container['default'] = $default;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return bool|null
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool|null $deleted deleted
-     *
-     * @return self
-     */
-    public function setDeleted($deleted)
-    {
-        if (is_null($deleted)) {
-            array_push($this->openAPINullablesSetToNull, 'deleted');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deleted', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deleted'] = $deleted;
+        $this->container['corporate'] = $corporate;
 
         return $this;
     }

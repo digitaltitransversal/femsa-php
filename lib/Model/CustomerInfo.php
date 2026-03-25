@@ -62,8 +62,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'email' => 'string',
         'phone' => 'string',
-        'corporate' => 'bool',
-        'object' => 'string'
+        'corporate' => 'bool'
     ];
 
     /**
@@ -78,8 +77,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'email' => 'email',
         'phone' => null,
-        'corporate' => null,
-        'object' => null
+        'corporate' => null
     ];
 
     /**
@@ -92,8 +90,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'email' => false,
         'phone' => false,
-        'corporate' => false,
-        'object' => false
+        'corporate' => false
     ];
 
     /**
@@ -186,8 +183,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'email' => 'email',
         'phone' => 'phone',
-        'corporate' => 'corporate',
-        'object' => 'object'
+        'corporate' => 'corporate'
     ];
 
     /**
@@ -200,8 +196,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
-        'corporate' => 'setCorporate',
-        'object' => 'setObject'
+        'corporate' => 'setCorporate'
     ];
 
     /**
@@ -214,8 +209,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
-        'corporate' => 'getCorporate',
-        'object' => 'getObject'
+        'corporate' => 'getCorporate'
     ];
 
     /**
@@ -280,7 +274,6 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('corporate', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
     }
 
     /**
@@ -315,9 +308,6 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
-        }
-        if ($this->container['phone'] === null) {
-            $invalidProperties[] = "'phone' can't be null";
         }
         return $invalidProperties;
     }
@@ -418,7 +408,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone
      *
-     * @return string
+     * @return string|null
      */
     public function getPhone()
     {
@@ -428,7 +418,7 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string|null $phone phone
      *
      * @return self
      */
@@ -465,33 +455,6 @@ class CustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable corporate cannot be null');
         }
         $this->container['corporate'] = $corporate;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object object
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
 
         return $this;
     }

@@ -626,7 +626,7 @@ class ShippingContactsApi
     /**
      * Operation deleteCustomerShippingContacts
      *
-     * Delete shipping contact
+     * Delete shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -647,7 +647,7 @@ class ShippingContactsApi
     /**
      * Operation deleteCustomerShippingContactsWithHttpInfo
      *
-     * Delete shipping contact
+     * Delete shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -914,7 +914,7 @@ class ShippingContactsApi
     /**
      * Operation deleteCustomerShippingContactsAsync
      *
-     * Delete shipping contact
+     * Delete shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -938,7 +938,7 @@ class ShippingContactsApi
     /**
      * Operation deleteCustomerShippingContactsAsyncWithHttpInfo
      *
-     * Delete shipping contact
+     * Delete shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -1121,7 +1121,7 @@ class ShippingContactsApi
     /**
      * Operation updateCustomerShippingContacts
      *
-     * Update shipping contact
+     * Update shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -1143,7 +1143,7 @@ class ShippingContactsApi
     /**
      * Operation updateCustomerShippingContactsWithHttpInfo
      *
-     * Update shipping contact
+     * Update shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -1411,7 +1411,7 @@ class ShippingContactsApi
     /**
      * Operation updateCustomerShippingContactsAsync
      *
-     * Update shipping contact
+     * Update shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
@@ -1436,7 +1436,7 @@ class ShippingContactsApi
     /**
      * Operation updateCustomerShippingContactsAsyncWithHttpInfo
      *
-     * Update shipping contact
+     * Update shipping contacts
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)

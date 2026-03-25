@@ -278,34 +278,6 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_API_KEY = 'api_key';
-    public const ROLE__PRIVATE = 'private';
-    public const ROLE__PUBLIC = 'public';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_API_KEY,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRoleAllowableValues()
-    {
-        return [
-            self::ROLE__PRIVATE,
-            self::ROLE__PUBLIC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -360,51 +332,6 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['prefix'] === null) {
-            $invalidProperties[] = "'prefix' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['deleted'] === null) {
-            $invalidProperties[] = "'deleted' can't be null";
-        }
-        if ($this->container['role'] === null) {
-            $invalidProperties[] = "'role' can't be null";
-        }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'role', must be one of '%s'",
-                $this->container['role'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -423,7 +350,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets active
      *
-     * @return bool
+     * @return bool|null
      */
     public function getActive()
     {
@@ -433,7 +360,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets active
      *
-     * @param bool $active Indicates if the api key is active
+     * @param bool|null $active Indicates if the api key is active
      *
      * @return self
      */
@@ -450,7 +377,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -460,7 +387,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets created_at
      *
-     * @param int $created_at Unix timestamp in seconds of when the api key was created
+     * @param int|null $created_at Unix timestamp in seconds of when the api key was created
      *
      * @return self
      */
@@ -477,7 +404,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -487,7 +414,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets description
      *
-     * @param string $description A name or brief explanation of what this api key is used for
+     * @param string|null $description A name or brief explanation of what this api key is used for
      *
      * @return self
      */
@@ -504,7 +431,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets livemode
      *
-     * @return bool
+     * @return bool|null
      */
     public function getLivemode()
     {
@@ -514,7 +441,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets livemode
      *
-     * @param bool $livemode Indicates if the api key is in production
+     * @param bool|null $livemode Indicates if the api key is in production
      *
      * @return self
      */
@@ -531,7 +458,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets prefix
      *
-     * @return string
+     * @return string|null
      */
     public function getPrefix()
     {
@@ -541,7 +468,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets prefix
      *
-     * @param string $prefix The first few characters of the authentication_token
+     * @param string|null $prefix The first few characters of the authentication_token
      *
      * @return self
      */
@@ -558,7 +485,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -568,7 +495,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param string $id Unique identifier of the api key
+     * @param string|null $id Unique identifier of the api key
      *
      * @return self
      */
@@ -585,7 +512,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -595,7 +522,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets object
      *
-     * @param string $object Object name, value is 'api_key'
+     * @param string|null $object Object name, value is 'api_key'
      *
      * @return self
      */
@@ -603,16 +530,6 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['object'] = $object;
 
@@ -622,7 +539,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets deleted
      *
-     * @return bool
+     * @return bool|null
      */
     public function getDeleted()
     {
@@ -632,7 +549,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets deleted
      *
-     * @param bool $deleted Indicates if the api key was deleted
+     * @param bool|null $deleted Indicates if the api key was deleted
      *
      * @return self
      */
@@ -649,7 +566,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets role
      *
-     * @return string
+     * @return string|null
      */
     public function getRole()
     {
@@ -659,7 +576,7 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets role
      *
-     * @param string $role Indicates if the api key is private or public
+     * @param string|null $role Indicates if the api key is private or public
      *
      * @return self
      */
@@ -667,16 +584,6 @@ class ApiKeyResponseOnDelete implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($role)) {
             throw new \InvalidArgumentException('non-nullable role cannot be null');
-        }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'role', must be one of '%s'",
-                    $role,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['role'] = $role;
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerPaymentSourcesInner
+ * CustomerInfoJustCustomerId
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \DigitalFemsa\ObjectSerializer;
 
 /**
- * CustomerPaymentSourcesInner Class Doc Comment
+ * CustomerInfoJustCustomerId Class Doc Comment
  *
  * @category Class
  * @package  DigitalFemsa
@@ -41,7 +41,7 @@ use \DigitalFemsa\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class CustomerInfoJustCustomerId implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'customer_payment_sources_inner';
+    protected static $openAPIModelName = 'customer_info_just_customer_id';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'expires_at' => 'int'
+        'customer_id' => 'string'
     ];
 
     /**
@@ -70,8 +69,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'expires_at' => 'int64'
+        'customer_id' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'expires_at' => true
+        'customer_id' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'expires_at' => 'expires_at'
+        'customer_id' => 'customer_id'
     ];
 
     /**
@@ -180,8 +176,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'expires_at' => 'setExpiresAt'
+        'customer_id' => 'setCustomerId'
     ];
 
     /**
@@ -190,8 +185,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'expires_at' => 'getExpiresAt'
+        'customer_id' => 'getCustomerId'
     ];
 
     /**
@@ -251,8 +245,7 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('customer_id', $data ?? [], null);
     }
 
     /**
@@ -282,8 +275,8 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['customer_id'] === null) {
+            $invalidProperties[] = "'customer_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,62 +294,28 @@ class CustomerPaymentSourcesInner implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets type
+     * Gets customer_id
      *
      * @return string
      */
-    public function getType()
+    public function getCustomerId()
     {
-        return $this->container['type'];
+        return $this->container['customer_id'];
     }
 
     /**
-     * Sets type
+     * Sets customer_id
      *
-     * @param string $type Type of payment method.
+     * @param string $customer_id customer_id
      *
      * @return self
      */
-    public function setType($type)
+    public function setCustomerId($customer_id)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($customer_id)) {
+            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_at
-     *
-     * @return int|null
-     */
-    public function getExpiresAt()
-    {
-        return $this->container['expires_at'];
-    }
-
-    /**
-     * Sets expires_at
-     *
-     * @param int|null $expires_at Expiration date as unix timestamp (seconds).
-     *
-     * @return self
-     */
-    public function setExpiresAt($expires_at)
-    {
-        if (is_null($expires_at)) {
-            array_push($this->openAPINullablesSetToNull, 'expires_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['expires_at'] = $expires_at;
+        $this->container['customer_id'] = $customer_id;
 
         return $this;
     }

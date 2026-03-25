@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * ApiKeyResponse Class Doc Comment
  *
  * @category Class
- * @description API keys model
+ * @description api keys model
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,17 +59,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'object' => 'string',
         'active' => 'bool',
-        'livemode' => 'bool',
-        'role' => 'string',
-        'description' => 'string',
-        'prefix' => 'string',
         'created_at' => 'int',
         'updated_at' => 'int',
         'deactivated_at' => 'int',
-        'deleted' => 'bool'
+        'description' => 'string',
+        'id' => 'string',
+        'livemode' => 'bool',
+        'deleted' => 'bool',
+        'object' => 'string',
+        'prefix' => 'string',
+        'role' => 'string'
     ];
 
     /**
@@ -80,17 +80,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'object' => null,
         'active' => null,
-        'livemode' => null,
-        'role' => null,
-        'description' => null,
-        'prefix' => null,
         'created_at' => 'int64',
         'updated_at' => 'int64',
         'deactivated_at' => 'int64',
-        'deleted' => null
+        'description' => null,
+        'id' => null,
+        'livemode' => null,
+        'deleted' => null,
+        'object' => null,
+        'prefix' => null,
+        'role' => null
     ];
 
     /**
@@ -99,17 +99,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'object' => false,
         'active' => false,
-        'livemode' => false,
-        'role' => false,
-        'description' => true,
-        'prefix' => false,
         'created_at' => false,
         'updated_at' => false,
         'deactivated_at' => true,
-        'deleted' => false
+        'description' => false,
+        'id' => false,
+        'livemode' => false,
+        'deleted' => false,
+        'object' => false,
+        'prefix' => false,
+        'role' => false
     ];
 
     /**
@@ -198,17 +198,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'object' => 'object',
         'active' => 'active',
-        'livemode' => 'livemode',
-        'role' => 'role',
-        'description' => 'description',
-        'prefix' => 'prefix',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'deactivated_at' => 'deactivated_at',
-        'deleted' => 'deleted'
+        'description' => 'description',
+        'id' => 'id',
+        'livemode' => 'livemode',
+        'deleted' => 'deleted',
+        'object' => 'object',
+        'prefix' => 'prefix',
+        'role' => 'role'
     ];
 
     /**
@@ -217,17 +217,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'object' => 'setObject',
         'active' => 'setActive',
-        'livemode' => 'setLivemode',
-        'role' => 'setRole',
-        'description' => 'setDescription',
-        'prefix' => 'setPrefix',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'deactivated_at' => 'setDeactivatedAt',
-        'deleted' => 'setDeleted'
+        'description' => 'setDescription',
+        'id' => 'setId',
+        'livemode' => 'setLivemode',
+        'deleted' => 'setDeleted',
+        'object' => 'setObject',
+        'prefix' => 'setPrefix',
+        'role' => 'setRole'
     ];
 
     /**
@@ -236,17 +236,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'object' => 'getObject',
         'active' => 'getActive',
-        'livemode' => 'getLivemode',
-        'role' => 'getRole',
-        'description' => 'getDescription',
-        'prefix' => 'getPrefix',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'deactivated_at' => 'getDeactivatedAt',
-        'deleted' => 'getDeleted'
+        'description' => 'getDescription',
+        'id' => 'getId',
+        'livemode' => 'getLivemode',
+        'deleted' => 'getDeleted',
+        'object' => 'getObject',
+        'prefix' => 'getPrefix',
+        'role' => 'getRole'
     ];
 
     /**
@@ -290,34 +290,6 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_API_KEY = 'api_key';
-    public const ROLE__PRIVATE = 'private';
-    public const ROLE__PUBLIC = 'public';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_API_KEY,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRoleAllowableValues()
-    {
-        return [
-            self::ROLE__PRIVATE,
-            self::ROLE__PUBLIC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -334,17 +306,17 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('role', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('prefix', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('deactivated_at', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('deleted', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('prefix', $data ?? [], null);
+        $this->setIfExists('role', $data ?? [], null);
     }
 
     /**
@@ -374,48 +346,6 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['role'] === null) {
-            $invalidProperties[] = "'role' can't be null";
-        }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'role', must be one of '%s'",
-                $this->container['role'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['prefix'] === null) {
-            $invalidProperties[] = "'prefix' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -432,73 +362,9 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Unique identifier of the API key
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object Object name, value is 'api_key'
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
      * Gets active
      *
-     * @return bool
+     * @return bool|null
      */
     public function getActive()
     {
@@ -508,7 +374,7 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets active
      *
-     * @param bool $active Indicates if the API key is active
+     * @param bool|null $active Indicates if the api key is active
      *
      * @return self
      */
@@ -523,134 +389,9 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets livemode
-     *
-     * @return bool
-     */
-    public function getLivemode()
-    {
-        return $this->container['livemode'];
-    }
-
-    /**
-     * Sets livemode
-     *
-     * @param bool $livemode Indicates if the API key is in production
-     *
-     * @return self
-     */
-    public function setLivemode($livemode)
-    {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
-        }
-        $this->container['livemode'] = $livemode;
-
-        return $this;
-    }
-
-    /**
-     * Gets role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->container['role'];
-    }
-
-    /**
-     * Sets role
-     *
-     * @param string $role Indicates if the API key is private or public
-     *
-     * @return self
-     */
-    public function setRole($role)
-    {
-        if (is_null($role)) {
-            throw new \InvalidArgumentException('non-nullable role cannot be null');
-        }
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'role', must be one of '%s'",
-                    $role,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['role'] = $role;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description A name or brief explanation of what this API key is used for
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets prefix
-     *
-     * @return string
-     */
-    public function getPrefix()
-    {
-        return $this->container['prefix'];
-    }
-
-    /**
-     * Sets prefix
-     *
-     * @param string $prefix The first few characters of the authentication_token
-     *
-     * @return self
-     */
-    public function setPrefix($prefix)
-    {
-        if (is_null($prefix)) {
-            throw new \InvalidArgumentException('non-nullable prefix cannot be null');
-        }
-        $this->container['prefix'] = $prefix;
-
-        return $this;
-    }
-
-    /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -660,7 +401,7 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int $created_at Unix timestamp in seconds of when the API key was created
+     * @param int|null $created_at Unix timestamp in seconds of when the api key was created
      *
      * @return self
      */
@@ -677,7 +418,7 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets updated_at
      *
-     * @return int
+     * @return int|null
      */
     public function getUpdatedAt()
     {
@@ -687,7 +428,7 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param int $updated_at Unix timestamp in seconds of when the API key was last updated
+     * @param int|null $updated_at Unix timestamp in seconds of when the api key was last updated
      *
      * @return self
      */
@@ -714,7 +455,7 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets deactivated_at
      *
-     * @param int|null $deactivated_at Unix timestamp in seconds of when the API key was deactivated
+     * @param int|null $deactivated_at Unix timestamp in seconds of when the api key was deleted
      *
      * @return self
      */
@@ -736,6 +477,87 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description A name or brief explanation of what this api key is used for
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier of the api key
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool|null
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool|null $livemode Indicates if the api key is in production
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
      * Gets deleted
      *
      * @return bool|null
@@ -748,7 +570,7 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets deleted
      *
-     * @param bool|null $deleted Indicates if the API key was deleted
+     * @param bool|null $deleted Indicates if the api key was deleted
      *
      * @return self
      */
@@ -758,6 +580,87 @@ class ApiKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable deleted cannot be null');
         }
         $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object Object name, value is 'api_key'
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix
+     *
+     * @return string|null
+     */
+    public function getPrefix()
+    {
+        return $this->container['prefix'];
+    }
+
+    /**
+     * Sets prefix
+     *
+     * @param string|null $prefix The first few characters of the authentication_token
+     *
+     * @return self
+     */
+    public function setPrefix($prefix)
+    {
+        if (is_null($prefix)) {
+            throw new \InvalidArgumentException('non-nullable prefix cannot be null');
+        }
+        $this->container['prefix'] = $prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets role
+     *
+     * @return string|null
+     */
+    public function getRole()
+    {
+        return $this->container['role'];
+    }
+
+    /**
+     * Sets role
+     *
+     * @param string|null $role Indicates if the api key is private or public
+     *
+     * @return self
+     */
+    public function setRole($role)
+    {
+        if (is_null($role)) {
+            throw new \InvalidArgumentException('non-nullable role cannot be null');
+        }
+        $this->container['role'] = $role;
 
         return $this;
     }

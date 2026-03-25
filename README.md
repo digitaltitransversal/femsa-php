@@ -80,10 +80,10 @@ All URIs are relative to *https://api.digitalfemsa.io*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApiKeysApi* | [**createApiKey**](docs/Api/ApiKeysApi.md#createapikey) | **POST** /api_keys | Create API key
-*ApiKeysApi* | [**deleteApiKey**](docs/Api/ApiKeysApi.md#deleteapikey) | **DELETE** /api_keys/{id} | Delete API key
-*ApiKeysApi* | [**getApiKey**](docs/Api/ApiKeysApi.md#getapikey) | **GET** /api_keys/{id} | Get API key
+*ApiKeysApi* | [**deleteApiKey**](docs/Api/ApiKeysApi.md#deleteapikey) | **DELETE** /api_keys/{id} | Delete Api Key
+*ApiKeysApi* | [**getApiKey**](docs/Api/ApiKeysApi.md#getapikey) | **GET** /api_keys/{id} | Get Api Key
 *ApiKeysApi* | [**getApiKeys**](docs/Api/ApiKeysApi.md#getapikeys) | **GET** /api_keys | List API keys
-*ApiKeysApi* | [**updateApiKey**](docs/Api/ApiKeysApi.md#updateapikey) | **PUT** /api_keys/{id} | Update API key
+*ApiKeysApi* | [**updateApiKey**](docs/Api/ApiKeysApi.md#updateapikey) | **PUT** /api_keys/{id} | Update Api Key
 *BalancesApi* | [**getBalance**](docs/Api/BalancesApi.md#getbalance) | **GET** /balance | Get a company&#39;s balance
 *ChargesApi* | [**getCharges**](docs/Api/ChargesApi.md#getcharges) | **GET** /charges | List charges
 *ChargesApi* | [**ordersCreateCharge**](docs/Api/ChargesApi.md#orderscreatecharge) | **POST** /orders/{id}/charges | Create a charge for an order
@@ -108,15 +108,15 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**getLogById**](docs/Api/LogsApi.md#getlogbyid) | **GET** /logs/{id} | Get Log
 *LogsApi* | [**getLogs**](docs/Api/LogsApi.md#getlogs) | **GET** /logs | Get List Of Logs
 *OrdersApi* | [**cancelOrder**](docs/Api/OrdersApi.md#cancelorder) | **POST** /orders/{id}/cancel | Cancel Order
-*OrdersApi* | [**cancelOrderRefund**](docs/Api/OrdersApi.md#cancelorderrefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund
-*OrdersApi* | [**captureOrder**](docs/Api/OrdersApi.md#captureorder) | **POST** /orders/{id}/capture | Capture Order
 *OrdersApi* | [**createOrder**](docs/Api/OrdersApi.md#createorder) | **POST** /orders | Create order
 *OrdersApi* | [**getOrderById**](docs/Api/OrdersApi.md#getorderbyid) | **GET** /orders/{id} | Get Order
 *OrdersApi* | [**getOrders**](docs/Api/OrdersApi.md#getorders) | **GET** /orders | Get a list of Orders
+*OrdersApi* | [**orderCancelRefund**](docs/Api/OrdersApi.md#ordercancelrefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund
 *OrdersApi* | [**orderRefund**](docs/Api/OrdersApi.md#orderrefund) | **POST** /orders/{id}/refunds | Refund Order
+*OrdersApi* | [**ordersCreateCapture**](docs/Api/OrdersApi.md#orderscreatecapture) | **POST** /orders/{id}/capture | Capture Order
 *OrdersApi* | [**updateOrder**](docs/Api/OrdersApi.md#updateorder) | **PUT** /orders/{id} | Update order
 *PaymentLinkApi* | [**cancelCheckout**](docs/Api/PaymentLinkApi.md#cancelcheckout) | **PUT** /checkouts/{id}/cancel | Cancel Payment Link
-*PaymentLinkApi* | [**createCheckout**](docs/Api/PaymentLinkApi.md#createcheckout) | **POST** /checkouts | Create Unique Payment Link
+*PaymentLinkApi* | [**createCheckout**](docs/Api/PaymentLinkApi.md#createcheckout) | **POST** /checkouts | Create Payment Link
 *PaymentLinkApi* | [**emailCheckout**](docs/Api/PaymentLinkApi.md#emailcheckout) | **POST** /checkouts/{id}/email | Send an email
 *PaymentLinkApi* | [**getCheckout**](docs/Api/PaymentLinkApi.md#getcheckout) | **GET** /checkouts/{id} | Get a payment link by ID
 *PaymentLinkApi* | [**getCheckouts**](docs/Api/PaymentLinkApi.md#getcheckouts) | **GET** /checkouts | Get a list of payment links
@@ -128,8 +128,8 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**ordersDeleteProduct**](docs/Api/ProductsApi.md#ordersdeleteproduct) | **DELETE** /orders/{id}/line_items/{line_item_id} | Delete Product
 *ProductsApi* | [**ordersUpdateProduct**](docs/Api/ProductsApi.md#ordersupdateproduct) | **PUT** /orders/{id}/line_items/{line_item_id} | Update Product
 *ShippingContactsApi* | [**createCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#createcustomershippingcontacts) | **POST** /customers/{id}/shipping_contacts | Create a shipping contact
-*ShippingContactsApi* | [**deleteCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#deletecustomershippingcontacts) | **DELETE** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Delete shipping contact
-*ShippingContactsApi* | [**updateCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#updatecustomershippingcontacts) | **PUT** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Update shipping contact
+*ShippingContactsApi* | [**deleteCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#deletecustomershippingcontacts) | **DELETE** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Delete shipping contacts
+*ShippingContactsApi* | [**updateCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#updatecustomershippingcontacts) | **PUT** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Update shipping contacts
 *ShippingsApi* | [**ordersCreateShipping**](docs/Api/ShippingsApi.md#orderscreateshipping) | **POST** /orders/{id}/shipping_lines | Create Shipping
 *ShippingsApi* | [**ordersDeleteShipping**](docs/Api/ShippingsApi.md#ordersdeleteshipping) | **DELETE** /orders/{id}/shipping_lines/{shipping_id} | Delete Shipping
 *ShippingsApi* | [**ordersUpdateShipping**](docs/Api/ShippingsApi.md#ordersupdateshipping) | **PUT** /orders/{id}/shipping_lines/{shipping_id} | Update Shipping
@@ -145,10 +145,10 @@ Class | Method | HTTP request | Description
 *WebhookKeysApi* | [**getWebhookKey**](docs/Api/WebhookKeysApi.md#getwebhookkey) | **GET** /webhook_keys/{id} | Get webhook key
 *WebhookKeysApi* | [**getWebhookKeys**](docs/Api/WebhookKeysApi.md#getwebhookkeys) | **GET** /webhook_keys | Get List of Webhook Keys
 *WebhookKeysApi* | [**updateWebhookKey**](docs/Api/WebhookKeysApi.md#updatewebhookkey) | **PUT** /webhook_keys/{id} | Update webhook key
-*WebhooksApi* | [**createWebhook**](docs/Api/WebhooksApi.md#createwebhook) | **POST** /webhooks | Create webhook
+*WebhooksApi* | [**createWebhook**](docs/Api/WebhooksApi.md#createwebhook) | **POST** /webhooks | Create Webhook
 *WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete webhook
 *WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /webhooks/{id} | Get webhook
-*WebhooksApi* | [**getWebhooks**](docs/Api/WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get webhooks
+*WebhooksApi* | [**getWebhooks**](docs/Api/WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get List of Webhooks
 *WebhooksApi* | [**testWebhook**](docs/Api/WebhooksApi.md#testwebhook) | **POST** /webhooks/{id}/test | Test webhook
 *WebhooksApi* | [**updateWebhook**](docs/Api/WebhooksApi.md#updatewebhook) | **PUT** /webhooks/{id} | Update webhook
 
@@ -175,6 +175,7 @@ Class | Method | HTTP request | Description
 - [ChargesDataResponse](docs/Model/ChargesDataResponse.md)
 - [Checkout](docs/Model/Checkout.md)
 - [CheckoutOrderTemplate](docs/Model/CheckoutOrderTemplate.md)
+- [CheckoutOrderTemplateCustomerInfo](docs/Model/CheckoutOrderTemplateCustomerInfo.md)
 - [CheckoutRequest](docs/Model/CheckoutRequest.md)
 - [CheckoutResponse](docs/Model/CheckoutResponse.md)
 - [CheckoutsResponse](docs/Model/CheckoutsResponse.md)
@@ -191,12 +192,12 @@ Class | Method | HTTP request | Description
 - [CustomerFiscalEntitiesRequest](docs/Model/CustomerFiscalEntitiesRequest.md)
 - [CustomerFiscalEntitiesResponse](docs/Model/CustomerFiscalEntitiesResponse.md)
 - [CustomerInfo](docs/Model/CustomerInfo.md)
+- [CustomerInfoJustCustomerId](docs/Model/CustomerInfoJustCustomerId.md)
 - [CustomerInfoJustCustomerIdResponse](docs/Model/CustomerInfoJustCustomerIdResponse.md)
 - [CustomerPaymentMethodRequest](docs/Model/CustomerPaymentMethodRequest.md)
 - [CustomerPaymentMethodsData](docs/Model/CustomerPaymentMethodsData.md)
 - [CustomerPaymentMethodsRequest](docs/Model/CustomerPaymentMethodsRequest.md)
 - [CustomerPaymentMethodsResponse](docs/Model/CustomerPaymentMethodsResponse.md)
-- [CustomerPaymentSourcesInner](docs/Model/CustomerPaymentSourcesInner.md)
 - [CustomerResponse](docs/Model/CustomerResponse.md)
 - [CustomerResponseShippingContacts](docs/Model/CustomerResponseShippingContacts.md)
 - [CustomerShippingContacts](docs/Model/CustomerShippingContacts.md)
@@ -236,9 +237,11 @@ Class | Method | HTTP request | Description
 - [OrderCustomerInfoResponse](docs/Model/OrderCustomerInfoResponse.md)
 - [OrderDiscountLinesRequest](docs/Model/OrderDiscountLinesRequest.md)
 - [OrderFiscalEntityAddressResponse](docs/Model/OrderFiscalEntityAddressResponse.md)
+- [OrderFiscalEntityRequest](docs/Model/OrderFiscalEntityRequest.md)
 - [OrderFiscalEntityResponse](docs/Model/OrderFiscalEntityResponse.md)
 - [OrderRefundRequest](docs/Model/OrderRefundRequest.md)
 - [OrderRequest](docs/Model/OrderRequest.md)
+- [OrderRequestCustomerInfo](docs/Model/OrderRequestCustomerInfo.md)
 - [OrderResponse](docs/Model/OrderResponse.md)
 - [OrderResponseChannel](docs/Model/OrderResponseChannel.md)
 - [OrderResponseCharges](docs/Model/OrderResponseCharges.md)
@@ -250,6 +253,7 @@ Class | Method | HTTP request | Description
 - [OrderTaxRequest](docs/Model/OrderTaxRequest.md)
 - [OrderUpdateFiscalEntityRequest](docs/Model/OrderUpdateFiscalEntityRequest.md)
 - [OrderUpdateRequest](docs/Model/OrderUpdateRequest.md)
+- [OrderUpdateRequestCustomerInfo](docs/Model/OrderUpdateRequestCustomerInfo.md)
 - [OrdersResponse](docs/Model/OrdersResponse.md)
 - [Page](docs/Model/Page.md)
 - [Pagination](docs/Model/Pagination.md)
@@ -265,9 +269,9 @@ Class | Method | HTTP request | Description
 - [ShippingRequest](docs/Model/ShippingRequest.md)
 - [TransactionResponse](docs/Model/TransactionResponse.md)
 - [TransferDestinationResponse](docs/Model/TransferDestinationResponse.md)
+- [TransferMethodResponse](docs/Model/TransferMethodResponse.md)
 - [TransferResponse](docs/Model/TransferResponse.md)
 - [TransfersResponse](docs/Model/TransfersResponse.md)
-- [TransfersResponseDestination](docs/Model/TransfersResponseDestination.md)
 - [UpdateCustomer](docs/Model/UpdateCustomer.md)
 - [UpdateCustomerFiscalEntitiesResponse](docs/Model/UpdateCustomerFiscalEntitiesResponse.md)
 - [UpdateCustomerPaymentMethodsResponse](docs/Model/UpdateCustomerPaymentMethodsResponse.md)
@@ -275,8 +279,6 @@ Class | Method | HTTP request | Description
 - [UpdateOrderTaxRequest](docs/Model/UpdateOrderTaxRequest.md)
 - [UpdateOrderTaxResponse](docs/Model/UpdateOrderTaxResponse.md)
 - [UpdatePaymentMethods](docs/Model/UpdatePaymentMethods.md)
-- [UpdatePaymentMethodsAmount](docs/Model/UpdatePaymentMethodsAmount.md)
-- [UpdatePaymentMethodsExpiresAt](docs/Model/UpdatePaymentMethodsExpiresAt.md)
 - [UpdateProduct](docs/Model/UpdateProduct.md)
 - [WebhookKeyCreateResponse](docs/Model/WebhookKeyCreateResponse.md)
 - [WebhookKeyDeleteResponse](docs/Model/WebhookKeyDeleteResponse.md)

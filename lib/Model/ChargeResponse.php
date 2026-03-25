@@ -58,25 +58,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'livemode' => 'bool',
+        'amount' => 'int',
+        'channel' => '\DigitalFemsa\Model\ChargeResponseChannel',
         'created_at' => 'int',
         'currency' => 'string',
+        'customer_id' => 'string',
+        'description' => 'string',
+        'device_fingerprint' => 'string',
         'failure_code' => 'string',
         'failure_message' => 'string',
-        'channel' => '\DigitalFemsa\Model\ChargeResponseChannel',
-        'payment_method' => '\DigitalFemsa\Model\ChargeResponsePaymentMethod',
+        'id' => 'string',
+        'livemode' => 'bool',
         'object' => 'string',
-        'device_fingerprint' => 'string',
-        'description' => 'string',
-        'is_refundable' => 'bool',
-        'reference_id' => 'string',
-        'status' => 'string',
-        'amount' => 'int',
-        'paid_at' => 'int',
-        'customer_id' => 'string',
         'order_id' => 'string',
-        'refunds' => '\DigitalFemsa\Model\ChargeResponseRefunds'
+        'paid_at' => 'int',
+        'payment_method' => '\DigitalFemsa\Model\ChargeResponsePaymentMethod',
+        'reference_id' => 'string',
+        'refunds' => '\DigitalFemsa\Model\ChargeResponseRefunds',
+        'status' => 'string',
+        'is_refundable' => 'bool'
     ];
 
     /**
@@ -87,25 +87,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'livemode' => null,
+        'amount' => 'int64',
+        'channel' => null,
         'created_at' => 'int64',
         'currency' => null,
+        'customer_id' => null,
+        'description' => null,
+        'device_fingerprint' => null,
         'failure_code' => null,
         'failure_message' => null,
-        'channel' => null,
-        'payment_method' => null,
+        'id' => null,
+        'livemode' => null,
         'object' => null,
-        'device_fingerprint' => null,
-        'description' => null,
-        'is_refundable' => null,
-        'reference_id' => null,
-        'status' => null,
-        'amount' => 'int64',
-        'paid_at' => 'int64',
-        'customer_id' => null,
         'order_id' => null,
-        'refunds' => null
+        'paid_at' => 'int64',
+        'payment_method' => null,
+        'reference_id' => null,
+        'refunds' => null,
+        'status' => null,
+        'is_refundable' => null
     ];
 
     /**
@@ -114,25 +114,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'livemode' => false,
+        'amount' => false,
+        'channel' => false,
         'created_at' => false,
         'currency' => false,
+        'customer_id' => false,
+        'description' => false,
+        'device_fingerprint' => false,
         'failure_code' => true,
         'failure_message' => true,
-        'channel' => false,
-        'payment_method' => false,
+        'id' => false,
+        'livemode' => false,
         'object' => false,
-        'device_fingerprint' => false,
-        'description' => false,
-        'is_refundable' => false,
-        'reference_id' => true,
-        'status' => false,
-        'amount' => false,
-        'paid_at' => true,
-        'customer_id' => false,
         'order_id' => false,
-        'refunds' => true
+        'paid_at' => true,
+        'payment_method' => false,
+        'reference_id' => true,
+        'refunds' => true,
+        'status' => false,
+        'is_refundable' => false
     ];
 
     /**
@@ -221,25 +221,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'livemode' => 'livemode',
+        'amount' => 'amount',
+        'channel' => 'channel',
         'created_at' => 'created_at',
         'currency' => 'currency',
+        'customer_id' => 'customer_id',
+        'description' => 'description',
+        'device_fingerprint' => 'device_fingerprint',
         'failure_code' => 'failure_code',
         'failure_message' => 'failure_message',
-        'channel' => 'channel',
-        'payment_method' => 'payment_method',
+        'id' => 'id',
+        'livemode' => 'livemode',
         'object' => 'object',
-        'device_fingerprint' => 'device_fingerprint',
-        'description' => 'description',
-        'is_refundable' => 'is_refundable',
-        'reference_id' => 'reference_id',
-        'status' => 'status',
-        'amount' => 'amount',
-        'paid_at' => 'paid_at',
-        'customer_id' => 'customer_id',
         'order_id' => 'order_id',
-        'refunds' => 'refunds'
+        'paid_at' => 'paid_at',
+        'payment_method' => 'payment_method',
+        'reference_id' => 'reference_id',
+        'refunds' => 'refunds',
+        'status' => 'status',
+        'is_refundable' => 'is_refundable'
     ];
 
     /**
@@ -248,25 +248,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'livemode' => 'setLivemode',
+        'amount' => 'setAmount',
+        'channel' => 'setChannel',
         'created_at' => 'setCreatedAt',
         'currency' => 'setCurrency',
+        'customer_id' => 'setCustomerId',
+        'description' => 'setDescription',
+        'device_fingerprint' => 'setDeviceFingerprint',
         'failure_code' => 'setFailureCode',
         'failure_message' => 'setFailureMessage',
-        'channel' => 'setChannel',
-        'payment_method' => 'setPaymentMethod',
+        'id' => 'setId',
+        'livemode' => 'setLivemode',
         'object' => 'setObject',
-        'device_fingerprint' => 'setDeviceFingerprint',
-        'description' => 'setDescription',
-        'is_refundable' => 'setIsRefundable',
-        'reference_id' => 'setReferenceId',
-        'status' => 'setStatus',
-        'amount' => 'setAmount',
-        'paid_at' => 'setPaidAt',
-        'customer_id' => 'setCustomerId',
         'order_id' => 'setOrderId',
-        'refunds' => 'setRefunds'
+        'paid_at' => 'setPaidAt',
+        'payment_method' => 'setPaymentMethod',
+        'reference_id' => 'setReferenceId',
+        'refunds' => 'setRefunds',
+        'status' => 'setStatus',
+        'is_refundable' => 'setIsRefundable'
     ];
 
     /**
@@ -275,25 +275,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'livemode' => 'getLivemode',
+        'amount' => 'getAmount',
+        'channel' => 'getChannel',
         'created_at' => 'getCreatedAt',
         'currency' => 'getCurrency',
+        'customer_id' => 'getCustomerId',
+        'description' => 'getDescription',
+        'device_fingerprint' => 'getDeviceFingerprint',
         'failure_code' => 'getFailureCode',
         'failure_message' => 'getFailureMessage',
-        'channel' => 'getChannel',
-        'payment_method' => 'getPaymentMethod',
+        'id' => 'getId',
+        'livemode' => 'getLivemode',
         'object' => 'getObject',
-        'device_fingerprint' => 'getDeviceFingerprint',
-        'description' => 'getDescription',
-        'is_refundable' => 'getIsRefundable',
-        'reference_id' => 'getReferenceId',
-        'status' => 'getStatus',
-        'amount' => 'getAmount',
-        'paid_at' => 'getPaidAt',
-        'customer_id' => 'getCustomerId',
         'order_id' => 'getOrderId',
-        'refunds' => 'getRefunds'
+        'paid_at' => 'getPaidAt',
+        'payment_method' => 'getPaymentMethod',
+        'reference_id' => 'getReferenceId',
+        'refunds' => 'getRefunds',
+        'status' => 'getStatus',
+        'is_refundable' => 'getIsRefundable'
     ];
 
     /**
@@ -337,19 +337,6 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_CHARGE = 'charge';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_CHARGE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -366,25 +353,25 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('customer_id', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('device_fingerprint', $data ?? [], null);
         $this->setIfExists('failure_code', $data ?? [], null);
         $this->setIfExists('failure_message', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], null);
-        $this->setIfExists('payment_method', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('device_fingerprint', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('is_refundable', $data ?? [], null);
-        $this->setIfExists('reference_id', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('paid_at', $data ?? [], null);
-        $this->setIfExists('customer_id', $data ?? [], null);
         $this->setIfExists('order_id', $data ?? [], null);
+        $this->setIfExists('paid_at', $data ?? [], null);
+        $this->setIfExists('payment_method', $data ?? [], null);
+        $this->setIfExists('reference_id', $data ?? [], null);
         $this->setIfExists('refunds', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('is_refundable', $data ?? [], null);
     }
 
     /**
@@ -414,39 +401,6 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ($this->container['payment_method'] === null) {
-            $invalidProperties[] = "'payment_method' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -463,55 +417,55 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets amount
      *
-     * @return string
+     * @return int|null
      */
-    public function getId()
+    public function getAmount()
     {
-        return $this->container['id'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets id
+     * Sets amount
      *
-     * @param string $id id
+     * @param int|null $amount amount
      *
      * @return self
      */
-    public function setId($id)
+    public function setAmount($amount)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets livemode
+     * Gets channel
      *
-     * @return bool
+     * @return \DigitalFemsa\Model\ChargeResponseChannel|null
      */
-    public function getLivemode()
+    public function getChannel()
     {
-        return $this->container['livemode'];
+        return $this->container['channel'];
     }
 
     /**
-     * Sets livemode
+     * Sets channel
      *
-     * @param bool $livemode livemode
+     * @param \DigitalFemsa\Model\ChargeResponseChannel|null $channel channel
      *
      * @return self
      */
-    public function setLivemode($livemode)
+    public function setChannel($channel)
     {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
         }
-        $this->container['livemode'] = $livemode;
+        $this->container['channel'] = $channel;
 
         return $this;
     }
@@ -519,7 +473,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -529,7 +483,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int $created_at created_at
+     * @param int|null $created_at created_at
      *
      * @return self
      */
@@ -546,7 +500,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets currency
      *
-     * @return string
+     * @return string|null
      */
     public function getCurrency()
     {
@@ -556,7 +510,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param string $currency currency
+     * @param string|null $currency currency
      *
      * @return self
      */
@@ -566,6 +520,87 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_id
+     *
+     * @return string|null
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param string|null $customer_id customer_id
+     *
+     * @return self
+     */
+    public function setCustomerId($customer_id)
+    {
+        if (is_null($customer_id)) {
+            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+        }
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets device_fingerprint
+     *
+     * @return string|null
+     */
+    public function getDeviceFingerprint()
+    {
+        return $this->container['device_fingerprint'];
+    }
+
+    /**
+     * Sets device_fingerprint
+     *
+     * @param string|null $device_fingerprint device_fingerprint
+     *
+     * @return self
+     */
+    public function setDeviceFingerprint($device_fingerprint)
+    {
+        if (is_null($device_fingerprint)) {
+            throw new \InvalidArgumentException('non-nullable device_fingerprint cannot be null');
+        }
+        $this->container['device_fingerprint'] = $device_fingerprint;
 
         return $this;
     }
@@ -639,55 +674,55 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets channel
+     * Gets id
      *
-     * @return \DigitalFemsa\Model\ChargeResponseChannel|null
+     * @return string|null
      */
-    public function getChannel()
+    public function getId()
     {
-        return $this->container['channel'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets channel
+     * Sets id
      *
-     * @param \DigitalFemsa\Model\ChargeResponseChannel|null $channel channel
+     * @param string|null $id id
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setId($id)
     {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['channel'] = $channel;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets payment_method
+     * Gets livemode
      *
-     * @return \DigitalFemsa\Model\ChargeResponsePaymentMethod
+     * @return bool|null
      */
-    public function getPaymentMethod()
+    public function getLivemode()
     {
-        return $this->container['payment_method'];
+        return $this->container['livemode'];
     }
 
     /**
-     * Sets payment_method
+     * Sets livemode
      *
-     * @param \DigitalFemsa\Model\ChargeResponsePaymentMethod $payment_method payment_method
+     * @param bool|null $livemode livemode
      *
      * @return self
      */
-    public function setPaymentMethod($payment_method)
+    public function setLivemode($livemode)
     {
-        if (is_null($payment_method)) {
-            throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
         }
-        $this->container['payment_method'] = $payment_method;
+        $this->container['livemode'] = $livemode;
 
         return $this;
     }
@@ -695,7 +730,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -705,7 +740,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object object
      *
      * @return self
      */
@@ -714,186 +749,34 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['object'] = $object;
 
         return $this;
     }
 
     /**
-     * Gets device_fingerprint
+     * Gets order_id
      *
      * @return string|null
      */
-    public function getDeviceFingerprint()
+    public function getOrderId()
     {
-        return $this->container['device_fingerprint'];
+        return $this->container['order_id'];
     }
 
     /**
-     * Sets device_fingerprint
+     * Sets order_id
      *
-     * @param string|null $device_fingerprint device_fingerprint
+     * @param string|null $order_id order_id
      *
      * @return self
      */
-    public function setDeviceFingerprint($device_fingerprint)
+    public function setOrderId($order_id)
     {
-        if (is_null($device_fingerprint)) {
-            throw new \InvalidArgumentException('non-nullable device_fingerprint cannot be null');
+        if (is_null($order_id)) {
+            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
         }
-        $this->container['device_fingerprint'] = $device_fingerprint;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_refundable
-     *
-     * @return bool|null
-     */
-    public function getIsRefundable()
-    {
-        return $this->container['is_refundable'];
-    }
-
-    /**
-     * Sets is_refundable
-     *
-     * @param bool|null $is_refundable is_refundable
-     *
-     * @return self
-     */
-    public function setIsRefundable($is_refundable)
-    {
-        if (is_null($is_refundable)) {
-            throw new \InvalidArgumentException('non-nullable is_refundable cannot be null');
-        }
-        $this->container['is_refundable'] = $is_refundable;
-
-        return $this;
-    }
-
-    /**
-     * Gets reference_id
-     *
-     * @return string|null
-     */
-    public function getReferenceId()
-    {
-        return $this->container['reference_id'];
-    }
-
-    /**
-     * Sets reference_id
-     *
-     * @param string|null $reference_id reference_id
-     *
-     * @return self
-     */
-    public function setReferenceId($reference_id)
-    {
-        if (is_null($reference_id)) {
-            array_push($this->openAPINullablesSetToNull, 'reference_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reference_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['reference_id'] = $reference_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return int
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param int $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
@@ -933,55 +816,62 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets customer_id
+     * Gets payment_method
      *
-     * @return string|null
+     * @return \DigitalFemsa\Model\ChargeResponsePaymentMethod|null
      */
-    public function getCustomerId()
+    public function getPaymentMethod()
     {
-        return $this->container['customer_id'];
+        return $this->container['payment_method'];
     }
 
     /**
-     * Sets customer_id
+     * Sets payment_method
      *
-     * @param string|null $customer_id customer_id
+     * @param \DigitalFemsa\Model\ChargeResponsePaymentMethod|null $payment_method payment_method
      *
      * @return self
      */
-    public function setCustomerId($customer_id)
+    public function setPaymentMethod($payment_method)
     {
-        if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+        if (is_null($payment_method)) {
+            throw new \InvalidArgumentException('non-nullable payment_method cannot be null');
         }
-        $this->container['customer_id'] = $customer_id;
+        $this->container['payment_method'] = $payment_method;
 
         return $this;
     }
 
     /**
-     * Gets order_id
+     * Gets reference_id
      *
      * @return string|null
      */
-    public function getOrderId()
+    public function getReferenceId()
     {
-        return $this->container['order_id'];
+        return $this->container['reference_id'];
     }
 
     /**
-     * Sets order_id
+     * Sets reference_id
      *
-     * @param string|null $order_id order_id
+     * @param string|null $reference_id Reference ID of the charge
      *
      * @return self
      */
-    public function setOrderId($order_id)
+    public function setReferenceId($reference_id)
     {
-        if (is_null($order_id)) {
-            throw new \InvalidArgumentException('non-nullable order_id cannot be null');
+        if (is_null($reference_id)) {
+            array_push($this->openAPINullablesSetToNull, 'reference_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reference_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['order_id'] = $order_id;
+        $this->container['reference_id'] = $reference_id;
 
         return $this;
     }
@@ -1016,6 +906,60 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['refunds'] = $refunds;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_refundable
+     *
+     * @return bool|null
+     */
+    public function getIsRefundable()
+    {
+        return $this->container['is_refundable'];
+    }
+
+    /**
+     * Sets is_refundable
+     *
+     * @param bool|null $is_refundable is_refundable
+     *
+     * @return self
+     */
+    public function setIsRefundable($is_refundable)
+    {
+        if (is_null($is_refundable)) {
+            throw new \InvalidArgumentException('non-nullable is_refundable cannot be null');
+        }
+        $this->container['is_refundable'] = $is_refundable;
 
         return $this;
     }

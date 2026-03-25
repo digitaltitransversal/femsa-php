@@ -5,10 +5,10 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createApiKey()**](ApiKeysApi.md#createApiKey) | **POST** /api_keys | Create API key |
-| [**deleteApiKey()**](ApiKeysApi.md#deleteApiKey) | **DELETE** /api_keys/{id} | Delete API key |
-| [**getApiKey()**](ApiKeysApi.md#getApiKey) | **GET** /api_keys/{id} | Get API key |
+| [**deleteApiKey()**](ApiKeysApi.md#deleteApiKey) | **DELETE** /api_keys/{id} | Delete Api Key |
+| [**getApiKey()**](ApiKeysApi.md#getApiKey) | **GET** /api_keys/{id} | Get Api Key |
 | [**getApiKeys()**](ApiKeysApi.md#getApiKeys) | **GET** /api_keys | List API keys |
-| [**updateApiKey()**](ApiKeysApi.md#updateApiKey) | **PUT** /api_keys/{id} | Update API key |
+| [**updateApiKey()**](ApiKeysApi.md#updateApiKey) | **PUT** /api_keys/{id} | Update Api Key |
 
 
 ## `createApiKey()`
@@ -81,9 +81,9 @@ try {
 deleteApiKey($id, $accept_language): \DigitalFemsa\Model\DeleteApiKeysResponse
 ```
 
-Delete API key
+Delete Api Key
 
-Deletes an API key by its ID.
+Deletes a api key that corresponds to a api key ID
 
 ### Example
 
@@ -143,9 +143,9 @@ try {
 getApiKey($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\ApiKeyResponse
 ```
 
-Get API key
+Get Api Key
 
-Retrieves the details of an API key by its ID.
+Gets a api key that corresponds to a api key ID
 
 ### Example
 
@@ -233,7 +233,7 @@ $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a hol
 $limit = 20; // int | The numbers of items to return, the maximum value is 250
 $next = 'next_example'; // string | next page
 $previous = 'previous_example'; // string | previous page
-$search = 'search_example'; // string | General search, e.g. by id or description
+$search = 'search_example'; // string | General search, e.g. by id, description, prefix
 
 try {
     $result = $apiInstance->getApiKeys($accept_language, $x_child_company_id, $limit, $next, $previous, $search);
@@ -252,7 +252,7 @@ try {
 | **limit** | **int**| The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
 | **next** | **string**| next page | [optional] |
 | **previous** | **string**| previous page | [optional] |
-| **search** | **string**| General search, e.g. by id or description | [optional] |
+| **search** | **string**| General search, e.g. by id, description, prefix | [optional] |
 
 ### Return type
 
@@ -277,9 +277,9 @@ try {
 updateApiKey($id, $accept_language, $api_key_update_request): \DigitalFemsa\Model\ApiKeyResponse
 ```
 
-Update API key
+Update Api Key
 
-Updates an existing API key by its ID.  Use this endpoint to change the key's status (active/inactive) or update its description.
+Update an existing api key
 
 ### Example
 

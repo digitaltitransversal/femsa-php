@@ -141,40 +141,38 @@ class WebhooksApi
     /**
      * Operation createWebhook
      *
-     * Create webhook
+     * Create Webhook
      *
      * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function createWebhook($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhook($webhook_request, $accept_language = 'es', string $contentType = self::contentTypes['createWebhook'][0])
     {
-        list($response) = $this->createWebhookWithHttpInfo($webhook_request, $accept_language, $x_child_company_id, $contentType);
+        list($response) = $this->createWebhookWithHttpInfo($webhook_request, $accept_language, $contentType);
         return $response;
     }
 
     /**
      * Operation createWebhookWithHttpInfo
      *
-     * Create webhook
+     * Create Webhook
      *
      * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\WebhookResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWebhookWithHttpInfo($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookWithHttpInfo($webhook_request, $accept_language = 'es', string $contentType = self::contentTypes['createWebhook'][0])
     {
-        $request = $this->createWebhookRequest($webhook_request, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->createWebhookRequest($webhook_request, $accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -357,19 +355,18 @@ class WebhooksApi
     /**
      * Operation createWebhookAsync
      *
-     * Create webhook
+     * Create Webhook
      *
      * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookAsync($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookAsync($webhook_request, $accept_language = 'es', string $contentType = self::contentTypes['createWebhook'][0])
     {
-        return $this->createWebhookAsyncWithHttpInfo($webhook_request, $accept_language, $x_child_company_id, $contentType)
+        return $this->createWebhookAsyncWithHttpInfo($webhook_request, $accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -380,20 +377,19 @@ class WebhooksApi
     /**
      * Operation createWebhookAsyncWithHttpInfo
      *
-     * Create webhook
+     * Create Webhook
      *
      * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookAsyncWithHttpInfo($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookAsyncWithHttpInfo($webhook_request, $accept_language = 'es', string $contentType = self::contentTypes['createWebhook'][0])
     {
         $returnType = '\DigitalFemsa\Model\WebhookResponse';
-        $request = $this->createWebhookRequest($webhook_request, $accept_language, $x_child_company_id, $contentType);
+        $request = $this->createWebhookRequest($webhook_request, $accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -436,13 +432,12 @@ class WebhooksApi
      *
      * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
-     * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWebhookRequest($webhook_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookRequest($webhook_request, $accept_language = 'es', string $contentType = self::contentTypes['createWebhook'][0])
     {
 
         // verify the required parameter 'webhook_request' is set
@@ -451,7 +446,6 @@ class WebhooksApi
                 'Missing the required parameter $webhook_request when calling createWebhook'
             );
         }
-
 
 
 
@@ -466,10 +460,6 @@ class WebhooksApi
         // header params
         if ($accept_language !== null) {
             $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
-        }
-        // header params
-        if ($x_child_company_id !== null) {
-            $headerParams['X-Child-Company-Id'] = ObjectSerializer::toHeaderValue($x_child_company_id);
         }
 
 
@@ -1415,9 +1405,8 @@ class WebhooksApi
     /**
      * Operation getWebhooks
      *
-     * Get webhooks
+     * Get List of Webhooks
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
@@ -1431,18 +1420,17 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\GetWebhooksResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function getWebhooks($webhook_request, $accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooks($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-        list($response) = $this->getWebhooksWithHttpInfo($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType);
+        list($response) = $this->getWebhooksWithHttpInfo($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType);
         return $response;
     }
 
     /**
      * Operation getWebhooksWithHttpInfo
      *
-     * Get webhooks
+     * Get List of Webhooks
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
@@ -1456,9 +1444,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\GetWebhooksResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhooksWithHttpInfo($webhook_request, $accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-        $request = $this->getWebhooksRequest($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType);
+        $request = $this->getWebhooksRequest($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1641,9 +1629,8 @@ class WebhooksApi
     /**
      * Operation getWebhooksAsync
      *
-     * Get webhooks
+     * Get List of Webhooks
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
@@ -1656,9 +1643,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsync($webhook_request, $accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksAsync($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-        return $this->getWebhooksAsyncWithHttpInfo($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType)
+        return $this->getWebhooksAsyncWithHttpInfo($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1669,9 +1656,8 @@ class WebhooksApi
     /**
      * Operation getWebhooksAsyncWithHttpInfo
      *
-     * Get webhooks
+     * Get List of Webhooks
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
@@ -1684,10 +1670,10 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsyncWithHttpInfo($webhook_request, $accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
         $returnType = '\DigitalFemsa\Model\GetWebhooksResponse';
-        $request = $this->getWebhooksRequest($webhook_request, $accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType);
+        $request = $this->getWebhooksRequest($accept_language, $x_child_company_id, $limit, $search, $url, $next, $previous, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1728,7 +1714,6 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhooks'
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
@@ -1741,15 +1726,8 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhooksRequest($webhook_request, $accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksRequest($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $url = null, $next = null, $previous = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-
-        // verify the required parameter 'webhook_request' is set
-        if ($webhook_request === null || (is_array($webhook_request) && count($webhook_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $webhook_request when calling getWebhooks'
-            );
-        }
 
 
 
@@ -1840,14 +1818,7 @@ class WebhooksApi
         );
 
         // for model (json/xml)
-        if (isset($webhook_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($webhook_request));
-            } else {
-                $httpBody = $webhook_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

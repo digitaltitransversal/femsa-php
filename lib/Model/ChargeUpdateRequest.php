@@ -79,7 +79,7 @@ class ChargeUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'reference_id' => true
+        'reference_id' => false
     ];
 
     /**
@@ -276,14 +276,6 @@ class ChargeUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['reference_id']) && (mb_strlen($this->container['reference_id']) > 99)) {
-            $invalidProperties[] = "invalid value for 'reference_id', the character length must be smaller than or equal to 99.";
-        }
-
-        if (!is_null($this->container['reference_id']) && (mb_strlen($this->container['reference_id']) < 1)) {
-            $invalidProperties[] = "invalid value for 'reference_id', the character length must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -312,29 +304,15 @@ class ChargeUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets reference_id
      *
-     * @param string|null $reference_id Custom reference ID.
+     * @param string|null $reference_id custom reference id
      *
      * @return self
      */
     public function setReferenceId($reference_id)
     {
         if (is_null($reference_id)) {
-            array_push($this->openAPINullablesSetToNull, 'reference_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reference_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reference_id cannot be null');
         }
-        if (!is_null($reference_id) && (mb_strlen($reference_id) > 99)) {
-            throw new \InvalidArgumentException('invalid length for $reference_id when calling ChargeUpdateRequest., must be smaller than or equal to 99.');
-        }
-        if (!is_null($reference_id) && (mb_strlen($reference_id) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $reference_id when calling ChargeUpdateRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['reference_id'] = $reference_id;
 
         return $this;

@@ -576,7 +576,7 @@ class TransactionsApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
+     * @param  string $id id of the object to be retrieved (optional)
      * @param  string $charge_id id of the charge used for filtering (optional)
      * @param  string $type type of the object to be retrieved (optional)
      * @param  string $currency currency of the object to be retrieved (optional)
@@ -586,9 +586,9 @@ class TransactionsApi
      * @throws \InvalidArgumentException
      * @return \DigitalFemsa\Model\GetTransactionsResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function getTransactions($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactions($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $id = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        list($response) = $this->getTransactionsWithHttpInfo($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $charge_id, $type, $currency, $contentType);
+        list($response) = $this->getTransactionsWithHttpInfo($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency, $contentType);
         return $response;
     }
 
@@ -602,7 +602,7 @@ class TransactionsApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
+     * @param  string $id id of the object to be retrieved (optional)
      * @param  string $charge_id id of the charge used for filtering (optional)
      * @param  string $type type of the object to be retrieved (optional)
      * @param  string $currency currency of the object to be retrieved (optional)
@@ -612,9 +612,9 @@ class TransactionsApi
      * @throws \InvalidArgumentException
      * @return array of \DigitalFemsa\Model\GetTransactionsResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTransactionsWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $id = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        $request = $this->getTransactionsRequest($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $charge_id, $type, $currency, $contentType);
+        $request = $this->getTransactionsRequest($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -804,7 +804,7 @@ class TransactionsApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
+     * @param  string $id id of the object to be retrieved (optional)
      * @param  string $charge_id id of the charge used for filtering (optional)
      * @param  string $type type of the object to be retrieved (optional)
      * @param  string $currency currency of the object to be retrieved (optional)
@@ -813,9 +813,9 @@ class TransactionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsAsync($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsAsync($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $id = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
-        return $this->getTransactionsAsyncWithHttpInfo($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $charge_id, $type, $currency, $contentType)
+        return $this->getTransactionsAsyncWithHttpInfo($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -833,7 +833,7 @@ class TransactionsApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
+     * @param  string $id id of the object to be retrieved (optional)
      * @param  string $charge_id id of the charge used for filtering (optional)
      * @param  string $type type of the object to be retrieved (optional)
      * @param  string $currency currency of the object to be retrieved (optional)
@@ -842,10 +842,10 @@ class TransactionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTransactionsAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $id = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
         $returnType = '\DigitalFemsa\Model\GetTransactionsResponse';
-        $request = $this->getTransactionsRequest($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $charge_id, $type, $currency, $contentType);
+        $request = $this->getTransactionsRequest($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -891,7 +891,7 @@ class TransactionsApi
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
+     * @param  string $id id of the object to be retrieved (optional)
      * @param  string $charge_id id of the charge used for filtering (optional)
      * @param  string $type type of the object to be retrieved (optional)
      * @param  string $currency currency of the object to be retrieved (optional)
@@ -900,7 +900,7 @@ class TransactionsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTransactionsRequest($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
+    public function getTransactionsRequest($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $id = null, $charge_id = null, $type = null, $currency = null, string $contentType = self::contentTypes['getTransactions'][0])
     {
 
 
@@ -955,8 +955,8 @@ class TransactionsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $search,
-            'search', // param base name
+            $id,
+            'id', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

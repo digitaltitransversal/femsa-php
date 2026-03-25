@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * OrderUpdateFiscalEntityRequest Class Doc Comment
  *
  * @category Class
- * @description Fiscal entity information associated with the order.
+ * @description Fiscal entity of the order, Currently it is a purely informative field
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -434,7 +434,7 @@ class OrderUpdateFiscalEntityRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata Metadata associated with the fiscal entity
+     * @param array<string,mixed>|null $metadata Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value.
      *
      * @return self
      */

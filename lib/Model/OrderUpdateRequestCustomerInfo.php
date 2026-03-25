@@ -1,6 +1,6 @@
 <?php
 /**
- * UpdatePaymentMethodsAmount
+ * OrderUpdateRequestCustomerInfo
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \DigitalFemsa\ObjectSerializer;
 
 /**
- * UpdatePaymentMethodsAmount Class Doc Comment
+ * OrderUpdateRequestCustomerInfo Class Doc Comment
  *
  * @category Class
  * @package  DigitalFemsa
@@ -41,7 +41,7 @@ use \DigitalFemsa\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderUpdateRequestCustomerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
       *
       * @var string
       */
-    protected static $openAPIModelName = 'update_payment_methods_amount';
+    protected static $openAPIModelName = 'order_update_request_customer_info';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'customer_id' => 'string',
+        'name' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
+        'corporate' => 'bool'
     ];
 
     /**
@@ -69,7 +73,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'customer_id' => null,
+        'name' => null,
+        'email' => 'email',
+        'phone' => null,
+        'corporate' => null
     ];
 
     /**
@@ -78,7 +86,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'customer_id' => false,
+        'name' => false,
+        'email' => false,
+        'phone' => false,
+        'corporate' => false
     ];
 
     /**
@@ -167,7 +179,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'customer_id' => 'customer_id',
+        'name' => 'name',
+        'email' => 'email',
+        'phone' => 'phone',
+        'corporate' => 'corporate'
     ];
 
     /**
@@ -176,7 +192,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        
+        'customer_id' => 'setCustomerId',
+        'name' => 'setName',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'corporate' => 'setCorporate'
     ];
 
     /**
@@ -185,7 +205,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        
+        'customer_id' => 'getCustomerId',
+        'name' => 'getName',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'corporate' => 'getCorporate'
     ];
 
     /**
@@ -245,6 +269,11 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('customer_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('corporate', $data ?? [], null);
     }
 
     /**
@@ -274,6 +303,15 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['customer_id'] === null) {
+            $invalidProperties[] = "'customer_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -288,6 +326,141 @@ class UpdatePaymentMethodsAmount implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets customer_id
+     *
+     * @return string
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param string $customer_id customer_id
+     *
+     * @return self
+     */
+    public function setCustomerId($customer_id)
+    {
+        if (is_null($customer_id)) {
+            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+        }
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string|null
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string|null $phone phone
+     *
+     * @return self
+     */
+    public function setPhone($phone)
+    {
+        if (is_null($phone)) {
+            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+        }
+        $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets corporate
+     *
+     * @return bool|null
+     */
+    public function getCorporate()
+    {
+        return $this->container['corporate'];
+    }
+
+    /**
+     * Sets corporate
+     *
+     * @param bool|null $corporate corporate
+     *
+     * @return self
+     */
+    public function setCorporate($corporate)
+    {
+        if (is_null($corporate)) {
+            throw new \InvalidArgumentException('non-nullable corporate cannot be null');
+        }
+        $this->container['corporate'] = $corporate;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

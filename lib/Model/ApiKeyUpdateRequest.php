@@ -310,7 +310,7 @@ class ApiKeyUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets active
      *
-     * @param bool|null $active Indicates whether the API key is active.
+     * @param bool|null $active Indicates if the webhook key is active
      *
      * @return self
      */
@@ -337,7 +337,7 @@ class ApiKeyUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets description
      *
-     * @param string|null $description A name or brief explanation of what this API key is used for.
+     * @param string|null $description A name or brief explanation of what this api key is used for
      *
      * @return self
      */

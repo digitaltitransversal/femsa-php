@@ -59,27 +59,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'object' => 'string',
         'amount' => 'int',
         'created_at' => 'int',
         'currency' => 'string',
+        'id' => 'string',
         'livemode' => 'bool',
-        'status' => 'string',
-        'statement_reference' => 'string',
+        'method' => '\DigitalFemsa\Model\TransferMethodResponse',
+        'object' => 'string',
         'statement_description' => 'string',
-        'destination' => '\DigitalFemsa\Model\TransfersResponseDestination',
-        'fee' => 'int',
-        'capture_amount' => 'int',
-        'capture_fee' => 'int',
-        'capture_net' => 'int',
-        'refund_amount' => 'int',
-        'refund_fee' => 'int',
-        'refund_net' => 'int',
-        'payout_amount' => 'int',
-        'payout_fee' => 'int',
-        'payout_net' => 'int',
-        'transactions' => 'object[]'
+        'statement_reference' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -90,27 +79,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'object' => null,
         'amount' => 'int64',
         'created_at' => 'int64',
         'currency' => null,
+        'id' => null,
         'livemode' => null,
-        'status' => null,
-        'statement_reference' => null,
+        'method' => null,
+        'object' => null,
         'statement_description' => null,
-        'destination' => null,
-        'fee' => 'int64',
-        'capture_amount' => 'int64',
-        'capture_fee' => 'int64',
-        'capture_net' => 'int64',
-        'refund_amount' => 'int64',
-        'refund_fee' => 'int64',
-        'refund_net' => 'int64',
-        'payout_amount' => 'int64',
-        'payout_fee' => 'int64',
-        'payout_net' => 'int64',
-        'transactions' => null
+        'statement_reference' => null,
+        'status' => null
     ];
 
     /**
@@ -119,27 +97,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'object' => false,
         'amount' => false,
         'created_at' => false,
         'currency' => false,
+        'id' => false,
         'livemode' => false,
-        'status' => false,
-        'statement_reference' => false,
+        'method' => false,
+        'object' => false,
         'statement_description' => false,
-        'destination' => false,
-        'fee' => true,
-        'capture_amount' => true,
-        'capture_fee' => true,
-        'capture_net' => true,
-        'refund_amount' => true,
-        'refund_fee' => true,
-        'refund_net' => true,
-        'payout_amount' => true,
-        'payout_fee' => true,
-        'payout_net' => true,
-        'transactions' => true
+        'statement_reference' => false,
+        'status' => false
     ];
 
     /**
@@ -228,27 +195,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'object' => 'object',
         'amount' => 'amount',
         'created_at' => 'created_at',
         'currency' => 'currency',
+        'id' => 'id',
         'livemode' => 'livemode',
-        'status' => 'status',
-        'statement_reference' => 'statement_reference',
+        'method' => 'method',
+        'object' => 'object',
         'statement_description' => 'statement_description',
-        'destination' => 'destination',
-        'fee' => 'fee',
-        'capture_amount' => 'capture_amount',
-        'capture_fee' => 'capture_fee',
-        'capture_net' => 'capture_net',
-        'refund_amount' => 'refund_amount',
-        'refund_fee' => 'refund_fee',
-        'refund_net' => 'refund_net',
-        'payout_amount' => 'payout_amount',
-        'payout_fee' => 'payout_fee',
-        'payout_net' => 'payout_net',
-        'transactions' => 'transactions'
+        'statement_reference' => 'statement_reference',
+        'status' => 'status'
     ];
 
     /**
@@ -257,27 +213,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'object' => 'setObject',
         'amount' => 'setAmount',
         'created_at' => 'setCreatedAt',
         'currency' => 'setCurrency',
+        'id' => 'setId',
         'livemode' => 'setLivemode',
-        'status' => 'setStatus',
-        'statement_reference' => 'setStatementReference',
+        'method' => 'setMethod',
+        'object' => 'setObject',
         'statement_description' => 'setStatementDescription',
-        'destination' => 'setDestination',
-        'fee' => 'setFee',
-        'capture_amount' => 'setCaptureAmount',
-        'capture_fee' => 'setCaptureFee',
-        'capture_net' => 'setCaptureNet',
-        'refund_amount' => 'setRefundAmount',
-        'refund_fee' => 'setRefundFee',
-        'refund_net' => 'setRefundNet',
-        'payout_amount' => 'setPayoutAmount',
-        'payout_fee' => 'setPayoutFee',
-        'payout_net' => 'setPayoutNet',
-        'transactions' => 'setTransactions'
+        'statement_reference' => 'setStatementReference',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -286,27 +231,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'object' => 'getObject',
         'amount' => 'getAmount',
         'created_at' => 'getCreatedAt',
         'currency' => 'getCurrency',
+        'id' => 'getId',
         'livemode' => 'getLivemode',
-        'status' => 'getStatus',
-        'statement_reference' => 'getStatementReference',
+        'method' => 'getMethod',
+        'object' => 'getObject',
         'statement_description' => 'getStatementDescription',
-        'destination' => 'getDestination',
-        'fee' => 'getFee',
-        'capture_amount' => 'getCaptureAmount',
-        'capture_fee' => 'getCaptureFee',
-        'capture_net' => 'getCaptureNet',
-        'refund_amount' => 'getRefundAmount',
-        'refund_fee' => 'getRefundFee',
-        'refund_net' => 'getRefundNet',
-        'payout_amount' => 'getPayoutAmount',
-        'payout_fee' => 'getPayoutFee',
-        'payout_net' => 'getPayoutNet',
-        'transactions' => 'getTransactions'
+        'statement_reference' => 'getStatementReference',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -366,27 +300,16 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('statement_reference', $data ?? [], null);
+        $this->setIfExists('method', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('statement_description', $data ?? [], null);
-        $this->setIfExists('destination', $data ?? [], null);
-        $this->setIfExists('fee', $data ?? [], null);
-        $this->setIfExists('capture_amount', $data ?? [], null);
-        $this->setIfExists('capture_fee', $data ?? [], null);
-        $this->setIfExists('capture_net', $data ?? [], null);
-        $this->setIfExists('refund_amount', $data ?? [], null);
-        $this->setIfExists('refund_fee', $data ?? [], null);
-        $this->setIfExists('refund_net', $data ?? [], null);
-        $this->setIfExists('payout_amount', $data ?? [], null);
-        $this->setIfExists('payout_fee', $data ?? [], null);
-        $this->setIfExists('payout_net', $data ?? [], null);
-        $this->setIfExists('transactions', $data ?? [], null);
+        $this->setIfExists('statement_reference', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -416,40 +339,10 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['currency'] === null) {
-            $invalidProperties[] = "'currency' can't be null";
-        }
-        if ((mb_strlen($this->container['currency']) > 3)) {
+        if (!is_null($this->container['currency']) && (mb_strlen($this->container['currency']) > 3)) {
             $invalidProperties[] = "invalid value for 'currency', the character length must be smaller than or equal to 3.";
         }
 
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['statement_reference'] === null) {
-            $invalidProperties[] = "'statement_reference' can't be null";
-        }
-        if ($this->container['statement_description'] === null) {
-            $invalidProperties[] = "'statement_description' can't be null";
-        }
-        if ($this->container['destination'] === null) {
-            $invalidProperties[] = "'destination' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -466,63 +359,9 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Unique identifier of the transfer.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object Object name, which is transfer.
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
      * Gets amount
      *
-     * @return int
+     * @return int|null
      */
     public function getAmount()
     {
@@ -532,7 +371,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets amount
      *
-     * @param int $amount Amount in cents of the transfer.
+     * @param int|null $amount Amount in cents of the transfer.
      *
      * @return self
      */
@@ -549,7 +388,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -559,7 +398,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets created_at
      *
-     * @param int $created_at Date and time of creation of the transfer in Unix format.
+     * @param int|null $created_at Date and time of creation of the transfer.
      *
      * @return self
      */
@@ -576,7 +415,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets currency
      *
-     * @return string
+     * @return string|null
      */
     public function getCurrency()
     {
@@ -586,7 +425,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets currency
      *
-     * @param string $currency The currency of the transfer. It uses the 3-letter code of ISO 4217.
+     * @param string|null $currency The currency of the transfer. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)
      *
      * @return self
      */
@@ -605,9 +444,36 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier of the transfer.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets livemode
      *
-     * @return bool
+     * @return bool|null
      */
     public function getLivemode()
     {
@@ -617,7 +483,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets livemode
      *
-     * @param bool $livemode Indicates whether the transfer was created in live mode or test mode.
+     * @param bool|null $livemode Indicates whether the transfer was created in live mode or test mode.
      *
      * @return self
      */
@@ -632,55 +498,55 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets status
+     * Gets method
      *
-     * @return string
+     * @return \DigitalFemsa\Model\TransferMethodResponse|null
      */
-    public function getStatus()
+    public function getMethod()
     {
-        return $this->container['status'];
+        return $this->container['method'];
     }
 
     /**
-     * Sets status
+     * Sets method
      *
-     * @param string $status Code indicating transfer status.
+     * @param \DigitalFemsa\Model\TransferMethodResponse|null $method method
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setMethod($method)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($method)) {
+            throw new \InvalidArgumentException('non-nullable method cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['method'] = $method;
 
         return $this;
     }
 
     /**
-     * Gets statement_reference
+     * Gets object
      *
-     * @return string
+     * @return string|null
      */
-    public function getStatementReference()
+    public function getObject()
     {
-        return $this->container['statement_reference'];
+        return $this->container['object'];
     }
 
     /**
-     * Sets statement_reference
+     * Sets object
      *
-     * @param string $statement_reference Reference number of the transfer.
+     * @param string|null $object Object name, which is transfer.
      *
      * @return self
      */
-    public function setStatementReference($statement_reference)
+    public function setObject($object)
     {
-        if (is_null($statement_reference)) {
-            throw new \InvalidArgumentException('non-nullable statement_reference cannot be null');
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $this->container['statement_reference'] = $statement_reference;
+        $this->container['object'] = $object;
 
         return $this;
     }
@@ -688,7 +554,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets statement_description
      *
-     * @return string
+     * @return string|null
      */
     public function getStatementDescription()
     {
@@ -698,7 +564,7 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets statement_description
      *
-     * @param string $statement_description Description of the transfer.
+     * @param string|null $statement_description Description of the transfer.
      *
      * @return self
      */
@@ -713,402 +579,55 @@ class TransfersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets destination
+     * Gets statement_reference
      *
-     * @return \DigitalFemsa\Model\TransfersResponseDestination
+     * @return string|null
      */
-    public function getDestination()
+    public function getStatementReference()
     {
-        return $this->container['destination'];
+        return $this->container['statement_reference'];
     }
 
     /**
-     * Sets destination
+     * Sets statement_reference
      *
-     * @param \DigitalFemsa\Model\TransfersResponseDestination $destination destination
+     * @param string|null $statement_reference Reference number of the transfer.
      *
      * @return self
      */
-    public function setDestination($destination)
+    public function setStatementReference($statement_reference)
     {
-        if (is_null($destination)) {
-            throw new \InvalidArgumentException('non-nullable destination cannot be null');
+        if (is_null($statement_reference)) {
+            throw new \InvalidArgumentException('non-nullable statement_reference cannot be null');
         }
-        $this->container['destination'] = $destination;
+        $this->container['statement_reference'] = $statement_reference;
 
         return $this;
     }
 
     /**
-     * Gets fee
+     * Gets status
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getFee()
+    public function getStatus()
     {
-        return $this->container['fee'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets fee
+     * Sets status
      *
-     * @param int|null $fee Total fee for the transfer (present only when requesting the 'details' expansion).
+     * @param string|null $status Code indicating transfer status.
      *
      * @return self
      */
-    public function setFee($fee)
+    public function setStatus($status)
     {
-        if (is_null($fee)) {
-            array_push($this->openAPINullablesSetToNull, 'fee');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fee', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['fee'] = $fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets capture_amount
-     *
-     * @return int|null
-     */
-    public function getCaptureAmount()
-    {
-        return $this->container['capture_amount'];
-    }
-
-    /**
-     * Sets capture_amount
-     *
-     * @param int|null $capture_amount Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setCaptureAmount($capture_amount)
-    {
-        if (is_null($capture_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'capture_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('capture_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['capture_amount'] = $capture_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets capture_fee
-     *
-     * @return int|null
-     */
-    public function getCaptureFee()
-    {
-        return $this->container['capture_fee'];
-    }
-
-    /**
-     * Sets capture_fee
-     *
-     * @param int|null $capture_fee Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setCaptureFee($capture_fee)
-    {
-        if (is_null($capture_fee)) {
-            array_push($this->openAPINullablesSetToNull, 'capture_fee');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('capture_fee', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['capture_fee'] = $capture_fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets capture_net
-     *
-     * @return int|null
-     */
-    public function getCaptureNet()
-    {
-        return $this->container['capture_net'];
-    }
-
-    /**
-     * Sets capture_net
-     *
-     * @param int|null $capture_net Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setCaptureNet($capture_net)
-    {
-        if (is_null($capture_net)) {
-            array_push($this->openAPINullablesSetToNull, 'capture_net');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('capture_net', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['capture_net'] = $capture_net;
-
-        return $this;
-    }
-
-    /**
-     * Gets refund_amount
-     *
-     * @return int|null
-     */
-    public function getRefundAmount()
-    {
-        return $this->container['refund_amount'];
-    }
-
-    /**
-     * Sets refund_amount
-     *
-     * @param int|null $refund_amount Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setRefundAmount($refund_amount)
-    {
-        if (is_null($refund_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['refund_amount'] = $refund_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets refund_fee
-     *
-     * @return int|null
-     */
-    public function getRefundFee()
-    {
-        return $this->container['refund_fee'];
-    }
-
-    /**
-     * Sets refund_fee
-     *
-     * @param int|null $refund_fee Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setRefundFee($refund_fee)
-    {
-        if (is_null($refund_fee)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_fee');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_fee', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['refund_fee'] = $refund_fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets refund_net
-     *
-     * @return int|null
-     */
-    public function getRefundNet()
-    {
-        return $this->container['refund_net'];
-    }
-
-    /**
-     * Sets refund_net
-     *
-     * @param int|null $refund_net Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setRefundNet($refund_net)
-    {
-        if (is_null($refund_net)) {
-            array_push($this->openAPINullablesSetToNull, 'refund_net');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('refund_net', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['refund_net'] = $refund_net;
-
-        return $this;
-    }
-
-    /**
-     * Gets payout_amount
-     *
-     * @return int|null
-     */
-    public function getPayoutAmount()
-    {
-        return $this->container['payout_amount'];
-    }
-
-    /**
-     * Sets payout_amount
-     *
-     * @param int|null $payout_amount Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setPayoutAmount($payout_amount)
-    {
-        if (is_null($payout_amount)) {
-            array_push($this->openAPINullablesSetToNull, 'payout_amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payout_amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['payout_amount'] = $payout_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets payout_fee
-     *
-     * @return int|null
-     */
-    public function getPayoutFee()
-    {
-        return $this->container['payout_fee'];
-    }
-
-    /**
-     * Sets payout_fee
-     *
-     * @param int|null $payout_fee Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setPayoutFee($payout_fee)
-    {
-        if (is_null($payout_fee)) {
-            array_push($this->openAPINullablesSetToNull, 'payout_fee');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payout_fee', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['payout_fee'] = $payout_fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets payout_net
-     *
-     * @return int|null
-     */
-    public function getPayoutNet()
-    {
-        return $this->container['payout_net'];
-    }
-
-    /**
-     * Sets payout_net
-     *
-     * @param int|null $payout_net Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setPayoutNet($payout_net)
-    {
-        if (is_null($payout_net)) {
-            array_push($this->openAPINullablesSetToNull, 'payout_net');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payout_net', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['payout_net'] = $payout_net;
-
-        return $this;
-    }
-
-    /**
-     * Gets transactions
-     *
-     * @return object[]|null
-     */
-    public function getTransactions()
-    {
-        return $this->container['transactions'];
-    }
-
-    /**
-     * Sets transactions
-     *
-     * @param object[]|null $transactions Present only when requesting the 'details' expansion.
-     *
-     * @return self
-     */
-    public function setTransactions($transactions)
-    {
-        if (is_null($transactions)) {
-            array_push($this->openAPINullablesSetToNull, 'transactions');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('transactions', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['transactions'] = $transactions;
+        $this->container['status'] = $status;
 
         return $this;
     }

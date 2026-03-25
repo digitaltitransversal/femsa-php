@@ -64,8 +64,7 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'metadata' => 'array<string,mixed>',
         'id' => 'string',
         'object' => 'string',
-        'parent_id' => 'string',
-        'deleted' => 'bool'
+        'parent_id' => 'string'
     ];
 
     /**
@@ -81,8 +80,7 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'metadata' => null,
         'id' => null,
         'object' => null,
-        'parent_id' => null,
-        'deleted' => null
+        'parent_id' => null
     ];
 
     /**
@@ -96,8 +94,7 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'metadata' => false,
         'id' => false,
         'object' => false,
-        'parent_id' => false,
-        'deleted' => true
+        'parent_id' => false
     ];
 
     /**
@@ -191,8 +188,7 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'metadata' => 'metadata',
         'id' => 'id',
         'object' => 'object',
-        'parent_id' => 'parent_id',
-        'deleted' => 'deleted'
+        'parent_id' => 'parent_id'
     ];
 
     /**
@@ -206,8 +202,7 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'metadata' => 'setMetadata',
         'id' => 'setId',
         'object' => 'setObject',
-        'parent_id' => 'setParentId',
-        'deleted' => 'setDeleted'
+        'parent_id' => 'setParentId'
     ];
 
     /**
@@ -221,8 +216,7 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'metadata' => 'getMetadata',
         'id' => 'getId',
         'object' => 'getObject',
-        'parent_id' => 'getParentId',
-        'deleted' => 'getDeleted'
+        'parent_id' => 'getParentId'
     ];
 
     /**
@@ -288,7 +282,6 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('parent_id', $data ?? [], null);
-        $this->setIfExists('deleted', $data ?? [], null);
     }
 
     /**
@@ -526,40 +519,6 @@ class UpdateOrderTaxResponse implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable parent_id cannot be null');
         }
         $this->container['parent_id'] = $parent_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return bool|null
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool|null $deleted Present only when the tax line was deleted.
-     *
-     * @return self
-     */
-    public function setDeleted($deleted)
-    {
-        if (is_null($deleted)) {
-            array_push($this->openAPINullablesSetToNull, 'deleted');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deleted', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deleted'] = $deleted;
 
         return $this;
     }

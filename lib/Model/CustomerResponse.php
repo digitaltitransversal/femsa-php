@@ -68,8 +68,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'string',
         'corporate' => 'bool',
         'custom_reference' => 'string',
-        'referrer' => 'string',
-        'vertical_info' => 'array<string,mixed>',
         'default_fiscal_entity_id' => 'string',
         'default_shipping_contact_id' => 'string',
         'metadata' => 'array<string,mixed>',
@@ -95,8 +93,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => null,
         'corporate' => null,
         'custom_reference' => null,
-        'referrer' => null,
-        'vertical_info' => null,
         'default_fiscal_entity_id' => null,
         'default_shipping_contact_id' => null,
         'metadata' => null,
@@ -119,9 +115,7 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'email' => true,
         'phone' => true,
         'corporate' => false,
-        'custom_reference' => true,
-        'referrer' => true,
-        'vertical_info' => true,
+        'custom_reference' => false,
         'default_fiscal_entity_id' => true,
         'default_shipping_contact_id' => true,
         'metadata' => true,
@@ -225,8 +219,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'phone',
         'corporate' => 'corporate',
         'custom_reference' => 'custom_reference',
-        'referrer' => 'referrer',
-        'vertical_info' => 'vertical_info',
         'default_fiscal_entity_id' => 'default_fiscal_entity_id',
         'default_shipping_contact_id' => 'default_shipping_contact_id',
         'metadata' => 'metadata',
@@ -250,8 +242,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'setPhone',
         'corporate' => 'setCorporate',
         'custom_reference' => 'setCustomReference',
-        'referrer' => 'setReferrer',
-        'vertical_info' => 'setVerticalInfo',
         'default_fiscal_entity_id' => 'setDefaultFiscalEntityId',
         'default_shipping_contact_id' => 'setDefaultShippingContactId',
         'metadata' => 'setMetadata',
@@ -275,8 +265,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'getPhone',
         'corporate' => 'getCorporate',
         'custom_reference' => 'getCustomReference',
-        'referrer' => 'getReferrer',
-        'vertical_info' => 'getVerticalInfo',
         'default_fiscal_entity_id' => 'getDefaultFiscalEntityId',
         'default_shipping_contact_id' => 'getDefaultShippingContactId',
         'metadata' => 'getMetadata',
@@ -364,8 +352,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('corporate', $data ?? [], null);
         $this->setIfExists('custom_reference', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
-        $this->setIfExists('vertical_info', $data ?? [], null);
         $this->setIfExists('default_fiscal_entity_id', $data ?? [], null);
         $this->setIfExists('default_shipping_contact_id', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
@@ -708,84 +694,9 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomReference($custom_reference)
     {
         if (is_null($custom_reference)) {
-            array_push($this->openAPINullablesSetToNull, 'custom_reference');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom_reference', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable custom_reference cannot be null');
         }
         $this->container['custom_reference'] = $custom_reference;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrer
-     *
-     * @return string|null
-     */
-    public function getReferrer()
-    {
-        return $this->container['referrer'];
-    }
-
-    /**
-     * Sets referrer
-     *
-     * @param string|null $referrer Referrer information (if available)
-     *
-     * @return self
-     */
-    public function setReferrer($referrer)
-    {
-        if (is_null($referrer)) {
-            array_push($this->openAPINullablesSetToNull, 'referrer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('referrer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['referrer'] = $referrer;
-
-        return $this;
-    }
-
-    /**
-     * Gets vertical_info
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getVerticalInfo()
-    {
-        return $this->container['vertical_info'];
-    }
-
-    /**
-     * Sets vertical_info
-     *
-     * @param array<string,mixed>|null $vertical_info Vertical-specific information (shape depends on integration)
-     *
-     * @return self
-     */
-    public function setVerticalInfo($vertical_info)
-    {
-        if (is_null($vertical_info)) {
-            array_push($this->openAPINullablesSetToNull, 'vertical_info');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('vertical_info', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['vertical_info'] = $vertical_info;
 
         return $this;
     }

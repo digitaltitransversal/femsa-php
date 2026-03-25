@@ -436,7 +436,7 @@ $apiInstance = new DigitalFemsa\Api\CustomersApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $fiscal_entities_id = fis_ent_2tQ8HkkfbauaKP9Ho; // string | identifier
-$customer_update_fiscal_entities_request = new \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest(); // \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest | requested field for customer update fiscal entities
+$customer_update_fiscal_entities_request = new \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest(); // \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest | Request body for updating a customer fiscal entity.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -454,7 +454,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **fiscal_entities_id** | **string**| identifier | |
-| **customer_update_fiscal_entities_request** | [**\DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest**](../Model/CustomerUpdateFiscalEntitiesRequest.md)| requested field for customer update fiscal entities | |
+| **customer_update_fiscal_entities_request** | [**\DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest**](../Model/CustomerUpdateFiscalEntitiesRequest.md)| Request body for updating a customer fiscal entity. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

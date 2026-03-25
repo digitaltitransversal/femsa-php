@@ -60,15 +60,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'available' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'pending' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'retention_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'retained' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'temporarily_retained' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'target_retention_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'target_temporary_retention_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'target_collateral_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
+        'cashout_retention_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
+        'conekta_retention' => '\DigitalFemsa\Model\BalanceCommonField[]',
         'gateway' => '\DigitalFemsa\Model\BalanceCommonField[]',
-        'cashout_retention_debited' => '\DigitalFemsa\Model\BalanceCommonField[]'
+        'pending' => '\DigitalFemsa\Model\BalanceCommonField[]',
+        'retained' => '\DigitalFemsa\Model\BalanceCommonField[]',
+        'retention_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
+        'target_collateral_amount' => 'object',
+        'target_retention_amount' => '\DigitalFemsa\Model\BalanceCommonField[]',
+        'temporarily_retained' => '\DigitalFemsa\Model\BalanceCommonField[]'
     ];
 
     /**
@@ -80,15 +80,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'available' => null,
-        'pending' => null,
-        'retention_amount' => null,
-        'retained' => null,
-        'temporarily_retained' => null,
-        'target_retention_amount' => null,
-        'target_temporary_retention_amount' => null,
-        'target_collateral_amount' => null,
+        'cashout_retention_amount' => null,
+        'conekta_retention' => null,
         'gateway' => null,
-        'cashout_retention_debited' => null
+        'pending' => null,
+        'retained' => null,
+        'retention_amount' => null,
+        'target_collateral_amount' => null,
+        'target_retention_amount' => null,
+        'temporarily_retained' => null
     ];
 
     /**
@@ -98,15 +98,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'available' => false,
-        'pending' => false,
-        'retention_amount' => false,
-        'retained' => false,
-        'temporarily_retained' => false,
-        'target_retention_amount' => false,
-        'target_temporary_retention_amount' => false,
-        'target_collateral_amount' => false,
+        'cashout_retention_amount' => false,
+        'conekta_retention' => false,
         'gateway' => false,
-        'cashout_retention_debited' => false
+        'pending' => false,
+        'retained' => false,
+        'retention_amount' => false,
+        'target_collateral_amount' => false,
+        'target_retention_amount' => false,
+        'temporarily_retained' => false
     ];
 
     /**
@@ -196,15 +196,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'available' => 'available',
-        'pending' => 'pending',
-        'retention_amount' => 'retention_amount',
-        'retained' => 'retained',
-        'temporarily_retained' => 'temporarily_retained',
-        'target_retention_amount' => 'target_retention_amount',
-        'target_temporary_retention_amount' => 'target_temporary_retention_amount',
-        'target_collateral_amount' => 'target_collateral_amount',
+        'cashout_retention_amount' => 'cashout_retention_amount',
+        'conekta_retention' => 'conekta_retention',
         'gateway' => 'gateway',
-        'cashout_retention_debited' => 'cashout_retention_debited'
+        'pending' => 'pending',
+        'retained' => 'retained',
+        'retention_amount' => 'retention_amount',
+        'target_collateral_amount' => 'target_collateral_amount',
+        'target_retention_amount' => 'target_retention_amount',
+        'temporarily_retained' => 'temporarily_retained'
     ];
 
     /**
@@ -214,15 +214,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'available' => 'setAvailable',
-        'pending' => 'setPending',
-        'retention_amount' => 'setRetentionAmount',
-        'retained' => 'setRetained',
-        'temporarily_retained' => 'setTemporarilyRetained',
-        'target_retention_amount' => 'setTargetRetentionAmount',
-        'target_temporary_retention_amount' => 'setTargetTemporaryRetentionAmount',
-        'target_collateral_amount' => 'setTargetCollateralAmount',
+        'cashout_retention_amount' => 'setCashoutRetentionAmount',
+        'conekta_retention' => 'setConektaRetention',
         'gateway' => 'setGateway',
-        'cashout_retention_debited' => 'setCashoutRetentionDebited'
+        'pending' => 'setPending',
+        'retained' => 'setRetained',
+        'retention_amount' => 'setRetentionAmount',
+        'target_collateral_amount' => 'setTargetCollateralAmount',
+        'target_retention_amount' => 'setTargetRetentionAmount',
+        'temporarily_retained' => 'setTemporarilyRetained'
     ];
 
     /**
@@ -232,15 +232,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'available' => 'getAvailable',
-        'pending' => 'getPending',
-        'retention_amount' => 'getRetentionAmount',
-        'retained' => 'getRetained',
-        'temporarily_retained' => 'getTemporarilyRetained',
-        'target_retention_amount' => 'getTargetRetentionAmount',
-        'target_temporary_retention_amount' => 'getTargetTemporaryRetentionAmount',
-        'target_collateral_amount' => 'getTargetCollateralAmount',
+        'cashout_retention_amount' => 'getCashoutRetentionAmount',
+        'conekta_retention' => 'getConektaRetention',
         'gateway' => 'getGateway',
-        'cashout_retention_debited' => 'getCashoutRetentionDebited'
+        'pending' => 'getPending',
+        'retained' => 'getRetained',
+        'retention_amount' => 'getRetentionAmount',
+        'target_collateral_amount' => 'getTargetCollateralAmount',
+        'target_retention_amount' => 'getTargetRetentionAmount',
+        'temporarily_retained' => 'getTemporarilyRetained'
     ];
 
     /**
@@ -301,15 +301,15 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('available', $data ?? [], null);
-        $this->setIfExists('pending', $data ?? [], null);
-        $this->setIfExists('retention_amount', $data ?? [], null);
-        $this->setIfExists('retained', $data ?? [], null);
-        $this->setIfExists('temporarily_retained', $data ?? [], null);
-        $this->setIfExists('target_retention_amount', $data ?? [], null);
-        $this->setIfExists('target_temporary_retention_amount', $data ?? [], null);
-        $this->setIfExists('target_collateral_amount', $data ?? [], null);
+        $this->setIfExists('cashout_retention_amount', $data ?? [], null);
+        $this->setIfExists('conekta_retention', $data ?? [], null);
         $this->setIfExists('gateway', $data ?? [], null);
-        $this->setIfExists('cashout_retention_debited', $data ?? [], null);
+        $this->setIfExists('pending', $data ?? [], null);
+        $this->setIfExists('retained', $data ?? [], null);
+        $this->setIfExists('retention_amount', $data ?? [], null);
+        $this->setIfExists('target_collateral_amount', $data ?? [], null);
+        $this->setIfExists('target_retention_amount', $data ?? [], null);
+        $this->setIfExists('temporarily_retained', $data ?? [], null);
     }
 
     /**
@@ -339,36 +339,6 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['available'] === null) {
-            $invalidProperties[] = "'available' can't be null";
-        }
-        if ($this->container['pending'] === null) {
-            $invalidProperties[] = "'pending' can't be null";
-        }
-        if ($this->container['retention_amount'] === null) {
-            $invalidProperties[] = "'retention_amount' can't be null";
-        }
-        if ($this->container['retained'] === null) {
-            $invalidProperties[] = "'retained' can't be null";
-        }
-        if ($this->container['temporarily_retained'] === null) {
-            $invalidProperties[] = "'temporarily_retained' can't be null";
-        }
-        if ($this->container['target_retention_amount'] === null) {
-            $invalidProperties[] = "'target_retention_amount' can't be null";
-        }
-        if ($this->container['target_temporary_retention_amount'] === null) {
-            $invalidProperties[] = "'target_temporary_retention_amount' can't be null";
-        }
-        if ($this->container['target_collateral_amount'] === null) {
-            $invalidProperties[] = "'target_collateral_amount' can't be null";
-        }
-        if ($this->container['gateway'] === null) {
-            $invalidProperties[] = "'gateway' can't be null";
-        }
-        if ($this->container['cashout_retention_debited'] === null) {
-            $invalidProperties[] = "'cashout_retention_debited' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -387,7 +357,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets available
      *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
      */
     public function getAvailable()
     {
@@ -397,7 +367,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets available
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $available Amounts currently available, grouped by currency.
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $available Amounts currently available, grouped by currency.
      *
      * @return self
      */
@@ -412,190 +382,55 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets pending
+     * Gets cashout_retention_amount
      *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
      */
-    public function getPending()
+    public function getCashoutRetentionAmount()
     {
-        return $this->container['pending'];
+        return $this->container['cashout_retention_amount'];
     }
 
     /**
-     * Sets pending
+     * Sets cashout_retention_amount
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $pending Amounts pending settlement, grouped by currency.
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $cashout_retention_amount The balance's cashout retention amount
      *
      * @return self
      */
-    public function setPending($pending)
+    public function setCashoutRetentionAmount($cashout_retention_amount)
     {
-        if (is_null($pending)) {
-            throw new \InvalidArgumentException('non-nullable pending cannot be null');
+        if (is_null($cashout_retention_amount)) {
+            throw new \InvalidArgumentException('non-nullable cashout_retention_amount cannot be null');
         }
-        $this->container['pending'] = $pending;
+        $this->container['cashout_retention_amount'] = $cashout_retention_amount;
 
         return $this;
     }
 
     /**
-     * Gets retention_amount
+     * Gets conekta_retention
      *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
      */
-    public function getRetentionAmount()
+    public function getConektaRetention()
     {
-        return $this->container['retention_amount'];
+        return $this->container['conekta_retention'];
     }
 
     /**
-     * Sets retention_amount
+     * Sets conekta_retention
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $retention_amount Retention amount applied, grouped by currency.
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $conekta_retention The balance's Femsa retention
      *
      * @return self
      */
-    public function setRetentionAmount($retention_amount)
+    public function setConektaRetention($conekta_retention)
     {
-        if (is_null($retention_amount)) {
-            throw new \InvalidArgumentException('non-nullable retention_amount cannot be null');
+        if (is_null($conekta_retention)) {
+            throw new \InvalidArgumentException('non-nullable conekta_retention cannot be null');
         }
-        $this->container['retention_amount'] = $retention_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets retained
-     *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
-     */
-    public function getRetained()
-    {
-        return $this->container['retained'];
-    }
-
-    /**
-     * Sets retained
-     *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $retained Amounts currently retained, grouped by currency.
-     *
-     * @return self
-     */
-    public function setRetained($retained)
-    {
-        if (is_null($retained)) {
-            throw new \InvalidArgumentException('non-nullable retained cannot be null');
-        }
-        $this->container['retained'] = $retained;
-
-        return $this;
-    }
-
-    /**
-     * Gets temporarily_retained
-     *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
-     */
-    public function getTemporarilyRetained()
-    {
-        return $this->container['temporarily_retained'];
-    }
-
-    /**
-     * Sets temporarily_retained
-     *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $temporarily_retained Amounts temporarily retained, grouped by currency.
-     *
-     * @return self
-     */
-    public function setTemporarilyRetained($temporarily_retained)
-    {
-        if (is_null($temporarily_retained)) {
-            throw new \InvalidArgumentException('non-nullable temporarily_retained cannot be null');
-        }
-        $this->container['temporarily_retained'] = $temporarily_retained;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_retention_amount
-     *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
-     */
-    public function getTargetRetentionAmount()
-    {
-        return $this->container['target_retention_amount'];
-    }
-
-    /**
-     * Sets target_retention_amount
-     *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $target_retention_amount Target retention amount, grouped by currency.
-     *
-     * @return self
-     */
-    public function setTargetRetentionAmount($target_retention_amount)
-    {
-        if (is_null($target_retention_amount)) {
-            throw new \InvalidArgumentException('non-nullable target_retention_amount cannot be null');
-        }
-        $this->container['target_retention_amount'] = $target_retention_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_temporary_retention_amount
-     *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
-     */
-    public function getTargetTemporaryRetentionAmount()
-    {
-        return $this->container['target_temporary_retention_amount'];
-    }
-
-    /**
-     * Sets target_temporary_retention_amount
-     *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $target_temporary_retention_amount Target temporary retention amount, grouped by currency.
-     *
-     * @return self
-     */
-    public function setTargetTemporaryRetentionAmount($target_temporary_retention_amount)
-    {
-        if (is_null($target_temporary_retention_amount)) {
-            throw new \InvalidArgumentException('non-nullable target_temporary_retention_amount cannot be null');
-        }
-        $this->container['target_temporary_retention_amount'] = $target_temporary_retention_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_collateral_amount
-     *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
-     */
-    public function getTargetCollateralAmount()
-    {
-        return $this->container['target_collateral_amount'];
-    }
-
-    /**
-     * Sets target_collateral_amount
-     *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $target_collateral_amount Target collateral amount, grouped by currency.
-     *
-     * @return self
-     */
-    public function setTargetCollateralAmount($target_collateral_amount)
-    {
-        if (is_null($target_collateral_amount)) {
-            throw new \InvalidArgumentException('non-nullable target_collateral_amount cannot be null');
-        }
-        $this->container['target_collateral_amount'] = $target_collateral_amount;
+        $this->container['conekta_retention'] = $conekta_retention;
 
         return $this;
     }
@@ -603,7 +438,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gateway
      *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
      */
     public function getGateway()
     {
@@ -613,7 +448,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gateway
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $gateway Gateway balance amounts, grouped by currency.
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $gateway Gateway balance amounts, grouped by currency.
      *
      * @return self
      */
@@ -628,28 +463,163 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets cashout_retention_debited
+     * Gets pending
      *
-     * @return \DigitalFemsa\Model\BalanceCommonField[]
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
      */
-    public function getCashoutRetentionDebited()
+    public function getPending()
     {
-        return $this->container['cashout_retention_debited'];
+        return $this->container['pending'];
     }
 
     /**
-     * Sets cashout_retention_debited
+     * Sets pending
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[] $cashout_retention_debited Cashout retention debited amounts, grouped by currency.
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $pending Amounts pending settlement, grouped by currency.
      *
      * @return self
      */
-    public function setCashoutRetentionDebited($cashout_retention_debited)
+    public function setPending($pending)
     {
-        if (is_null($cashout_retention_debited)) {
-            throw new \InvalidArgumentException('non-nullable cashout_retention_debited cannot be null');
+        if (is_null($pending)) {
+            throw new \InvalidArgumentException('non-nullable pending cannot be null');
         }
-        $this->container['cashout_retention_debited'] = $cashout_retention_debited;
+        $this->container['pending'] = $pending;
+
+        return $this;
+    }
+
+    /**
+     * Gets retained
+     *
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
+     */
+    public function getRetained()
+    {
+        return $this->container['retained'];
+    }
+
+    /**
+     * Sets retained
+     *
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $retained Amounts currently retained, grouped by currency.
+     *
+     * @return self
+     */
+    public function setRetained($retained)
+    {
+        if (is_null($retained)) {
+            throw new \InvalidArgumentException('non-nullable retained cannot be null');
+        }
+        $this->container['retained'] = $retained;
+
+        return $this;
+    }
+
+    /**
+     * Gets retention_amount
+     *
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
+     */
+    public function getRetentionAmount()
+    {
+        return $this->container['retention_amount'];
+    }
+
+    /**
+     * Sets retention_amount
+     *
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $retention_amount Retention amount applied, grouped by currency.
+     *
+     * @return self
+     */
+    public function setRetentionAmount($retention_amount)
+    {
+        if (is_null($retention_amount)) {
+            throw new \InvalidArgumentException('non-nullable retention_amount cannot be null');
+        }
+        $this->container['retention_amount'] = $retention_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_collateral_amount
+     *
+     * @return object|null
+     */
+    public function getTargetCollateralAmount()
+    {
+        return $this->container['target_collateral_amount'];
+    }
+
+    /**
+     * Sets target_collateral_amount
+     *
+     * @param object|null $target_collateral_amount Target collateral amount, grouped by currency.
+     *
+     * @return self
+     */
+    public function setTargetCollateralAmount($target_collateral_amount)
+    {
+        if (is_null($target_collateral_amount)) {
+            throw new \InvalidArgumentException('non-nullable target_collateral_amount cannot be null');
+        }
+        $this->container['target_collateral_amount'] = $target_collateral_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_retention_amount
+     *
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
+     */
+    public function getTargetRetentionAmount()
+    {
+        return $this->container['target_retention_amount'];
+    }
+
+    /**
+     * Sets target_retention_amount
+     *
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $target_retention_amount Target retention amount, grouped by currency.
+     *
+     * @return self
+     */
+    public function setTargetRetentionAmount($target_retention_amount)
+    {
+        if (is_null($target_retention_amount)) {
+            throw new \InvalidArgumentException('non-nullable target_retention_amount cannot be null');
+        }
+        $this->container['target_retention_amount'] = $target_retention_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets temporarily_retained
+     *
+     * @return \DigitalFemsa\Model\BalanceCommonField[]|null
+     */
+    public function getTemporarilyRetained()
+    {
+        return $this->container['temporarily_retained'];
+    }
+
+    /**
+     * Sets temporarily_retained
+     *
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $temporarily_retained Amounts temporarily retained
+     *
+     * @return self
+     */
+    public function setTemporarilyRetained($temporarily_retained)
+    {
+        if (is_null($temporarily_retained)) {
+            throw new \InvalidArgumentException('non-nullable temporarily_retained cannot be null');
+        }
+        $this->container['temporarily_retained'] = $temporarily_retained;
 
         return $this;
     }

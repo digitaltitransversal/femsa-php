@@ -77,8 +77,8 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'failed_attempts' => null,
         'id' => null,
-        'last_attempted_at' => 'int64',
-        'last_http_response_status' => null,
+        'last_attempted_at' => null,
+        'last_http_response_status' => 'int32',
         'object' => null,
         'response_data' => null,
         'url' => 'uri'
@@ -95,7 +95,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_attempted_at' => false,
         'last_http_response_status' => false,
         'object' => false,
-        'response_data' => true,
+        'response_data' => false,
         'url' => false
     ];
 
@@ -265,19 +265,6 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_WEBHOOK_LOG = 'webhook_log';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_WEBHOOK_LOG,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -330,34 +317,10 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['failed_attempts'] === null) {
-            $invalidProperties[] = "'failed_attempts' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['last_attempted_at'] === null) {
-            $invalidProperties[] = "'last_attempted_at' can't be null";
-        }
-        if ($this->container['last_http_response_status'] === null) {
-            $invalidProperties[] = "'last_http_response_status' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if (!is_null($this->container['response_data']) && (count($this->container['response_data']) > 100)) {
             $invalidProperties[] = "invalid value for 'response_data', number of items must be less than or equal to 100.";
         }
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -376,7 +339,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets failed_attempts
      *
-     * @return int
+     * @return int|null
      */
     public function getFailedAttempts()
     {
@@ -386,7 +349,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets failed_attempts
      *
-     * @param int $failed_attempts failed_attempts
+     * @param int|null $failed_attempts failed_attempts
      *
      * @return self
      */
@@ -403,7 +366,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -413,7 +376,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string|null $id id
      *
      * @return self
      */
@@ -430,7 +393,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_attempted_at
      *
-     * @return int
+     * @return int|null
      */
     public function getLastAttemptedAt()
     {
@@ -440,7 +403,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_attempted_at
      *
-     * @param int $last_attempted_at last_attempted_at
+     * @param int|null $last_attempted_at last_attempted_at
      *
      * @return self
      */
@@ -457,7 +420,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_http_response_status
      *
-     * @return int
+     * @return int|null
      */
     public function getLastHttpResponseStatus()
     {
@@ -467,7 +430,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_http_response_status
      *
-     * @param int $last_http_response_status last_http_response_status
+     * @param int|null $last_http_response_status last_http_response_status
      *
      * @return self
      */
@@ -503,16 +466,6 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['object'] = $object;
 
         return $this;
@@ -538,17 +491,10 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setResponseData($response_data)
     {
         if (is_null($response_data)) {
-            array_push($this->openAPINullablesSetToNull, 'response_data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('response_data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable response_data cannot be null');
         }
 
-        if (!is_null($response_data) && (count($response_data) > 100)) {
+        if ((count($response_data) > 100)) {
             throw new \InvalidArgumentException('invalid value for $response_data when calling WebhookLog., number of items must be less than or equal to 100.');
         }
         $this->container['response_data'] = $response_data;
@@ -559,7 +505,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets url
      *
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -569,7 +515,7 @@ class WebhookLog implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url url
+     * @param string|null $url url
      *
      * @return self
      */

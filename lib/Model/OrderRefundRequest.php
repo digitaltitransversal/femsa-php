@@ -72,7 +72,7 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => 'int64',
+        'amount' => null,
         'charge_id' => null,
         'reason' => null,
         'expires_at' => 'int64'
@@ -320,10 +320,6 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if (($this->container['amount'] < 1)) {
-            $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 1.";
-        }
-
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
@@ -373,11 +369,6 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if (is_null($amount)) {
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-
-        if (($amount < 1)) {
-            throw new \InvalidArgumentException('invalid value for $amount when calling OrderRefundRequest., must be bigger than or equal to 1.');
-        }
-
         $this->container['amount'] = $amount;
 
         return $this;

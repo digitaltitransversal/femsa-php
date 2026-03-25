@@ -59,8 +59,8 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
         'expires_at' => 'int',
+        'type' => 'string',
         'payment_source_id' => 'string'
     ];
 
@@ -72,8 +72,8 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
         'expires_at' => 'int64',
+        'type' => null,
         'payment_source_id' => null
     ];
 
@@ -83,9 +83,9 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'expires_at' => false,
         'type' => false,
-        'expires_at' => true,
-        'payment_source_id' => true
+        'payment_source_id' => false
     ];
 
     /**
@@ -174,8 +174,8 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'expires_at' => 'expires_at',
+        'type' => 'type',
         'payment_source_id' => 'payment_source_id'
     ];
 
@@ -185,8 +185,8 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'expires_at' => 'setExpiresAt',
+        'type' => 'setType',
         'payment_source_id' => 'setPaymentSourceId'
     ];
 
@@ -196,8 +196,8 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'expires_at' => 'getExpiresAt',
+        'type' => 'getType',
         'payment_source_id' => 'getPaymentSourceId'
     ];
 
@@ -242,21 +242,6 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
-    public const TYPE_CASH = 'cash';
-    public const TYPE_OXXO_CASH = 'oxxo_cash';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CASH,
-            self::TYPE_OXXO_CASH,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -273,8 +258,8 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('payment_source_id', $data ?? [], null);
     }
 
@@ -308,15 +293,6 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -331,43 +307,6 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type Payment method type.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets expires_at
@@ -389,16 +328,36 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
     public function setExpiresAt($expires_at)
     {
         if (is_null($expires_at)) {
-            array_push($this->openAPINullablesSetToNull, 'expires_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
         }
         $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -423,14 +382,7 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
     public function setPaymentSourceId($payment_source_id)
     {
         if (is_null($payment_source_id)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_source_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_source_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_source_id cannot be null');
         }
         $this->container['payment_source_id'] = $payment_source_id;
 

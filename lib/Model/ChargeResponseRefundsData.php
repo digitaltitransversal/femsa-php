@@ -95,14 +95,14 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static array $openAPINullables = [
         'amount' => false,
-        'auth_code' => true,
+        'auth_code' => false,
         'created_at' => false,
-        'expires_at' => true,
+        'expires_at' => false,
         'id' => false,
         'object' => false,
-        'status' => true,
-        'payout_id' => true,
-        'reference' => true
+        'status' => false,
+        'payout_id' => false,
+        'reference' => false
     ];
 
     /**
@@ -277,19 +277,6 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_REFUND = 'refund';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_REFUND,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -356,15 +343,6 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['object'] === null) {
             $invalidProperties[] = "'object' can't be null";
         }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -427,14 +405,7 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
     public function setAuthCode($auth_code)
     {
         if (is_null($auth_code)) {
-            array_push($this->openAPINullablesSetToNull, 'auth_code');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('auth_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable auth_code cannot be null');
         }
         $this->container['auth_code'] = $auth_code;
 
@@ -488,14 +459,7 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
     public function setExpiresAt($expires_at)
     {
         if (is_null($expires_at)) {
-            array_push($this->openAPINullablesSetToNull, 'expires_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
         }
         $this->container['expires_at'] = $expires_at;
 
@@ -551,16 +515,6 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['object'] = $object;
 
         return $this;
@@ -586,14 +540,7 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
     public function setStatus($status)
     {
         if (is_null($status)) {
-            array_push($this->openAPINullablesSetToNull, 'status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
 
@@ -620,14 +567,7 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
     public function setPayoutId($payout_id)
     {
         if (is_null($payout_id)) {
-            array_push($this->openAPINullablesSetToNull, 'payout_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payout_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payout_id cannot be null');
         }
         $this->container['payout_id'] = $payout_id;
 
@@ -654,14 +594,7 @@ class ChargeResponseRefundsData implements ModelInterface, ArrayAccess, \JsonSer
     public function setReference($reference)
     {
         if (is_null($reference)) {
-            array_push($this->openAPINullablesSetToNull, 'reference');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reference', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reference cannot be null');
         }
         $this->container['reference'] = $reference;
 

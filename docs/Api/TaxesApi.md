@@ -170,7 +170,7 @@ $apiInstance = new DigitalFemsa\Api\TaxesApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $tax_id = tax_lin_2tQ974hSHcsdeSZHG; // string | identifier
-$update_order_tax_request = new \DigitalFemsa\Model\UpdateOrderTaxRequest(); // \DigitalFemsa\Model\UpdateOrderTaxRequest | Request body for creating a tax line.
+$update_order_tax_request = new \DigitalFemsa\Model\UpdateOrderTaxRequest(); // \DigitalFemsa\Model\UpdateOrderTaxRequest | Request body for updating a tax line.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -188,7 +188,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **tax_id** | **string**| identifier | |
-| **update_order_tax_request** | [**\DigitalFemsa\Model\UpdateOrderTaxRequest**](../Model/UpdateOrderTaxRequest.md)| Request body for creating a tax line. | |
+| **update_order_tax_request** | [**\DigitalFemsa\Model\UpdateOrderTaxRequest**](../Model/UpdateOrderTaxRequest.md)| Request body for updating a tax line. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

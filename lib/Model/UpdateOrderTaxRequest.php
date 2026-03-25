@@ -290,17 +290,11 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
-        }
-        if (($this->container['amount'] < 0)) {
+        if (!is_null($this->container['amount']) && ($this->container['amount'] < 0)) {
             $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ((mb_strlen($this->container['description']) < 2)) {
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) < 2)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be bigger than or equal to 2.";
         }
 
@@ -326,7 +320,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets amount
      *
-     * @return int
+     * @return int|null
      */
     public function getAmount()
     {
@@ -336,7 +330,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets amount
      *
-     * @param int $amount The amount to be collected for tax in cents
+     * @param int|null $amount The amount to be collected for tax in cents
      *
      * @return self
      */
@@ -358,7 +352,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -368,7 +362,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets description
      *
-     * @param string $description Description or tax name
+     * @param string|null $description Description or tax name
      *
      * @return self
      */

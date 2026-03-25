@@ -272,19 +272,6 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const OBJECT_EVENT = 'event';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObjectAllowableValues()
-    {
-        return [
-            self::OBJECT_EVENT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -338,43 +325,10 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ((count($this->container['data']) > 100)) {
+        if (!is_null($this->container['data']) && (count($this->container['data']) > 100)) {
             $invalidProperties[] = "invalid value for 'data', number of items must be less than or equal to 100.";
         }
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'object', must be one of '%s'",
-                $this->container['object'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['webhook_logs'] === null) {
-            $invalidProperties[] = "'webhook_logs' can't be null";
-        }
-        if ($this->container['webhook_status'] === null) {
-            $invalidProperties[] = "'webhook_status' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -393,7 +347,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -403,7 +357,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int $created_at created_at
+     * @param int|null $created_at created_at
      *
      * @return self
      */
@@ -420,7 +374,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return array<string,mixed>
+     * @return array<string,mixed>|null
      */
     public function getData()
     {
@@ -430,7 +384,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param array<string,mixed> $data data
+     * @param array<string,mixed>|null $data data
      *
      * @return self
      */
@@ -451,7 +405,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -461,7 +415,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string|null $id id
      *
      * @return self
      */
@@ -478,7 +432,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets livemode
      *
-     * @return bool
+     * @return bool|null
      */
     public function getLivemode()
     {
@@ -488,7 +442,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets livemode
      *
-     * @param bool $livemode livemode
+     * @param bool|null $livemode livemode
      *
      * @return self
      */
@@ -505,7 +459,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -515,7 +469,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object object
+     * @param string|null $object object
      *
      * @return self
      */
@@ -523,16 +477,6 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($object)) {
             throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $allowedValues = $this->getObjectAllowableValues();
-        if (!in_array($object, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'object', must be one of '%s'",
-                    $object,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['object'] = $object;
 
@@ -542,7 +486,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -552,7 +496,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string|null $type type
      *
      * @return self
      */
@@ -569,7 +513,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets webhook_logs
      *
-     * @return \DigitalFemsa\Model\WebhookLog[]
+     * @return \DigitalFemsa\Model\WebhookLog[]|null
      */
     public function getWebhookLogs()
     {
@@ -579,7 +523,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets webhook_logs
      *
-     * @param \DigitalFemsa\Model\WebhookLog[] $webhook_logs webhook_logs
+     * @param \DigitalFemsa\Model\WebhookLog[]|null $webhook_logs webhook_logs
      *
      * @return self
      */
@@ -596,7 +540,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets webhook_status
      *
-     * @return string
+     * @return string|null
      */
     public function getWebhookStatus()
     {
@@ -606,7 +550,7 @@ class EventResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets webhook_status
      *
-     * @param string $webhook_status webhook_status
+     * @param string|null $webhook_status webhook_status
      *
      * @return self
      */

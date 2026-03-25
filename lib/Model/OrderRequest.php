@@ -59,20 +59,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'currency' => 'string',
+        'customer_info' => '\DigitalFemsa\Model\OrderRequestCustomerInfo',
+        'line_items' => '\DigitalFemsa\Model\Product[]',
         'charges' => '\DigitalFemsa\Model\ChargeRequest[]',
         'checkout' => '\DigitalFemsa\Model\CheckoutRequest',
-        'return_url' => 'string',
-        'currency' => 'string',
-        'customer_info' => '\DigitalFemsa\Model\CustomerInfo',
         'discount_lines' => '\DigitalFemsa\Model\OrderDiscountLinesRequest[]',
-        'fiscal_entity' => 'object',
-        'line_items' => '\DigitalFemsa\Model\Product[]',
-        'metadata' => 'array<string,mixed>',
+        'tax_lines' => '\DigitalFemsa\Model\OrderTaxRequest[]',
         'needs_shipping_contact' => 'bool',
-        'processing_mode' => 'string',
         'shipping_contact' => '\DigitalFemsa\Model\CustomerShippingContacts',
         'shipping_lines' => '\DigitalFemsa\Model\ShippingRequest[]',
-        'tax_lines' => '\DigitalFemsa\Model\OrderTaxRequest[]'
+        'fiscal_entity' => '\DigitalFemsa\Model\OrderFiscalEntityRequest',
+        'processing_mode' => 'string',
+        'metadata' => 'array<string,mixed>'
     ];
 
     /**
@@ -83,20 +82,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'charges' => null,
-        'checkout' => null,
-        'return_url' => 'uri',
         'currency' => null,
         'customer_info' => null,
-        'discount_lines' => null,
-        'fiscal_entity' => null,
         'line_items' => null,
-        'metadata' => null,
+        'charges' => null,
+        'checkout' => null,
+        'discount_lines' => null,
+        'tax_lines' => null,
         'needs_shipping_contact' => null,
-        'processing_mode' => null,
         'shipping_contact' => null,
         'shipping_lines' => null,
-        'tax_lines' => null
+        'fiscal_entity' => null,
+        'processing_mode' => null,
+        'metadata' => null
     ];
 
     /**
@@ -105,20 +103,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'charges' => false,
-        'checkout' => false,
-        'return_url' => true,
         'currency' => false,
         'customer_info' => false,
-        'discount_lines' => false,
-        'fiscal_entity' => false,
         'line_items' => false,
-        'metadata' => false,
+        'charges' => false,
+        'checkout' => false,
+        'discount_lines' => false,
+        'tax_lines' => false,
         'needs_shipping_contact' => false,
-        'processing_mode' => false,
         'shipping_contact' => false,
         'shipping_lines' => false,
-        'tax_lines' => false
+        'fiscal_entity' => false,
+        'processing_mode' => false,
+        'metadata' => false
     ];
 
     /**
@@ -207,20 +204,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'charges' => 'charges',
-        'checkout' => 'checkout',
-        'return_url' => 'return_url',
         'currency' => 'currency',
         'customer_info' => 'customer_info',
-        'discount_lines' => 'discount_lines',
-        'fiscal_entity' => 'fiscal_entity',
         'line_items' => 'line_items',
-        'metadata' => 'metadata',
+        'charges' => 'charges',
+        'checkout' => 'checkout',
+        'discount_lines' => 'discount_lines',
+        'tax_lines' => 'tax_lines',
         'needs_shipping_contact' => 'needs_shipping_contact',
-        'processing_mode' => 'processing_mode',
         'shipping_contact' => 'shipping_contact',
         'shipping_lines' => 'shipping_lines',
-        'tax_lines' => 'tax_lines'
+        'fiscal_entity' => 'fiscal_entity',
+        'processing_mode' => 'processing_mode',
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -229,20 +225,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'charges' => 'setCharges',
-        'checkout' => 'setCheckout',
-        'return_url' => 'setReturnUrl',
         'currency' => 'setCurrency',
         'customer_info' => 'setCustomerInfo',
-        'discount_lines' => 'setDiscountLines',
-        'fiscal_entity' => 'setFiscalEntity',
         'line_items' => 'setLineItems',
-        'metadata' => 'setMetadata',
+        'charges' => 'setCharges',
+        'checkout' => 'setCheckout',
+        'discount_lines' => 'setDiscountLines',
+        'tax_lines' => 'setTaxLines',
         'needs_shipping_contact' => 'setNeedsShippingContact',
-        'processing_mode' => 'setProcessingMode',
         'shipping_contact' => 'setShippingContact',
         'shipping_lines' => 'setShippingLines',
-        'tax_lines' => 'setTaxLines'
+        'fiscal_entity' => 'setFiscalEntity',
+        'processing_mode' => 'setProcessingMode',
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -251,20 +246,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'charges' => 'getCharges',
-        'checkout' => 'getCheckout',
-        'return_url' => 'getReturnUrl',
         'currency' => 'getCurrency',
         'customer_info' => 'getCustomerInfo',
-        'discount_lines' => 'getDiscountLines',
-        'fiscal_entity' => 'getFiscalEntity',
         'line_items' => 'getLineItems',
-        'metadata' => 'getMetadata',
+        'charges' => 'getCharges',
+        'checkout' => 'getCheckout',
+        'discount_lines' => 'getDiscountLines',
+        'tax_lines' => 'getTaxLines',
         'needs_shipping_contact' => 'getNeedsShippingContact',
-        'processing_mode' => 'getProcessingMode',
         'shipping_contact' => 'getShippingContact',
         'shipping_lines' => 'getShippingLines',
-        'tax_lines' => 'getTaxLines'
+        'fiscal_entity' => 'getFiscalEntity',
+        'processing_mode' => 'getProcessingMode',
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -324,20 +318,19 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('charges', $data ?? [], null);
-        $this->setIfExists('checkout', $data ?? [], null);
-        $this->setIfExists('return_url', $data ?? [], null);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('customer_info', $data ?? [], null);
-        $this->setIfExists('discount_lines', $data ?? [], null);
-        $this->setIfExists('fiscal_entity', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('charges', $data ?? [], null);
+        $this->setIfExists('checkout', $data ?? [], null);
+        $this->setIfExists('discount_lines', $data ?? [], null);
+        $this->setIfExists('tax_lines', $data ?? [], null);
         $this->setIfExists('needs_shipping_contact', $data ?? [], null);
-        $this->setIfExists('processing_mode', $data ?? [], null);
         $this->setIfExists('shipping_contact', $data ?? [], null);
         $this->setIfExists('shipping_lines', $data ?? [], null);
-        $this->setIfExists('tax_lines', $data ?? [], null);
+        $this->setIfExists('fiscal_entity', $data ?? [], null);
+        $this->setIfExists('processing_mode', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
     }
 
     /**
@@ -400,6 +393,91 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Currency with which the payment will be made.
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        if ((mb_strlen($currency) > 3)) {
+            throw new \InvalidArgumentException('invalid length for $currency when calling OrderRequest., must be smaller than or equal to 3.');
+        }
+
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_info
+     *
+     * @return \DigitalFemsa\Model\OrderRequestCustomerInfo
+     */
+    public function getCustomerInfo()
+    {
+        return $this->container['customer_info'];
+    }
+
+    /**
+     * Sets customer_info
+     *
+     * @param \DigitalFemsa\Model\OrderRequestCustomerInfo $customer_info customer_info
+     *
+     * @return self
+     */
+    public function setCustomerInfo($customer_info)
+    {
+        if (is_null($customer_info)) {
+            throw new \InvalidArgumentException('non-nullable customer_info cannot be null');
+        }
+        $this->container['customer_info'] = $customer_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets line_items
+     *
+     * @return \DigitalFemsa\Model\Product[]
+     */
+    public function getLineItems()
+    {
+        return $this->container['line_items'];
+    }
+
+    /**
+     * Sets line_items
+     *
+     * @param \DigitalFemsa\Model\Product[] $line_items List of [products](https://developers.digitalfemsa.io/reference/orderscreateproduct) that are sold in the order. You must have at least one product.
+     *
+     * @return self
+     */
+    public function setLineItems($line_items)
+    {
+        if (is_null($line_items)) {
+            throw new \InvalidArgumentException('non-nullable line_items cannot be null');
+        }
+        $this->container['line_items'] = $line_items;
+
+        return $this;
+    }
+
+    /**
      * Gets charges
      *
      * @return \DigitalFemsa\Model\ChargeRequest[]|null
@@ -454,98 +532,6 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets return_url
-     *
-     * @return string|null
-     */
-    public function getReturnUrl()
-    {
-        return $this->container['return_url'];
-    }
-
-    /**
-     * Sets return_url
-     *
-     * @param string|null $return_url Optional return URL used by some payment/checkout flows.
-     *
-     * @return self
-     */
-    public function setReturnUrl($return_url)
-    {
-        if (is_null($return_url)) {
-            array_push($this->openAPINullablesSetToNull, 'return_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('return_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['return_url'] = $return_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency Currency with which the payment will be made. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        if ((mb_strlen($currency) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $currency when calling OrderRequest., must be smaller than or equal to 3.');
-        }
-
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer_info
-     *
-     * @return \DigitalFemsa\Model\CustomerInfo
-     */
-    public function getCustomerInfo()
-    {
-        return $this->container['customer_info'];
-    }
-
-    /**
-     * Sets customer_info
-     *
-     * @param \DigitalFemsa\Model\CustomerInfo $customer_info customer_info
-     *
-     * @return self
-     */
-    public function setCustomerInfo($customer_info)
-    {
-        if (is_null($customer_info)) {
-            throw new \InvalidArgumentException('non-nullable customer_info cannot be null');
-        }
-        $this->container['customer_info'] = $customer_info;
-
-        return $this;
-    }
-
-    /**
      * Gets discount_lines
      *
      * @return \DigitalFemsa\Model\OrderDiscountLinesRequest[]|null
@@ -573,86 +559,28 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets fiscal_entity
+     * Gets tax_lines
      *
-     * @return object|null
+     * @return \DigitalFemsa\Model\OrderTaxRequest[]|null
      */
-    public function getFiscalEntity()
+    public function getTaxLines()
     {
-        return $this->container['fiscal_entity'];
+        return $this->container['tax_lines'];
     }
 
     /**
-     * Sets fiscal_entity
+     * Sets tax_lines
      *
-     * @param object|null $fiscal_entity Fiscal entity of the order, Currently it is a purely informative field
+     * @param \DigitalFemsa\Model\OrderTaxRequest[]|null $tax_lines List of [taxes](https://developers.digitalfemsa.io/reference/orderscreatetaxes) that are applied to the order.
      *
      * @return self
      */
-    public function setFiscalEntity($fiscal_entity)
+    public function setTaxLines($tax_lines)
     {
-        if (is_null($fiscal_entity)) {
-            throw new \InvalidArgumentException('non-nullable fiscal_entity cannot be null');
+        if (is_null($tax_lines)) {
+            throw new \InvalidArgumentException('non-nullable tax_lines cannot be null');
         }
-        $this->container['fiscal_entity'] = $fiscal_entity;
-
-        return $this;
-    }
-
-    /**
-     * Gets line_items
-     *
-     * @return \DigitalFemsa\Model\Product[]
-     */
-    public function getLineItems()
-    {
-        return $this->container['line_items'];
-    }
-
-    /**
-     * Sets line_items
-     *
-     * @param \DigitalFemsa\Model\Product[] $line_items List of [products](https://developers.digitalfemsa.io/reference/orderscreateproduct) that are sold in the order. You must have at least one product.
-     *
-     * @return self
-     */
-    public function setLineItems($line_items)
-    {
-        if (is_null($line_items)) {
-            throw new \InvalidArgumentException('non-nullable line_items cannot be null');
-        }
-        $this->container['line_items'] = $line_items;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,mixed>|null $metadata Metadata associated with the order
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-
-        if ((count($metadata) > 100)) {
-            throw new \InvalidArgumentException('invalid value for $metadata when calling OrderRequest., number of items must be less than or equal to 100.');
-        }
-        $this->container['metadata'] = $metadata;
+        $this->container['tax_lines'] = $tax_lines;
 
         return $this;
     }
@@ -680,33 +608,6 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable needs_shipping_contact cannot be null');
         }
         $this->container['needs_shipping_contact'] = $needs_shipping_contact;
-
-        return $this;
-    }
-
-    /**
-     * Gets processing_mode
-     *
-     * @return string|null
-     */
-    public function getProcessingMode()
-    {
-        return $this->container['processing_mode'];
-    }
-
-    /**
-     * Sets processing_mode
-     *
-     * @param string|null $processing_mode Indicates the processing mode for the order, either ecommerce, recurrent or validation.
-     *
-     * @return self
-     */
-    public function setProcessingMode($processing_mode)
-    {
-        if (is_null($processing_mode)) {
-            throw new \InvalidArgumentException('non-nullable processing_mode cannot be null');
-        }
-        $this->container['processing_mode'] = $processing_mode;
 
         return $this;
     }
@@ -766,28 +667,86 @@ class OrderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tax_lines
+     * Gets fiscal_entity
      *
-     * @return \DigitalFemsa\Model\OrderTaxRequest[]|null
+     * @return \DigitalFemsa\Model\OrderFiscalEntityRequest|null
      */
-    public function getTaxLines()
+    public function getFiscalEntity()
     {
-        return $this->container['tax_lines'];
+        return $this->container['fiscal_entity'];
     }
 
     /**
-     * Sets tax_lines
+     * Sets fiscal_entity
      *
-     * @param \DigitalFemsa\Model\OrderTaxRequest[]|null $tax_lines List of [taxes](https://developers.digitalfemsa.io/reference/orderscreatetaxes) that are applied to the order.
+     * @param \DigitalFemsa\Model\OrderFiscalEntityRequest|null $fiscal_entity fiscal_entity
      *
      * @return self
      */
-    public function setTaxLines($tax_lines)
+    public function setFiscalEntity($fiscal_entity)
     {
-        if (is_null($tax_lines)) {
-            throw new \InvalidArgumentException('non-nullable tax_lines cannot be null');
+        if (is_null($fiscal_entity)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_entity cannot be null');
         }
-        $this->container['tax_lines'] = $tax_lines;
+        $this->container['fiscal_entity'] = $fiscal_entity;
+
+        return $this;
+    }
+
+    /**
+     * Gets processing_mode
+     *
+     * @return string|null
+     */
+    public function getProcessingMode()
+    {
+        return $this->container['processing_mode'];
+    }
+
+    /**
+     * Sets processing_mode
+     *
+     * @param string|null $processing_mode Indicates the processing mode for the order, either ecommerce, recurrent or validation.
+     *
+     * @return self
+     */
+    public function setProcessingMode($processing_mode)
+    {
+        if (is_null($processing_mode)) {
+            throw new \InvalidArgumentException('non-nullable processing_mode cannot be null');
+        }
+        $this->container['processing_mode'] = $processing_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,mixed>|null $metadata Arbitrary key-value data that you can attach to the order for your internal use (e.g. `customer_segment`, `sales_channel`, `internal_order_id`). It is not used for payment processing or fraud decisions. Keys should be strings; values can be any JSON value.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+
+        if ((count($metadata) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $metadata when calling OrderRequest., number of items must be less than or equal to 100.');
+        }
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

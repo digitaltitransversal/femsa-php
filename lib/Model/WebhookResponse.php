@@ -59,15 +59,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'deleted' => 'bool',
+        'development_enabled' => 'bool',
         'id' => 'string',
+        'livemode' => 'bool',
         'object' => 'string',
-        'url' => 'string',
+        'production_enabled' => 'bool',
         'status' => 'string',
         'subscribed_events' => 'string[]',
         'synchronous' => 'bool',
-        'description' => 'string',
-        'livemode' => 'bool',
-        'active' => 'bool'
+        'url' => 'string'
     ];
 
     /**
@@ -78,15 +79,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'deleted' => null,
+        'development_enabled' => null,
         'id' => null,
+        'livemode' => null,
         'object' => null,
-        'url' => null,
+        'production_enabled' => null,
         'status' => null,
         'subscribed_events' => null,
         'synchronous' => null,
-        'description' => null,
-        'livemode' => null,
-        'active' => null
+        'url' => null
     ];
 
     /**
@@ -95,15 +97,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'deleted' => true,
+        'development_enabled' => false,
         'id' => false,
+        'livemode' => false,
         'object' => false,
-        'url' => false,
+        'production_enabled' => false,
         'status' => false,
         'subscribed_events' => false,
         'synchronous' => false,
-        'description' => true,
-        'livemode' => false,
-        'active' => false
+        'url' => false
     ];
 
     /**
@@ -192,15 +195,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'deleted' => 'deleted',
+        'development_enabled' => 'development_enabled',
         'id' => 'id',
+        'livemode' => 'livemode',
         'object' => 'object',
-        'url' => 'url',
+        'production_enabled' => 'production_enabled',
         'status' => 'status',
         'subscribed_events' => 'subscribed_events',
         'synchronous' => 'synchronous',
-        'description' => 'description',
-        'livemode' => 'livemode',
-        'active' => 'active'
+        'url' => 'url'
     ];
 
     /**
@@ -209,15 +213,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'deleted' => 'setDeleted',
+        'development_enabled' => 'setDevelopmentEnabled',
         'id' => 'setId',
+        'livemode' => 'setLivemode',
         'object' => 'setObject',
-        'url' => 'setUrl',
+        'production_enabled' => 'setProductionEnabled',
         'status' => 'setStatus',
         'subscribed_events' => 'setSubscribedEvents',
         'synchronous' => 'setSynchronous',
-        'description' => 'setDescription',
-        'livemode' => 'setLivemode',
-        'active' => 'setActive'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -226,15 +231,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'deleted' => 'getDeleted',
+        'development_enabled' => 'getDevelopmentEnabled',
         'id' => 'getId',
+        'livemode' => 'getLivemode',
         'object' => 'getObject',
-        'url' => 'getUrl',
+        'production_enabled' => 'getProductionEnabled',
         'status' => 'getStatus',
         'subscribed_events' => 'getSubscribedEvents',
         'synchronous' => 'getSynchronous',
-        'description' => 'getDescription',
-        'livemode' => 'getLivemode',
-        'active' => 'getActive'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -278,29 +284,6 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const STATUS_BEING_PINGED = 'being_pinged';
-    public const STATUS_LISTENING = 'listening';
-    public const STATUS_INTERMITTENT_ERRORS = 'intermittent_errors';
-    public const STATUS_UNRESPONSIVE = 'unresponsive';
-    public const STATUS_ERROR = 'error';
-    public const STATUS_DISABLED = 'disabled';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_BEING_PINGED,
-            self::STATUS_LISTENING,
-            self::STATUS_INTERMITTENT_ERRORS,
-            self::STATUS_UNRESPONSIVE,
-            self::STATUS_ERROR,
-            self::STATUS_DISABLED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -317,15 +300,16 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('deleted', $data ?? [], null);
+        $this->setIfExists('development_enabled', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('production_enabled', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('subscribed_events', $data ?? [], null);
         $this->setIfExists('synchronous', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('active', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -355,39 +339,6 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['subscribed_events'] === null) {
-            $invalidProperties[] = "'subscribed_events' can't be null";
-        }
-        if ($this->container['synchronous'] === null) {
-            $invalidProperties[] = "'synchronous' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -404,9 +355,70 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets deleted
+     *
+     * @return bool|null
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool|null $deleted deleted
+     *
+     * @return self
+     */
+    public function setDeleted($deleted)
+    {
+        if (is_null($deleted)) {
+            array_push($this->openAPINullablesSetToNull, 'deleted');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('deleted', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets development_enabled
+     *
+     * @return bool|null
+     */
+    public function getDevelopmentEnabled()
+    {
+        return $this->container['development_enabled'];
+    }
+
+    /**
+     * Sets development_enabled
+     *
+     * @param bool|null $development_enabled development_enabled
+     *
+     * @return self
+     */
+    public function setDevelopmentEnabled($development_enabled)
+    {
+        if (is_null($development_enabled)) {
+            throw new \InvalidArgumentException('non-nullable development_enabled cannot be null');
+        }
+        $this->container['development_enabled'] = $development_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -416,7 +428,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id Unique identifier of the webhook.
+     * @param string|null $id id
      *
      * @return self
      */
@@ -431,9 +443,36 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets livemode
+     *
+     * @return bool|null
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool|null $livemode livemode
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
      * Gets object
      *
-     * @return string
+     * @return string|null
      */
     public function getObject()
     {
@@ -443,7 +482,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets object
      *
-     * @param string $object Object name, which is webhook.
+     * @param string|null $object object
      *
      * @return self
      */
@@ -458,28 +497,28 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets url
+     * Gets production_enabled
      *
-     * @return string
+     * @return bool|null
      */
-    public function getUrl()
+    public function getProductionEnabled()
     {
-        return $this->container['url'];
+        return $this->container['production_enabled'];
     }
 
     /**
-     * Sets url
+     * Sets production_enabled
      *
-     * @param string $url The URL where events will be delivered.
+     * @param bool|null $production_enabled production_enabled
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setProductionEnabled($production_enabled)
     {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        if (is_null($production_enabled)) {
+            throw new \InvalidArgumentException('non-nullable production_enabled cannot be null');
         }
-        $this->container['url'] = $url;
+        $this->container['production_enabled'] = $production_enabled;
 
         return $this;
     }
@@ -487,7 +526,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string
+     * @return string|null
      */
     public function getStatus()
     {
@@ -497,7 +536,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status Current delivery status of the webhook.
+     * @param string|null $status status
      *
      * @return self
      */
@@ -505,16 +544,6 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['status'] = $status;
 
@@ -524,7 +553,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subscribed_events
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getSubscribedEvents()
     {
@@ -534,7 +563,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subscribed_events
      *
-     * @param string[] $subscribed_events List of event types the webhook is subscribed to.
+     * @param string[]|null $subscribed_events subscribed_events
      *
      * @return self
      */
@@ -551,7 +580,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets synchronous
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSynchronous()
     {
@@ -561,7 +590,7 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets synchronous
      *
-     * @param bool $synchronous Indicates whether the webhook uses synchronous delivery behavior.
+     * @param bool|null $synchronous synchronous
      *
      * @return self
      */
@@ -576,89 +605,28 @@ class WebhookResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets description
+     * Gets url
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getUrl()
     {
-        return $this->container['description'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets description
+     * Sets url
      *
-     * @param string|null $description Optional description of the webhook.
+     * @param string|null $url url
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setUrl($url)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets livemode
-     *
-     * @return bool
-     */
-    public function getLivemode()
-    {
-        return $this->container['livemode'];
-    }
-
-    /**
-     * Sets livemode
-     *
-     * @param bool $livemode Indicates whether the webhook is in live mode or test mode.
-     *
-     * @return self
-     */
-    public function setLivemode($livemode)
-    {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
-        }
-        $this->container['livemode'] = $livemode;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool $active Indicates whether the webhook is active.
-     *
-     * @return self
-     */
-    public function setActive($active)
-    {
-        if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
-        }
-        $this->container['active'] = $active;
+        $this->container['url'] = $url;
 
         return $this;
     }

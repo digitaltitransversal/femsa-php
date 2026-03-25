@@ -58,9 +58,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'expires_at' => '\DigitalFemsa\Model\UpdatePaymentMethodsExpiresAt',
-        'amount' => '\DigitalFemsa\Model\UpdatePaymentMethodsAmount',
-        'type' => 'string'
+        'name' => 'string'
     ];
 
     /**
@@ -71,9 +69,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'expires_at' => null,
-        'amount' => null,
-        'type' => null
+        'name' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'expires_at' => false,
-        'amount' => false,
-        'type' => false
+        'name' => false
     ];
 
     /**
@@ -173,9 +167,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'expires_at' => 'expires_at',
-        'amount' => 'amount',
-        'type' => 'type'
+        'name' => 'name'
     ];
 
     /**
@@ -184,9 +176,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'expires_at' => 'setExpiresAt',
-        'amount' => 'setAmount',
-        'type' => 'setType'
+        'name' => 'setName'
     ];
 
     /**
@@ -195,9 +185,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'expires_at' => 'getExpiresAt',
-        'amount' => 'getAmount',
-        'type' => 'getType'
+        'name' => 'getName'
     ];
 
     /**
@@ -257,9 +245,7 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('expires_at', $data ?? [], null);
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -305,82 +291,28 @@ class UpdatePaymentMethods implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets expires_at
-     *
-     * @return \DigitalFemsa\Model\UpdatePaymentMethodsExpiresAt|null
-     */
-    public function getExpiresAt()
-    {
-        return $this->container['expires_at'];
-    }
-
-    /**
-     * Sets expires_at
-     *
-     * @param \DigitalFemsa\Model\UpdatePaymentMethodsExpiresAt|null $expires_at expires_at
-     *
-     * @return self
-     */
-    public function setExpiresAt($expires_at)
-    {
-        if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
-        }
-        $this->container['expires_at'] = $expires_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount
-     *
-     * @return \DigitalFemsa\Model\UpdatePaymentMethodsAmount|null
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param \DigitalFemsa\Model\UpdatePaymentMethodsAmount|null $amount amount
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets name
      *
      * @return string|null
      */
-    public function getType()
+    public function getName()
     {
-        return $this->container['type'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets type
+     * Sets name
      *
-     * @param string|null $type type
+     * @param string|null $name name
      *
      * @return self
      */
-    public function setType($type)
+    public function setName($name)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['name'] = $name;
 
         return $this;
     }

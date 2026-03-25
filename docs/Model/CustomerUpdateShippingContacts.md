@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **receiver** | **string** | Name of the person who will receive the order | [optional]
 **between_streets** | **string** | The street names between which the order will be delivered. | [optional]
 **address** | [**\DigitalFemsa\Model\CustomerShippingContactsAddress**](CustomerShippingContactsAddress.md) |  | [optional]
-**metadata** | **array<string,mixed>** | Metadata associated with the shipping contact | [optional]
+**parent_id** | **string** |  | [optional]
+**default** | **bool** |  | [optional]
+**deleted** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

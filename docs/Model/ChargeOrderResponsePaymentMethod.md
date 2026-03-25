@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Cash payment type | [optional]
+**type** | **string** |  | [optional]
 **object** | **string** |  |
 **auth_code** | **string** |  | [optional]
 **cashier_id** | **string** |  | [optional]

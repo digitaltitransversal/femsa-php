@@ -64,11 +64,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'string',
         'corporate' => 'bool',
         'custom_reference' => 'string',
-        'referrer' => 'string',
         'metadata' => 'array<string,mixed>',
+        'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsRequest[]',
         'fiscal_entities' => '\DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]',
-        'shipping_contacts' => '\DigitalFemsa\Model\CustomerShippingContacts[]',
-        'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentSourcesInner[]'
+        'shipping_contacts' => '\DigitalFemsa\Model\CustomerShippingContacts[]'
     ];
 
     /**
@@ -84,11 +83,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => null,
         'corporate' => null,
         'custom_reference' => null,
-        'referrer' => null,
         'metadata' => null,
+        'payment_sources' => null,
         'fiscal_entities' => null,
-        'shipping_contacts' => null,
-        'payment_sources' => null
+        'shipping_contacts' => null
     ];
 
     /**
@@ -101,12 +99,11 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'email' => false,
         'phone' => true,
         'corporate' => false,
-        'custom_reference' => true,
-        'referrer' => true,
+        'custom_reference' => false,
         'metadata' => false,
-        'fiscal_entities' => true,
-        'shipping_contacts' => true,
-        'payment_sources' => true
+        'payment_sources' => false,
+        'fiscal_entities' => false,
+        'shipping_contacts' => false
     ];
 
     /**
@@ -200,11 +197,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'phone',
         'corporate' => 'corporate',
         'custom_reference' => 'custom_reference',
-        'referrer' => 'referrer',
         'metadata' => 'metadata',
+        'payment_sources' => 'payment_sources',
         'fiscal_entities' => 'fiscal_entities',
-        'shipping_contacts' => 'shipping_contacts',
-        'payment_sources' => 'payment_sources'
+        'shipping_contacts' => 'shipping_contacts'
     ];
 
     /**
@@ -218,11 +214,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'setPhone',
         'corporate' => 'setCorporate',
         'custom_reference' => 'setCustomReference',
-        'referrer' => 'setReferrer',
         'metadata' => 'setMetadata',
+        'payment_sources' => 'setPaymentSources',
         'fiscal_entities' => 'setFiscalEntities',
-        'shipping_contacts' => 'setShippingContacts',
-        'payment_sources' => 'setPaymentSources'
+        'shipping_contacts' => 'setShippingContacts'
     ];
 
     /**
@@ -236,11 +231,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'getPhone',
         'corporate' => 'getCorporate',
         'custom_reference' => 'getCustomReference',
-        'referrer' => 'getReferrer',
         'metadata' => 'getMetadata',
+        'payment_sources' => 'getPaymentSources',
         'fiscal_entities' => 'getFiscalEntities',
-        'shipping_contacts' => 'getShippingContacts',
-        'payment_sources' => 'getPaymentSources'
+        'shipping_contacts' => 'getShippingContacts'
     ];
 
     /**
@@ -305,11 +299,10 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('corporate', $data ?? [], false);
         $this->setIfExists('custom_reference', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('payment_sources', $data ?? [], null);
         $this->setIfExists('fiscal_entities', $data ?? [], null);
         $this->setIfExists('shipping_contacts', $data ?? [], null);
-        $this->setIfExists('payment_sources', $data ?? [], null);
     }
 
     /**
@@ -503,50 +496,9 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomReference($custom_reference)
     {
         if (is_null($custom_reference)) {
-            array_push($this->openAPINullablesSetToNull, 'custom_reference');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom_reference', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable custom_reference cannot be null');
         }
         $this->container['custom_reference'] = $custom_reference;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrer
-     *
-     * @return string|null
-     */
-    public function getReferrer()
-    {
-        return $this->container['referrer'];
-    }
-
-    /**
-     * Sets referrer
-     *
-     * @param string|null $referrer Referrer value (if applicable).
-     *
-     * @return self
-     */
-    public function setReferrer($referrer)
-    {
-        if (is_null($referrer)) {
-            array_push($this->openAPINullablesSetToNull, 'referrer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('referrer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['referrer'] = $referrer;
 
         return $this;
     }
@@ -579,6 +531,33 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets payment_sources
+     *
+     * @return \DigitalFemsa\Model\CustomerPaymentMethodsRequest[]|null
+     */
+    public function getPaymentSources()
+    {
+        return $this->container['payment_sources'];
+    }
+
+    /**
+     * Sets payment_sources
+     *
+     * @param \DigitalFemsa\Model\CustomerPaymentMethodsRequest[]|null $payment_sources Customer payment sources to be created with the customer (optional).
+     *
+     * @return self
+     */
+    public function setPaymentSources($payment_sources)
+    {
+        if (is_null($payment_sources)) {
+            throw new \InvalidArgumentException('non-nullable payment_sources cannot be null');
+        }
+        $this->container['payment_sources'] = $payment_sources;
+
+        return $this;
+    }
+
+    /**
      * Gets fiscal_entities
      *
      * @return \DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]|null
@@ -598,14 +577,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFiscalEntities($fiscal_entities)
     {
         if (is_null($fiscal_entities)) {
-            array_push($this->openAPINullablesSetToNull, 'fiscal_entities');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fiscal_entities', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable fiscal_entities cannot be null');
         }
         $this->container['fiscal_entities'] = $fiscal_entities;
 
@@ -632,50 +604,9 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setShippingContacts($shipping_contacts)
     {
         if (is_null($shipping_contacts)) {
-            array_push($this->openAPINullablesSetToNull, 'shipping_contacts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('shipping_contacts', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable shipping_contacts cannot be null');
         }
         $this->container['shipping_contacts'] = $shipping_contacts;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_sources
-     *
-     * @return \DigitalFemsa\Model\CustomerPaymentSourcesInner[]|null
-     */
-    public function getPaymentSources()
-    {
-        return $this->container['payment_sources'];
-    }
-
-    /**
-     * Sets payment_sources
-     *
-     * @param \DigitalFemsa\Model\CustomerPaymentSourcesInner[]|null $payment_sources Customer payment sources to be created with the customer (optional).
-     *
-     * @return self
-     */
-    public function setPaymentSources($payment_sources)
-    {
-        if (is_null($payment_sources)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_sources');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_sources', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['payment_sources'] = $payment_sources;
 
         return $this;
     }

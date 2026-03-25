@@ -109,7 +109,7 @@ class CustomerShippingContactsResponse implements ModelInterface, ArrayAccess, \
         'created_at' => false,
         'metadata' => false,
         'object' => false,
-        'deleted' => true
+        'deleted' => false
     ];
 
     /**
@@ -520,7 +520,7 @@ class CustomerShippingContactsResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets default
      *
-     * @param bool|null $default True if this is the customer's default shipping contact.
+     * @param bool|null $default default
      *
      * @return self
      */
@@ -666,14 +666,7 @@ class CustomerShippingContactsResponse implements ModelInterface, ArrayAccess, \
     public function setDeleted($deleted)
     {
         if (is_null($deleted)) {
-            array_push($this->openAPINullablesSetToNull, 'deleted');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deleted', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable deleted cannot be null');
         }
         $this->container['deleted'] = $deleted;
 

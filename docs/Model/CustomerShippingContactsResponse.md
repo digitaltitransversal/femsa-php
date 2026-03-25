@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **between_streets** | **string** |  | [optional]
 **address** | [**\DigitalFemsa\Model\CustomerShippingContactsResponseAddress**](CustomerShippingContactsResponseAddress.md) |  | [optional]
 **parent_id** | **string** | Customer ID that owns this shipping contact. | [optional]
-**default** | **bool** | True if this is the customer&#39;s default shipping contact. | [optional]
+**default** | **bool** |  | [optional]
 **id** | **string** |  | [optional]
 **created_at** | **int** |  | [optional]
 **metadata** | **array<string,mixed>** | Metadata associated with the shipping contact | [optional]

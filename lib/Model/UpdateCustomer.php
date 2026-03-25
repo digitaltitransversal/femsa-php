@@ -64,7 +64,6 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'string',
         'corporate' => 'bool',
         'custom_reference' => 'string',
-        'referrer' => 'string',
         'metadata' => 'array<string,mixed>',
         'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsRequest[]',
         'default_payment_source_id' => 'string',
@@ -85,7 +84,6 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => null,
         'corporate' => null,
         'custom_reference' => null,
-        'referrer' => null,
         'metadata' => null,
         'payment_sources' => null,
         'default_payment_source_id' => null,
@@ -101,12 +99,11 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'name' => false,
         'email' => false,
-        'phone' => true,
+        'phone' => false,
         'corporate' => false,
-        'custom_reference' => true,
-        'referrer' => true,
+        'custom_reference' => false,
         'metadata' => false,
-        'payment_sources' => true,
+        'payment_sources' => false,
         'default_payment_source_id' => false,
         'default_fiscal_entity_id' => false,
         'default_shipping_contact_id' => false
@@ -203,7 +200,6 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'phone',
         'corporate' => 'corporate',
         'custom_reference' => 'custom_reference',
-        'referrer' => 'referrer',
         'metadata' => 'metadata',
         'payment_sources' => 'payment_sources',
         'default_payment_source_id' => 'default_payment_source_id',
@@ -222,7 +218,6 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'setPhone',
         'corporate' => 'setCorporate',
         'custom_reference' => 'setCustomReference',
-        'referrer' => 'setReferrer',
         'metadata' => 'setMetadata',
         'payment_sources' => 'setPaymentSources',
         'default_payment_source_id' => 'setDefaultPaymentSourceId',
@@ -241,7 +236,6 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => 'getPhone',
         'corporate' => 'getCorporate',
         'custom_reference' => 'getCustomReference',
-        'referrer' => 'getReferrer',
         'metadata' => 'getMetadata',
         'payment_sources' => 'getPaymentSources',
         'default_payment_source_id' => 'getDefaultPaymentSourceId',
@@ -309,9 +303,8 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
-        $this->setIfExists('corporate', $data ?? [], false);
+        $this->setIfExists('corporate', $data ?? [], null);
         $this->setIfExists('custom_reference', $data ?? [], null);
-        $this->setIfExists('referrer', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('payment_sources', $data ?? [], null);
         $this->setIfExists('default_payment_source_id', $data ?? [], null);
@@ -345,10 +338,6 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) > 19)) {
-            $invalidProperties[] = "invalid value for 'phone', the character length must be smaller than or equal to 19.";
-        }
 
         return $invalidProperties;
     }
@@ -439,19 +428,8 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPhone($phone)
     {
         if (is_null($phone)) {
-            array_push($this->openAPINullablesSetToNull, 'phone');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('phone', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable phone cannot be null');
         }
-        if (!is_null($phone) && (mb_strlen($phone) > 19)) {
-            throw new \InvalidArgumentException('invalid length for $phone when calling UpdateCustomer., must be smaller than or equal to 19.');
-        }
-
         $this->container['phone'] = $phone;
 
         return $this;
@@ -470,7 +448,7 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets corporate
      *
-     * @param bool|null $corporate Indicates whether the customer email is corporate.
+     * @param bool|null $corporate True if the customer represents a company.
      *
      * @return self
      */
@@ -504,50 +482,9 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomReference($custom_reference)
     {
         if (is_null($custom_reference)) {
-            array_push($this->openAPINullablesSetToNull, 'custom_reference');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom_reference', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable custom_reference cannot be null');
         }
         $this->container['custom_reference'] = $custom_reference;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrer
-     *
-     * @return string|null
-     */
-    public function getReferrer()
-    {
-        return $this->container['referrer'];
-    }
-
-    /**
-     * Sets referrer
-     *
-     * @param string|null $referrer Referrer value (if applicable).
-     *
-     * @return self
-     */
-    public function setReferrer($referrer)
-    {
-        if (is_null($referrer)) {
-            array_push($this->openAPINullablesSetToNull, 'referrer');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('referrer', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['referrer'] = $referrer;
 
         return $this;
     }
@@ -592,21 +529,14 @@ class UpdateCustomer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_sources
      *
-     * @param \DigitalFemsa\Model\CustomerPaymentMethodsRequest[]|null $payment_sources Contains details of the payment methods that the customer has active or has used in Femsa
+     * @param \DigitalFemsa\Model\CustomerPaymentMethodsRequest[]|null $payment_sources Customer payment sources to create/attach (offline recurrent references).
      *
      * @return self
      */
     public function setPaymentSources($payment_sources)
     {
         if (is_null($payment_sources)) {
-            array_push($this->openAPINullablesSetToNull, 'payment_sources');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('payment_sources', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable payment_sources cannot be null');
         }
         $this->container['payment_sources'] = $payment_sources;
 

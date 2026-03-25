@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **tax_id** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **phone** | **string** |  | [optional]
-**metadata** | **array<string,mixed>** |  | [optional]
+**metadata** | **array<string,object>** |  | [optional]
 **company_name** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

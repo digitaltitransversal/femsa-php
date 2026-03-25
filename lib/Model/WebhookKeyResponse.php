@@ -60,13 +60,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'object' => 'string',
         'active' => 'bool',
-        'livemode' => 'bool',
         'created_at' => 'int',
         'deactivated_at' => 'int',
-        'deleted' => 'bool',
-        'public_key' => 'string'
+        'public_key' => 'string',
+        'livemode' => 'bool',
+        'object' => 'string'
     ];
 
     /**
@@ -78,13 +77,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'object' => null,
         'active' => null,
-        'livemode' => null,
         'created_at' => 'int64',
         'deactivated_at' => 'int64',
-        'deleted' => null,
-        'public_key' => null
+        'public_key' => null,
+        'livemode' => null,
+        'object' => null
     ];
 
     /**
@@ -94,13 +92,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'id' => false,
-        'object' => false,
         'active' => false,
-        'livemode' => false,
         'created_at' => false,
         'deactivated_at' => true,
-        'deleted' => true,
-        'public_key' => true
+        'public_key' => false,
+        'livemode' => false,
+        'object' => false
     ];
 
     /**
@@ -190,13 +187,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'object' => 'object',
         'active' => 'active',
-        'livemode' => 'livemode',
         'created_at' => 'created_at',
         'deactivated_at' => 'deactivated_at',
-        'deleted' => 'deleted',
-        'public_key' => 'public_key'
+        'public_key' => 'public_key',
+        'livemode' => 'livemode',
+        'object' => 'object'
     ];
 
     /**
@@ -206,13 +202,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'id' => 'setId',
-        'object' => 'setObject',
         'active' => 'setActive',
-        'livemode' => 'setLivemode',
         'created_at' => 'setCreatedAt',
         'deactivated_at' => 'setDeactivatedAt',
-        'deleted' => 'setDeleted',
-        'public_key' => 'setPublicKey'
+        'public_key' => 'setPublicKey',
+        'livemode' => 'setLivemode',
+        'object' => 'setObject'
     ];
 
     /**
@@ -222,13 +217,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'id' => 'getId',
-        'object' => 'getObject',
         'active' => 'getActive',
-        'livemode' => 'getLivemode',
         'created_at' => 'getCreatedAt',
         'deactivated_at' => 'getDeactivatedAt',
-        'deleted' => 'getDeleted',
-        'public_key' => 'getPublicKey'
+        'public_key' => 'getPublicKey',
+        'livemode' => 'getLivemode',
+        'object' => 'getObject'
     ];
 
     /**
@@ -289,13 +283,12 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('active', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('deactivated_at', $data ?? [], null);
-        $this->setIfExists('deleted', $data ?? [], null);
         $this->setIfExists('public_key', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
     }
 
     /**
@@ -325,21 +318,6 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -358,7 +336,7 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets id
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -368,7 +346,7 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-     * @param string $id Unique identifier of the webhook key
+     * @param string|null $id Unique identifier of the webhook key
      *
      * @return self
      */
@@ -383,36 +361,9 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object Object name, value is webhook_key
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
      * Gets active
      *
-     * @return bool
+     * @return bool|null
      */
     public function getActive()
     {
@@ -422,7 +373,7 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets active
      *
-     * @param bool $active Indicates if the webhook key is active
+     * @param bool|null $active Indicates if the webhook key is active
      *
      * @return self
      */
@@ -437,36 +388,9 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets livemode
-     *
-     * @return bool
-     */
-    public function getLivemode()
-    {
-        return $this->container['livemode'];
-    }
-
-    /**
-     * Sets livemode
-     *
-     * @param bool $livemode Indicates if the webhook key is in live mode
-     *
-     * @return self
-     */
-    public function setLivemode($livemode)
-    {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
-        }
-        $this->container['livemode'] = $livemode;
-
-        return $this;
-    }
-
-    /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -476,7 +400,7 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets created_at
      *
-     * @param int $created_at Unix timestamp in seconds with the creation date of the webhook key
+     * @param int|null $created_at Unix timestamp in seconds with the creation date of the webhook key
      *
      * @return self
      */
@@ -503,7 +427,7 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets deactivated_at
      *
-     * @param int|null $deactivated_at Unix timestamp in seconds when the webhook key was deactivated (if applicable).
+     * @param int|null $deactivated_at Unix timestamp in seconds with the deactivation date of the webhook key
      *
      * @return self
      */
@@ -525,40 +449,6 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets deleted
-     *
-     * @return bool|null
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool|null $deleted Present only when the webhook key is deleted.
-     *
-     * @return self
-     */
-    public function setDeleted($deleted)
-    {
-        if (is_null($deleted)) {
-            array_push($this->openAPINullablesSetToNull, 'deleted');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deleted', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
      * Gets public_key
      *
      * @return string|null
@@ -571,23 +461,70 @@ class WebhookKeyResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets public_key
      *
-     * @param string|null $public_key Public key to be used in the webhook.
+     * @param string|null $public_key Public key to be used in the webhook
      *
      * @return self
      */
     public function setPublicKey($public_key)
     {
         if (is_null($public_key)) {
-            array_push($this->openAPINullablesSetToNull, 'public_key');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('public_key', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable public_key cannot be null');
         }
         $this->container['public_key'] = $public_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool|null
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool|null $livemode Indicates if the webhook key is in live mode
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object Object name, value is webhook_key
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $this->container['object'] = $object;
 
         return $this;
     }
