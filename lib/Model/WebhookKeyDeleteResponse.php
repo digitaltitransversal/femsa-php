@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * WebhookKeyDeleteResponse Class Doc Comment
  *
  * @category Class
- * @description webhook keys model
+ * @description Represents a webhook signing key after it has been deleted.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

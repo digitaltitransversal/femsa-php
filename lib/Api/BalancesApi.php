@@ -133,7 +133,7 @@ class BalancesApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\BalanceResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\BalanceResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function getBalance($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
@@ -151,7 +151,7 @@ class BalancesApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\BalanceResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\BalanceResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBalanceWithHttpInfo($accept_language = 'es', string $contentType = self::contentTypes['getBalance'][0])
     {
@@ -247,6 +247,60 @@ class BalancesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 402:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -315,6 +369,22 @@ class BalancesApi
                     $e->setResponseObject($data);
                     break;
                 case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',

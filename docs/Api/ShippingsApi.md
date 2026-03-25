@@ -17,7 +17,7 @@ ordersCreateShipping($id, $shipping_request, $accept_language, $x_child_company_
 
 Create Shipping
 
-Create new shipping for an existing orden
+Creates a new shipping line for an existing order. The shipping line is added to the order identified by `id`. The response returns the created shipping line.
 
 ### Example
 
@@ -37,7 +37,7 @@ $apiInstance = new DigitalFemsa\Api\ShippingsApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$shipping_request = new \DigitalFemsa\Model\ShippingRequest(); // \DigitalFemsa\Model\ShippingRequest | requested field for a shipping
+$shipping_request = new \DigitalFemsa\Model\ShippingRequest(); // \DigitalFemsa\Model\ShippingRequest | Request body for creating or updating a shipping line.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -54,7 +54,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
-| **shipping_request** | [**\DigitalFemsa\Model\ShippingRequest**](../Model/ShippingRequest.md)| requested field for a shipping | |
+| **shipping_request** | [**\DigitalFemsa\Model\ShippingRequest**](../Model/ShippingRequest.md)| Request body for creating or updating a shipping line. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
@@ -83,7 +83,7 @@ ordersDeleteShipping($id, $shipping_id, $accept_language, $x_child_company_id): 
 
 Delete Shipping
 
-Delete shipping
+Deletes an existing shipping line from an order. The shipping line identified by `shipping_id` belongs to the order identified by `id`.
 
 ### Example
 
@@ -149,7 +149,7 @@ ordersUpdateShipping($id, $shipping_id, $shipping_request, $accept_language, $x_
 
 Update Shipping
 
-Update existing shipping for an existing orden
+Updates an existing shipping line for an order. The shipping line identified by `shipping_id` belongs to the order identified by `id`. Only the fields provided in the request body are updated.
 
 ### Example
 
@@ -170,7 +170,7 @@ $apiInstance = new DigitalFemsa\Api\ShippingsApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $shipping_id = ship_lin_2tQ974hSHcsdeSZHG; // string | identifier
-$shipping_request = new \DigitalFemsa\Model\ShippingRequest(); // \DigitalFemsa\Model\ShippingRequest | requested field for a shipping
+$shipping_request = new \DigitalFemsa\Model\ShippingRequest(); // \DigitalFemsa\Model\ShippingRequest | Request body for creating or updating a shipping line.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -188,7 +188,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **shipping_id** | **string**| identifier | |
-| **shipping_request** | [**\DigitalFemsa\Model\ShippingRequest**](../Model/ShippingRequest.md)| requested field for a shipping | |
+| **shipping_request** | [**\DigitalFemsa\Model\ShippingRequest**](../Model/ShippingRequest.md)| Request body for creating or updating a shipping line. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

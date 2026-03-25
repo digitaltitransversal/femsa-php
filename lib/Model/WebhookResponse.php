@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * WebhookResponse Class Doc Comment
  *
  * @category Class
- * @description webhooks model
+ * @description Represents a webhook endpoint configured to receive event notifications.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

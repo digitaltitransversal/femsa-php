@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **reference_id** | **string** | Reference ID of the charge | [optional]
 **refunds** | [**\DigitalFemsa\Model\ChargeResponseRefunds**](ChargeResponseRefunds.md) |  | [optional]
 **status** | **string** |  | [optional]
+**is_refundable** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

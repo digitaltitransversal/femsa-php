@@ -62,6 +62,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'carrier' => 'string',
         'tracking_number' => 'string',
         'method' => 'string',
+        'description' => 'string',
         'metadata' => 'array<string,mixed>',
         'id' => 'string',
         'object' => 'string',
@@ -80,6 +81,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'carrier' => null,
         'tracking_number' => null,
         'method' => null,
+        'description' => null,
         'metadata' => null,
         'id' => null,
         'object' => null,
@@ -96,6 +98,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'carrier' => false,
         'tracking_number' => false,
         'method' => false,
+        'description' => false,
         'metadata' => false,
         'id' => false,
         'object' => false,
@@ -192,6 +195,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'carrier' => 'carrier',
         'tracking_number' => 'tracking_number',
         'method' => 'method',
+        'description' => 'description',
         'metadata' => 'metadata',
         'id' => 'id',
         'object' => 'object',
@@ -208,6 +212,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'carrier' => 'setCarrier',
         'tracking_number' => 'setTrackingNumber',
         'method' => 'setMethod',
+        'description' => 'setDescription',
         'metadata' => 'setMetadata',
         'id' => 'setId',
         'object' => 'setObject',
@@ -224,6 +229,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         'carrier' => 'getCarrier',
         'tracking_number' => 'getTrackingNumber',
         'method' => 'getMethod',
+        'description' => 'getDescription',
         'metadata' => 'getMetadata',
         'id' => 'getId',
         'object' => 'getObject',
@@ -291,6 +297,7 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('carrier', $data ?? [], null);
         $this->setIfExists('tracking_number', $data ?? [], null);
         $this->setIfExists('method', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
@@ -459,6 +466,33 @@ class ShippingOrderResponse implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable method cannot be null');
         }
         $this->container['method'] = $method;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Shipping line description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        $this->container['description'] = $description;
 
         return $this;
     }

@@ -75,7 +75,8 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method' => '\DigitalFemsa\Model\ChargeResponsePaymentMethod',
         'reference_id' => 'string',
         'refunds' => '\DigitalFemsa\Model\ChargeResponseRefunds',
-        'status' => 'string'
+        'status' => 'string',
+        'is_refundable' => 'bool'
     ];
 
     /**
@@ -86,7 +87,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => null,
+        'amount' => 'int64',
         'channel' => null,
         'created_at' => 'int64',
         'currency' => null,
@@ -99,11 +100,12 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'livemode' => null,
         'object' => null,
         'order_id' => null,
-        'paid_at' => null,
+        'paid_at' => 'int64',
         'payment_method' => null,
         'reference_id' => null,
         'refunds' => null,
-        'status' => null
+        'status' => null,
+        'is_refundable' => null
     ];
 
     /**
@@ -119,8 +121,8 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_id' => false,
         'description' => false,
         'device_fingerprint' => false,
-        'failure_code' => false,
-        'failure_message' => false,
+        'failure_code' => true,
+        'failure_message' => true,
         'id' => false,
         'livemode' => false,
         'object' => false,
@@ -129,7 +131,8 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method' => false,
         'reference_id' => true,
         'refunds' => true,
-        'status' => false
+        'status' => false,
+        'is_refundable' => false
     ];
 
     /**
@@ -235,7 +238,8 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method' => 'payment_method',
         'reference_id' => 'reference_id',
         'refunds' => 'refunds',
-        'status' => 'status'
+        'status' => 'status',
+        'is_refundable' => 'is_refundable'
     ];
 
     /**
@@ -261,7 +265,8 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method' => 'setPaymentMethod',
         'reference_id' => 'setReferenceId',
         'refunds' => 'setRefunds',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'is_refundable' => 'setIsRefundable'
     ];
 
     /**
@@ -287,7 +292,8 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'payment_method' => 'getPaymentMethod',
         'reference_id' => 'getReferenceId',
         'refunds' => 'getRefunds',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'is_refundable' => 'getIsRefundable'
     ];
 
     /**
@@ -365,6 +371,7 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('reference_id', $data ?? [], null);
         $this->setIfExists('refunds', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('is_refundable', $data ?? [], null);
     }
 
     /**
@@ -618,7 +625,14 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFailureCode($failure_code)
     {
         if (is_null($failure_code)) {
-            throw new \InvalidArgumentException('non-nullable failure_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_code'] = $failure_code;
 
@@ -645,7 +659,14 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setFailureMessage($failure_message)
     {
         if (is_null($failure_message)) {
-            throw new \InvalidArgumentException('non-nullable failure_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'failure_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['failure_message'] = $failure_message;
 
@@ -912,6 +933,33 @@ class ChargeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_refundable
+     *
+     * @return bool|null
+     */
+    public function getIsRefundable()
+    {
+        return $this->container['is_refundable'];
+    }
+
+    /**
+     * Sets is_refundable
+     *
+     * @param bool|null $is_refundable is_refundable
+     *
+     * @return self
+     */
+    public function setIsRefundable($is_refundable)
+    {
+        if (is_null($is_refundable)) {
+            throw new \InvalidArgumentException('non-nullable is_refundable cannot be null');
+        }
+        $this->container['is_refundable'] = $is_refundable;
 
         return $this;
     }

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **address** | [**\DigitalFemsa\Model\FiscalEntityAddress**](FiscalEntityAddress.md) |  |
 **email** | **string** | Email of the fiscal entity | [optional]
 **name** | **string** | Name of the fiscal entity | [optional]
-**metadata** | **array<string,mixed>** | Metadata associated with the fiscal entity | [optional]
+**metadata** | **array<string,mixed>** | Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value. | [optional]
 **phone** | **string** | Phone of the fiscal entity | [optional]
 **tax_id** | **string** | Tax ID of the fiscal entity | [optional]
 

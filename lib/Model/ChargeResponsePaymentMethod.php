@@ -60,7 +60,7 @@ class ChargeResponsePaymentMethod implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPITypes = [
         'type' => 'string',
         'object' => 'string',
-        'auth_code' => 'int',
+        'auth_code' => 'string',
         'cashier_id' => 'string',
         'reference' => 'string',
         'barcode_url' => 'string',
@@ -416,7 +416,7 @@ class ChargeResponsePaymentMethod implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets auth_code
      *
-     * @return int|null
+     * @return string|null
      */
     public function getAuthCode()
     {
@@ -426,7 +426,7 @@ class ChargeResponsePaymentMethod implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets auth_code
      *
-     * @param int|null $auth_code auth_code
+     * @param string|null $auth_code auth_code
      *
      * @return self
      */

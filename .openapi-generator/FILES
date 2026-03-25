@@ -33,6 +33,7 @@ docs/Model/ApiKeyUpdateRequest.md
 docs/Model/BalanceCommonField.md
 docs/Model/BalanceResponse.md
 docs/Model/ChargeOrderResponse.md
+docs/Model/ChargeOrderResponseChannel.md
 docs/Model/ChargeOrderResponsePaymentMethod.md
 docs/Model/ChargeRequest.md
 docs/Model/ChargeRequestPaymentMethod.md
@@ -58,8 +59,6 @@ docs/Model/CreateCustomerPaymentMethodsRequest.md
 docs/Model/CreateCustomerPaymentMethodsResponse.md
 docs/Model/Customer.md
 docs/Model/CustomerAddress.md
-docs/Model/CustomerAntifraudInfo.md
-docs/Model/CustomerAntifraudInfoResponse.md
 docs/Model/CustomerFiscalEntitiesDataResponse.md
 docs/Model/CustomerFiscalEntitiesRequest.md
 docs/Model/CustomerFiscalEntitiesResponse.md
@@ -115,6 +114,7 @@ docs/Model/OrderRefundRequest.md
 docs/Model/OrderRequest.md
 docs/Model/OrderRequestCustomerInfo.md
 docs/Model/OrderResponse.md
+docs/Model/OrderResponseChannel.md
 docs/Model/OrderResponseCharges.md
 docs/Model/OrderResponseCheckout.md
 docs/Model/OrderResponseCustomerInfo.md
@@ -138,14 +138,12 @@ docs/Model/ProductDataResponse.md
 docs/Model/ProductOrderResponse.md
 docs/Model/ShippingOrderResponse.md
 docs/Model/ShippingRequest.md
-docs/Model/SmsCheckoutRequest.md
 docs/Model/TransactionResponse.md
 docs/Model/TransferDestinationResponse.md
 docs/Model/TransferMethodResponse.md
 docs/Model/TransferResponse.md
 docs/Model/TransfersResponse.md
 docs/Model/UpdateCustomer.md
-docs/Model/UpdateCustomerAntifraudInfo.md
 docs/Model/UpdateCustomerFiscalEntitiesResponse.md
 docs/Model/UpdateCustomerPaymentMethodsResponse.md
 docs/Model/UpdateOrderDiscountLinesRequest.md
@@ -192,6 +190,7 @@ lib/Model/ApiKeyUpdateRequest.php
 lib/Model/BalanceCommonField.php
 lib/Model/BalanceResponse.php
 lib/Model/ChargeOrderResponse.php
+lib/Model/ChargeOrderResponseChannel.php
 lib/Model/ChargeOrderResponsePaymentMethod.php
 lib/Model/ChargeRequest.php
 lib/Model/ChargeRequestPaymentMethod.php
@@ -217,8 +216,6 @@ lib/Model/CreateCustomerPaymentMethodsRequest.php
 lib/Model/CreateCustomerPaymentMethodsResponse.php
 lib/Model/Customer.php
 lib/Model/CustomerAddress.php
-lib/Model/CustomerAntifraudInfo.php
-lib/Model/CustomerAntifraudInfoResponse.php
 lib/Model/CustomerFiscalEntitiesDataResponse.php
 lib/Model/CustomerFiscalEntitiesRequest.php
 lib/Model/CustomerFiscalEntitiesResponse.php
@@ -275,6 +272,7 @@ lib/Model/OrderRefundRequest.php
 lib/Model/OrderRequest.php
 lib/Model/OrderRequestCustomerInfo.php
 lib/Model/OrderResponse.php
+lib/Model/OrderResponseChannel.php
 lib/Model/OrderResponseCharges.php
 lib/Model/OrderResponseCheckout.php
 lib/Model/OrderResponseCustomerInfo.php
@@ -298,14 +296,12 @@ lib/Model/ProductDataResponse.php
 lib/Model/ProductOrderResponse.php
 lib/Model/ShippingOrderResponse.php
 lib/Model/ShippingRequest.php
-lib/Model/SmsCheckoutRequest.php
 lib/Model/TransactionResponse.php
 lib/Model/TransferDestinationResponse.php
 lib/Model/TransferMethodResponse.php
 lib/Model/TransferResponse.php
 lib/Model/TransfersResponse.php
 lib/Model/UpdateCustomer.php
-lib/Model/UpdateCustomerAntifraudInfo.php
 lib/Model/UpdateCustomerFiscalEntitiesResponse.php
 lib/Model/UpdateCustomerPaymentMethodsResponse.php
 lib/Model/UpdateOrderDiscountLinesRequest.php

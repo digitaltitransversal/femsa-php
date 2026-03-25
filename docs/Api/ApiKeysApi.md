@@ -4,10 +4,10 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createApiKey()**](ApiKeysApi.md#createApiKey) | **POST** /api_keys | Create Api Key |
+| [**createApiKey()**](ApiKeysApi.md#createApiKey) | **POST** /api_keys | Create API key |
 | [**deleteApiKey()**](ApiKeysApi.md#deleteApiKey) | **DELETE** /api_keys/{id} | Delete Api Key |
 | [**getApiKey()**](ApiKeysApi.md#getApiKey) | **GET** /api_keys/{id} | Get Api Key |
-| [**getApiKeys()**](ApiKeysApi.md#getApiKeys) | **GET** /api_keys | Get list of Api Keys |
+| [**getApiKeys()**](ApiKeysApi.md#getApiKeys) | **GET** /api_keys | List API keys |
 | [**updateApiKey()**](ApiKeysApi.md#updateApiKey) | **PUT** /api_keys/{id} | Update Api Key |
 
 
@@ -17,9 +17,9 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 createApiKey($api_key_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\ApiKeyCreateResponse
 ```
 
-Create Api Key
+Create API key
 
-Create a api key
+Creates a new API key.  The response includes an `authentication_token` that is shown only once (at creation time). Copy and store it securely.
 
 ### Example
 
@@ -207,9 +207,9 @@ try {
 getApiKeys($accept_language, $x_child_company_id, $limit, $next, $previous, $search): \DigitalFemsa\Model\GetApiKeysResponse
 ```
 
-Get list of Api Keys
+List API keys
 
-Consume the list of api keys you have
+Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (`limit`, `next_page`, `previous_page`) to navigate through results. Use the `search` query parameter to perform a general search (for example by key `id` or description).
 
 ### Example
 

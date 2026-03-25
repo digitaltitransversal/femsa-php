@@ -5,7 +5,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getTransaction()**](TransactionsApi.md#getTransaction) | **GET** /transactions/{id} | Get transaction |
-| [**getTransactions()**](TransactionsApi.md#getTransactions) | **GET** /transactions | Get List transactions |
+| [**getTransactions()**](TransactionsApi.md#getTransactions) | **GET** /transactions | List transactions |
 
 
 ## `getTransaction()`
@@ -16,7 +16,7 @@ getTransaction($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\
 
 Get transaction
 
-Get the details of a transaction
+Retrieves the details of a transaction by its ID.
 
 ### Example
 
@@ -78,9 +78,9 @@ try {
 getTransactions($accept_language, $x_child_company_id, $limit, $next, $previous, $id, $charge_id, $type, $currency): \DigitalFemsa\Model\GetTransactionsResponse
 ```
 
-Get List transactions
+List transactions
 
-Get transaction details in the form of a list
+Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers.
 
 ### Example
 

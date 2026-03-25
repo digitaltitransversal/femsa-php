@@ -314,7 +314,7 @@ class CreateCustomerPaymentMethodsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Type of payment method
+     * @param string $type Type of payment method.
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class CreateCustomerPaymentMethodsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at expires_at
+     * @param int|null $expires_at Expiration date as unix timestamp (seconds).
      *
      * @return self
      */

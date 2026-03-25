@@ -132,46 +132,46 @@ class ChargesApi
     /**
      * Operation getCharges
      *
-     * Get A List of Charges
+     * List charges
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
+     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCharges'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\GetChargesResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\GetChargesResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
-    public function getCharges($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCharges'][0])
+    public function getCharges($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, string $contentType = self::contentTypes['getCharges'][0])
     {
-        list($response) = $this->getChargesWithHttpInfo($accept_language, $x_child_company_id, $limit, $search, $next, $previous, $contentType);
+        list($response) = $this->getChargesWithHttpInfo($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $contentType);
         return $response;
     }
 
     /**
      * Operation getChargesWithHttpInfo
      *
-     * Get A List of Charges
+     * List charges
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
+     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCharges'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\GetChargesResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\GetChargesResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getChargesWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCharges'][0])
+    public function getChargesWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, string $contentType = self::contentTypes['getCharges'][0])
     {
-        $request = $this->getChargesRequest($accept_language, $x_child_company_id, $limit, $search, $next, $previous, $contentType);
+        $request = $this->getChargesRequest($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -233,6 +233,33 @@ class ChargesApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\GetChargesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -330,6 +357,14 @@ class ChargesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -354,22 +389,22 @@ class ChargesApi
     /**
      * Operation getChargesAsync
      *
-     * Get A List of Charges
+     * List charges
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
+     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCharges'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChargesAsync($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCharges'][0])
+    public function getChargesAsync($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, string $contentType = self::contentTypes['getCharges'][0])
     {
-        return $this->getChargesAsyncWithHttpInfo($accept_language, $x_child_company_id, $limit, $search, $next, $previous, $contentType)
+        return $this->getChargesAsyncWithHttpInfo($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -380,23 +415,23 @@ class ChargesApi
     /**
      * Operation getChargesAsyncWithHttpInfo
      *
-     * Get A List of Charges
+     * List charges
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
+     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCharges'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getChargesAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCharges'][0])
+    public function getChargesAsyncWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, string $contentType = self::contentTypes['getCharges'][0])
     {
         $returnType = '\DigitalFemsa\Model\GetChargesResponse';
-        $request = $this->getChargesRequest($accept_language, $x_child_company_id, $limit, $search, $next, $previous, $contentType);
+        $request = $this->getChargesRequest($accept_language, $x_child_company_id, $limit, $next, $previous, $search, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -440,15 +475,15 @@ class ChargesApi
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  int $limit The numbers of items to return, the maximum value is 250 (optional, default to 20)
-     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $next next page (optional)
      * @param  string $previous previous page (optional)
+     * @param  string $search General order search, e.g. by mail, reference etc. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCharges'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getChargesRequest($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCharges'][0])
+    public function getChargesRequest($accept_language = 'es', $x_child_company_id = null, $limit = 20, $next = null, $previous = null, $search = null, string $contentType = self::contentTypes['getCharges'][0])
     {
 
 
@@ -482,15 +517,6 @@ class ChargesApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $search,
-            'search', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $next,
             'next', // param base name
             'string', // openApiType
@@ -502,6 +528,15 @@ class ChargesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $previous,
             'previous', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $search,
+            'search', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -583,7 +618,7 @@ class ChargesApi
     /**
      * Operation ordersCreateCharge
      *
-     * Create charge
+     * Create a charge for an order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\ChargeRequest $charge_request requested field for a charge (required)
@@ -593,7 +628,7 @@ class ChargesApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\ChargeOrderResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\ChargeOrderResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function ordersCreateCharge($id, $charge_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['ordersCreateCharge'][0])
     {
@@ -604,7 +639,7 @@ class ChargesApi
     /**
      * Operation ordersCreateChargeWithHttpInfo
      *
-     * Create charge
+     * Create a charge for an order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\ChargeRequest $charge_request requested field for a charge (required)
@@ -614,7 +649,7 @@ class ChargesApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\ChargeOrderResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\ChargeOrderResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function ordersCreateChargeWithHttpInfo($id, $charge_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['ordersCreateCharge'][0])
     {
@@ -711,6 +746,33 @@ class ChargesApi
                         $response->getHeaders()
                     ];
                 case 404:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -847,6 +909,14 @@ class ChargesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 428:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -871,7 +941,7 @@ class ChargesApi
     /**
      * Operation ordersCreateChargeAsync
      *
-     * Create charge
+     * Create a charge for an order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\ChargeRequest $charge_request requested field for a charge (required)
@@ -895,7 +965,7 @@ class ChargesApi
     /**
      * Operation ordersCreateChargeAsyncWithHttpInfo
      *
-     * Create charge
+     * Create a charge for an order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\ChargeRequest $charge_request requested field for a charge (required)

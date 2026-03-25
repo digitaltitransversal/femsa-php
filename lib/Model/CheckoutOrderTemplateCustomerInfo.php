@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * CheckoutOrderTemplateCustomerInfo Class Doc Comment
  *
  * @category Class
- * @description It is the information of the customer who will be created when receiving a new payment.
+ * @description Customer information used when creating the order.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,12 +59,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
+        'customer_id' => 'string',
         'name' => 'string',
         'email' => 'string',
         'phone' => 'string',
-        'corporate' => 'bool',
-        'object' => 'string',
-        'customer_id' => 'string'
+        'corporate' => 'bool'
     ];
 
     /**
@@ -75,12 +74,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'customer_id' => null,
         'name' => null,
         'email' => 'email',
         'phone' => null,
-        'corporate' => null,
-        'object' => null,
-        'customer_id' => null
+        'corporate' => null
     ];
 
     /**
@@ -89,12 +87,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'customer_id' => false,
         'name' => false,
         'email' => false,
         'phone' => false,
-        'corporate' => false,
-        'object' => false,
-        'customer_id' => false
+        'corporate' => false
     ];
 
     /**
@@ -183,12 +180,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
+        'customer_id' => 'customer_id',
         'name' => 'name',
         'email' => 'email',
         'phone' => 'phone',
-        'corporate' => 'corporate',
-        'object' => 'object',
-        'customer_id' => 'customer_id'
+        'corporate' => 'corporate'
     ];
 
     /**
@@ -197,12 +193,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
+        'customer_id' => 'setCustomerId',
         'name' => 'setName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
-        'corporate' => 'setCorporate',
-        'object' => 'setObject',
-        'customer_id' => 'setCustomerId'
+        'corporate' => 'setCorporate'
     ];
 
     /**
@@ -211,12 +206,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
+        'customer_id' => 'getCustomerId',
         'name' => 'getName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
-        'corporate' => 'getCorporate',
-        'object' => 'getObject',
-        'customer_id' => 'getCustomerId'
+        'corporate' => 'getCorporate'
     ];
 
     /**
@@ -276,12 +270,11 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('customer_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('corporate', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
-        $this->setIfExists('customer_id', $data ?? [], null);
     }
 
     /**
@@ -311,17 +304,14 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if ($this->container['customer_id'] === null) {
+            $invalidProperties[] = "'customer_id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
         if ($this->container['email'] === null) {
             $invalidProperties[] = "'email' can't be null";
-        }
-        if ($this->container['phone'] === null) {
-            $invalidProperties[] = "'phone' can't be null";
-        }
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -337,6 +327,33 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets customer_id
+     *
+     * @return string
+     */
+    public function getCustomerId()
+    {
+        return $this->container['customer_id'];
+    }
+
+    /**
+     * Sets customer_id
+     *
+     * @param string $customer_id customer_id
+     *
+     * @return self
+     */
+    public function setCustomerId($customer_id)
+    {
+        if (is_null($customer_id)) {
+            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+        }
+        $this->container['customer_id'] = $customer_id;
+
+        return $this;
+    }
 
     /**
      * Gets name
@@ -395,7 +412,7 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
     /**
      * Gets phone
      *
-     * @return string
+     * @return string|null
      */
     public function getPhone()
     {
@@ -405,7 +422,7 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
     /**
      * Sets phone
      *
-     * @param string $phone phone
+     * @param string|null $phone phone
      *
      * @return self
      */
@@ -442,60 +459,6 @@ class CheckoutOrderTemplateCustomerInfo implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable corporate cannot be null');
         }
         $this->container['corporate'] = $corporate;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string|null
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string|null $object object
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer_id
-     *
-     * @return string
-     */
-    public function getCustomerId()
-    {
-        return $this->container['customer_id'];
-    }
-
-    /**
-     * Sets customer_id
-     *
-     * @param string $customer_id customer_id
-     *
-     * @return self
-     */
-    public function setCustomerId($customer_id)
-    {
-        if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
-        }
-        $this->container['customer_id'] = $customer_id;
 
         return $this;
     }

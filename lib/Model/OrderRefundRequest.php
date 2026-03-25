@@ -59,8 +59,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'amount' => 'int',
-        'expires_at' => 'int',
-        'reason' => 'string'
+        'charge_id' => 'string',
+        'reason' => 'string',
+        'expires_at' => 'int'
     ];
 
     /**
@@ -72,8 +73,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'amount' => null,
-        'expires_at' => 'int64',
-        'reason' => null
+        'charge_id' => null,
+        'reason' => null,
+        'expires_at' => 'int64'
     ];
 
     /**
@@ -83,8 +85,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'amount' => false,
-        'expires_at' => true,
-        'reason' => false
+        'charge_id' => true,
+        'reason' => false,
+        'expires_at' => true
     ];
 
     /**
@@ -174,8 +177,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'amount' => 'amount',
-        'expires_at' => 'expires_at',
-        'reason' => 'reason'
+        'charge_id' => 'charge_id',
+        'reason' => 'reason',
+        'expires_at' => 'expires_at'
     ];
 
     /**
@@ -185,8 +189,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'amount' => 'setAmount',
-        'expires_at' => 'setExpiresAt',
-        'reason' => 'setReason'
+        'charge_id' => 'setChargeId',
+        'reason' => 'setReason',
+        'expires_at' => 'setExpiresAt'
     ];
 
     /**
@@ -196,8 +201,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'amount' => 'getAmount',
-        'expires_at' => 'getExpiresAt',
-        'reason' => 'getReason'
+        'charge_id' => 'getChargeId',
+        'reason' => 'getReason',
+        'expires_at' => 'getExpiresAt'
     ];
 
     /**
@@ -241,6 +247,27 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const REASON_REQUESTED_BY_CLIENT = 'requested_by_client';
+    public const REASON_CANNOT_BE_FULFILLED = 'cannot_be_fulfilled';
+    public const REASON_DUPLICATED_TRANSACTION = 'duplicated_transaction';
+    public const REASON_SUSPECTED_FRAUD = 'suspected_fraud';
+    public const REASON_OTHER = 'other';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReasonAllowableValues()
+    {
+        return [
+            self::REASON_REQUESTED_BY_CLIENT,
+            self::REASON_CANNOT_BE_FULFILLED,
+            self::REASON_DUPLICATED_TRANSACTION,
+            self::REASON_SUSPECTED_FRAUD,
+            self::REASON_OTHER,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -258,8 +285,9 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('charge_id', $data ?? [], null);
         $this->setIfExists('reason', $data ?? [], null);
+        $this->setIfExists('expires_at', $data ?? [], null);
     }
 
     /**
@@ -295,6 +323,15 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
+        $allowedValues = $this->getReasonAllowableValues();
+        if (!is_null($this->container['reason']) && !in_array($this->container['reason'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'reason', must be one of '%s'",
+                $this->container['reason'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -323,7 +360,7 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets amount
      *
-     * @param int $amount amount
+     * @param int $amount Amount to refund. If not provided, the API refunds the refundable amount of the selected charge.
      *
      * @return self
      */
@@ -338,35 +375,35 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets expires_at
+     * Gets charge_id
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getExpiresAt()
+    public function getChargeId()
     {
-        return $this->container['expires_at'];
+        return $this->container['charge_id'];
     }
 
     /**
-     * Sets expires_at
+     * Sets charge_id
      *
-     * @param int|null $expires_at expires_at
+     * @param string|null $charge_id Charge ID to refund. If not provided, the API selects a refundable charge from the order.
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setChargeId($charge_id)
     {
-        if (is_null($expires_at)) {
-            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        if (is_null($charge_id)) {
+            array_push($this->openAPINullablesSetToNull, 'charge_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expires_at', $nullablesSetToNull);
+            $index = array_search('charge_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['expires_at'] = $expires_at;
+        $this->container['charge_id'] = $charge_id;
 
         return $this;
     }
@@ -384,7 +421,7 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param string $reason Refund reason. If not provided, the API uses a default reason.
      *
      * @return self
      */
@@ -393,7 +430,51 @@ class OrderRefundRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if (is_null($reason)) {
             throw new \InvalidArgumentException('non-nullable reason cannot be null');
         }
+        $allowedValues = $this->getReasonAllowableValues();
+        if (!in_array($reason, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'reason', must be one of '%s'",
+                    $reason,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_at
+     *
+     * @return int|null
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param int|null $expires_at Expiration timestamp for cash refunds (must be within the allowed range configured by the API).
+     *
+     * @return self
+     */
+    public function setExpiresAt($expires_at)
+    {
+        if (is_null($expires_at)) {
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expires_at'] = $expires_at;
 
         return $this;
     }

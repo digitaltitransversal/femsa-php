@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * EventsResendResponse Class Doc Comment
  *
  * @category Class
- * @description event model
+ * @description Webhook log model returned after resending an event webhook delivery.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

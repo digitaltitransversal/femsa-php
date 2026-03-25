@@ -526,7 +526,7 @@ class WebhookKeysApi
     /**
      * Operation deleteWebhookKey
      *
-     * Delete Webhook key
+     * Delete webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -545,7 +545,7 @@ class WebhookKeysApi
     /**
      * Operation deleteWebhookKeyWithHttpInfo
      *
-     * Delete Webhook key
+     * Delete webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -775,7 +775,7 @@ class WebhookKeysApi
     /**
      * Operation deleteWebhookKeyAsync
      *
-     * Delete Webhook key
+     * Delete webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -797,7 +797,7 @@ class WebhookKeysApi
     /**
      * Operation deleteWebhookKeyAsyncWithHttpInfo
      *
-     * Delete Webhook key
+     * Delete webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -956,7 +956,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKey
      *
-     * Get Webhook Key
+     * Get webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -976,7 +976,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeyWithHttpInfo
      *
-     * Get Webhook Key
+     * Get webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1207,7 +1207,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeyAsync
      *
-     * Get Webhook Key
+     * Get webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1230,7 +1230,7 @@ class WebhookKeysApi
     /**
      * Operation getWebhookKeyAsyncWithHttpInfo
      *
-     * Get Webhook Key
+     * Get webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1847,7 +1847,7 @@ class WebhookKeysApi
     /**
      * Operation updateWebhookKey
      *
-     * Update Webhook Key
+     * Update webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1867,7 +1867,7 @@ class WebhookKeysApi
     /**
      * Operation updateWebhookKeyWithHttpInfo
      *
-     * Update Webhook Key
+     * Update webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2098,7 +2098,7 @@ class WebhookKeysApi
     /**
      * Operation updateWebhookKeyAsync
      *
-     * Update Webhook Key
+     * Update webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2121,7 +2121,7 @@ class WebhookKeysApi
     /**
      * Operation updateWebhookKeyAsyncWithHttpInfo
      *
-     * Update Webhook Key
+     * Update webhook key
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')

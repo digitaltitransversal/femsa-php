@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * ChargeRequestPaymentMethod Class Doc Comment
  *
  * @category Class
- * @description Payment method used in the charge. Go to the [payment methods](https://developers.femsa.com/reference/m%C3%A9todos-de-pago) section for more details
+ * @description Payment method used in the charge.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -321,7 +321,7 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at Method expiration date as unix timestamp
+     * @param int|null $expires_at Method expiration date as unix timestamp (applies to some payment methods, e.g. cash).
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class ChargeRequestPaymentMethod implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets payment_source_id
      *
-     * @param string|null $payment_source_id payment_source_id
+     * @param string|null $payment_source_id Identifier of a saved payment source to be used for this charge (if applicable).
      *
      * @return self
      */

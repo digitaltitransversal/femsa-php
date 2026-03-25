@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * LogResponse Class Doc Comment
  *
  * @category Class
- * @description log model
+ * @description Log model representing a recorded request/response cycle for troubleshooting and auditing.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

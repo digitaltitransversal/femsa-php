@@ -58,15 +58,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'antifraud_info' => 'array<string,mixed>',
-        'brand' => 'string',
-        'description' => 'string',
-        'metadata' => 'array<string,string>',
         'name' => 'string',
+        'unit_price' => 'int',
         'quantity' => 'int',
         'sku' => 'string',
+        'brand' => 'string',
+        'description' => 'string',
         'tags' => 'string[]',
-        'unit_price' => 'int',
+        'metadata' => 'array<string,mixed>',
         'id' => 'string',
         'object' => 'string',
         'parent_id' => 'string'
@@ -80,15 +79,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'antifraud_info' => null,
-        'brand' => null,
-        'description' => null,
-        'metadata' => null,
         'name' => null,
+        'unit_price' => 'int32',
         'quantity' => 'int32',
         'sku' => null,
+        'brand' => null,
+        'description' => null,
         'tags' => null,
-        'unit_price' => 'int32',
+        'metadata' => null,
         'id' => null,
         'object' => null,
         'parent_id' => null
@@ -100,15 +98,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'antifraud_info' => false,
-        'brand' => false,
-        'description' => false,
-        'metadata' => false,
         'name' => false,
+        'unit_price' => false,
         'quantity' => false,
         'sku' => false,
+        'brand' => false,
+        'description' => false,
         'tags' => false,
-        'unit_price' => false,
+        'metadata' => false,
         'id' => false,
         'object' => false,
         'parent_id' => false
@@ -200,15 +197,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'antifraud_info' => 'antifraud_info',
-        'brand' => 'brand',
-        'description' => 'description',
-        'metadata' => 'metadata',
         'name' => 'name',
+        'unit_price' => 'unit_price',
         'quantity' => 'quantity',
         'sku' => 'sku',
+        'brand' => 'brand',
+        'description' => 'description',
         'tags' => 'tags',
-        'unit_price' => 'unit_price',
+        'metadata' => 'metadata',
         'id' => 'id',
         'object' => 'object',
         'parent_id' => 'parent_id'
@@ -220,15 +216,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'antifraud_info' => 'setAntifraudInfo',
-        'brand' => 'setBrand',
-        'description' => 'setDescription',
-        'metadata' => 'setMetadata',
         'name' => 'setName',
+        'unit_price' => 'setUnitPrice',
         'quantity' => 'setQuantity',
         'sku' => 'setSku',
+        'brand' => 'setBrand',
+        'description' => 'setDescription',
         'tags' => 'setTags',
-        'unit_price' => 'setUnitPrice',
+        'metadata' => 'setMetadata',
         'id' => 'setId',
         'object' => 'setObject',
         'parent_id' => 'setParentId'
@@ -240,15 +235,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'antifraud_info' => 'getAntifraudInfo',
-        'brand' => 'getBrand',
-        'description' => 'getDescription',
-        'metadata' => 'getMetadata',
         'name' => 'getName',
+        'unit_price' => 'getUnitPrice',
         'quantity' => 'getQuantity',
         'sku' => 'getSku',
+        'brand' => 'getBrand',
+        'description' => 'getDescription',
         'tags' => 'getTags',
-        'unit_price' => 'getUnitPrice',
+        'metadata' => 'getMetadata',
         'id' => 'getId',
         'object' => 'getObject',
         'parent_id' => 'getParentId'
@@ -311,15 +305,14 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('antifraud_info', $data ?? [], null);
-        $this->setIfExists('brand', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('unit_price', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('sku', $data ?? [], null);
+        $this->setIfExists('brand', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
-        $this->setIfExists('unit_price', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('parent_id', $data ?? [], null);
@@ -352,17 +345,16 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 250)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 250.";
-        }
-
-        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
-            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
-        }
-
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ($this->container['unit_price'] === null) {
+            $invalidProperties[] = "'unit_price' can't be null";
+        }
+        if (($this->container['unit_price'] < 0)) {
+            $invalidProperties[] = "invalid value for 'unit_price', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
@@ -370,11 +362,16 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = "invalid value for 'quantity', must be bigger than or equal to 1.";
         }
 
-        if ($this->container['unit_price'] === null) {
-            $invalidProperties[] = "'unit_price' can't be null";
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 250)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 250.";
         }
-        if (($this->container['unit_price'] < 0)) {
-            $invalidProperties[] = "invalid value for 'unit_price', must be bigger than or equal to 0.";
+
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) < 1)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -391,122 +388,6 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets antifraud_info
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getAntifraudInfo()
-    {
-        return $this->container['antifraud_info'];
-    }
-
-    /**
-     * Sets antifraud_info
-     *
-     * @param array<string,mixed>|null $antifraud_info antifraud_info
-     *
-     * @return self
-     */
-    public function setAntifraudInfo($antifraud_info)
-    {
-        if (is_null($antifraud_info)) {
-            throw new \InvalidArgumentException('non-nullable antifraud_info cannot be null');
-        }
-        $this->container['antifraud_info'] = $antifraud_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets brand
-     *
-     * @return string|null
-     */
-    public function getBrand()
-    {
-        return $this->container['brand'];
-    }
-
-    /**
-     * Sets brand
-     *
-     * @param string|null $brand The brand of the item.
-     *
-     * @return self
-     */
-    public function setBrand($brand)
-    {
-        if (is_null($brand)) {
-            throw new \InvalidArgumentException('non-nullable brand cannot be null');
-        }
-        $this->container['brand'] = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description Short description of the item
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        if ((mb_strlen($description) > 250)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling ProductDataResponse., must be smaller than or equal to 250.');
-        }
-
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array<string,string>|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array<string,string>|null $metadata It is a key/value hash that can hold custom fields. Maximum 100 elements and allows special characters.
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-
-        if ((count($metadata) > 100)) {
-            throw new \InvalidArgumentException('invalid value for $metadata when calling ProductDataResponse., number of items must be less than or equal to 100.');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -531,6 +412,38 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit_price
+     *
+     * @return int
+     */
+    public function getUnitPrice()
+    {
+        return $this->container['unit_price'];
+    }
+
+    /**
+     * Sets unit_price
+     *
+     * @param int $unit_price The price of the item in cents.
+     *
+     * @return self
+     */
+    public function setUnitPrice($unit_price)
+    {
+        if (is_null($unit_price)) {
+            throw new \InvalidArgumentException('non-nullable unit_price cannot be null');
+        }
+
+        if (($unit_price < 0)) {
+            throw new \InvalidArgumentException('invalid value for $unit_price when calling ProductDataResponse., must be bigger than or equal to 0.');
+        }
+
+        $this->container['unit_price'] = $unit_price;
 
         return $this;
     }
@@ -595,6 +508,64 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets brand
+     *
+     * @return string|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param string|null $brand The brand of the item.
+     *
+     * @return self
+     */
+    public function setBrand($brand)
+    {
+        if (is_null($brand)) {
+            throw new \InvalidArgumentException('non-nullable brand cannot be null');
+        }
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Short description of the item
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        if ((mb_strlen($description) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling ProductDataResponse., must be smaller than or equal to 250.');
+        }
+
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
      * Gets tags
      *
      * @return string[]|null
@@ -616,39 +587,43 @@ class ProductDataResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($tags)) {
             throw new \InvalidArgumentException('non-nullable tags cannot be null');
         }
+
+
+        if ((count($tags) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $tags when calling ProductDataResponse., number of items must be greater than or equal to 1.');
+        }
         $this->container['tags'] = $tags;
 
         return $this;
     }
 
     /**
-     * Gets unit_price
+     * Gets metadata
      *
-     * @return int
+     * @return array<string,mixed>|null
      */
-    public function getUnitPrice()
+    public function getMetadata()
     {
-        return $this->container['unit_price'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets unit_price
+     * Sets metadata
      *
-     * @param int $unit_price The price of the item in cents.
+     * @param array<string,mixed>|null $metadata Arbitrary key-value data for your internal use. Keys should be strings; values can be any JSON value.
      *
      * @return self
      */
-    public function setUnitPrice($unit_price)
+    public function setMetadata($metadata)
     {
-        if (is_null($unit_price)) {
-            throw new \InvalidArgumentException('non-nullable unit_price cannot be null');
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
 
-        if (($unit_price < 0)) {
-            throw new \InvalidArgumentException('invalid value for $unit_price when calling ProductDataResponse., must be bigger than or equal to 0.');
+        if ((count($metadata) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $metadata when calling ProductDataResponse., number of items must be less than or equal to 100.');
         }
-
-        $this->container['unit_price'] = $unit_price;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

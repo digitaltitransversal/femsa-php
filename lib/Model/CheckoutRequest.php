@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * CheckoutRequest Class Doc Comment
  *
  * @category Class
- * @description [Checkout](https://developers.femsa.com/v2.1.0/reference/payment-link) details
+ * @description [Checkout](https://developers.digitalfemsa.io/docs/checkout-redireccionado) details
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

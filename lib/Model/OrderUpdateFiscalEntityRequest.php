@@ -434,7 +434,7 @@ class OrderUpdateFiscalEntityRequest implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata Metadata associated with the fiscal entity
+     * @param array<string,mixed>|null $metadata Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value.
      *
      * @return self
      */

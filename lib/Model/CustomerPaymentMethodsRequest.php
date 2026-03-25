@@ -313,7 +313,7 @@ class CustomerPaymentMethodsRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param string $type Type of payment method
+     * @param string $type Type of payment method.
      *
      * @return self
      */
@@ -340,7 +340,7 @@ class CustomerPaymentMethodsRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at expires_at
+     * @param int|null $expires_at Expiration date as unix timestamp (seconds).
      *
      * @return self
      */

@@ -135,7 +135,7 @@ class ProductsApi
      * Create Product
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\Product $product requested field for a product (required)
+     * @param  \DigitalFemsa\Model\Product $product Fields required to create a new product (line item) for an existing order. This request adds a new item to the order. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateProduct'] to see the possible values for this operation
@@ -156,7 +156,7 @@ class ProductsApi
      * Create Product
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\Product $product requested field for a product (required)
+     * @param  \DigitalFemsa\Model\Product $product Fields required to create a new product (line item) for an existing order. This request adds a new item to the order. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateProduct'] to see the possible values for this operation
@@ -388,7 +388,7 @@ class ProductsApi
      * Create Product
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\Product $product requested field for a product (required)
+     * @param  \DigitalFemsa\Model\Product $product Fields required to create a new product (line item) for an existing order. This request adds a new item to the order. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateProduct'] to see the possible values for this operation
@@ -412,7 +412,7 @@ class ProductsApi
      * Create Product
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\Product $product requested field for a product (required)
+     * @param  \DigitalFemsa\Model\Product $product Fields required to create a new product (line item) for an existing order. This request adds a new item to the order. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateProduct'] to see the possible values for this operation
@@ -465,7 +465,7 @@ class ProductsApi
      * Create request for operation 'ordersCreateProduct'
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\Product $product requested field for a product (required)
+     * @param  \DigitalFemsa\Model\Product $product Fields required to create a new product (line item) for an existing order. This request adds a new item to the order. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateProduct'] to see the possible values for this operation
@@ -718,7 +718,7 @@ class ProductsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
+                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -745,7 +745,7 @@ class ProductsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 422:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -847,7 +847,7 @@ class ProductsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -855,7 +855,7 @@ class ProductsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -1090,7 +1090,7 @@ class ProductsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $line_item_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateProduct $update_product requested field for products (required)
+     * @param  \DigitalFemsa\Model\UpdateProduct $update_product Fields allowed to update an existing product (line item) in an order. All fields are optional; only the provided fields will be updated. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateProduct'] to see the possible values for this operation
@@ -1112,7 +1112,7 @@ class ProductsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $line_item_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateProduct $update_product requested field for products (required)
+     * @param  \DigitalFemsa\Model\UpdateProduct $update_product Fields allowed to update an existing product (line item) in an order. All fields are optional; only the provided fields will be updated. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateProduct'] to see the possible values for this operation
@@ -1215,7 +1215,7 @@ class ProductsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
+                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1242,7 +1242,7 @@ class ProductsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 422:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1344,7 +1344,7 @@ class ProductsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -1352,7 +1352,7 @@ class ProductsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -1380,7 +1380,7 @@ class ProductsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $line_item_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateProduct $update_product requested field for products (required)
+     * @param  \DigitalFemsa\Model\UpdateProduct $update_product Fields allowed to update an existing product (line item) in an order. All fields are optional; only the provided fields will be updated. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateProduct'] to see the possible values for this operation
@@ -1405,7 +1405,7 @@ class ProductsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $line_item_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateProduct $update_product requested field for products (required)
+     * @param  \DigitalFemsa\Model\UpdateProduct $update_product Fields allowed to update an existing product (line item) in an order. All fields are optional; only the provided fields will be updated. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateProduct'] to see the possible values for this operation
@@ -1459,7 +1459,7 @@ class ProductsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $line_item_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateProduct $update_product requested field for products (required)
+     * @param  \DigitalFemsa\Model\UpdateProduct $update_product Fields allowed to update an existing product (line item) in an order. All fields are optional; only the provided fields will be updated. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateProduct'] to see the possible values for this operation

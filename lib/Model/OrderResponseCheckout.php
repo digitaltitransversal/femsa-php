@@ -36,6 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * OrderResponseCheckout Class Doc Comment
  *
  * @category Class
+ * @description Checkout resource linked to the order. Present only when the order is linked to a checkout (&#x60;channel.checkout_request_id&#x60;).
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

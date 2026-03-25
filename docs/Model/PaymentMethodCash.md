@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** |  | [optional]
 **object** | **string** |  |
-**auth_code** | **int** |  | [optional]
+**auth_code** | **string** |  | [optional]
 **cashier_id** | **string** |  | [optional]
 **reference** | **string** |  | [optional]
 **barcode_url** | **string** |  | [optional]

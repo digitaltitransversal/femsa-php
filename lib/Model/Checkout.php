@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * Checkout Class Doc Comment
  *
  * @category Class
- * @description It is a sub-resource of the Order model that can be stipulated in order to configure its corresponding checkout
+ * @description Creates a Payment Link. This is a sub-resource related to an Order template: each time a customer pays using the link, the API will create an Order using &#x60;order_template&#x60;.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,15 +59,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'allowed_payment_methods' => 'string[]',
-        'expires_at' => 'int',
         'name' => 'string',
-        'needs_shipping_contact' => 'bool',
-        'on_demand_enabled' => 'bool',
-        'order_template' => '\DigitalFemsa\Model\CheckoutOrderTemplate',
-        'payments_limit_count' => 'int',
+        'type' => 'string',
         'recurrent' => 'bool',
-        'type' => 'string'
+        'payments_limit_count' => 'int',
+        'allowed_payment_methods' => 'string[]',
+        'needs_shipping_contact' => 'bool',
+        'starts_at' => 'int',
+        'expires_at' => 'int',
+        'can_not_expire' => 'bool',
+        'order_template' => '\DigitalFemsa\Model\CheckoutOrderTemplate'
     ];
 
     /**
@@ -78,15 +79,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'allowed_payment_methods' => null,
-        'expires_at' => 'int64',
         'name' => null,
-        'needs_shipping_contact' => null,
-        'on_demand_enabled' => null,
-        'order_template' => null,
-        'payments_limit_count' => 'int8',
+        'type' => null,
         'recurrent' => null,
-        'type' => null
+        'payments_limit_count' => 'int32',
+        'allowed_payment_methods' => null,
+        'needs_shipping_contact' => null,
+        'starts_at' => 'int64',
+        'expires_at' => 'int64',
+        'can_not_expire' => null,
+        'order_template' => null
     ];
 
     /**
@@ -95,15 +97,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'allowed_payment_methods' => false,
-        'expires_at' => false,
         'name' => false,
-        'needs_shipping_contact' => false,
-        'on_demand_enabled' => true,
-        'order_template' => false,
-        'payments_limit_count' => false,
+        'type' => false,
         'recurrent' => false,
-        'type' => false
+        'payments_limit_count' => false,
+        'allowed_payment_methods' => false,
+        'needs_shipping_contact' => false,
+        'starts_at' => false,
+        'expires_at' => false,
+        'can_not_expire' => false,
+        'order_template' => false
     ];
 
     /**
@@ -192,15 +195,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'allowed_payment_methods' => 'allowed_payment_methods',
-        'expires_at' => 'expires_at',
         'name' => 'name',
-        'needs_shipping_contact' => 'needs_shipping_contact',
-        'on_demand_enabled' => 'on_demand_enabled',
-        'order_template' => 'order_template',
-        'payments_limit_count' => 'payments_limit_count',
+        'type' => 'type',
         'recurrent' => 'recurrent',
-        'type' => 'type'
+        'payments_limit_count' => 'payments_limit_count',
+        'allowed_payment_methods' => 'allowed_payment_methods',
+        'needs_shipping_contact' => 'needs_shipping_contact',
+        'starts_at' => 'starts_at',
+        'expires_at' => 'expires_at',
+        'can_not_expire' => 'can_not_expire',
+        'order_template' => 'order_template'
     ];
 
     /**
@@ -209,15 +213,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'allowed_payment_methods' => 'setAllowedPaymentMethods',
-        'expires_at' => 'setExpiresAt',
         'name' => 'setName',
-        'needs_shipping_contact' => 'setNeedsShippingContact',
-        'on_demand_enabled' => 'setOnDemandEnabled',
-        'order_template' => 'setOrderTemplate',
-        'payments_limit_count' => 'setPaymentsLimitCount',
+        'type' => 'setType',
         'recurrent' => 'setRecurrent',
-        'type' => 'setType'
+        'payments_limit_count' => 'setPaymentsLimitCount',
+        'allowed_payment_methods' => 'setAllowedPaymentMethods',
+        'needs_shipping_contact' => 'setNeedsShippingContact',
+        'starts_at' => 'setStartsAt',
+        'expires_at' => 'setExpiresAt',
+        'can_not_expire' => 'setCanNotExpire',
+        'order_template' => 'setOrderTemplate'
     ];
 
     /**
@@ -226,15 +231,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'allowed_payment_methods' => 'getAllowedPaymentMethods',
-        'expires_at' => 'getExpiresAt',
         'name' => 'getName',
-        'needs_shipping_contact' => 'getNeedsShippingContact',
-        'on_demand_enabled' => 'getOnDemandEnabled',
-        'order_template' => 'getOrderTemplate',
-        'payments_limit_count' => 'getPaymentsLimitCount',
+        'type' => 'getType',
         'recurrent' => 'getRecurrent',
-        'type' => 'getType'
+        'payments_limit_count' => 'getPaymentsLimitCount',
+        'allowed_payment_methods' => 'getAllowedPaymentMethods',
+        'needs_shipping_contact' => 'getNeedsShippingContact',
+        'starts_at' => 'getStartsAt',
+        'expires_at' => 'getExpiresAt',
+        'can_not_expire' => 'getCanNotExpire',
+        'order_template' => 'getOrderTemplate'
     ];
 
     /**
@@ -294,15 +300,16 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('allowed_payment_methods', $data ?? [], null);
-        $this->setIfExists('expires_at', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('needs_shipping_contact', $data ?? [], null);
-        $this->setIfExists('on_demand_enabled', $data ?? [], null);
-        $this->setIfExists('order_template', $data ?? [], null);
-        $this->setIfExists('payments_limit_count', $data ?? [], null);
-        $this->setIfExists('recurrent', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('recurrent', $data ?? [], null);
+        $this->setIfExists('payments_limit_count', $data ?? [], null);
+        $this->setIfExists('allowed_payment_methods', $data ?? [], null);
+        $this->setIfExists('needs_shipping_contact', $data ?? [], null);
+        $this->setIfExists('starts_at', $data ?? [], null);
+        $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('can_not_expire', $data ?? [], null);
+        $this->setIfExists('order_template', $data ?? [], null);
     }
 
     /**
@@ -332,23 +339,26 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['allowed_payment_methods'] === null) {
-            $invalidProperties[] = "'allowed_payment_methods' can't be null";
-        }
-        if ($this->container['expires_at'] === null) {
-            $invalidProperties[] = "'expires_at' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['order_template'] === null) {
-            $invalidProperties[] = "'order_template' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         if ($this->container['recurrent'] === null) {
             $invalidProperties[] = "'recurrent' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['allowed_payment_methods'] === null) {
+            $invalidProperties[] = "'allowed_payment_methods' can't be null";
+        }
+        if ($this->container['needs_shipping_contact'] === null) {
+            $invalidProperties[] = "'needs_shipping_contact' can't be null";
+        }
+        if ($this->container['expires_at'] === null) {
+            $invalidProperties[] = "'expires_at' can't be null";
+        }
+        if ($this->container['order_template'] === null) {
+            $invalidProperties[] = "'order_template' can't be null";
         }
         return $invalidProperties;
     }
@@ -366,60 +376,6 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets allowed_payment_methods
-     *
-     * @return string[]
-     */
-    public function getAllowedPaymentMethods()
-    {
-        return $this->container['allowed_payment_methods'];
-    }
-
-    /**
-     * Sets allowed_payment_methods
-     *
-     * @param string[] $allowed_payment_methods Those are the payment methods that will be available for the link
-     *
-     * @return self
-     */
-    public function setAllowedPaymentMethods($allowed_payment_methods)
-    {
-        if (is_null($allowed_payment_methods)) {
-            throw new \InvalidArgumentException('non-nullable allowed_payment_methods cannot be null');
-        }
-        $this->container['allowed_payment_methods'] = $allowed_payment_methods;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_at
-     *
-     * @return int
-     */
-    public function getExpiresAt()
-    {
-        return $this->container['expires_at'];
-    }
-
-    /**
-     * Sets expires_at
-     *
-     * @param int $expires_at It is the time when the link will expire. It is expressed in seconds since the Unix epoch. The valid range is from 2 to 365 days (the valid range will be taken from the next day of the creation date at 00:01 hrs)
-     *
-     * @return self
-     */
-    public function setExpiresAt($expires_at)
-    {
-        if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
-        }
-        $this->container['expires_at'] = $expires_at;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -432,7 +388,7 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Reason for charge
+     * @param string $name Payment link name.
      *
      * @return self
      */
@@ -447,116 +403,28 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets needs_shipping_contact
+     * Gets type
      *
-     * @return bool|null
+     * @return string
      */
-    public function getNeedsShippingContact()
+    public function getType()
     {
-        return $this->container['needs_shipping_contact'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets needs_shipping_contact
+     * Sets type
      *
-     * @param bool|null $needs_shipping_contact This flag allows you to fill in the shipping information at checkout.
+     * @param string $type Checkout type.
      *
      * @return self
      */
-    public function setNeedsShippingContact($needs_shipping_contact)
+    public function setType($type)
     {
-        if (is_null($needs_shipping_contact)) {
-            throw new \InvalidArgumentException('non-nullable needs_shipping_contact cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['needs_shipping_contact'] = $needs_shipping_contact;
-
-        return $this;
-    }
-
-    /**
-     * Gets on_demand_enabled
-     *
-     * @return bool|null
-     */
-    public function getOnDemandEnabled()
-    {
-        return $this->container['on_demand_enabled'];
-    }
-
-    /**
-     * Sets on_demand_enabled
-     *
-     * @param bool|null $on_demand_enabled This flag allows you to specify if the link will be on demand.
-     *
-     * @return self
-     */
-    public function setOnDemandEnabled($on_demand_enabled)
-    {
-        if (is_null($on_demand_enabled)) {
-            array_push($this->openAPINullablesSetToNull, 'on_demand_enabled');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('on_demand_enabled', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['on_demand_enabled'] = $on_demand_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets order_template
-     *
-     * @return \DigitalFemsa\Model\CheckoutOrderTemplate
-     */
-    public function getOrderTemplate()
-    {
-        return $this->container['order_template'];
-    }
-
-    /**
-     * Sets order_template
-     *
-     * @param \DigitalFemsa\Model\CheckoutOrderTemplate $order_template order_template
-     *
-     * @return self
-     */
-    public function setOrderTemplate($order_template)
-    {
-        if (is_null($order_template)) {
-            throw new \InvalidArgumentException('non-nullable order_template cannot be null');
-        }
-        $this->container['order_template'] = $order_template;
-
-        return $this;
-    }
-
-    /**
-     * Gets payments_limit_count
-     *
-     * @return int|null
-     */
-    public function getPaymentsLimitCount()
-    {
-        return $this->container['payments_limit_count'];
-    }
-
-    /**
-     * Sets payments_limit_count
-     *
-     * @param int|null $payments_limit_count It is the number of payments that can be made through the link.
-     *
-     * @return self
-     */
-    public function setPaymentsLimitCount($payments_limit_count)
-    {
-        if (is_null($payments_limit_count)) {
-            throw new \InvalidArgumentException('non-nullable payments_limit_count cannot be null');
-        }
-        $this->container['payments_limit_count'] = $payments_limit_count;
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -589,28 +457,190 @@ class Checkout implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets type
+     * Gets payments_limit_count
      *
-     * @return string
+     * @return int|null
      */
-    public function getType()
+    public function getPaymentsLimitCount()
     {
-        return $this->container['type'];
+        return $this->container['payments_limit_count'];
     }
 
     /**
-     * Sets type
+     * Sets payments_limit_count
      *
-     * @param string $type It is the type of link that will be created. It must be a valid type.
+     * @param int|null $payments_limit_count Required when `recurrent` is true. Maximum number of payments allowed through the link.
      *
      * @return self
      */
-    public function setType($type)
+    public function setPaymentsLimitCount($payments_limit_count)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($payments_limit_count)) {
+            throw new \InvalidArgumentException('non-nullable payments_limit_count cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['payments_limit_count'] = $payments_limit_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets allowed_payment_methods
+     *
+     * @return string[]
+     */
+    public function getAllowedPaymentMethods()
+    {
+        return $this->container['allowed_payment_methods'];
+    }
+
+    /**
+     * Sets allowed_payment_methods
+     *
+     * @param string[] $allowed_payment_methods Payment methods available in the payment link.
+     *
+     * @return self
+     */
+    public function setAllowedPaymentMethods($allowed_payment_methods)
+    {
+        if (is_null($allowed_payment_methods)) {
+            throw new \InvalidArgumentException('non-nullable allowed_payment_methods cannot be null');
+        }
+        $this->container['allowed_payment_methods'] = $allowed_payment_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets needs_shipping_contact
+     *
+     * @return bool
+     */
+    public function getNeedsShippingContact()
+    {
+        return $this->container['needs_shipping_contact'];
+    }
+
+    /**
+     * Sets needs_shipping_contact
+     *
+     * @param bool $needs_shipping_contact This flag allows you to fill in the shipping information at checkout.
+     *
+     * @return self
+     */
+    public function setNeedsShippingContact($needs_shipping_contact)
+    {
+        if (is_null($needs_shipping_contact)) {
+            throw new \InvalidArgumentException('non-nullable needs_shipping_contact cannot be null');
+        }
+        $this->container['needs_shipping_contact'] = $needs_shipping_contact;
+
+        return $this;
+    }
+
+    /**
+     * Gets starts_at
+     *
+     * @return int|null
+     */
+    public function getStartsAt()
+    {
+        return $this->container['starts_at'];
+    }
+
+    /**
+     * Sets starts_at
+     *
+     * @param int|null $starts_at Start time for the link. Unix timestamp in seconds.
+     *
+     * @return self
+     */
+    public function setStartsAt($starts_at)
+    {
+        if (is_null($starts_at)) {
+            throw new \InvalidArgumentException('non-nullable starts_at cannot be null');
+        }
+        $this->container['starts_at'] = $starts_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_at
+     *
+     * @return int
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param int $expires_at Expiration time for the link (Unix timestamp in seconds). Valid range is between 2 and 365 days (calculated from the next day of creation at 00:01).
+     *
+     * @return self
+     */
+    public function setExpiresAt($expires_at)
+    {
+        if (is_null($expires_at)) {
+            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
+        }
+        $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_not_expire
+     *
+     * @return bool|null
+     */
+    public function getCanNotExpire()
+    {
+        return $this->container['can_not_expire'];
+    }
+
+    /**
+     * Sets can_not_expire
+     *
+     * @param bool|null $can_not_expire If true, the link does not expire.
+     *
+     * @return self
+     */
+    public function setCanNotExpire($can_not_expire)
+    {
+        if (is_null($can_not_expire)) {
+            throw new \InvalidArgumentException('non-nullable can_not_expire cannot be null');
+        }
+        $this->container['can_not_expire'] = $can_not_expire;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_template
+     *
+     * @return \DigitalFemsa\Model\CheckoutOrderTemplate
+     */
+    public function getOrderTemplate()
+    {
+        return $this->container['order_template'];
+    }
+
+    /**
+     * Sets order_template
+     *
+     * @param \DigitalFemsa\Model\CheckoutOrderTemplate $order_template order_template
+     *
+     * @return self
+     */
+    public function setOrderTemplate($order_template)
+    {
+        if (is_null($order_template)) {
+            throw new \InvalidArgumentException('non-nullable order_template cannot be null');
+        }
+        $this->container['order_template'] = $order_template;
 
         return $this;
     }

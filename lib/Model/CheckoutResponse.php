@@ -102,7 +102,7 @@ class CheckoutResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_shipping_contact' => null,
         'object' => null,
         'paid_payments_count' => null,
-        'payments_limit_count' => 'int8',
+        'payments_limit_count' => 'int32',
         'recurrent' => null,
         'slug' => null,
         'sms_sent' => null,
@@ -672,7 +672,7 @@ class CheckoutResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Reason for charge
+     * @param string $name Payment link name
      *
      * @return self
      */

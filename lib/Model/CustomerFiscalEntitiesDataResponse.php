@@ -60,10 +60,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'address' => '\DigitalFemsa\Model\CustomerAddress',
         'tax_id' => 'string',
+        'name' => 'string',
         'email' => 'string',
         'phone' => 'string',
-        'metadata' => 'array<string,object>',
-        'company_name' => 'string',
+        'metadata' => 'array<string,mixed>',
         'id' => 'string',
         'object' => 'string',
         'created_at' => 'int',
@@ -81,10 +81,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'address' => null,
         'tax_id' => null,
+        'name' => null,
         'email' => null,
         'phone' => null,
         'metadata' => null,
-        'company_name' => null,
         'id' => null,
         'object' => null,
         'created_at' => 'int64',
@@ -100,10 +100,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     protected static array $openAPINullables = [
         'address' => false,
         'tax_id' => false,
+        'name' => false,
         'email' => false,
         'phone' => false,
         'metadata' => false,
-        'company_name' => false,
         'id' => false,
         'object' => false,
         'created_at' => false,
@@ -199,10 +199,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'address' => 'address',
         'tax_id' => 'tax_id',
+        'name' => 'name',
         'email' => 'email',
         'phone' => 'phone',
         'metadata' => 'metadata',
-        'company_name' => 'company_name',
         'id' => 'id',
         'object' => 'object',
         'created_at' => 'created_at',
@@ -218,10 +218,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'address' => 'setAddress',
         'tax_id' => 'setTaxId',
+        'name' => 'setName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
         'metadata' => 'setMetadata',
-        'company_name' => 'setCompanyName',
         'id' => 'setId',
         'object' => 'setObject',
         'created_at' => 'setCreatedAt',
@@ -237,10 +237,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'address' => 'getAddress',
         'tax_id' => 'getTaxId',
+        'name' => 'getName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
         'metadata' => 'getMetadata',
-        'company_name' => 'getCompanyName',
         'id' => 'getId',
         'object' => 'getObject',
         'created_at' => 'getCreatedAt',
@@ -307,10 +307,10 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     {
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('company_name', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
@@ -427,6 +427,33 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string|null
@@ -483,7 +510,7 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     /**
      * Gets metadata
      *
-     * @return array<string,object>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -493,7 +520,7 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
     /**
      * Sets metadata
      *
-     * @param array<string,object>|null $metadata metadata
+     * @param array<string,mixed>|null $metadata metadata
      *
      * @return self
      */
@@ -503,33 +530,6 @@ class CustomerFiscalEntitiesDataResponse implements ModelInterface, ArrayAccess,
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_name
-     *
-     * @return string|null
-     */
-    public function getCompanyName()
-    {
-        return $this->container['company_name'];
-    }
-
-    /**
-     * Sets company_name
-     *
-     * @param string|null $company_name company_name
-     *
-     * @return self
-     */
-    public function setCompanyName($company_name)
-    {
-        if (is_null($company_name)) {
-            throw new \InvalidArgumentException('non-nullable company_name cannot be null');
-        }
-        $this->container['company_name'] = $company_name;
 
         return $this;
     }

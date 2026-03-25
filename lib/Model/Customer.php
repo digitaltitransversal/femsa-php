@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * Customer Class Doc Comment
  *
  * @category Class
- * @description a customer
+ * @description Customer create request.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,17 +59,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'antifraud_info' => '\DigitalFemsa\Model\CustomerAntifraudInfo',
+        'name' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
         'corporate' => 'bool',
         'custom_reference' => 'string',
-        'email' => 'string',
-        'default_payment_source_id' => 'string',
-        'default_shipping_contact_id' => 'string',
-        'fiscal_entities' => '\DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]',
         'metadata' => 'array<string,mixed>',
-        'name' => 'string',
         'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsRequest[]',
-        'phone' => 'string',
+        'fiscal_entities' => '\DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]',
         'shipping_contacts' => '\DigitalFemsa\Model\CustomerShippingContacts[]'
     ];
 
@@ -81,17 +78,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'antifraud_info' => null,
+        'name' => null,
+        'email' => 'email',
+        'phone' => null,
         'corporate' => null,
         'custom_reference' => null,
-        'email' => 'email',
-        'default_payment_source_id' => null,
-        'default_shipping_contact_id' => null,
-        'fiscal_entities' => null,
         'metadata' => null,
-        'name' => null,
         'payment_sources' => null,
-        'phone' => null,
+        'fiscal_entities' => null,
         'shipping_contacts' => null
     ];
 
@@ -101,17 +95,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'antifraud_info' => true,
+        'name' => false,
+        'email' => false,
+        'phone' => true,
         'corporate' => false,
         'custom_reference' => false,
-        'email' => false,
-        'default_payment_source_id' => false,
-        'default_shipping_contact_id' => false,
-        'fiscal_entities' => false,
         'metadata' => false,
-        'name' => false,
         'payment_sources' => false,
-        'phone' => false,
+        'fiscal_entities' => false,
         'shipping_contacts' => false
     ];
 
@@ -201,17 +192,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'antifraud_info' => 'antifraud_info',
+        'name' => 'name',
+        'email' => 'email',
+        'phone' => 'phone',
         'corporate' => 'corporate',
         'custom_reference' => 'custom_reference',
-        'email' => 'email',
-        'default_payment_source_id' => 'default_payment_source_id',
-        'default_shipping_contact_id' => 'default_shipping_contact_id',
-        'fiscal_entities' => 'fiscal_entities',
         'metadata' => 'metadata',
-        'name' => 'name',
         'payment_sources' => 'payment_sources',
-        'phone' => 'phone',
+        'fiscal_entities' => 'fiscal_entities',
         'shipping_contacts' => 'shipping_contacts'
     ];
 
@@ -221,17 +209,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'antifraud_info' => 'setAntifraudInfo',
+        'name' => 'setName',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
         'corporate' => 'setCorporate',
         'custom_reference' => 'setCustomReference',
-        'email' => 'setEmail',
-        'default_payment_source_id' => 'setDefaultPaymentSourceId',
-        'default_shipping_contact_id' => 'setDefaultShippingContactId',
-        'fiscal_entities' => 'setFiscalEntities',
         'metadata' => 'setMetadata',
-        'name' => 'setName',
         'payment_sources' => 'setPaymentSources',
-        'phone' => 'setPhone',
+        'fiscal_entities' => 'setFiscalEntities',
         'shipping_contacts' => 'setShippingContacts'
     ];
 
@@ -241,17 +226,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'antifraud_info' => 'getAntifraudInfo',
+        'name' => 'getName',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
         'corporate' => 'getCorporate',
         'custom_reference' => 'getCustomReference',
-        'email' => 'getEmail',
-        'default_payment_source_id' => 'getDefaultPaymentSourceId',
-        'default_shipping_contact_id' => 'getDefaultShippingContactId',
-        'fiscal_entities' => 'getFiscalEntities',
         'metadata' => 'getMetadata',
-        'name' => 'getName',
         'payment_sources' => 'getPaymentSources',
-        'phone' => 'getPhone',
+        'fiscal_entities' => 'getFiscalEntities',
         'shipping_contacts' => 'getShippingContacts'
     ];
 
@@ -312,17 +294,14 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('antifraud_info', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('corporate', $data ?? [], false);
         $this->setIfExists('custom_reference', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('default_payment_source_id', $data ?? [], null);
-        $this->setIfExists('default_shipping_contact_id', $data ?? [], null);
-        $this->setIfExists('fiscal_entities', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('payment_sources', $data ?? [], null);
-        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('fiscal_entities', $data ?? [], null);
         $this->setIfExists('shipping_contacts', $data ?? [], null);
     }
 
@@ -353,19 +332,16 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
-        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
-            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
-        }
-
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['phone'] === null) {
-            $invalidProperties[] = "'phone' can't be null";
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
         }
+        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) > 19)) {
+            $invalidProperties[] = "invalid value for 'phone', the character length must be smaller than or equal to 19.";
+        }
+
         return $invalidProperties;
     }
 
@@ -382,35 +358,93 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets antifraud_info
+     * Gets name
      *
-     * @return \DigitalFemsa\Model\CustomerAntifraudInfo|null
+     * @return string
      */
-    public function getAntifraudInfo()
+    public function getName()
     {
-        return $this->container['antifraud_info'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets antifraud_info
+     * Sets name
      *
-     * @param \DigitalFemsa\Model\CustomerAntifraudInfo|null $antifraud_info antifraud_info
+     * @param string $name Customer's name.
      *
      * @return self
      */
-    public function setAntifraudInfo($antifraud_info)
+    public function setName($name)
     {
-        if (is_null($antifraud_info)) {
-            array_push($this->openAPINullablesSetToNull, 'antifraud_info');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email Customer email address.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string|null
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string|null $phone Customer phone number.
+     *
+     * @return self
+     */
+    public function setPhone($phone)
+    {
+        if (is_null($phone)) {
+            array_push($this->openAPINullablesSetToNull, 'phone');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('antifraud_info', $nullablesSetToNull);
+            $index = array_search('phone', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['antifraud_info'] = $antifraud_info;
+        if (!is_null($phone) && (mb_strlen($phone) > 19)) {
+            throw new \InvalidArgumentException('invalid length for $phone when calling Customer., must be smaller than or equal to 19.');
+        }
+
+        $this->container['phone'] = $phone;
 
         return $this;
     }
@@ -428,7 +462,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets corporate
      *
-     * @param bool|null $corporate It is a value that allows identifying if the email is corporate or not.
+     * @param bool|null $corporate Indicates whether the customer email is corporate.
      *
      * @return self
      */
@@ -455,7 +489,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets custom_reference
      *
-     * @param string|null $custom_reference It is an undefined value.
+     * @param string|null $custom_reference Merchant-defined reference used to identify the customer in your system.
      *
      * @return self
      */
@@ -465,114 +499,6 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable custom_reference cannot be null');
         }
         $this->container['custom_reference'] = $custom_reference;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email An email address is a series of customizable characters followed by a universal Internet symbol, the at symbol (@), the name of a host server, and a web domain ending (.mx, .com, .org, . net, etc).
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_payment_source_id
-     *
-     * @return string|null
-     */
-    public function getDefaultPaymentSourceId()
-    {
-        return $this->container['default_payment_source_id'];
-    }
-
-    /**
-     * Sets default_payment_source_id
-     *
-     * @param string|null $default_payment_source_id It is a parameter that allows to identify in the response, the Femsa ID of a payment method (payment_id)
-     *
-     * @return self
-     */
-    public function setDefaultPaymentSourceId($default_payment_source_id)
-    {
-        if (is_null($default_payment_source_id)) {
-            throw new \InvalidArgumentException('non-nullable default_payment_source_id cannot be null');
-        }
-        $this->container['default_payment_source_id'] = $default_payment_source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_shipping_contact_id
-     *
-     * @return string|null
-     */
-    public function getDefaultShippingContactId()
-    {
-        return $this->container['default_shipping_contact_id'];
-    }
-
-    /**
-     * Sets default_shipping_contact_id
-     *
-     * @param string|null $default_shipping_contact_id It is a parameter that allows to identify in the response, the Femsa ID of the shipping address (shipping_contact)
-     *
-     * @return self
-     */
-    public function setDefaultShippingContactId($default_shipping_contact_id)
-    {
-        if (is_null($default_shipping_contact_id)) {
-            throw new \InvalidArgumentException('non-nullable default_shipping_contact_id cannot be null');
-        }
-        $this->container['default_shipping_contact_id'] = $default_shipping_contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets fiscal_entities
-     *
-     * @return \DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]|null
-     */
-    public function getFiscalEntities()
-    {
-        return $this->container['fiscal_entities'];
-    }
-
-    /**
-     * Sets fiscal_entities
-     *
-     * @param \DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]|null $fiscal_entities fiscal_entities
-     *
-     * @return self
-     */
-    public function setFiscalEntities($fiscal_entities)
-    {
-        if (is_null($fiscal_entities)) {
-            throw new \InvalidArgumentException('non-nullable fiscal_entities cannot be null');
-        }
-        $this->container['fiscal_entities'] = $fiscal_entities;
 
         return $this;
     }
@@ -590,7 +516,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata metadata
+     * @param array<string,mixed>|null $metadata Arbitrary metadata associated with the customer.
      *
      * @return self
      */
@@ -599,38 +525,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($metadata)) {
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
-        if ((count($metadata) > 100)) {
-            throw new \InvalidArgumentException('invalid value for $metadata when calling Customer., number of items must be less than or equal to 100.');
-        }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Client's name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
 
         return $this;
     }
@@ -648,7 +543,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_sources
      *
-     * @param \DigitalFemsa\Model\CustomerPaymentMethodsRequest[]|null $payment_sources Contains details of the payment methods that the customer has active or has used in Femsa
+     * @param \DigitalFemsa\Model\CustomerPaymentMethodsRequest[]|null $payment_sources Customer payment sources to be created with the customer (optional).
      *
      * @return self
      */
@@ -663,28 +558,28 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets phone
+     * Gets fiscal_entities
      *
-     * @return string
+     * @return \DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]|null
      */
-    public function getPhone()
+    public function getFiscalEntities()
     {
-        return $this->container['phone'];
+        return $this->container['fiscal_entities'];
     }
 
     /**
-     * Sets phone
+     * Sets fiscal_entities
      *
-     * @param string $phone Is the customer's phone number
+     * @param \DigitalFemsa\Model\CustomerFiscalEntitiesRequest[]|null $fiscal_entities Customer fiscal entities to be created with the customer (optional).
      *
      * @return self
      */
-    public function setPhone($phone)
+    public function setFiscalEntities($fiscal_entities)
     {
-        if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+        if (is_null($fiscal_entities)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_entities cannot be null');
         }
-        $this->container['phone'] = $phone;
+        $this->container['fiscal_entities'] = $fiscal_entities;
 
         return $this;
     }
@@ -702,7 +597,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_contacts
      *
-     * @param \DigitalFemsa\Model\CustomerShippingContacts[]|null $shipping_contacts Contains the detail of the shipping addresses that the client has active or has used in Femsa
+     * @param \DigitalFemsa\Model\CustomerShippingContacts[]|null $shipping_contacts Customer shipping contacts to be created with the customer (optional).
      *
      * @return self
      */

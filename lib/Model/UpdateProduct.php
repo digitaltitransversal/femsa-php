@@ -58,15 +58,14 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'antifraud_info' => 'array<string,object>',
-        'description' => 'string',
-        'sku' => 'string',
         'name' => 'string',
         'unit_price' => 'int',
         'quantity' => 'int',
-        'tags' => 'string[]',
+        'sku' => 'string',
         'brand' => 'string',
-        'metadata' => 'array<string,string>'
+        'description' => 'string',
+        'tags' => 'string[]',
+        'metadata' => 'array<string,mixed>'
     ];
 
     /**
@@ -77,14 +76,13 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'antifraud_info' => null,
-        'description' => null,
-        'sku' => null,
         'name' => null,
         'unit_price' => 'int64',
         'quantity' => 'int32',
-        'tags' => null,
+        'sku' => null,
         'brand' => null,
+        'description' => null,
+        'tags' => null,
         'metadata' => null
     ];
 
@@ -94,14 +92,13 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'antifraud_info' => false,
-        'description' => false,
-        'sku' => false,
         'name' => false,
         'unit_price' => false,
         'quantity' => false,
-        'tags' => false,
+        'sku' => false,
         'brand' => false,
+        'description' => false,
+        'tags' => false,
         'metadata' => false
     ];
 
@@ -191,14 +188,13 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'antifraud_info' => 'antifraud_info',
-        'description' => 'description',
-        'sku' => 'sku',
         'name' => 'name',
         'unit_price' => 'unit_price',
         'quantity' => 'quantity',
-        'tags' => 'tags',
+        'sku' => 'sku',
         'brand' => 'brand',
+        'description' => 'description',
+        'tags' => 'tags',
         'metadata' => 'metadata'
     ];
 
@@ -208,14 +204,13 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'antifraud_info' => 'setAntifraudInfo',
-        'description' => 'setDescription',
-        'sku' => 'setSku',
         'name' => 'setName',
         'unit_price' => 'setUnitPrice',
         'quantity' => 'setQuantity',
-        'tags' => 'setTags',
+        'sku' => 'setSku',
         'brand' => 'setBrand',
+        'description' => 'setDescription',
+        'tags' => 'setTags',
         'metadata' => 'setMetadata'
     ];
 
@@ -225,14 +220,13 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'antifraud_info' => 'getAntifraudInfo',
-        'description' => 'getDescription',
-        'sku' => 'getSku',
         'name' => 'getName',
         'unit_price' => 'getUnitPrice',
         'quantity' => 'getQuantity',
-        'tags' => 'getTags',
+        'sku' => 'getSku',
         'brand' => 'getBrand',
+        'description' => 'getDescription',
+        'tags' => 'getTags',
         'metadata' => 'getMetadata'
     ];
 
@@ -293,14 +287,13 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('antifraud_info', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('unit_price', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
-        $this->setIfExists('tags', $data ?? [], null);
+        $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('brand', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
     }
 
@@ -331,16 +324,24 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 250)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 250.";
-        }
-
         if (!is_null($this->container['unit_price']) && ($this->container['unit_price'] < 0)) {
             $invalidProperties[] = "invalid value for 'unit_price', must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['quantity']) && ($this->container['quantity'] < 1)) {
             $invalidProperties[] = "invalid value for 'quantity', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 250)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) < 1)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
+            $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -357,91 +358,6 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets antifraud_info
-     *
-     * @return array<string,object>|null
-     */
-    public function getAntifraudInfo()
-    {
-        return $this->container['antifraud_info'];
-    }
-
-    /**
-     * Sets antifraud_info
-     *
-     * @param array<string,object>|null $antifraud_info antifraud_info
-     *
-     * @return self
-     */
-    public function setAntifraudInfo($antifraud_info)
-    {
-        if (is_null($antifraud_info)) {
-            throw new \InvalidArgumentException('non-nullable antifraud_info cannot be null');
-        }
-        $this->container['antifraud_info'] = $antifraud_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        if ((mb_strlen($description) > 250)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling UpdateProduct., must be smaller than or equal to 250.');
-        }
-
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets sku
-     *
-     * @return string|null
-     */
-    public function getSku()
-    {
-        return $this->container['sku'];
-    }
-
-    /**
-     * Sets sku
-     *
-     * @param string|null $sku sku
-     *
-     * @return self
-     */
-    public function setSku($sku)
-    {
-        if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
-        }
-        $this->container['sku'] = $sku;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -535,28 +451,28 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets tags
+     * Gets sku
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getTags()
+    public function getSku()
     {
-        return $this->container['tags'];
+        return $this->container['sku'];
     }
 
     /**
-     * Sets tags
+     * Sets sku
      *
-     * @param string[]|null $tags tags
+     * @param string|null $sku sku
      *
      * @return self
      */
-    public function setTags($tags)
+    public function setSku($sku)
     {
-        if (is_null($tags)) {
-            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        if (is_null($sku)) {
+            throw new \InvalidArgumentException('non-nullable sku cannot be null');
         }
-        $this->container['tags'] = $tags;
+        $this->container['sku'] = $sku;
 
         return $this;
     }
@@ -589,9 +505,72 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        if ((mb_strlen($description) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling UpdateProduct., must be smaller than or equal to 250.');
+        }
+
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[]|null $tags tags
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        if (is_null($tags)) {
+            throw new \InvalidArgumentException('non-nullable tags cannot be null');
+        }
+
+
+        if ((count($tags) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $tags when calling UpdateProduct., number of items must be greater than or equal to 1.');
+        }
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
-     * @return array<string,string>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -601,7 +580,7 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array<string,string>|null $metadata metadata
+     * @param array<string,mixed>|null $metadata metadata
      *
      * @return self
      */
@@ -609,6 +588,10 @@ class UpdateProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($metadata)) {
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+
+        if ((count($metadata) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $metadata when calling UpdateProduct., number of items must be less than or equal to 100.');
         }
         $this->container['metadata'] = $metadata;
 

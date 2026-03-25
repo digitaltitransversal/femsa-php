@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * TransfersResponse Class Doc Comment
  *
  * @category Class
- * @description A transfer represents the action of sending an amount to a business bank account including the status, amount and method used to make the transfer.
+ * @description A transfer represents the action of sending an amount to a business bank account including the status, amount and destination used to make the transfer.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

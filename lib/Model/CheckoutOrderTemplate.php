@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * CheckoutOrderTemplate Class Doc Comment
  *
  * @category Class
- * @description It maintains the attributes with which the order will be created when receiving a new payment.
+ * @description Attributes used to create the order when a new payment is received.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -339,7 +339,7 @@ class CheckoutOrderTemplate implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets currency
      *
-     * @param string $currency It is the currency in which the order will be created. It must be a valid ISO 4217 currency code.
+     * @param string $currency ISO 4217 currency code for the order.
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class CheckoutOrderTemplate implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets line_items
      *
-     * @param \DigitalFemsa\Model\Product[] $line_items They are the products to buy. Each contains the \"unit price\" and \"quantity\" parameters that are used to calculate the total amount of the order.
+     * @param \DigitalFemsa\Model\Product[] $line_items Products to buy. Each contains unit price and quantity used to calculate the order total.
      *
      * @return self
      */
@@ -424,7 +424,7 @@ class CheckoutOrderTemplate implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata It is a set of key-value pairs that you can attach to the order. It can be used to store additional information about the order in a structured format.
+     * @param array<string,mixed>|null $metadata Arbitrary key-value data attached to the order for internal use.
      *
      * @return self
      */

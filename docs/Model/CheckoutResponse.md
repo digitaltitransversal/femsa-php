@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **id** | **string** |  |
 **livemode** | **bool** |  |
 **metadata** | **array<string,mixed>** |  | [optional]
-**name** | **string** | Reason for charge |
+**name** | **string** | Payment link name |
 **needs_shipping_contact** | **bool** |  | [optional]
 **object** | **string** |  |
 **paid_payments_count** | **int** |  | [optional]

@@ -5,10 +5,10 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createWebhookKey()**](WebhookKeysApi.md#createWebhookKey) | **POST** /webhook_keys | Create Webhook Key |
-| [**deleteWebhookKey()**](WebhookKeysApi.md#deleteWebhookKey) | **DELETE** /webhook_keys/{id} | Delete Webhook key |
-| [**getWebhookKey()**](WebhookKeysApi.md#getWebhookKey) | **GET** /webhook_keys/{id} | Get Webhook Key |
+| [**deleteWebhookKey()**](WebhookKeysApi.md#deleteWebhookKey) | **DELETE** /webhook_keys/{id} | Delete webhook key |
+| [**getWebhookKey()**](WebhookKeysApi.md#getWebhookKey) | **GET** /webhook_keys/{id} | Get webhook key |
 | [**getWebhookKeys()**](WebhookKeysApi.md#getWebhookKeys) | **GET** /webhook_keys | Get List of Webhook Keys |
-| [**updateWebhookKey()**](WebhookKeysApi.md#updateWebhookKey) | **PUT** /webhook_keys/{id} | Update Webhook Key |
+| [**updateWebhookKey()**](WebhookKeysApi.md#updateWebhookKey) | **PUT** /webhook_keys/{id} | Update webhook key |
 
 
 ## `createWebhookKey()`
@@ -19,7 +19,7 @@ createWebhookKey($accept_language, $webhook_key_request): \DigitalFemsa\Model\We
 
 Create Webhook Key
 
-Create a webhook key
+Creates a new webhook signing key for the current company.
 
 ### Example
 
@@ -79,7 +79,9 @@ try {
 deleteWebhookKey($id, $accept_language): \DigitalFemsa\Model\WebhookKeyDeleteResponse
 ```
 
-Delete Webhook key
+Delete webhook key
+
+Deletes a webhook signing key.
 
 ### Example
 
@@ -139,7 +141,9 @@ try {
 getWebhookKey($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookKeyResponse
 ```
 
-Get Webhook Key
+Get webhook key
+
+Retrieves the details of a webhook signing key by its ID.
 
 ### Example
 
@@ -271,9 +275,9 @@ try {
 updateWebhookKey($id, $accept_language, $webhook_key_update_request): \DigitalFemsa\Model\WebhookKeyResponse
 ```
 
-Update Webhook Key
+Update webhook key
 
-updates an existing webhook key
+Activates or deactivates an existing webhook signing key.
 
 ### Example
 

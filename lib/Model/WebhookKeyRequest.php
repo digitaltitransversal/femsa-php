@@ -78,7 +78,7 @@ class WebhookKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'active' => false
+        'active' => true
     ];
 
     /**
@@ -310,7 +310,14 @@ class WebhookKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setActive($active)
     {
         if (is_null($active)) {
-            throw new \InvalidArgumentException('non-nullable active cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['active'] = $active;
 

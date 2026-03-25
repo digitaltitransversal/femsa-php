@@ -18,7 +18,7 @@ createCustomerPaymentMethods($id, $create_customer_payment_methods_request, $acc
 
 Create Payment Method
 
-Create a payment method for a customer.
+Creates a new payment method for a customer. The payment method is associated with the customer identified by `id`. The accepted fields depend on the payment method `type`.
 
 ### Example
 
@@ -84,7 +84,7 @@ deleteCustomerPaymentMethods($id, $payment_method_id, $accept_language, $x_child
 
 Delete Payment Method
 
-Delete an existing payment method
+Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
 
 ### Example
 
@@ -222,7 +222,7 @@ updateCustomerPaymentMethods($id, $payment_method_id, $update_payment_methods, $
 
 Update Payment Method
 
-Gets a payment Method that corresponds to a customer ID.
+Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by `payment_method_id` for the customer identified by `id`. The fields that can be updated depend on the payment method `type`.
 
 ### Example
 
@@ -243,7 +243,7 @@ $apiInstance = new DigitalFemsa\Api\PaymentMethodsApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $payment_method_id = src_2tQ974hSHcsdeSZHG; // string | Identifier of the payment method
-$update_payment_methods = new \DigitalFemsa\Model\UpdatePaymentMethods(); // \DigitalFemsa\Model\UpdatePaymentMethods | requested field for customer payment methods
+$update_payment_methods = new \DigitalFemsa\Model\UpdatePaymentMethods(); // \DigitalFemsa\Model\UpdatePaymentMethods | Request body for updating a customer payment method.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -261,7 +261,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **payment_method_id** | **string**| Identifier of the payment method | |
-| **update_payment_methods** | [**\DigitalFemsa\Model\UpdatePaymentMethods**](../Model/UpdatePaymentMethods.md)| requested field for customer payment methods | |
+| **update_payment_methods** | [**\DigitalFemsa\Model\UpdatePaymentMethods**](../Model/UpdatePaymentMethods.md)| Request body for updating a customer payment method. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

@@ -333,6 +333,9 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['city'] === null) {
             $invalidProperties[] = "'city' can't be null";
         }
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -486,7 +489,7 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country
      *
-     * @return string|null
+     * @return string
      */
     public function getCountry()
     {
@@ -496,7 +499,7 @@ class CustomerAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param string|null $country this field follows the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+     * @param string $country this field follows the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
      *
      * @return self
      */

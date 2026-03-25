@@ -17,7 +17,7 @@ ordersCreateTaxes($id, $order_tax_request, $accept_language, $x_child_company_id
 
 Create Tax
 
-Create new taxes for an existing orden
+Creates a new tax line for an existing order. The tax line is added to the order identified by `id`. The response returns the created tax line.
 
 ### Example
 
@@ -37,7 +37,7 @@ $apiInstance = new DigitalFemsa\Api\TaxesApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$order_tax_request = new \DigitalFemsa\Model\OrderTaxRequest(); // \DigitalFemsa\Model\OrderTaxRequest | requested field for a taxes
+$order_tax_request = new \DigitalFemsa\Model\OrderTaxRequest(); // \DigitalFemsa\Model\OrderTaxRequest | Request body for creating a tax line.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -54,7 +54,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
-| **order_tax_request** | [**\DigitalFemsa\Model\OrderTaxRequest**](../Model/OrderTaxRequest.md)| requested field for a taxes | |
+| **order_tax_request** | [**\DigitalFemsa\Model\OrderTaxRequest**](../Model/OrderTaxRequest.md)| Request body for creating a tax line. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
@@ -83,7 +83,7 @@ ordersDeleteTaxes($id, $tax_id, $accept_language, $x_child_company_id): \Digital
 
 Delete Tax
 
-Delete taxes for an existing orden
+Deletes an existing tax line from an order. The tax line identified by `tax_id` belongs to the order identified by `id`. The response includes the deleted resource with `deleted: true`.
 
 ### Example
 
@@ -149,7 +149,7 @@ ordersUpdateTaxes($id, $tax_id, $update_order_tax_request, $accept_language, $x_
 
 Update Tax
 
-Update taxes for an existing orden
+Updates an existing tax line for an order. The tax line identified by `tax_id` belongs to the order identified by `id`. Only the fields provided in the request body are updated.
 
 ### Example
 
@@ -170,7 +170,7 @@ $apiInstance = new DigitalFemsa\Api\TaxesApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $tax_id = tax_lin_2tQ974hSHcsdeSZHG; // string | identifier
-$update_order_tax_request = new \DigitalFemsa\Model\UpdateOrderTaxRequest(); // \DigitalFemsa\Model\UpdateOrderTaxRequest | requested field for taxes
+$update_order_tax_request = new \DigitalFemsa\Model\UpdateOrderTaxRequest(); // \DigitalFemsa\Model\UpdateOrderTaxRequest | Request body for updating a tax line.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -188,7 +188,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **tax_id** | **string**| identifier | |
-| **update_order_tax_request** | [**\DigitalFemsa\Model\UpdateOrderTaxRequest**](../Model/UpdateOrderTaxRequest.md)| requested field for taxes | |
+| **update_order_tax_request** | [**\DigitalFemsa\Model\UpdateOrderTaxRequest**](../Model/UpdateOrderTaxRequest.md)| Request body for updating a tax line. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

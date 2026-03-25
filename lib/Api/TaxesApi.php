@@ -135,14 +135,14 @@ class TaxesApi
      * Create Tax
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request requested field for a taxes (required)
+     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request Request body for creating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateTaxes'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\UpdateOrderTaxResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\UpdateOrderTaxResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function ordersCreateTaxes($id, $order_tax_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['ordersCreateTaxes'][0])
     {
@@ -156,14 +156,14 @@ class TaxesApi
      * Create Tax
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request requested field for a taxes (required)
+     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request Request body for creating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateTaxes'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\UpdateOrderTaxResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\UpdateOrderTaxResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function ordersCreateTaxesWithHttpInfo($id, $order_tax_request, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['ordersCreateTaxes'][0])
     {
@@ -286,6 +286,33 @@ class TaxesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -369,6 +396,14 @@ class TaxesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -388,7 +423,7 @@ class TaxesApi
      * Create Tax
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request requested field for a taxes (required)
+     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request Request body for creating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateTaxes'] to see the possible values for this operation
@@ -412,7 +447,7 @@ class TaxesApi
      * Create Tax
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request requested field for a taxes (required)
+     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request Request body for creating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateTaxes'] to see the possible values for this operation
@@ -465,7 +500,7 @@ class TaxesApi
      * Create request for operation 'ordersCreateTaxes'
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request requested field for a taxes (required)
+     * @param  \DigitalFemsa\Model\OrderTaxRequest $order_tax_request Request body for creating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateTaxes'] to see the possible values for this operation
@@ -718,7 +753,7 @@ class TaxesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
+                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -745,7 +780,7 @@ class TaxesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 422:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -847,7 +882,7 @@ class TaxesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -855,7 +890,7 @@ class TaxesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -1090,7 +1125,7 @@ class TaxesApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $tax_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request requested field for taxes (required)
+     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request Request body for updating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateTaxes'] to see the possible values for this operation
@@ -1112,7 +1147,7 @@ class TaxesApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $tax_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request requested field for taxes (required)
+     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request Request body for updating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateTaxes'] to see the possible values for this operation
@@ -1215,7 +1250,7 @@ class TaxesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
+                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1242,7 +1277,7 @@ class TaxesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 422:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -1344,7 +1379,7 @@ class TaxesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -1352,7 +1387,7 @@ class TaxesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -1380,7 +1415,7 @@ class TaxesApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $tax_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request requested field for taxes (required)
+     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request Request body for updating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateTaxes'] to see the possible values for this operation
@@ -1405,7 +1440,7 @@ class TaxesApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $tax_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request requested field for taxes (required)
+     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request Request body for updating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateTaxes'] to see the possible values for this operation
@@ -1459,7 +1494,7 @@ class TaxesApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $tax_id identifier (required)
-     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request requested field for taxes (required)
+     * @param  \DigitalFemsa\Model\UpdateOrderTaxRequest $update_order_tax_request Request body for updating a tax line. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersUpdateTaxes'] to see the possible values for this operation

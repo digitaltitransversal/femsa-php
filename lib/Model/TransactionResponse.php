@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * TransactionResponse Class Doc Comment
  *
  * @category Class
- * @description The Transaction object represents the actions or steps of an order. Statuses can be: unprocessed, pending, available, owen, paid_out, voided, capture, capture_reversal, liquidation, liquidation_reversal, payout, payout_reversal, refund, refund_reversal, chargeback, chargeback_reversal, rounding_adjustment, won_chargeback, transferred, and transferred.
+ * @description Transaction object.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,17 +59,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amount' => 'int',
-        'charge' => 'string',
-        'created_at' => 'int',
-        'currency' => 'string',
-        'fee' => 'int',
         'id' => 'string',
-        'livemode' => 'bool',
-        'net' => 'int',
         'object' => 'string',
+        'amount' => 'int',
+        'fee' => 'int',
+        'net' => 'int',
+        'currency' => 'string',
         'status' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'created_at' => 'int',
+        'livemode' => 'bool',
+        'charge' => 'string',
+        'transfer' => 'string',
+        'transferred_at' => 'int',
+        'formula' => 'string'
     ];
 
     /**
@@ -80,17 +83,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => 'int64',
-        'charge' => null,
-        'created_at' => 'int64',
-        'currency' => null,
-        'fee' => 'int64',
         'id' => null,
-        'livemode' => null,
-        'net' => 'int64',
         'object' => null,
+        'amount' => 'int64',
+        'fee' => 'int64',
+        'net' => 'int64',
+        'currency' => null,
         'status' => null,
-        'type' => null
+        'type' => null,
+        'created_at' => 'int64',
+        'livemode' => null,
+        'charge' => null,
+        'transfer' => null,
+        'transferred_at' => 'int64',
+        'formula' => null
     ];
 
     /**
@@ -99,17 +105,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false,
-        'charge' => false,
-        'created_at' => false,
-        'currency' => false,
-        'fee' => false,
         'id' => false,
-        'livemode' => false,
-        'net' => false,
         'object' => false,
+        'amount' => false,
+        'fee' => false,
+        'net' => false,
+        'currency' => false,
         'status' => false,
-        'type' => false
+        'type' => false,
+        'created_at' => false,
+        'livemode' => false,
+        'charge' => true,
+        'transfer' => true,
+        'transferred_at' => true,
+        'formula' => true
     ];
 
     /**
@@ -198,17 +207,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount',
-        'charge' => 'charge',
-        'created_at' => 'created_at',
-        'currency' => 'currency',
-        'fee' => 'fee',
         'id' => 'id',
-        'livemode' => 'livemode',
-        'net' => 'net',
         'object' => 'object',
+        'amount' => 'amount',
+        'fee' => 'fee',
+        'net' => 'net',
+        'currency' => 'currency',
         'status' => 'status',
-        'type' => 'type'
+        'type' => 'type',
+        'created_at' => 'created_at',
+        'livemode' => 'livemode',
+        'charge' => 'charge',
+        'transfer' => 'transfer',
+        'transferred_at' => 'transferred_at',
+        'formula' => 'formula'
     ];
 
     /**
@@ -217,17 +229,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount',
-        'charge' => 'setCharge',
-        'created_at' => 'setCreatedAt',
-        'currency' => 'setCurrency',
-        'fee' => 'setFee',
         'id' => 'setId',
-        'livemode' => 'setLivemode',
-        'net' => 'setNet',
         'object' => 'setObject',
+        'amount' => 'setAmount',
+        'fee' => 'setFee',
+        'net' => 'setNet',
+        'currency' => 'setCurrency',
         'status' => 'setStatus',
-        'type' => 'setType'
+        'type' => 'setType',
+        'created_at' => 'setCreatedAt',
+        'livemode' => 'setLivemode',
+        'charge' => 'setCharge',
+        'transfer' => 'setTransfer',
+        'transferred_at' => 'setTransferredAt',
+        'formula' => 'setFormula'
     ];
 
     /**
@@ -236,17 +251,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount',
-        'charge' => 'getCharge',
-        'created_at' => 'getCreatedAt',
-        'currency' => 'getCurrency',
-        'fee' => 'getFee',
         'id' => 'getId',
-        'livemode' => 'getLivemode',
-        'net' => 'getNet',
         'object' => 'getObject',
+        'amount' => 'getAmount',
+        'fee' => 'getFee',
+        'net' => 'getNet',
+        'currency' => 'getCurrency',
         'status' => 'getStatus',
-        'type' => 'getType'
+        'type' => 'getType',
+        'created_at' => 'getCreatedAt',
+        'livemode' => 'getLivemode',
+        'charge' => 'getCharge',
+        'transfer' => 'getTransfer',
+        'transferred_at' => 'getTransferredAt',
+        'formula' => 'getFormula'
     ];
 
     /**
@@ -290,6 +308,78 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const STATUS_UNPROCESSED = 'unprocessed';
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_AVAILABLE = 'available';
+    public const STATUS_OWING = 'owing';
+    public const STATUS_PAID_OUT = 'paid_out';
+    public const STATUS_ON_HOLD = 'on_hold';
+    public const STATUS_RETAINED = 'retained';
+    public const STATUS_VOIDED = 'voided';
+    public const TYPE_CAPTURE = 'capture';
+    public const TYPE_CAPTURE_REVERSAL = 'capture_reversal';
+    public const TYPE_LIQUIDATION = 'liquidation';
+    public const TYPE_LIQUIDATION_REVERSAL = 'liquidation_reversal';
+    public const TYPE_PAYOUT = 'payout';
+    public const TYPE_PAYOUT_REVERSAL = 'payout_reversal';
+    public const TYPE_REFUND = 'refund';
+    public const TYPE_REFUND_REVERSAL = 'refund_reversal';
+    public const TYPE_ROUNDING_ADJUSTMENT = 'rounding_adjustment';
+    public const TYPE_TRANSFER = 'transfer';
+    public const TYPE_TRANSFERRED = 'transferred';
+    public const TYPE_RETENTION = 'retention';
+    public const TYPE_TEMPORARY_RETENTION = 'temporary_retention';
+    public const TYPE_CASHOUT_RETENTION = 'cashout_retention';
+    public const TYPE_CASHOUT_CONFIRMATION = 'cashout_confirmation';
+    public const TYPE_CASHOUT_CANCELATION = 'cashout_cancelation';
+    public const TYPE_AUTOFUND_CAPTURE = 'autofund_capture';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_UNPROCESSED,
+            self::STATUS_PENDING,
+            self::STATUS_AVAILABLE,
+            self::STATUS_OWING,
+            self::STATUS_PAID_OUT,
+            self::STATUS_ON_HOLD,
+            self::STATUS_RETAINED,
+            self::STATUS_VOIDED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CAPTURE,
+            self::TYPE_CAPTURE_REVERSAL,
+            self::TYPE_LIQUIDATION,
+            self::TYPE_LIQUIDATION_REVERSAL,
+            self::TYPE_PAYOUT,
+            self::TYPE_PAYOUT_REVERSAL,
+            self::TYPE_REFUND,
+            self::TYPE_REFUND_REVERSAL,
+            self::TYPE_ROUNDING_ADJUSTMENT,
+            self::TYPE_TRANSFER,
+            self::TYPE_TRANSFERRED,
+            self::TYPE_RETENTION,
+            self::TYPE_TEMPORARY_RETENTION,
+            self::TYPE_CASHOUT_RETENTION,
+            self::TYPE_CASHOUT_CONFIRMATION,
+            self::TYPE_CASHOUT_CANCELATION,
+            self::TYPE_AUTOFUND_CAPTURE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -306,17 +396,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('charge', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('fee', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('net', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('fee', $data ?? [], null);
+        $this->setIfExists('net', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('charge', $data ?? [], null);
+        $this->setIfExists('transfer', $data ?? [], null);
+        $this->setIfExists('transferred_at', $data ?? [], null);
+        $this->setIfExists('formula', $data ?? [], null);
     }
 
     /**
@@ -346,14 +439,20 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['object'] === null) {
+            $invalidProperties[] = "'object' can't be null";
+        }
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if ($this->container['charge'] === null) {
-            $invalidProperties[] = "'charge' can't be null";
+        if ($this->container['fee'] === null) {
+            $invalidProperties[] = "'fee' can't be null";
         }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
+        if ($this->container['net'] === null) {
+            $invalidProperties[] = "'net' can't be null";
         }
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
@@ -362,26 +461,35 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = "invalid value for 'currency', the character length must be smaller than or equal to 3.";
         }
 
-        if ($this->container['fee'] === null) {
-            $invalidProperties[] = "'fee' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['livemode'] === null) {
-            $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['net'] === null) {
-            $invalidProperties[] = "'net' can't be null";
-        }
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['livemode'] === null) {
+            $invalidProperties[] = "'livemode' can't be null";
         }
         return $invalidProperties;
     }
@@ -397,145 +505,6 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets amount
-     *
-     * @return int
-     */
-    public function getAmount()
-    {
-        return $this->container['amount'];
-    }
-
-    /**
-     * Sets amount
-     *
-     * @param int $amount The amount of the transaction.
-     *
-     * @return self
-     */
-    public function setAmount($amount)
-    {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
-        }
-        $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets charge
-     *
-     * @return string
-     */
-    public function getCharge()
-    {
-        return $this->container['charge'];
-    }
-
-    /**
-     * Sets charge
-     *
-     * @param string $charge Randomly assigned unique order identifier associated with the charge.
-     *
-     * @return self
-     */
-    public function setCharge($charge)
-    {
-        if (is_null($charge)) {
-            throw new \InvalidArgumentException('non-nullable charge cannot be null');
-        }
-        $this->container['charge'] = $charge;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int $created_at Date and time of creation of the transaction in Unix format.
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency The currency of the transaction. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        if ((mb_strlen($currency) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $currency when calling TransactionResponse., must be smaller than or equal to 3.');
-        }
-
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets fee
-     *
-     * @return int
-     */
-    public function getFee()
-    {
-        return $this->container['fee'];
-    }
-
-    /**
-     * Sets fee
-     *
-     * @param int $fee The amount to be deducted for taxes and commissions.
-     *
-     * @return self
-     */
-    public function setFee($fee)
-    {
-        if (is_null($fee)) {
-            throw new \InvalidArgumentException('non-nullable fee cannot be null');
-        }
-        $this->container['fee'] = $fee;
-
-        return $this;
-    }
 
     /**
      * Gets id
@@ -560,60 +529,6 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets livemode
-     *
-     * @return bool
-     */
-    public function getLivemode()
-    {
-        return $this->container['livemode'];
-    }
-
-    /**
-     * Sets livemode
-     *
-     * @param bool $livemode Indicates whether the transaction was created in live mode or test mode.
-     *
-     * @return self
-     */
-    public function setLivemode($livemode)
-    {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
-        }
-        $this->container['livemode'] = $livemode;
-
-        return $this;
-    }
-
-    /**
-     * Gets net
-     *
-     * @return int
-     */
-    public function getNet()
-    {
-        return $this->container['net'];
-    }
-
-    /**
-     * Sets net
-     *
-     * @param int $net The net amount after deducting commissions and taxes.
-     *
-     * @return self
-     */
-    public function setNet($net)
-    {
-        if (is_null($net)) {
-            throw new \InvalidArgumentException('non-nullable net cannot be null');
-        }
-        $this->container['net'] = $net;
 
         return $this;
     }
@@ -646,6 +561,118 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets amount
+     *
+     * @return int
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param int $amount The amount of the transaction.
+     *
+     * @return self
+     */
+    public function setAmount($amount)
+    {
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+        }
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee
+     *
+     * @return int
+     */
+    public function getFee()
+    {
+        return $this->container['fee'];
+    }
+
+    /**
+     * Sets fee
+     *
+     * @param int $fee The amount to be deducted for taxes and commissions.
+     *
+     * @return self
+     */
+    public function setFee($fee)
+    {
+        if (is_null($fee)) {
+            throw new \InvalidArgumentException('non-nullable fee cannot be null');
+        }
+        $this->container['fee'] = $fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets net
+     *
+     * @return int
+     */
+    public function getNet()
+    {
+        return $this->container['net'];
+    }
+
+    /**
+     * Sets net
+     *
+     * @param int $net The net amount after deducting commissions and taxes.
+     *
+     * @return self
+     */
+    public function setNet($net)
+    {
+        if (is_null($net)) {
+            throw new \InvalidArgumentException('non-nullable net cannot be null');
+        }
+        $this->container['net'] = $net;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency The currency of the transaction. It uses the 3-letter code of ISO 4217.
+     *
+     * @return self
+     */
+    public function setCurrency($currency)
+    {
+        if (is_null($currency)) {
+            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        if ((mb_strlen($currency) > 3)) {
+            throw new \InvalidArgumentException('invalid length for $currency when calling TransactionResponse., must be smaller than or equal to 3.');
+        }
+
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -667,6 +694,16 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
@@ -685,7 +722,7 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param string $type Transaction Type
+     * @param string $type Transaction type.
      *
      * @return self
      */
@@ -694,7 +731,207 @@ class TransactionResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return int
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param int $created_at Date and time of creation of the transaction in Unix format.
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool $livemode Indicates whether the transaction was created in live mode or test mode.
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
+     * Gets charge
+     *
+     * @return string|null
+     */
+    public function getCharge()
+    {
+        return $this->container['charge'];
+    }
+
+    /**
+     * Sets charge
+     *
+     * @param string|null $charge Charge ID associated with the transaction (present only if the transaction belongs to a charge).
+     *
+     * @return self
+     */
+    public function setCharge($charge)
+    {
+        if (is_null($charge)) {
+            array_push($this->openAPINullablesSetToNull, 'charge');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('charge', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['charge'] = $charge;
+
+        return $this;
+    }
+
+    /**
+     * Gets transfer
+     *
+     * @return string|null
+     */
+    public function getTransfer()
+    {
+        return $this->container['transfer'];
+    }
+
+    /**
+     * Sets transfer
+     *
+     * @param string|null $transfer Transfer ID associated with the transaction (present only if the transaction belongs to a transfer).
+     *
+     * @return self
+     */
+    public function setTransfer($transfer)
+    {
+        if (is_null($transfer)) {
+            array_push($this->openAPINullablesSetToNull, 'transfer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('transfer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['transfer'] = $transfer;
+
+        return $this;
+    }
+
+    /**
+     * Gets transferred_at
+     *
+     * @return int|null
+     */
+    public function getTransferredAt()
+    {
+        return $this->container['transferred_at'];
+    }
+
+    /**
+     * Sets transferred_at
+     *
+     * @param int|null $transferred_at Date and time when the transaction was transferred, in Unix format.
+     *
+     * @return self
+     */
+    public function setTransferredAt($transferred_at)
+    {
+        if (is_null($transferred_at)) {
+            array_push($this->openAPINullablesSetToNull, 'transferred_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('transferred_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['transferred_at'] = $transferred_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets formula
+     *
+     * @return string|null
+     */
+    public function getFormula()
+    {
+        return $this->container['formula'];
+    }
+
+    /**
+     * Sets formula
+     *
+     * @param string|null $formula Transaction fee formula identifier (if available).
+     *
+     * @return self
+     */
+    public function setFormula($formula)
+    {
+        if (is_null($formula)) {
+            array_push($this->openAPINullablesSetToNull, 'formula');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('formula', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['formula'] = $formula;
 
         return $this;
     }

@@ -755,33 +755,6 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 422:
-                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\DigitalFemsa\Model\Error' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 401:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -810,6 +783,33 @@ class OrdersApi
                         $response->getHeaders()
                     ];
                 case 402:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -903,14 +903,6 @@ class OrdersApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalFemsa\Model\Error',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -920,6 +912,14 @@ class OrdersApi
                     $e->setResponseObject($data);
                     break;
                 case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -3086,7 +3086,7 @@ class OrdersApi
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
-     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request requested fields for capture order (optional)
+     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request Requested fields for capturing an order (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateCapture'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3107,7 +3107,7 @@ class OrdersApi
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
-     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request requested fields for capture order (optional)
+     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request Requested fields for capturing an order (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateCapture'] to see the possible values for this operation
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3374,7 +3374,7 @@ class OrdersApi
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
-     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request requested fields for capture order (optional)
+     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request Requested fields for capturing an order (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateCapture'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3398,7 +3398,7 @@ class OrdersApi
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
-     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request requested fields for capture order (optional)
+     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request Requested fields for capturing an order (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateCapture'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3451,7 +3451,7 @@ class OrdersApi
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
-     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request requested fields for capture order (optional)
+     * @param  \DigitalFemsa\Model\OrderCaptureRequest $order_capture_request Requested fields for capturing an order (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ordersCreateCapture'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3569,7 +3569,7 @@ class OrdersApi
     /**
      * Operation updateOrder
      *
-     * Update Order
+     * Update order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\OrderUpdateRequest $order_update_request requested field for an order (required)
@@ -3589,7 +3589,7 @@ class OrdersApi
     /**
      * Operation updateOrderWithHttpInfo
      *
-     * Update Order
+     * Update order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\OrderUpdateRequest $order_update_request requested field for an order (required)
@@ -3855,7 +3855,7 @@ class OrdersApi
     /**
      * Operation updateOrderAsync
      *
-     * Update Order
+     * Update order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\OrderUpdateRequest $order_update_request requested field for an order (required)
@@ -3878,7 +3878,7 @@ class OrdersApi
     /**
      * Operation updateOrderAsyncWithHttpInfo
      *
-     * Update Order
+     * Update order
      *
      * @param  string $id Identifier of the resource (required)
      * @param  \DigitalFemsa\Model\OrderUpdateRequest $order_update_request requested field for an order (required)

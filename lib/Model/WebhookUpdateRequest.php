@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * WebhookUpdateRequest Class Doc Comment
  *
  * @category Class
- * @description an updated webhook
+ * @description Parameters used to update a webhook. All fields are optional; send only the fields you want to change.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

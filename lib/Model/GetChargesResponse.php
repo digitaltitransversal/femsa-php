@@ -58,10 +58,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'has_more' => 'bool',
-        'object' => 'string',
         'next_page_url' => 'string',
         'previous_page_url' => 'string',
+        'has_more' => 'bool',
+        'object' => 'string',
         'data' => '\DigitalFemsa\Model\ChargeResponse[]'
     ];
 
@@ -73,10 +73,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'has_more' => null,
-        'object' => null,
         'next_page_url' => null,
         'previous_page_url' => null,
+        'has_more' => null,
+        'object' => null,
         'data' => null
     ];
 
@@ -86,10 +86,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'has_more' => false,
-        'object' => false,
         'next_page_url' => true,
         'previous_page_url' => true,
+        'has_more' => false,
+        'object' => false,
         'data' => false
     ];
 
@@ -179,10 +179,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'has_more' => 'has_more',
-        'object' => 'object',
         'next_page_url' => 'next_page_url',
         'previous_page_url' => 'previous_page_url',
+        'has_more' => 'has_more',
+        'object' => 'object',
         'data' => 'data'
     ];
 
@@ -192,10 +192,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'has_more' => 'setHasMore',
-        'object' => 'setObject',
         'next_page_url' => 'setNextPageUrl',
         'previous_page_url' => 'setPreviousPageUrl',
+        'has_more' => 'setHasMore',
+        'object' => 'setObject',
         'data' => 'setData'
     ];
 
@@ -205,10 +205,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'has_more' => 'getHasMore',
-        'object' => 'getObject',
         'next_page_url' => 'getNextPageUrl',
         'previous_page_url' => 'getPreviousPageUrl',
+        'has_more' => 'getHasMore',
+        'object' => 'getObject',
         'data' => 'getData'
     ];
 
@@ -269,10 +269,10 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('has_more', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('next_page_url', $data ?? [], null);
         $this->setIfExists('previous_page_url', $data ?? [], null);
+        $this->setIfExists('has_more', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
     }
 
@@ -323,60 +323,6 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets has_more
-     *
-     * @return bool
-     */
-    public function getHasMore()
-    {
-        return $this->container['has_more'];
-    }
-
-    /**
-     * Sets has_more
-     *
-     * @param bool $has_more Indicates if there are more pages to be requested
-     *
-     * @return self
-     */
-    public function setHasMore($has_more)
-    {
-        if (is_null($has_more)) {
-            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
-        }
-        $this->container['has_more'] = $has_more;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object Object type, in this case is list
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
 
     /**
      * Gets next_page_url
@@ -442,6 +388,60 @@ class GetChargesResponse implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['previous_page_url'] = $previous_page_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_more
+     *
+     * @return bool
+     */
+    public function getHasMore()
+    {
+        return $this->container['has_more'];
+    }
+
+    /**
+     * Sets has_more
+     *
+     * @param bool $has_more Indicates if there are more pages to be requested
+     *
+     * @return self
+     */
+    public function setHasMore($has_more)
+    {
+        if (is_null($has_more)) {
+            throw new \InvalidArgumentException('non-nullable has_more cannot be null');
+        }
+        $this->container['has_more'] = $has_more;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string $object Object type, in this case is list
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $this->container['object'] = $object;
 
         return $this;
     }

@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * UpdateOrderTaxRequest Class Doc Comment
  *
  * @category Class
- * @description create new taxes for an existing order
+ * @description Create a new tax line for an existing order.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'amount' => 'int',
         'description' => 'string',
-        'metadata' => 'array<string,object>'
+        'metadata' => 'array<string,mixed>'
     ];
 
     /**
@@ -362,7 +362,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets description
      *
-     * @param string|null $description description or tax's name
+     * @param string|null $description Description or tax name
      *
      * @return self
      */
@@ -384,7 +384,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets metadata
      *
-     * @return array<string,object>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -394,7 +394,7 @@ class UpdateOrderTaxRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets metadata
      *
-     * @param array<string,object>|null $metadata metadata
+     * @param array<string,mixed>|null $metadata metadata
      *
      * @return self
      */

@@ -60,10 +60,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'address' => '\DigitalFemsa\Model\CustomerAddress',
         'tax_id' => 'string',
+        'name' => 'string',
         'email' => 'string',
         'phone' => 'string',
-        'metadata' => 'array<string,object>',
-        'company_name' => 'string'
+        'metadata' => 'array<string,mixed>'
     ];
 
     /**
@@ -76,10 +76,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'address' => null,
         'tax_id' => null,
+        'name' => null,
         'email' => null,
         'phone' => null,
-        'metadata' => null,
-        'company_name' => null
+        'metadata' => null
     ];
 
     /**
@@ -90,10 +90,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     protected static array $openAPINullables = [
         'address' => false,
         'tax_id' => false,
+        'name' => false,
         'email' => false,
         'phone' => false,
-        'metadata' => false,
-        'company_name' => false
+        'metadata' => false
     ];
 
     /**
@@ -184,10 +184,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'address' => 'address',
         'tax_id' => 'tax_id',
+        'name' => 'name',
         'email' => 'email',
         'phone' => 'phone',
-        'metadata' => 'metadata',
-        'company_name' => 'company_name'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -198,10 +198,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'address' => 'setAddress',
         'tax_id' => 'setTaxId',
+        'name' => 'setName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
-        'metadata' => 'setMetadata',
-        'company_name' => 'setCompanyName'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -212,10 +212,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'address' => 'getAddress',
         'tax_id' => 'getTaxId',
+        'name' => 'getName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
-        'metadata' => 'getMetadata',
-        'company_name' => 'getCompanyName'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -277,10 +277,10 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     {
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('company_name', $data ?? [], null);
     }
 
     /**
@@ -383,6 +383,33 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string|null
@@ -439,7 +466,7 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets metadata
      *
-     * @return array<string,object>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -449,7 +476,7 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets metadata
      *
-     * @param array<string,object>|null $metadata metadata
+     * @param array<string,mixed>|null $metadata metadata
      *
      * @return self
      */
@@ -459,33 +486,6 @@ class CustomerFiscalEntitiesRequest implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_name
-     *
-     * @return string|null
-     */
-    public function getCompanyName()
-    {
-        return $this->container['company_name'];
-    }
-
-    /**
-     * Sets company_name
-     *
-     * @param string|null $company_name company_name
-     *
-     * @return self
-     */
-    public function setCompanyName($company_name)
-    {
-        if (is_null($company_name)) {
-            throw new \InvalidArgumentException('non-nullable company_name cannot be null');
-        }
-        $this->container['company_name'] = $company_name;
 
         return $this;
     }

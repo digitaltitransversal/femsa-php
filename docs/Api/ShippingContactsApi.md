@@ -4,7 +4,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createCustomerShippingContacts()**](ShippingContactsApi.md#createCustomerShippingContacts) | **POST** /customers/{id}/shipping_contacts | Create a shipping contacts |
+| [**createCustomerShippingContacts()**](ShippingContactsApi.md#createCustomerShippingContacts) | **POST** /customers/{id}/shipping_contacts | Create a shipping contact |
 | [**deleteCustomerShippingContacts()**](ShippingContactsApi.md#deleteCustomerShippingContacts) | **DELETE** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Delete shipping contacts |
 | [**updateCustomerShippingContacts()**](ShippingContactsApi.md#updateCustomerShippingContacts) | **PUT** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Update shipping contacts |
 
@@ -15,9 +15,9 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 createCustomerShippingContacts($id, $customer_shipping_contacts, $accept_language, $x_child_company_id): \DigitalFemsa\Model\CustomerShippingContactsResponse
 ```
 
-Create a shipping contacts
+Create a shipping contact
 
-Create a shipping contacts for a customer.
+Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by `id`.
 
 ### Example
 
@@ -37,7 +37,7 @@ $apiInstance = new DigitalFemsa\Api\ShippingContactsApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$customer_shipping_contacts = new \DigitalFemsa\Model\CustomerShippingContacts(); // \DigitalFemsa\Model\CustomerShippingContacts | requested field for customer shippings contacts
+$customer_shipping_contacts = new \DigitalFemsa\Model\CustomerShippingContacts(); // \DigitalFemsa\Model\CustomerShippingContacts | Request body for creating or updating a customer shipping contact.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -54,7 +54,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
-| **customer_shipping_contacts** | [**\DigitalFemsa\Model\CustomerShippingContacts**](../Model/CustomerShippingContacts.md)| requested field for customer shippings contacts | |
+| **customer_shipping_contacts** | [**\DigitalFemsa\Model\CustomerShippingContacts**](../Model/CustomerShippingContacts.md)| Request body for creating or updating a customer shipping contact. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 
@@ -170,7 +170,7 @@ $apiInstance = new DigitalFemsa\Api\ShippingContactsApi(
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $shipping_contacts_id = 6307a60c41de27127515a575; // string | identifier
-$customer_update_shipping_contacts = new \DigitalFemsa\Model\CustomerUpdateShippingContacts(); // \DigitalFemsa\Model\CustomerUpdateShippingContacts | requested field for customer update shippings contacts
+$customer_update_shipping_contacts = new \DigitalFemsa\Model\CustomerUpdateShippingContacts(); // \DigitalFemsa\Model\CustomerUpdateShippingContacts | Request body for updating a customer shipping contact.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -188,7 +188,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
 | **shipping_contacts_id** | **string**| identifier | |
-| **customer_update_shipping_contacts** | [**\DigitalFemsa\Model\CustomerUpdateShippingContacts**](../Model/CustomerUpdateShippingContacts.md)| requested field for customer update shippings contacts | |
+| **customer_update_shipping_contacts** | [**\DigitalFemsa\Model\CustomerUpdateShippingContacts**](../Model/CustomerUpdateShippingContacts.md)| Request body for updating a customer shipping contact. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

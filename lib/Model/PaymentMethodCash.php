@@ -60,7 +60,7 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'type' => 'string',
         'object' => 'string',
-        'auth_code' => 'int',
+        'auth_code' => 'string',
         'cashier_id' => 'string',
         'reference' => 'string',
         'barcode_url' => 'string',
@@ -413,7 +413,7 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets auth_code
      *
-     * @return int|null
+     * @return string|null
      */
     public function getAuthCode()
     {
@@ -423,7 +423,7 @@ class PaymentMethodCash implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets auth_code
      *
-     * @param int|null $auth_code auth_code
+     * @param string|null $auth_code auth_code
      *
      * @return self
      */

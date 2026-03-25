@@ -143,7 +143,7 @@ class WebhooksApi
      *
      * Create Webhook
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request requested field for webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
@@ -162,7 +162,7 @@ class WebhooksApi
      *
      * Create Webhook
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request requested field for webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
@@ -357,7 +357,7 @@ class WebhooksApi
      *
      * Create Webhook
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request requested field for webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
@@ -379,7 +379,7 @@ class WebhooksApi
      *
      * Create Webhook
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request requested field for webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
@@ -430,7 +430,7 @@ class WebhooksApi
     /**
      * Create request for operation 'createWebhook'
      *
-     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request requested field for webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookRequest $webhook_request Webhook creation/update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
@@ -535,7 +535,7 @@ class WebhooksApi
     /**
      * Operation deleteWebhook
      *
-     * Delete Webhook
+     * Delete webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -554,7 +554,7 @@ class WebhooksApi
     /**
      * Operation deleteWebhookWithHttpInfo
      *
-     * Delete Webhook
+     * Delete webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -784,7 +784,7 @@ class WebhooksApi
     /**
      * Operation deleteWebhookAsync
      *
-     * Delete Webhook
+     * Delete webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -806,7 +806,7 @@ class WebhooksApi
     /**
      * Operation deleteWebhookAsyncWithHttpInfo
      *
-     * Delete Webhook
+     * Delete webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -965,7 +965,7 @@ class WebhooksApi
     /**
      * Operation getWebhook
      *
-     * Get Webhook
+     * Get webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -985,7 +985,7 @@ class WebhooksApi
     /**
      * Operation getWebhookWithHttpInfo
      *
-     * Get Webhook
+     * Get webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1216,7 +1216,7 @@ class WebhooksApi
     /**
      * Operation getWebhookAsync
      *
-     * Get Webhook
+     * Get webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1239,7 +1239,7 @@ class WebhooksApi
     /**
      * Operation getWebhookAsyncWithHttpInfo
      *
-     * Get Webhook
+     * Get webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1871,7 +1871,7 @@ class WebhooksApi
     /**
      * Operation testWebhook
      *
-     * Test Webhook
+     * Test webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1890,7 +1890,7 @@ class WebhooksApi
     /**
      * Operation testWebhookWithHttpInfo
      *
-     * Test Webhook
+     * Test webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2120,7 +2120,7 @@ class WebhooksApi
     /**
      * Operation testWebhookAsync
      *
-     * Test Webhook
+     * Test webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2142,7 +2142,7 @@ class WebhooksApi
     /**
      * Operation testWebhookAsyncWithHttpInfo
      *
-     * Test Webhook
+     * Test webhook
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2301,10 +2301,10 @@ class WebhooksApi
     /**
      * Operation updateWebhook
      *
-     * Update Webhook
+     * Update webhook
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request requested fields in order to update a webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request Webhook update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
@@ -2322,10 +2322,10 @@ class WebhooksApi
     /**
      * Operation updateWebhookWithHttpInfo
      *
-     * Update Webhook
+     * Update webhook
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request requested fields in order to update a webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request Webhook update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
@@ -2401,7 +2401,7 @@ class WebhooksApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 404:
+                case 401:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -2428,7 +2428,7 @@ class WebhooksApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 401:
+                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -2522,7 +2522,7 @@ class WebhooksApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -2530,7 +2530,7 @@ class WebhooksApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 401:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -2554,10 +2554,10 @@ class WebhooksApi
     /**
      * Operation updateWebhookAsync
      *
-     * Update Webhook
+     * Update webhook
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request requested fields in order to update a webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request Webhook update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
@@ -2578,10 +2578,10 @@ class WebhooksApi
     /**
      * Operation updateWebhookAsyncWithHttpInfo
      *
-     * Update Webhook
+     * Update webhook
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request requested fields in order to update a webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request Webhook update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
@@ -2634,7 +2634,7 @@ class WebhooksApi
      * Create request for operation 'updateWebhook'
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request requested fields in order to update a webhook (required)
+     * @param  \DigitalFemsa\Model\WebhookUpdateRequest $webhook_update_request Webhook update request payload. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation

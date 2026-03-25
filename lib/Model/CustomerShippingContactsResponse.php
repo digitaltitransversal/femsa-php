@@ -493,7 +493,7 @@ class CustomerShippingContactsResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets parent_id
      *
-     * @param string|null $parent_id parent_id
+     * @param string|null $parent_id Customer ID that owns this shipping contact.
      *
      * @return self
      */
@@ -659,7 +659,7 @@ class CustomerShippingContactsResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets deleted
      *
-     * @param bool|null $deleted deleted
+     * @param bool|null $deleted Present only when the shipping contact was deleted.
      *
      * @return self
      */

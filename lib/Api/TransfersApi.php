@@ -129,7 +129,7 @@ class TransfersApi
     /**
      * Operation getTransfer
      *
-     * Get Transfer
+     * Get transfer
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -138,7 +138,7 @@ class TransfersApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\TransferResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\TransferResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function getTransfer($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getTransfer'][0])
     {
@@ -149,7 +149,7 @@ class TransfersApi
     /**
      * Operation getTransferWithHttpInfo
      *
-     * Get Transfer
+     * Get transfer
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -158,7 +158,7 @@ class TransfersApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\TransferResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\TransferResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransferWithHttpInfo($id, $accept_language = 'es', $x_child_company_id = null, string $contentType = self::contentTypes['getTransfer'][0])
     {
@@ -228,33 +228,6 @@ class TransfersApi
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\DigitalFemsa\Model\Error' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -356,14 +329,6 @@ class TransfersApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\DigitalFemsa\Model\Error',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -380,7 +345,7 @@ class TransfersApi
     /**
      * Operation getTransferAsync
      *
-     * Get Transfer
+     * Get transfer
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -403,7 +368,7 @@ class TransfersApi
     /**
      * Operation getTransferAsyncWithHttpInfo
      *
-     * Get Transfer
+     * Get transfer
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -569,7 +534,7 @@ class TransfersApi
     /**
      * Operation getTransfers
      *
-     * Get a list of transfers
+     * List transfers
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -592,7 +557,7 @@ class TransfersApi
     /**
      * Operation getTransfersWithHttpInfo
      *
-     * Get a list of transfers
+     * List transfers
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -791,7 +756,7 @@ class TransfersApi
     /**
      * Operation getTransfersAsync
      *
-     * Get a list of transfers
+     * List transfers
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -817,7 +782,7 @@ class TransfersApi
     /**
      * Operation getTransfersAsyncWithHttpInfo
      *
-     * Get a list of transfers
+     * List transfers
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)

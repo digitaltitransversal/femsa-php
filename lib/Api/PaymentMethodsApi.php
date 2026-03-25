@@ -1634,7 +1634,7 @@ class PaymentMethodsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $payment_method_id Identifier of the payment method (required)
-     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods requested field for customer payment methods (required)
+     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods Request body for updating a customer payment method. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerPaymentMethods'] to see the possible values for this operation
@@ -1656,7 +1656,7 @@ class PaymentMethodsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $payment_method_id Identifier of the payment method (required)
-     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods requested field for customer payment methods (required)
+     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods Request body for updating a customer payment method. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerPaymentMethods'] to see the possible values for this operation
@@ -1924,7 +1924,7 @@ class PaymentMethodsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $payment_method_id Identifier of the payment method (required)
-     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods requested field for customer payment methods (required)
+     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods Request body for updating a customer payment method. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerPaymentMethods'] to see the possible values for this operation
@@ -1949,7 +1949,7 @@ class PaymentMethodsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $payment_method_id Identifier of the payment method (required)
-     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods requested field for customer payment methods (required)
+     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods Request body for updating a customer payment method. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerPaymentMethods'] to see the possible values for this operation
@@ -2003,7 +2003,7 @@ class PaymentMethodsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $payment_method_id Identifier of the payment method (required)
-     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods requested field for customer payment methods (required)
+     * @param  \DigitalFemsa\Model\UpdatePaymentMethods $update_payment_methods Request body for updating a customer payment method. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerPaymentMethods'] to see the possible values for this operation

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **postal_code** | **string** |  |
 **city** | **string** |  |
 **state** | **string** |  | [optional]
-**country** | **string** | this field follows the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) | [optional]
+**country** | **string** | this field follows the [ISO 3166-1 alpha-2 standard](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
 **residential** | **bool** |  | [optional] [default to false]
 **external_number** | **string** |  | [optional]
 

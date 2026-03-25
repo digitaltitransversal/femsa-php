@@ -144,7 +144,7 @@ class CustomersApi
     /**
      * Operation createCustomer
      *
-     * Create customer
+     * Create a customer
      *
      * @param  \DigitalFemsa\Model\Customer $customer requested field for customer (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -164,7 +164,7 @@ class CustomersApi
     /**
      * Operation createCustomerWithHttpInfo
      *
-     * Create customer
+     * Create a customer
      *
      * @param  \DigitalFemsa\Model\Customer $customer requested field for customer (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -430,7 +430,7 @@ class CustomersApi
     /**
      * Operation createCustomerAsync
      *
-     * Create customer
+     * Create a customer
      *
      * @param  \DigitalFemsa\Model\Customer $customer requested field for customer (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -453,7 +453,7 @@ class CustomersApi
     /**
      * Operation createCustomerAsyncWithHttpInfo
      *
-     * Create customer
+     * Create a customer
      *
      * @param  \DigitalFemsa\Model\Customer $customer requested field for customer (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -2039,7 +2039,7 @@ class CustomersApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \DigitalFemsa\Model\CustomersResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
+     * @return \DigitalFemsa\Model\CustomersResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error
      */
     public function getCustomers($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCustomers'][0])
     {
@@ -2062,7 +2062,7 @@ class CustomersApi
      *
      * @throws \DigitalFemsa\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \DigitalFemsa\Model\CustomersResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DigitalFemsa\Model\CustomersResponse|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error|\DigitalFemsa\Model\Error, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersWithHttpInfo($accept_language = 'es', $x_child_company_id = null, $limit = 20, $search = null, $next = null, $previous = null, string $contentType = self::contentTypes['getCustomers'][0])
     {
@@ -2158,6 +2158,60 @@ class CustomersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 402:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\DigitalFemsa\Model\Error' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\DigitalFemsa\Model\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 500:
                     if ('\DigitalFemsa\Model\Error' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -2226,6 +2280,22 @@ class CustomersApi
                     $e->setResponseObject($data);
                     break;
                 case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DigitalFemsa\Model\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\DigitalFemsa\Model\Error',
@@ -2972,11 +3042,11 @@ class CustomersApi
     /**
      * Operation updateCustomerFiscalEntities
      *
-     * Update  Fiscal Entity
+     * Update Fiscal Entity
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -2994,11 +3064,11 @@ class CustomersApi
     /**
      * Operation updateCustomerFiscalEntitiesWithHttpInfo
      *
-     * Update  Fiscal Entity
+     * Update Fiscal Entity
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3262,11 +3332,11 @@ class CustomersApi
     /**
      * Operation updateCustomerFiscalEntitiesAsync
      *
-     * Update  Fiscal Entity
+     * Update Fiscal Entity
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3287,11 +3357,11 @@ class CustomersApi
     /**
      * Operation updateCustomerFiscalEntitiesAsyncWithHttpInfo
      *
-     * Update  Fiscal Entity
+     * Update Fiscal Entity
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation
@@ -3345,7 +3415,7 @@ class CustomersApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $fiscal_entities_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request requested field for customer update fiscal entities (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateFiscalEntitiesRequest $customer_update_fiscal_entities_request Request body for updating a customer fiscal entity. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerFiscalEntities'] to see the possible values for this operation

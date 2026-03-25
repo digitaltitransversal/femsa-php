@@ -36,6 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * OrderResponseCustomerInfo Class Doc Comment
  *
  * @category Class
+ * @description Customer information associated with the order.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

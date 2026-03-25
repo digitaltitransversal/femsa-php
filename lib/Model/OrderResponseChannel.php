@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerAntifraudInfo
+ * OrderResponseChannel
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \DigitalFemsa\ObjectSerializer;
 
 /**
- * CustomerAntifraudInfo Class Doc Comment
+ * OrderResponseChannel Class Doc Comment
  *
  * @category Class
+ * @description Channel information for the order (for example Checkout-related metadata). It may be &#x60;null&#x60;.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderResponseChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'customer_antifraud_info';
+    protected static $openAPIModelName = 'order_response_channel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +59,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'account_created_at' => 'int',
-        'first_paid_at' => 'int'
+        'segment' => 'string',
+        'checkout_request_id' => 'string',
+        'checkout_request_type' => 'string',
+        'id' => 'string'
     ];
 
     /**
@@ -70,8 +73,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'account_created_at' => 'int64',
-        'first_paid_at' => 'int64'
+        'segment' => null,
+        'checkout_request_id' => null,
+        'checkout_request_type' => null,
+        'id' => null
     ];
 
     /**
@@ -80,8 +85,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'account_created_at' => false,
-        'first_paid_at' => false
+        'segment' => false,
+        'checkout_request_id' => false,
+        'checkout_request_type' => false,
+        'id' => false
     ];
 
     /**
@@ -170,8 +177,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'account_created_at' => 'account_created_at',
-        'first_paid_at' => 'first_paid_at'
+        'segment' => 'segment',
+        'checkout_request_id' => 'checkout_request_id',
+        'checkout_request_type' => 'checkout_request_type',
+        'id' => 'id'
     ];
 
     /**
@@ -180,8 +189,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'account_created_at' => 'setAccountCreatedAt',
-        'first_paid_at' => 'setFirstPaidAt'
+        'segment' => 'setSegment',
+        'checkout_request_id' => 'setCheckoutRequestId',
+        'checkout_request_type' => 'setCheckoutRequestType',
+        'id' => 'setId'
     ];
 
     /**
@@ -190,8 +201,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'account_created_at' => 'getAccountCreatedAt',
-        'first_paid_at' => 'getFirstPaidAt'
+        'segment' => 'getSegment',
+        'checkout_request_id' => 'getCheckoutRequestId',
+        'checkout_request_type' => 'getCheckoutRequestType',
+        'id' => 'getId'
     ];
 
     /**
@@ -251,8 +264,10 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('account_created_at', $data ?? [], null);
-        $this->setIfExists('first_paid_at', $data ?? [], null);
+        $this->setIfExists('segment', $data ?? [], null);
+        $this->setIfExists('checkout_request_id', $data ?? [], null);
+        $this->setIfExists('checkout_request_type', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -298,55 +313,109 @@ class CustomerAntifraudInfo implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets account_created_at
+     * Gets segment
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getAccountCreatedAt()
+    public function getSegment()
     {
-        return $this->container['account_created_at'];
+        return $this->container['segment'];
     }
 
     /**
-     * Sets account_created_at
+     * Sets segment
      *
-     * @param int|null $account_created_at account_created_at
+     * @param string|null $segment segment
      *
      * @return self
      */
-    public function setAccountCreatedAt($account_created_at)
+    public function setSegment($segment)
     {
-        if (is_null($account_created_at)) {
-            throw new \InvalidArgumentException('non-nullable account_created_at cannot be null');
+        if (is_null($segment)) {
+            throw new \InvalidArgumentException('non-nullable segment cannot be null');
         }
-        $this->container['account_created_at'] = $account_created_at;
+        $this->container['segment'] = $segment;
 
         return $this;
     }
 
     /**
-     * Gets first_paid_at
+     * Gets checkout_request_id
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getFirstPaidAt()
+    public function getCheckoutRequestId()
     {
-        return $this->container['first_paid_at'];
+        return $this->container['checkout_request_id'];
     }
 
     /**
-     * Sets first_paid_at
+     * Sets checkout_request_id
      *
-     * @param int|null $first_paid_at first_paid_at
+     * @param string|null $checkout_request_id checkout_request_id
      *
      * @return self
      */
-    public function setFirstPaidAt($first_paid_at)
+    public function setCheckoutRequestId($checkout_request_id)
     {
-        if (is_null($first_paid_at)) {
-            throw new \InvalidArgumentException('non-nullable first_paid_at cannot be null');
+        if (is_null($checkout_request_id)) {
+            throw new \InvalidArgumentException('non-nullable checkout_request_id cannot be null');
         }
-        $this->container['first_paid_at'] = $first_paid_at;
+        $this->container['checkout_request_id'] = $checkout_request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets checkout_request_type
+     *
+     * @return string|null
+     */
+    public function getCheckoutRequestType()
+    {
+        return $this->container['checkout_request_type'];
+    }
+
+    /**
+     * Sets checkout_request_type
+     *
+     * @param string|null $checkout_request_type checkout_request_type
+     *
+     * @return self
+     */
+    public function setCheckoutRequestType($checkout_request_type)
+    {
+        if (is_null($checkout_request_type)) {
+            throw new \InvalidArgumentException('non-nullable checkout_request_type cannot be null');
+        }
+        $this->container['checkout_request_type'] = $checkout_request_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

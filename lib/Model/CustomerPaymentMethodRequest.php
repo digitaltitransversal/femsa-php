@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * CustomerPaymentMethodRequest Class Doc Comment
  *
  * @category Class
- * @description Contains details of the payment methods that the customer has active or has used in Femsa
+ * @description Payment method data to attach to a customer.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -307,7 +307,7 @@ class CustomerPaymentMethodRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets type
      *
-     * @param string $type Type of payment method
+     * @param string $type Type of payment method.
      *
      * @return self
      */

@@ -260,7 +260,7 @@ class HeaderSelector
     {
        $uname_disabled = self::_isDisabled(\ini_get('disable_functions'), 'php_uname');
        $uname = $uname_disabled ? '(disabled)' : \php_uname();
-       $sdk_version = "1.0.6";
+       $sdk_version = "1.1.0";
        $lang = "php";
        $lang_version = phpversion();
        $userAgentString = "sdk_version={$sdk_version};lang={$lang};lang_version={$lang_version};uname={$uname}";

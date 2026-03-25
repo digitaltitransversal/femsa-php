@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | [**\DigitalFemsa\Model\CustomerAddress**](CustomerAddress.md) |  |
 **tax_id** | **string** |  | [optional]
+**name** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **phone** | **string** |  | [optional]
-**metadata** | **array<string,object>** |  | [optional]
-**company_name** | **string** |  | [optional]
+**metadata** | **array<string,mixed>** |  | [optional]
 **id** | **string** |  |
 **object** | **string** |  |
 **created_at** | **int** |  |

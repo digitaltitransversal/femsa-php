@@ -459,7 +459,7 @@ class GetTransactionsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets data
      *
-     * @param \DigitalFemsa\Model\TransactionResponse[]|null $data Transactions
+     * @param \DigitalFemsa\Model\TransactionResponse[]|null $data Transactions (ledger movements)
      *
      * @return self
      */

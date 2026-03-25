@@ -59,22 +59,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'antifraud_info' => '\DigitalFemsa\Model\CustomerAntifraudInfoResponse',
-        'corporate' => 'bool',
+        'id' => 'string',
+        'object' => 'string',
         'created_at' => 'int',
+        'livemode' => 'bool',
+        'name' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
+        'corporate' => 'bool',
         'custom_reference' => 'string',
         'default_fiscal_entity_id' => 'string',
         'default_shipping_contact_id' => 'string',
-        'default_payment_source_id' => 'string',
-        'email' => 'string',
-        'fiscal_entities' => '\DigitalFemsa\Model\CustomerFiscalEntitiesResponse',
-        'id' => 'string',
-        'livemode' => 'bool',
-        'name' => 'string',
         'metadata' => 'array<string,mixed>',
-        'object' => 'string',
         'payment_sources' => '\DigitalFemsa\Model\CustomerPaymentMethodsResponse',
-        'phone' => 'string',
+        'fiscal_entities' => '\DigitalFemsa\Model\CustomerFiscalEntitiesResponse',
         'shipping_contacts' => '\DigitalFemsa\Model\CustomerResponseShippingContacts'
     ];
 
@@ -86,22 +84,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'antifraud_info' => null,
-        'corporate' => null,
+        'id' => null,
+        'object' => null,
         'created_at' => 'int64',
+        'livemode' => null,
+        'name' => null,
+        'email' => 'email',
+        'phone' => null,
+        'corporate' => null,
         'custom_reference' => null,
         'default_fiscal_entity_id' => null,
         'default_shipping_contact_id' => null,
-        'default_payment_source_id' => null,
-        'email' => 'email',
-        'fiscal_entities' => null,
-        'id' => null,
-        'livemode' => null,
-        'name' => null,
         'metadata' => null,
-        'object' => null,
         'payment_sources' => null,
-        'phone' => null,
+        'fiscal_entities' => null,
         'shipping_contacts' => null
     ];
 
@@ -111,22 +107,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'antifraud_info' => true,
-        'corporate' => false,
+        'id' => false,
+        'object' => false,
         'created_at' => false,
+        'livemode' => false,
+        'name' => true,
+        'email' => true,
+        'phone' => true,
+        'corporate' => false,
         'custom_reference' => false,
         'default_fiscal_entity_id' => true,
-        'default_shipping_contact_id' => false,
-        'default_payment_source_id' => true,
-        'email' => false,
-        'fiscal_entities' => false,
-        'id' => false,
-        'livemode' => false,
-        'name' => false,
-        'metadata' => false,
-        'object' => false,
+        'default_shipping_contact_id' => true,
+        'metadata' => true,
         'payment_sources' => false,
-        'phone' => false,
+        'fiscal_entities' => false,
         'shipping_contacts' => false
     ];
 
@@ -216,22 +210,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'antifraud_info' => 'antifraud_info',
-        'corporate' => 'corporate',
+        'id' => 'id',
+        'object' => 'object',
         'created_at' => 'created_at',
+        'livemode' => 'livemode',
+        'name' => 'name',
+        'email' => 'email',
+        'phone' => 'phone',
+        'corporate' => 'corporate',
         'custom_reference' => 'custom_reference',
         'default_fiscal_entity_id' => 'default_fiscal_entity_id',
         'default_shipping_contact_id' => 'default_shipping_contact_id',
-        'default_payment_source_id' => 'default_payment_source_id',
-        'email' => 'email',
-        'fiscal_entities' => 'fiscal_entities',
-        'id' => 'id',
-        'livemode' => 'livemode',
-        'name' => 'name',
         'metadata' => 'metadata',
-        'object' => 'object',
         'payment_sources' => 'payment_sources',
-        'phone' => 'phone',
+        'fiscal_entities' => 'fiscal_entities',
         'shipping_contacts' => 'shipping_contacts'
     ];
 
@@ -241,22 +233,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'antifraud_info' => 'setAntifraudInfo',
-        'corporate' => 'setCorporate',
+        'id' => 'setId',
+        'object' => 'setObject',
         'created_at' => 'setCreatedAt',
+        'livemode' => 'setLivemode',
+        'name' => 'setName',
+        'email' => 'setEmail',
+        'phone' => 'setPhone',
+        'corporate' => 'setCorporate',
         'custom_reference' => 'setCustomReference',
         'default_fiscal_entity_id' => 'setDefaultFiscalEntityId',
         'default_shipping_contact_id' => 'setDefaultShippingContactId',
-        'default_payment_source_id' => 'setDefaultPaymentSourceId',
-        'email' => 'setEmail',
-        'fiscal_entities' => 'setFiscalEntities',
-        'id' => 'setId',
-        'livemode' => 'setLivemode',
-        'name' => 'setName',
         'metadata' => 'setMetadata',
-        'object' => 'setObject',
         'payment_sources' => 'setPaymentSources',
-        'phone' => 'setPhone',
+        'fiscal_entities' => 'setFiscalEntities',
         'shipping_contacts' => 'setShippingContacts'
     ];
 
@@ -266,22 +256,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'antifraud_info' => 'getAntifraudInfo',
-        'corporate' => 'getCorporate',
+        'id' => 'getId',
+        'object' => 'getObject',
         'created_at' => 'getCreatedAt',
+        'livemode' => 'getLivemode',
+        'name' => 'getName',
+        'email' => 'getEmail',
+        'phone' => 'getPhone',
+        'corporate' => 'getCorporate',
         'custom_reference' => 'getCustomReference',
         'default_fiscal_entity_id' => 'getDefaultFiscalEntityId',
         'default_shipping_contact_id' => 'getDefaultShippingContactId',
-        'default_payment_source_id' => 'getDefaultPaymentSourceId',
-        'email' => 'getEmail',
-        'fiscal_entities' => 'getFiscalEntities',
-        'id' => 'getId',
-        'livemode' => 'getLivemode',
-        'name' => 'getName',
         'metadata' => 'getMetadata',
-        'object' => 'getObject',
         'payment_sources' => 'getPaymentSources',
-        'phone' => 'getPhone',
+        'fiscal_entities' => 'getFiscalEntities',
         'shipping_contacts' => 'getShippingContacts'
     ];
 
@@ -326,6 +314,19 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OBJECT_CUSTOMER = 'customer';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectAllowableValues()
+    {
+        return [
+            self::OBJECT_CUSTOMER,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -342,22 +343,20 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('antifraud_info', $data ?? [], null);
-        $this->setIfExists('corporate', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('corporate', $data ?? [], null);
         $this->setIfExists('custom_reference', $data ?? [], null);
         $this->setIfExists('default_fiscal_entity_id', $data ?? [], null);
         $this->setIfExists('default_shipping_contact_id', $data ?? [], null);
-        $this->setIfExists('default_payment_source_id', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('fiscal_entities', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('object', $data ?? [], null);
         $this->setIfExists('payment_sources', $data ?? [], null);
-        $this->setIfExists('phone', $data ?? [], null);
+        $this->setIfExists('fiscal_entities', $data ?? [], null);
         $this->setIfExists('shipping_contacts', $data ?? [], null);
     }
 
@@ -388,25 +387,31 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['object'] === null) {
+            $invalidProperties[] = "'object' can't be null";
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'object', must be one of '%s'",
+                $this->container['object'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
         if ($this->container['livemode'] === null) {
             $invalidProperties[] = "'livemode' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
         }
         if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
             $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
         }
 
-        if ($this->container['object'] === null) {
-            $invalidProperties[] = "'object' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -423,35 +428,221 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets antifraud_info
+     * Gets id
      *
-     * @return \DigitalFemsa\Model\CustomerAntifraudInfoResponse|null
+     * @return string
      */
-    public function getAntifraudInfo()
+    public function getId()
     {
-        return $this->container['antifraud_info'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets antifraud_info
+     * Sets id
      *
-     * @param \DigitalFemsa\Model\CustomerAntifraudInfoResponse|null $antifraud_info antifraud_info
+     * @param string $id Customer's ID
      *
      * @return self
      */
-    public function setAntifraudInfo($antifraud_info)
+    public function setId($id)
     {
-        if (is_null($antifraud_info)) {
-            array_push($this->openAPINullablesSetToNull, 'antifraud_info');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string $object object
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!in_array($object, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object', must be one of '%s'",
+                    $object,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return int
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param int $created_at Creation date of the object (Unix timestamp)
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool $livemode true if the object exists in live mode or false if the object exists in test mode
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Customer's name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('antifraud_info', $nullablesSetToNull);
+            $index = array_search('name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['antifraud_info'] = $antifraud_info;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email email
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (is_null($email)) {
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string|null
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string|null $phone Customer's phone number
+     *
+     * @return self
+     */
+    public function setPhone($phone)
+    {
+        if (is_null($phone)) {
+            array_push($this->openAPINullablesSetToNull, 'phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['phone'] = $phone;
 
         return $this;
     }
@@ -479,33 +670,6 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable corporate cannot be null');
         }
         $this->container['corporate'] = $corporate;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int $created_at Creation date of the object
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -591,178 +755,16 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDefaultShippingContactId($default_shipping_contact_id)
     {
         if (is_null($default_shipping_contact_id)) {
-            throw new \InvalidArgumentException('non-nullable default_shipping_contact_id cannot be null');
-        }
-        $this->container['default_shipping_contact_id'] = $default_shipping_contact_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_payment_source_id
-     *
-     * @return string|null
-     */
-    public function getDefaultPaymentSourceId()
-    {
-        return $this->container['default_payment_source_id'];
-    }
-
-    /**
-     * Sets default_payment_source_id
-     *
-     * @param string|null $default_payment_source_id default_payment_source_id
-     *
-     * @return self
-     */
-    public function setDefaultPaymentSourceId($default_payment_source_id)
-    {
-        if (is_null($default_payment_source_id)) {
-            array_push($this->openAPINullablesSetToNull, 'default_payment_source_id');
+            array_push($this->openAPINullablesSetToNull, 'default_shipping_contact_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('default_payment_source_id', $nullablesSetToNull);
+            $index = array_search('default_shipping_contact_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['default_payment_source_id'] = $default_payment_source_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets fiscal_entities
-     *
-     * @return \DigitalFemsa\Model\CustomerFiscalEntitiesResponse|null
-     */
-    public function getFiscalEntities()
-    {
-        return $this->container['fiscal_entities'];
-    }
-
-    /**
-     * Sets fiscal_entities
-     *
-     * @param \DigitalFemsa\Model\CustomerFiscalEntitiesResponse|null $fiscal_entities fiscal_entities
-     *
-     * @return self
-     */
-    public function setFiscalEntities($fiscal_entities)
-    {
-        if (is_null($fiscal_entities)) {
-            throw new \InvalidArgumentException('non-nullable fiscal_entities cannot be null');
-        }
-        $this->container['fiscal_entities'] = $fiscal_entities;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id Customer's ID
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets livemode
-     *
-     * @return bool
-     */
-    public function getLivemode()
-    {
-        return $this->container['livemode'];
-    }
-
-    /**
-     * Sets livemode
-     *
-     * @param bool $livemode true if the object exists in live mode or the value false if the object exists in test mode
-     *
-     * @return self
-     */
-    public function setLivemode($livemode)
-    {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
-        }
-        $this->container['livemode'] = $livemode;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Customer's name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
+        $this->container['default_shipping_contact_id'] = $default_shipping_contact_id;
 
         return $this;
     }
@@ -780,47 +782,27 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array<string,mixed>|null $metadata metadata
+     * @param array<string,mixed>|null $metadata Customer metadata (maps to contextual_data in backend)
      *
      * @return self
      */
     public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((count($metadata) > 100)) {
+        if (!is_null($metadata) && (count($metadata) > 100)) {
             throw new \InvalidArgumentException('invalid value for $metadata when calling CustomerResponse., number of items must be less than or equal to 100.');
         }
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets object
-     *
-     * @return string
-     */
-    public function getObject()
-    {
-        return $this->container['object'];
-    }
-
-    /**
-     * Sets object
-     *
-     * @param string $object object
-     *
-     * @return self
-     */
-    public function setObject($object)
-    {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
-        }
-        $this->container['object'] = $object;
 
         return $this;
     }
@@ -853,28 +835,28 @@ class CustomerResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets phone
+     * Gets fiscal_entities
      *
-     * @return string|null
+     * @return \DigitalFemsa\Model\CustomerFiscalEntitiesResponse|null
      */
-    public function getPhone()
+    public function getFiscalEntities()
     {
-        return $this->container['phone'];
+        return $this->container['fiscal_entities'];
     }
 
     /**
-     * Sets phone
+     * Sets fiscal_entities
      *
-     * @param string|null $phone Customer's phone number
+     * @param \DigitalFemsa\Model\CustomerFiscalEntitiesResponse|null $fiscal_entities fiscal_entities
      *
      * @return self
      */
-    public function setPhone($phone)
+    public function setFiscalEntities($fiscal_entities)
     {
-        if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+        if (is_null($fiscal_entities)) {
+            throw new \InvalidArgumentException('non-nullable fiscal_entities cannot be null');
         }
-        $this->container['phone'] = $phone;
+        $this->container['fiscal_entities'] = $fiscal_entities;
 
         return $this;
     }

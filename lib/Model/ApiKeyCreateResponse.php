@@ -684,7 +684,7 @@ class ApiKeyCreateResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets authentication_token
      *
-     * @param string|null $authentication_token It is occupied as a user when authenticated with basic authentication, with a blank password. This value will only appear once, in the request to create a new key. Copy and save it in a safe place.
+     * @param string|null $authentication_token Used as the username for Basic Authentication, with a blank password. This value is shown only once (when the key is created). Copy and store it securely.
      *
      * @return self
      */

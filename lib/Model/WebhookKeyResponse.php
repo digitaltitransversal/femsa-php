@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * WebhookKeyResponse Class Doc Comment
  *
  * @category Class
- * @description webhook keys model
+ * @description Represents a webhook signing key configuration for the company.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

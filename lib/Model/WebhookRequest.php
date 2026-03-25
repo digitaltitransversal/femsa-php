@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * WebhookRequest Class Doc Comment
  *
  * @category Class
- * @description a webhook
+ * @description Parameters used to create or update a webhook.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

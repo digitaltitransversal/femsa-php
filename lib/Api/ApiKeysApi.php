@@ -138,7 +138,7 @@ class ApiKeysApi
     /**
      * Operation createApiKey
      *
-     * Create Api Key
+     * Create API key
      *
      * @param  \DigitalFemsa\Model\ApiKeyRequest $api_key_request requested field for a api keys (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -158,7 +158,7 @@ class ApiKeysApi
     /**
      * Operation createApiKeyWithHttpInfo
      *
-     * Create Api Key
+     * Create API key
      *
      * @param  \DigitalFemsa\Model\ApiKeyRequest $api_key_request requested field for a api keys (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -389,7 +389,7 @@ class ApiKeysApi
     /**
      * Operation createApiKeyAsync
      *
-     * Create Api Key
+     * Create API key
      *
      * @param  \DigitalFemsa\Model\ApiKeyRequest $api_key_request requested field for a api keys (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -412,7 +412,7 @@ class ApiKeysApi
     /**
      * Operation createApiKeyAsyncWithHttpInfo
      *
-     * Create Api Key
+     * Create API key
      *
      * @param  \DigitalFemsa\Model\ApiKeyRequest $api_key_request requested field for a api keys (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
@@ -1447,7 +1447,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeys
      *
-     * Get list of Api Keys
+     * List API keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1470,7 +1470,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeysWithHttpInfo
      *
-     * Get list of Api Keys
+     * List API keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1669,7 +1669,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeysAsync
      *
-     * Get list of Api Keys
+     * List API keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -1695,7 +1695,7 @@ class ApiKeysApi
     /**
      * Operation getApiKeysAsyncWithHttpInfo
      *
-     * Get list of Api Keys
+     * List API keys
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)

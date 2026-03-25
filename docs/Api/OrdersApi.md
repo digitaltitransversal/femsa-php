@@ -11,7 +11,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | [**orderCancelRefund()**](OrdersApi.md#orderCancelRefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund |
 | [**orderRefund()**](OrdersApi.md#orderRefund) | **POST** /orders/{id}/refunds | Refund Order |
 | [**ordersCreateCapture()**](OrdersApi.md#ordersCreateCapture) | **POST** /orders/{id}/capture | Capture Order |
-| [**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /orders/{id} | Update Order |
+| [**updateOrder()**](OrdersApi.md#updateOrder) | **PUT** /orders/{id} | Update order |
 
 
 ## `cancelOrder()`
@@ -22,7 +22,7 @@ cancelOrder($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\Ord
 
 Cancel Order
 
-Cancel an order that has been previously created.
+Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
 
 ### Example
 
@@ -86,7 +86,7 @@ createOrder($order_request, $accept_language, $x_child_company_id): \DigitalFems
 
 Create order
 
-Create a new order.
+Creates a new order (products + amounts + customer data).  Minimum required fields: - `currency` - `line_items` - `customer_info`  About `customer_info`: - You can reference an existing customer using `customer_info.customer_id`, or - You can provide customer details at minimum `customer_info.name` and `customer_info.email` to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include `charges`. - Create an order with a checkout configuration (for a hosted payment flow): include `checkout`.  Important rules: - You cannot send `charges` and `checkout` in the same request (they are mutually exclusive). - If you send `shipping_contact_id` and/or `fiscal_entity_id`, you must also send `customer_info.customer_id` so the API can validate those IDs against that customer.
 
 ### Example
 
@@ -150,7 +150,7 @@ getOrderById($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\Or
 
 Get Order
 
-Info for a specific order
+Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example `charges`, `line_items`, `shipping_lines`, `tax_lines`, and `discount_lines`) when available.
 
 ### Example
 
@@ -214,7 +214,7 @@ getOrders($accept_language, $x_child_company_id, $limit, $search, $next, $previo
 
 Get a list of Orders
 
-Get order details in the form of a list
+Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and `search` to filter by supported criteria.
 
 ### Example
 
@@ -284,7 +284,7 @@ orderCancelRefund($id, $refund_id, $accept_language, $x_child_company_id): \Digi
 
 Cancel Refund
 
-A refunded order describes the items, amount, and reason an order is being refunded.
+Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
 
 ### Example
 
@@ -350,7 +350,7 @@ orderRefund($id, $order_refund_request, $accept_language, $x_child_company_id): 
 
 Refund Order
 
-A refunded order describes the items, amount, and reason an order is being refunded.
+Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
 
 ### Example
 
@@ -416,7 +416,7 @@ ordersCreateCapture($id, $accept_language, $x_child_company_id, $order_capture_r
 
 Capture Order
 
-Processes an order that has been previously authorized.
+Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
 
 ### Example
 
@@ -438,7 +438,7 @@ $apiInstance = new DigitalFemsa\Api\OrdersApi(
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
-$order_capture_request = new \DigitalFemsa\Model\OrderCaptureRequest(); // \DigitalFemsa\Model\OrderCaptureRequest | requested fields for capture order
+$order_capture_request = new \DigitalFemsa\Model\OrderCaptureRequest(); // \DigitalFemsa\Model\OrderCaptureRequest | Requested fields for capturing an order
 
 try {
     $result = $apiInstance->ordersCreateCapture($id, $accept_language, $x_child_company_id, $order_capture_request);
@@ -455,7 +455,7 @@ try {
 | **id** | **string**| Identifier of the resource | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
-| **order_capture_request** | [**\DigitalFemsa\Model\OrderCaptureRequest**](../Model/OrderCaptureRequest.md)| requested fields for capture order | [optional] |
+| **order_capture_request** | [**\DigitalFemsa\Model\OrderCaptureRequest**](../Model/OrderCaptureRequest.md)| Requested fields for capturing an order | [optional] |
 
 ### Return type
 
@@ -480,9 +480,9 @@ try {
 updateOrder($id, $order_update_request, $accept_language): \DigitalFemsa\Model\OrderResponse
 ```
 
-Update Order
+Update order
 
-Update an existing Order.
+Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified.
 
 ### Example
 

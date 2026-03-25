@@ -5,11 +5,11 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createWebhook()**](WebhooksApi.md#createWebhook) | **POST** /webhooks | Create Webhook |
-| [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete Webhook |
-| [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{id} | Get Webhook |
+| [**deleteWebhook()**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{id} | Delete webhook |
+| [**getWebhook()**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{id} | Get webhook |
 | [**getWebhooks()**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Get List of Webhooks |
-| [**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /webhooks/{id}/test | Test Webhook |
-| [**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /webhooks/{id} | Update Webhook |
+| [**testWebhook()**](WebhooksApi.md#testWebhook) | **POST** /webhooks/{id}/test | Test webhook |
+| [**updateWebhook()**](WebhooksApi.md#updateWebhook) | **PUT** /webhooks/{id} | Update webhook |
 
 
 ## `createWebhook()`
@@ -39,7 +39,7 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | requested field for webhook
+$webhook_request = new \DigitalFemsa\Model\WebhookRequest(); // \DigitalFemsa\Model\WebhookRequest | Webhook creation/update request payload.
 $accept_language = es; // string | Use for knowing which language to use
 
 try {
@@ -54,7 +54,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| requested field for webhook | |
+| **webhook_request** | [**\DigitalFemsa\Model\WebhookRequest**](../Model/WebhookRequest.md)| Webhook creation/update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 
 ### Return type
@@ -80,7 +80,9 @@ try {
 deleteWebhook($id, $accept_language): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Delete Webhook
+Delete webhook
+
+Deletes a webhook.
 
 ### Example
 
@@ -140,7 +142,9 @@ try {
 getWebhook($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Get Webhook
+Get webhook
+
+Retrieves the details of a webhook by its ID.
 
 ### Example
 
@@ -274,9 +278,9 @@ try {
 testWebhook($id, $accept_language): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Test Webhook
+Test webhook
 
-Send a webhook.ping event
+Sends a test event to the specified webhook to verify it can receive events.
 
 ### Example
 
@@ -336,9 +340,9 @@ try {
 updateWebhook($id, $webhook_update_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\WebhookResponse
 ```
 
-Update Webhook
+Update webhook
 
-updates an existing webhook
+Updates an existing webhook.
 
 ### Example
 
@@ -358,7 +362,7 @@ $apiInstance = new DigitalFemsa\Api\WebhooksApi(
     $config
 );
 $id = 6307a60c41de27127515a575; // string | Identifier of the resource
-$webhook_update_request = new \DigitalFemsa\Model\WebhookUpdateRequest(); // \DigitalFemsa\Model\WebhookUpdateRequest | requested fields in order to update a webhook
+$webhook_update_request = new \DigitalFemsa\Model\WebhookUpdateRequest(); // \DigitalFemsa\Model\WebhookUpdateRequest | Webhook update request payload.
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 
@@ -375,7 +379,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Identifier of the resource | |
-| **webhook_update_request** | [**\DigitalFemsa\Model\WebhookUpdateRequest**](../Model/WebhookUpdateRequest.md)| requested fields in order to update a webhook | |
+| **webhook_update_request** | [**\DigitalFemsa\Model\WebhookUpdateRequest**](../Model/WebhookUpdateRequest.md)| Webhook update request payload. | |
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 

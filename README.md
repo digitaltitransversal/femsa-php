@@ -79,28 +79,28 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ApiKeysApi* | [**createApiKey**](docs/Api/ApiKeysApi.md#createapikey) | **POST** /api_keys | Create Api Key
+*ApiKeysApi* | [**createApiKey**](docs/Api/ApiKeysApi.md#createapikey) | **POST** /api_keys | Create API key
 *ApiKeysApi* | [**deleteApiKey**](docs/Api/ApiKeysApi.md#deleteapikey) | **DELETE** /api_keys/{id} | Delete Api Key
 *ApiKeysApi* | [**getApiKey**](docs/Api/ApiKeysApi.md#getapikey) | **GET** /api_keys/{id} | Get Api Key
-*ApiKeysApi* | [**getApiKeys**](docs/Api/ApiKeysApi.md#getapikeys) | **GET** /api_keys | Get list of Api Keys
+*ApiKeysApi* | [**getApiKeys**](docs/Api/ApiKeysApi.md#getapikeys) | **GET** /api_keys | List API keys
 *ApiKeysApi* | [**updateApiKey**](docs/Api/ApiKeysApi.md#updateapikey) | **PUT** /api_keys/{id} | Update Api Key
 *BalancesApi* | [**getBalance**](docs/Api/BalancesApi.md#getbalance) | **GET** /balance | Get a company&#39;s balance
-*ChargesApi* | [**getCharges**](docs/Api/ChargesApi.md#getcharges) | **GET** /charges | Get A List of Charges
-*ChargesApi* | [**ordersCreateCharge**](docs/Api/ChargesApi.md#orderscreatecharge) | **POST** /orders/{id}/charges | Create charge
+*ChargesApi* | [**getCharges**](docs/Api/ChargesApi.md#getcharges) | **GET** /charges | List charges
+*ChargesApi* | [**ordersCreateCharge**](docs/Api/ChargesApi.md#orderscreatecharge) | **POST** /orders/{id}/charges | Create a charge for an order
 *ChargesApi* | [**updateCharge**](docs/Api/ChargesApi.md#updatecharge) | **PUT** /charges/{id} | Update a charge
 *CompaniesApi* | [**getCompanies**](docs/Api/CompaniesApi.md#getcompanies) | **GET** /companies | Get List of Companies
 *CompaniesApi* | [**getCompany**](docs/Api/CompaniesApi.md#getcompany) | **GET** /companies/{id} | Get Company
-*CustomersApi* | [**createCustomer**](docs/Api/CustomersApi.md#createcustomer) | **POST** /customers | Create customer
+*CustomersApi* | [**createCustomer**](docs/Api/CustomersApi.md#createcustomer) | **POST** /customers | Create a customer
 *CustomersApi* | [**createCustomerFiscalEntities**](docs/Api/CustomersApi.md#createcustomerfiscalentities) | **POST** /customers/{id}/fiscal_entities | Create Fiscal Entity
 *CustomersApi* | [**deleteCustomerById**](docs/Api/CustomersApi.md#deletecustomerbyid) | **DELETE** /customers/{id} | Delete Customer
 *CustomersApi* | [**getCustomerById**](docs/Api/CustomersApi.md#getcustomerbyid) | **GET** /customers/{id} | Get Customer
 *CustomersApi* | [**getCustomers**](docs/Api/CustomersApi.md#getcustomers) | **GET** /customers | Get a list of customers
 *CustomersApi* | [**updateCustomer**](docs/Api/CustomersApi.md#updatecustomer) | **PUT** /customers/{id} | Update customer
-*CustomersApi* | [**updateCustomerFiscalEntities**](docs/Api/CustomersApi.md#updatecustomerfiscalentities) | **PUT** /customers/{id}/fiscal_entities/{fiscal_entities_id} | Update  Fiscal Entity
+*CustomersApi* | [**updateCustomerFiscalEntities**](docs/Api/CustomersApi.md#updatecustomerfiscalentities) | **PUT** /customers/{id}/fiscal_entities/{fiscal_entities_id} | Update Fiscal Entity
 *DiscountsApi* | [**ordersCreateDiscountLine**](docs/Api/DiscountsApi.md#orderscreatediscountline) | **POST** /orders/{id}/discount_lines | Create Discount
 *DiscountsApi* | [**ordersDeleteDiscountLines**](docs/Api/DiscountsApi.md#ordersdeletediscountlines) | **DELETE** /orders/{id}/discount_lines/{discount_lines_id} | Delete Discount
 *DiscountsApi* | [**ordersGetDiscountLine**](docs/Api/DiscountsApi.md#ordersgetdiscountline) | **GET** /orders/{id}/discount_lines/{discount_lines_id} | Get Discount
-*DiscountsApi* | [**ordersGetDiscountLines**](docs/Api/DiscountsApi.md#ordersgetdiscountlines) | **GET** /orders/{id}/discount_lines | Get a List of Discount
+*DiscountsApi* | [**ordersGetDiscountLines**](docs/Api/DiscountsApi.md#ordersgetdiscountlines) | **GET** /orders/{id}/discount_lines | Get a List of Discounts
 *DiscountsApi* | [**ordersUpdateDiscountLines**](docs/Api/DiscountsApi.md#ordersupdatediscountlines) | **PUT** /orders/{id}/discount_lines/{discount_lines_id} | Update Discount
 *EventsApi* | [**getEvent**](docs/Api/EventsApi.md#getevent) | **GET** /events/{id} | Get Event
 *EventsApi* | [**getEvents**](docs/Api/EventsApi.md#getevents) | **GET** /events | Get list of Events
@@ -114,13 +114,12 @@ Class | Method | HTTP request | Description
 *OrdersApi* | [**orderCancelRefund**](docs/Api/OrdersApi.md#ordercancelrefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund
 *OrdersApi* | [**orderRefund**](docs/Api/OrdersApi.md#orderrefund) | **POST** /orders/{id}/refunds | Refund Order
 *OrdersApi* | [**ordersCreateCapture**](docs/Api/OrdersApi.md#orderscreatecapture) | **POST** /orders/{id}/capture | Capture Order
-*OrdersApi* | [**updateOrder**](docs/Api/OrdersApi.md#updateorder) | **PUT** /orders/{id} | Update Order
+*OrdersApi* | [**updateOrder**](docs/Api/OrdersApi.md#updateorder) | **PUT** /orders/{id} | Update order
 *PaymentLinkApi* | [**cancelCheckout**](docs/Api/PaymentLinkApi.md#cancelcheckout) | **PUT** /checkouts/{id}/cancel | Cancel Payment Link
-*PaymentLinkApi* | [**createCheckout**](docs/Api/PaymentLinkApi.md#createcheckout) | **POST** /checkouts | Create Unique Payment Link
+*PaymentLinkApi* | [**createCheckout**](docs/Api/PaymentLinkApi.md#createcheckout) | **POST** /checkouts | Create Payment Link
 *PaymentLinkApi* | [**emailCheckout**](docs/Api/PaymentLinkApi.md#emailcheckout) | **POST** /checkouts/{id}/email | Send an email
 *PaymentLinkApi* | [**getCheckout**](docs/Api/PaymentLinkApi.md#getcheckout) | **GET** /checkouts/{id} | Get a payment link by ID
 *PaymentLinkApi* | [**getCheckouts**](docs/Api/PaymentLinkApi.md#getcheckouts) | **GET** /checkouts | Get a list of payment links
-*PaymentLinkApi* | [**smsCheckout**](docs/Api/PaymentLinkApi.md#smscheckout) | **POST** /checkouts/{id}/sms | Send an sms
 *PaymentMethodsApi* | [**createCustomerPaymentMethods**](docs/Api/PaymentMethodsApi.md#createcustomerpaymentmethods) | **POST** /customers/{id}/payment_sources | Create Payment Method
 *PaymentMethodsApi* | [**deleteCustomerPaymentMethods**](docs/Api/PaymentMethodsApi.md#deletecustomerpaymentmethods) | **DELETE** /customers/{id}/payment_sources/{payment_method_id} | Delete Payment Method
 *PaymentMethodsApi* | [**getCustomerPaymentMethods**](docs/Api/PaymentMethodsApi.md#getcustomerpaymentmethods) | **GET** /customers/{id}/payment_sources | Get Payment Methods
@@ -128,7 +127,7 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**ordersCreateProduct**](docs/Api/ProductsApi.md#orderscreateproduct) | **POST** /orders/{id}/line_items | Create Product
 *ProductsApi* | [**ordersDeleteProduct**](docs/Api/ProductsApi.md#ordersdeleteproduct) | **DELETE** /orders/{id}/line_items/{line_item_id} | Delete Product
 *ProductsApi* | [**ordersUpdateProduct**](docs/Api/ProductsApi.md#ordersupdateproduct) | **PUT** /orders/{id}/line_items/{line_item_id} | Update Product
-*ShippingContactsApi* | [**createCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#createcustomershippingcontacts) | **POST** /customers/{id}/shipping_contacts | Create a shipping contacts
+*ShippingContactsApi* | [**createCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#createcustomershippingcontacts) | **POST** /customers/{id}/shipping_contacts | Create a shipping contact
 *ShippingContactsApi* | [**deleteCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#deletecustomershippingcontacts) | **DELETE** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Delete shipping contacts
 *ShippingContactsApi* | [**updateCustomerShippingContacts**](docs/Api/ShippingContactsApi.md#updatecustomershippingcontacts) | **PUT** /customers/{id}/shipping_contacts/{shipping_contacts_id} | Update shipping contacts
 *ShippingsApi* | [**ordersCreateShipping**](docs/Api/ShippingsApi.md#orderscreateshipping) | **POST** /orders/{id}/shipping_lines | Create Shipping
@@ -138,20 +137,20 @@ Class | Method | HTTP request | Description
 *TaxesApi* | [**ordersDeleteTaxes**](docs/Api/TaxesApi.md#ordersdeletetaxes) | **DELETE** /orders/{id}/tax_lines/{tax_id} | Delete Tax
 *TaxesApi* | [**ordersUpdateTaxes**](docs/Api/TaxesApi.md#ordersupdatetaxes) | **PUT** /orders/{id}/tax_lines/{tax_id} | Update Tax
 *TransactionsApi* | [**getTransaction**](docs/Api/TransactionsApi.md#gettransaction) | **GET** /transactions/{id} | Get transaction
-*TransactionsApi* | [**getTransactions**](docs/Api/TransactionsApi.md#gettransactions) | **GET** /transactions | Get List transactions
-*TransfersApi* | [**getTransfer**](docs/Api/TransfersApi.md#gettransfer) | **GET** /transfers/{id} | Get Transfer
-*TransfersApi* | [**getTransfers**](docs/Api/TransfersApi.md#gettransfers) | **GET** /transfers | Get a list of transfers
+*TransactionsApi* | [**getTransactions**](docs/Api/TransactionsApi.md#gettransactions) | **GET** /transactions | List transactions
+*TransfersApi* | [**getTransfer**](docs/Api/TransfersApi.md#gettransfer) | **GET** /transfers/{id} | Get transfer
+*TransfersApi* | [**getTransfers**](docs/Api/TransfersApi.md#gettransfers) | **GET** /transfers | List transfers
 *WebhookKeysApi* | [**createWebhookKey**](docs/Api/WebhookKeysApi.md#createwebhookkey) | **POST** /webhook_keys | Create Webhook Key
-*WebhookKeysApi* | [**deleteWebhookKey**](docs/Api/WebhookKeysApi.md#deletewebhookkey) | **DELETE** /webhook_keys/{id} | Delete Webhook key
-*WebhookKeysApi* | [**getWebhookKey**](docs/Api/WebhookKeysApi.md#getwebhookkey) | **GET** /webhook_keys/{id} | Get Webhook Key
+*WebhookKeysApi* | [**deleteWebhookKey**](docs/Api/WebhookKeysApi.md#deletewebhookkey) | **DELETE** /webhook_keys/{id} | Delete webhook key
+*WebhookKeysApi* | [**getWebhookKey**](docs/Api/WebhookKeysApi.md#getwebhookkey) | **GET** /webhook_keys/{id} | Get webhook key
 *WebhookKeysApi* | [**getWebhookKeys**](docs/Api/WebhookKeysApi.md#getwebhookkeys) | **GET** /webhook_keys | Get List of Webhook Keys
-*WebhookKeysApi* | [**updateWebhookKey**](docs/Api/WebhookKeysApi.md#updatewebhookkey) | **PUT** /webhook_keys/{id} | Update Webhook Key
+*WebhookKeysApi* | [**updateWebhookKey**](docs/Api/WebhookKeysApi.md#updatewebhookkey) | **PUT** /webhook_keys/{id} | Update webhook key
 *WebhooksApi* | [**createWebhook**](docs/Api/WebhooksApi.md#createwebhook) | **POST** /webhooks | Create Webhook
-*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete Webhook
-*WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /webhooks/{id} | Get Webhook
+*WebhooksApi* | [**deleteWebhook**](docs/Api/WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete webhook
+*WebhooksApi* | [**getWebhook**](docs/Api/WebhooksApi.md#getwebhook) | **GET** /webhooks/{id} | Get webhook
 *WebhooksApi* | [**getWebhooks**](docs/Api/WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get List of Webhooks
-*WebhooksApi* | [**testWebhook**](docs/Api/WebhooksApi.md#testwebhook) | **POST** /webhooks/{id}/test | Test Webhook
-*WebhooksApi* | [**updateWebhook**](docs/Api/WebhooksApi.md#updatewebhook) | **PUT** /webhooks/{id} | Update Webhook
+*WebhooksApi* | [**testWebhook**](docs/Api/WebhooksApi.md#testwebhook) | **POST** /webhooks/{id}/test | Test webhook
+*WebhooksApi* | [**updateWebhook**](docs/Api/WebhooksApi.md#updatewebhook) | **PUT** /webhooks/{id} | Update webhook
 
 ## Models
 
@@ -163,6 +162,7 @@ Class | Method | HTTP request | Description
 - [BalanceCommonField](docs/Model/BalanceCommonField.md)
 - [BalanceResponse](docs/Model/BalanceResponse.md)
 - [ChargeOrderResponse](docs/Model/ChargeOrderResponse.md)
+- [ChargeOrderResponseChannel](docs/Model/ChargeOrderResponseChannel.md)
 - [ChargeOrderResponsePaymentMethod](docs/Model/ChargeOrderResponsePaymentMethod.md)
 - [ChargeRequest](docs/Model/ChargeRequest.md)
 - [ChargeRequestPaymentMethod](docs/Model/ChargeRequestPaymentMethod.md)
@@ -188,8 +188,6 @@ Class | Method | HTTP request | Description
 - [CreateCustomerPaymentMethodsResponse](docs/Model/CreateCustomerPaymentMethodsResponse.md)
 - [Customer](docs/Model/Customer.md)
 - [CustomerAddress](docs/Model/CustomerAddress.md)
-- [CustomerAntifraudInfo](docs/Model/CustomerAntifraudInfo.md)
-- [CustomerAntifraudInfoResponse](docs/Model/CustomerAntifraudInfoResponse.md)
 - [CustomerFiscalEntitiesDataResponse](docs/Model/CustomerFiscalEntitiesDataResponse.md)
 - [CustomerFiscalEntitiesRequest](docs/Model/CustomerFiscalEntitiesRequest.md)
 - [CustomerFiscalEntitiesResponse](docs/Model/CustomerFiscalEntitiesResponse.md)
@@ -245,6 +243,7 @@ Class | Method | HTTP request | Description
 - [OrderRequest](docs/Model/OrderRequest.md)
 - [OrderRequestCustomerInfo](docs/Model/OrderRequestCustomerInfo.md)
 - [OrderResponse](docs/Model/OrderResponse.md)
+- [OrderResponseChannel](docs/Model/OrderResponseChannel.md)
 - [OrderResponseCharges](docs/Model/OrderResponseCharges.md)
 - [OrderResponseCheckout](docs/Model/OrderResponseCheckout.md)
 - [OrderResponseCustomerInfo](docs/Model/OrderResponseCustomerInfo.md)
@@ -268,14 +267,12 @@ Class | Method | HTTP request | Description
 - [ProductOrderResponse](docs/Model/ProductOrderResponse.md)
 - [ShippingOrderResponse](docs/Model/ShippingOrderResponse.md)
 - [ShippingRequest](docs/Model/ShippingRequest.md)
-- [SmsCheckoutRequest](docs/Model/SmsCheckoutRequest.md)
 - [TransactionResponse](docs/Model/TransactionResponse.md)
 - [TransferDestinationResponse](docs/Model/TransferDestinationResponse.md)
 - [TransferMethodResponse](docs/Model/TransferMethodResponse.md)
 - [TransferResponse](docs/Model/TransferResponse.md)
 - [TransfersResponse](docs/Model/TransfersResponse.md)
 - [UpdateCustomer](docs/Model/UpdateCustomer.md)
-- [UpdateCustomerAntifraudInfo](docs/Model/UpdateCustomerAntifraudInfo.md)
 - [UpdateCustomerFiscalEntitiesResponse](docs/Model/UpdateCustomerFiscalEntitiesResponse.md)
 - [UpdateCustomerPaymentMethodsResponse](docs/Model/UpdateCustomerPaymentMethodsResponse.md)
 - [UpdateOrderDiscountLinesRequest](docs/Model/UpdateOrderDiscountLinesRequest.md)
@@ -318,6 +315,6 @@ engineering@femsa.com
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `2.1.0`
-    - Package version: `1.0.6`
+    - Package version: `1.1.0`
     - Generator version: `7.5.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

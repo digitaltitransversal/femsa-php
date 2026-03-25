@@ -569,7 +569,7 @@ class TransactionsApi
     /**
      * Operation getTransactions
      *
-     * Get List transactions
+     * List transactions
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -595,7 +595,7 @@ class TransactionsApi
     /**
      * Operation getTransactionsWithHttpInfo
      *
-     * Get List transactions
+     * List transactions
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -797,7 +797,7 @@ class TransactionsApi
     /**
      * Operation getTransactionsAsync
      *
-     * Get List transactions
+     * List transactions
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
@@ -826,7 +826,7 @@ class TransactionsApi
     /**
      * Operation getTransactionsAsyncWithHttpInfo
      *
-     * Get List transactions
+     * List transactions
      *
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)

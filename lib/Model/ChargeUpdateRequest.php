@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * ChargeUpdateRequest Class Doc Comment
  *
  * @category Class
- * @description requested field for update a charge
+ * @description Request body to update a charge. Only &#x60;reference_id&#x60; can be updated.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

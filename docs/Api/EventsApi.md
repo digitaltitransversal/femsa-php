@@ -17,7 +17,7 @@ getEvent($id, $accept_language, $x_child_company_id): \DigitalFemsa\Model\EventR
 
 Get Event
 
-Returns a single event
+Returns a single event by its ID, including its payload (`data`) and webhook delivery information. The `webhook_status` indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created).
 
 ### Example
 
@@ -149,7 +149,7 @@ resendEvent($event_id, $webhook_log_id, $accept_language): \DigitalFemsa\Model\E
 
 Resend Event
 
-Try to send an event
+Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata.
 
 ### Example
 

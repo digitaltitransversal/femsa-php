@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * OrderResponse Class Doc Comment
  *
  * @category Class
- * @description order response
+ * @description Order model. Some nested resources are returned as list previews (for example: &#x60;charges&#x60;, &#x60;line_items&#x60;), and may be &#x60;null&#x60; depending on the request/context. The &#x60;checkout&#x60; field is only present when the order is linked to a checkout (&#x60;channel.checkout_request_id&#x60;).
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,26 +59,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amount' => 'int',
-        'amount_refunded' => 'int',
-        'channel' => '\DigitalFemsa\Model\ChargeResponseChannel',
-        'charges' => '\DigitalFemsa\Model\OrderResponseCharges',
-        'checkout' => '\DigitalFemsa\Model\OrderResponseCheckout',
-        'created_at' => 'int',
-        'currency' => 'string',
-        'customer_info' => '\DigitalFemsa\Model\OrderResponseCustomerInfo',
-        'discount_lines' => '\DigitalFemsa\Model\OrderResponseDiscountLines',
-        'fiscal_entity' => '\DigitalFemsa\Model\OrderFiscalEntityResponse',
         'id' => 'string',
-        'is_refundable' => 'bool',
-        'line_items' => '\DigitalFemsa\Model\OrderResponseProducts',
-        'livemode' => 'bool',
-        'metadata' => 'array<string,mixed>',
         'object' => 'string',
+        'livemode' => 'bool',
+        'amount' => 'int',
+        'currency' => 'string',
         'payment_status' => 'string',
-        'processing_mode' => 'string',
+        'amount_refunded' => 'int',
+        'split_payment' => 'bool',
+        'metadata' => 'array<string,mixed>',
+        'is_refundable' => 'bool',
+        'created_at' => 'int',
+        'updated_at' => 'int',
+        'customer_info' => '\DigitalFemsa\Model\OrderResponseCustomerInfo',
         'shipping_contact' => '\DigitalFemsa\Model\OrderResponseShippingContact',
-        'updated_at' => 'int'
+        'channel' => '\DigitalFemsa\Model\OrderResponseChannel',
+        'fiscal_entity' => '\DigitalFemsa\Model\OrderFiscalEntityResponse',
+        'checkout' => '\DigitalFemsa\Model\OrderResponseCheckout',
+        'line_items' => '\DigitalFemsa\Model\OrderResponseProducts',
+        'discount_lines' => '\DigitalFemsa\Model\OrderResponseDiscountLines',
+        'charges' => '\DigitalFemsa\Model\OrderResponseCharges',
+        'partial_reference' => 'array<string,mixed>',
+        'payments_info' => 'array<string,mixed>'
     ];
 
     /**
@@ -89,26 +91,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'amount' => null,
-        'amount_refunded' => null,
-        'channel' => null,
-        'charges' => null,
-        'checkout' => null,
-        'created_at' => 'int64',
-        'currency' => null,
-        'customer_info' => null,
-        'discount_lines' => null,
-        'fiscal_entity' => null,
         'id' => null,
-        'is_refundable' => null,
-        'line_items' => null,
-        'livemode' => null,
-        'metadata' => null,
         'object' => null,
+        'livemode' => null,
+        'amount' => null,
+        'currency' => null,
         'payment_status' => null,
-        'processing_mode' => null,
+        'amount_refunded' => null,
+        'split_payment' => null,
+        'metadata' => null,
+        'is_refundable' => null,
+        'created_at' => 'int64',
+        'updated_at' => 'int64',
+        'customer_info' => null,
         'shipping_contact' => null,
-        'updated_at' => 'int64'
+        'channel' => null,
+        'fiscal_entity' => null,
+        'checkout' => null,
+        'line_items' => null,
+        'discount_lines' => null,
+        'charges' => null,
+        'partial_reference' => null,
+        'payments_info' => null
     ];
 
     /**
@@ -117,26 +121,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => false,
-        'amount_refunded' => false,
-        'channel' => false,
-        'charges' => false,
-        'checkout' => false,
-        'created_at' => false,
-        'currency' => false,
-        'customer_info' => false,
-        'discount_lines' => false,
-        'fiscal_entity' => true,
         'id' => false,
-        'is_refundable' => false,
-        'line_items' => false,
-        'livemode' => false,
-        'metadata' => false,
         'object' => false,
-        'payment_status' => false,
-        'processing_mode' => false,
-        'shipping_contact' => false,
-        'updated_at' => false
+        'livemode' => false,
+        'amount' => false,
+        'currency' => false,
+        'payment_status' => true,
+        'amount_refunded' => false,
+        'split_payment' => true,
+        'metadata' => false,
+        'is_refundable' => false,
+        'created_at' => false,
+        'updated_at' => false,
+        'customer_info' => false,
+        'shipping_contact' => true,
+        'channel' => true,
+        'fiscal_entity' => true,
+        'checkout' => false,
+        'line_items' => false,
+        'discount_lines' => false,
+        'charges' => false,
+        'partial_reference' => true,
+        'payments_info' => true
     ];
 
     /**
@@ -225,26 +231,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount',
-        'amount_refunded' => 'amount_refunded',
-        'channel' => 'channel',
-        'charges' => 'charges',
-        'checkout' => 'checkout',
-        'created_at' => 'created_at',
-        'currency' => 'currency',
-        'customer_info' => 'customer_info',
-        'discount_lines' => 'discount_lines',
-        'fiscal_entity' => 'fiscal_entity',
         'id' => 'id',
-        'is_refundable' => 'is_refundable',
-        'line_items' => 'line_items',
-        'livemode' => 'livemode',
-        'metadata' => 'metadata',
         'object' => 'object',
+        'livemode' => 'livemode',
+        'amount' => 'amount',
+        'currency' => 'currency',
         'payment_status' => 'payment_status',
-        'processing_mode' => 'processing_mode',
+        'amount_refunded' => 'amount_refunded',
+        'split_payment' => 'split_payment',
+        'metadata' => 'metadata',
+        'is_refundable' => 'is_refundable',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+        'customer_info' => 'customer_info',
         'shipping_contact' => 'shipping_contact',
-        'updated_at' => 'updated_at'
+        'channel' => 'channel',
+        'fiscal_entity' => 'fiscal_entity',
+        'checkout' => 'checkout',
+        'line_items' => 'line_items',
+        'discount_lines' => 'discount_lines',
+        'charges' => 'charges',
+        'partial_reference' => 'partial_reference',
+        'payments_info' => 'payments_info'
     ];
 
     /**
@@ -253,26 +261,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount',
-        'amount_refunded' => 'setAmountRefunded',
-        'channel' => 'setChannel',
-        'charges' => 'setCharges',
-        'checkout' => 'setCheckout',
-        'created_at' => 'setCreatedAt',
-        'currency' => 'setCurrency',
-        'customer_info' => 'setCustomerInfo',
-        'discount_lines' => 'setDiscountLines',
-        'fiscal_entity' => 'setFiscalEntity',
         'id' => 'setId',
-        'is_refundable' => 'setIsRefundable',
-        'line_items' => 'setLineItems',
-        'livemode' => 'setLivemode',
-        'metadata' => 'setMetadata',
         'object' => 'setObject',
+        'livemode' => 'setLivemode',
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency',
         'payment_status' => 'setPaymentStatus',
-        'processing_mode' => 'setProcessingMode',
+        'amount_refunded' => 'setAmountRefunded',
+        'split_payment' => 'setSplitPayment',
+        'metadata' => 'setMetadata',
+        'is_refundable' => 'setIsRefundable',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'customer_info' => 'setCustomerInfo',
         'shipping_contact' => 'setShippingContact',
-        'updated_at' => 'setUpdatedAt'
+        'channel' => 'setChannel',
+        'fiscal_entity' => 'setFiscalEntity',
+        'checkout' => 'setCheckout',
+        'line_items' => 'setLineItems',
+        'discount_lines' => 'setDiscountLines',
+        'charges' => 'setCharges',
+        'partial_reference' => 'setPartialReference',
+        'payments_info' => 'setPaymentsInfo'
     ];
 
     /**
@@ -281,26 +291,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount',
-        'amount_refunded' => 'getAmountRefunded',
-        'channel' => 'getChannel',
-        'charges' => 'getCharges',
-        'checkout' => 'getCheckout',
-        'created_at' => 'getCreatedAt',
-        'currency' => 'getCurrency',
-        'customer_info' => 'getCustomerInfo',
-        'discount_lines' => 'getDiscountLines',
-        'fiscal_entity' => 'getFiscalEntity',
         'id' => 'getId',
-        'is_refundable' => 'getIsRefundable',
-        'line_items' => 'getLineItems',
-        'livemode' => 'getLivemode',
-        'metadata' => 'getMetadata',
         'object' => 'getObject',
+        'livemode' => 'getLivemode',
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency',
         'payment_status' => 'getPaymentStatus',
-        'processing_mode' => 'getProcessingMode',
+        'amount_refunded' => 'getAmountRefunded',
+        'split_payment' => 'getSplitPayment',
+        'metadata' => 'getMetadata',
+        'is_refundable' => 'getIsRefundable',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'customer_info' => 'getCustomerInfo',
         'shipping_contact' => 'getShippingContact',
-        'updated_at' => 'getUpdatedAt'
+        'channel' => 'getChannel',
+        'fiscal_entity' => 'getFiscalEntity',
+        'checkout' => 'getCheckout',
+        'line_items' => 'getLineItems',
+        'discount_lines' => 'getDiscountLines',
+        'charges' => 'getCharges',
+        'partial_reference' => 'getPartialReference',
+        'payments_info' => 'getPaymentsInfo'
     ];
 
     /**
@@ -344,6 +356,19 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OBJECT_ORDER = 'order';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getObjectAllowableValues()
+    {
+        return [
+            self::OBJECT_ORDER,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -360,26 +385,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('amount_refunded', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], null);
-        $this->setIfExists('charges', $data ?? [], null);
-        $this->setIfExists('checkout', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('customer_info', $data ?? [], null);
-        $this->setIfExists('discount_lines', $data ?? [], null);
-        $this->setIfExists('fiscal_entity', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('is_refundable', $data ?? [], null);
-        $this->setIfExists('line_items', $data ?? [], null);
-        $this->setIfExists('livemode', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('livemode', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('payment_status', $data ?? [], null);
-        $this->setIfExists('processing_mode', $data ?? [], null);
-        $this->setIfExists('shipping_contact', $data ?? [], null);
+        $this->setIfExists('amount_refunded', $data ?? [], null);
+        $this->setIfExists('split_payment', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('is_refundable', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('customer_info', $data ?? [], null);
+        $this->setIfExists('shipping_contact', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('fiscal_entity', $data ?? [], null);
+        $this->setIfExists('checkout', $data ?? [], null);
+        $this->setIfExists('line_items', $data ?? [], null);
+        $this->setIfExists('discount_lines', $data ?? [], null);
+        $this->setIfExists('charges', $data ?? [], null);
+        $this->setIfExists('partial_reference', $data ?? [], null);
+        $this->setIfExists('payments_info', $data ?? [], null);
     }
 
     /**
@@ -409,6 +436,19 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!is_null($this->container['object']) && !in_array($this->container['object'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'object', must be one of '%s'",
+                $this->container['object'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['currency']) && (mb_strlen($this->container['currency']) > 3)) {
+            $invalidProperties[] = "invalid value for 'currency', the character length must be smaller than or equal to 3.";
+        }
+
         if (!is_null($this->container['metadata']) && (count($this->container['metadata']) > 100)) {
             $invalidProperties[] = "invalid value for 'metadata', number of items must be less than or equal to 100.";
         }
@@ -429,6 +469,97 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object
+     *
+     * @return string|null
+     */
+    public function getObject()
+    {
+        return $this->container['object'];
+    }
+
+    /**
+     * Sets object
+     *
+     * @param string|null $object object
+     *
+     * @return self
+     */
+    public function setObject($object)
+    {
+        if (is_null($object)) {
+            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        }
+        $allowedValues = $this->getObjectAllowableValues();
+        if (!in_array($object, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'object', must be one of '%s'",
+                    $object,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets livemode
+     *
+     * @return bool|null
+     */
+    public function getLivemode()
+    {
+        return $this->container['livemode'];
+    }
+
+    /**
+     * Sets livemode
+     *
+     * @param bool|null $livemode livemode
+     *
+     * @return self
+     */
+    public function setLivemode($livemode)
+    {
+        if (is_null($livemode)) {
+            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        }
+        $this->container['livemode'] = $livemode;
+
+        return $this;
+    }
+
+    /**
      * Gets amount
      *
      * @return int|null
@@ -441,7 +572,7 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param int|null $amount The total amount to be collected in cents
+     * @param int|null $amount amount
      *
      * @return self
      */
@@ -451,141 +582,6 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
         $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount_refunded
-     *
-     * @return int|null
-     */
-    public function getAmountRefunded()
-    {
-        return $this->container['amount_refunded'];
-    }
-
-    /**
-     * Sets amount_refunded
-     *
-     * @param int|null $amount_refunded The total amount refunded in cents
-     *
-     * @return self
-     */
-    public function setAmountRefunded($amount_refunded)
-    {
-        if (is_null($amount_refunded)) {
-            throw new \InvalidArgumentException('non-nullable amount_refunded cannot be null');
-        }
-        $this->container['amount_refunded'] = $amount_refunded;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel
-     *
-     * @return \DigitalFemsa\Model\ChargeResponseChannel|null
-     */
-    public function getChannel()
-    {
-        return $this->container['channel'];
-    }
-
-    /**
-     * Sets channel
-     *
-     * @param \DigitalFemsa\Model\ChargeResponseChannel|null $channel channel
-     *
-     * @return self
-     */
-    public function setChannel($channel)
-    {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
-        }
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets charges
-     *
-     * @return \DigitalFemsa\Model\OrderResponseCharges|null
-     */
-    public function getCharges()
-    {
-        return $this->container['charges'];
-    }
-
-    /**
-     * Sets charges
-     *
-     * @param \DigitalFemsa\Model\OrderResponseCharges|null $charges charges
-     *
-     * @return self
-     */
-    public function setCharges($charges)
-    {
-        if (is_null($charges)) {
-            throw new \InvalidArgumentException('non-nullable charges cannot be null');
-        }
-        $this->container['charges'] = $charges;
-
-        return $this;
-    }
-
-    /**
-     * Gets checkout
-     *
-     * @return \DigitalFemsa\Model\OrderResponseCheckout|null
-     */
-    public function getCheckout()
-    {
-        return $this->container['checkout'];
-    }
-
-    /**
-     * Sets checkout
-     *
-     * @param \DigitalFemsa\Model\OrderResponseCheckout|null $checkout checkout
-     *
-     * @return self
-     */
-    public function setCheckout($checkout)
-    {
-        if (is_null($checkout)) {
-            throw new \InvalidArgumentException('non-nullable checkout cannot be null');
-        }
-        $this->container['checkout'] = $checkout;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int|null $created_at The time at which the object was created in seconds since the Unix epoch
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -603,7 +599,7 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param string|null $currency The three-letter ISO 4217 currency code. The currency of the order.
+     * @param string|null $currency currency
      *
      * @return self
      */
@@ -612,7 +608,218 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($currency)) {
             throw new \InvalidArgumentException('non-nullable currency cannot be null');
         }
+        if ((mb_strlen($currency) > 3)) {
+            throw new \InvalidArgumentException('invalid length for $currency when calling OrderResponse., must be smaller than or equal to 3.');
+        }
+
         $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_status
+     *
+     * @return string|null
+     */
+    public function getPaymentStatus()
+    {
+        return $this->container['payment_status'];
+    }
+
+    /**
+     * Sets payment_status
+     *
+     * @param string|null $payment_status Current payment status of the order. It can be `null` for orders without payment information yet.
+     *
+     * @return self
+     */
+    public function setPaymentStatus($payment_status)
+    {
+        if (is_null($payment_status)) {
+            array_push($this->openAPINullablesSetToNull, 'payment_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('payment_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['payment_status'] = $payment_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_refunded
+     *
+     * @return int|null
+     */
+    public function getAmountRefunded()
+    {
+        return $this->container['amount_refunded'];
+    }
+
+    /**
+     * Sets amount_refunded
+     *
+     * @param int|null $amount_refunded amount_refunded
+     *
+     * @return self
+     */
+    public function setAmountRefunded($amount_refunded)
+    {
+        if (is_null($amount_refunded)) {
+            throw new \InvalidArgumentException('non-nullable amount_refunded cannot be null');
+        }
+        $this->container['amount_refunded'] = $amount_refunded;
+
+        return $this;
+    }
+
+    /**
+     * Gets split_payment
+     *
+     * @return bool|null
+     */
+    public function getSplitPayment()
+    {
+        return $this->container['split_payment'];
+    }
+
+    /**
+     * Sets split_payment
+     *
+     * @param bool|null $split_payment Indicates whether the order uses split payments (when available/configured).
+     *
+     * @return self
+     */
+    public function setSplitPayment($split_payment)
+    {
+        if (is_null($split_payment)) {
+            array_push($this->openAPINullablesSetToNull, 'split_payment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('split_payment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['split_payment'] = $split_payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array<string,mixed>|null $metadata Metadata attached to the order.
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        if (is_null($metadata)) {
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+
+        if ((count($metadata) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $metadata when calling OrderResponse., number of items must be less than or equal to 100.');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_refundable
+     *
+     * @return bool|null
+     */
+    public function getIsRefundable()
+    {
+        return $this->container['is_refundable'];
+    }
+
+    /**
+     * Sets is_refundable
+     *
+     * @param bool|null $is_refundable Indicates whether the order is currently refundable.
+     *
+     * @return self
+     */
+    public function setIsRefundable($is_refundable)
+    {
+        if (is_null($is_refundable)) {
+            throw new \InvalidArgumentException('non-nullable is_refundable cannot be null');
+        }
+        $this->container['is_refundable'] = $is_refundable;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return int|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param int|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return int|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param int|null $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
@@ -645,28 +852,69 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets discount_lines
+     * Gets shipping_contact
      *
-     * @return \DigitalFemsa\Model\OrderResponseDiscountLines|null
+     * @return \DigitalFemsa\Model\OrderResponseShippingContact|null
      */
-    public function getDiscountLines()
+    public function getShippingContact()
     {
-        return $this->container['discount_lines'];
+        return $this->container['shipping_contact'];
     }
 
     /**
-     * Sets discount_lines
+     * Sets shipping_contact
      *
-     * @param \DigitalFemsa\Model\OrderResponseDiscountLines|null $discount_lines discount_lines
+     * @param \DigitalFemsa\Model\OrderResponseShippingContact|null $shipping_contact shipping_contact
      *
      * @return self
      */
-    public function setDiscountLines($discount_lines)
+    public function setShippingContact($shipping_contact)
     {
-        if (is_null($discount_lines)) {
-            throw new \InvalidArgumentException('non-nullable discount_lines cannot be null');
+        if (is_null($shipping_contact)) {
+            array_push($this->openAPINullablesSetToNull, 'shipping_contact');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shipping_contact', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['discount_lines'] = $discount_lines;
+        $this->container['shipping_contact'] = $shipping_contact;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return \DigitalFemsa\Model\OrderResponseChannel|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param \DigitalFemsa\Model\OrderResponseChannel|null $channel channel
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            array_push($this->openAPINullablesSetToNull, 'channel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('channel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['channel'] = $channel;
 
         return $this;
     }
@@ -706,55 +954,28 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets id
+     * Gets checkout
      *
-     * @return string|null
+     * @return \DigitalFemsa\Model\OrderResponseCheckout|null
      */
-    public function getId()
+    public function getCheckout()
     {
-        return $this->container['id'];
+        return $this->container['checkout'];
     }
 
     /**
-     * Sets id
+     * Sets checkout
      *
-     * @param string|null $id id
+     * @param \DigitalFemsa\Model\OrderResponseCheckout|null $checkout checkout
      *
      * @return self
      */
-    public function setId($id)
+    public function setCheckout($checkout)
     {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($checkout)) {
+            throw new \InvalidArgumentException('non-nullable checkout cannot be null');
         }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_refundable
-     *
-     * @return bool|null
-     */
-    public function getIsRefundable()
-    {
-        return $this->container['is_refundable'];
-    }
-
-    /**
-     * Sets is_refundable
-     *
-     * @param bool|null $is_refundable is_refundable
-     *
-     * @return self
-     */
-    public function setIsRefundable($is_refundable)
-    {
-        if (is_null($is_refundable)) {
-            throw new \InvalidArgumentException('non-nullable is_refundable cannot be null');
-        }
-        $this->container['is_refundable'] = $is_refundable;
+        $this->container['checkout'] = $checkout;
 
         return $this;
     }
@@ -787,194 +1008,123 @@ class OrderResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets livemode
+     * Gets discount_lines
      *
-     * @return bool|null
+     * @return \DigitalFemsa\Model\OrderResponseDiscountLines|null
      */
-    public function getLivemode()
+    public function getDiscountLines()
     {
-        return $this->container['livemode'];
+        return $this->container['discount_lines'];
     }
 
     /**
-     * Sets livemode
+     * Sets discount_lines
      *
-     * @param bool|null $livemode Whether the object exists in live mode or test mode
+     * @param \DigitalFemsa\Model\OrderResponseDiscountLines|null $discount_lines discount_lines
      *
      * @return self
      */
-    public function setLivemode($livemode)
+    public function setDiscountLines($discount_lines)
     {
-        if (is_null($livemode)) {
-            throw new \InvalidArgumentException('non-nullable livemode cannot be null');
+        if (is_null($discount_lines)) {
+            throw new \InvalidArgumentException('non-nullable discount_lines cannot be null');
         }
-        $this->container['livemode'] = $livemode;
+        $this->container['discount_lines'] = $discount_lines;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets charges
+     *
+     * @return \DigitalFemsa\Model\OrderResponseCharges|null
+     */
+    public function getCharges()
+    {
+        return $this->container['charges'];
+    }
+
+    /**
+     * Sets charges
+     *
+     * @param \DigitalFemsa\Model\OrderResponseCharges|null $charges charges
+     *
+     * @return self
+     */
+    public function setCharges($charges)
+    {
+        if (is_null($charges)) {
+            throw new \InvalidArgumentException('non-nullable charges cannot be null');
+        }
+        $this->container['charges'] = $charges;
+
+        return $this;
+    }
+
+    /**
+     * Gets partial_reference
      *
      * @return array<string,mixed>|null
      */
-    public function getMetadata()
+    public function getPartialReference()
     {
-        return $this->container['metadata'];
+        return $this->container['partial_reference'];
     }
 
     /**
-     * Sets metadata
+     * Sets partial_reference
      *
-     * @param array<string,mixed>|null $metadata Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+     * @param array<string,mixed>|null $partial_reference Partial reference information (when applicable). Structure may vary depending on the payment flow.
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setPartialReference($partial_reference)
     {
-        if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+        if (is_null($partial_reference)) {
+            array_push($this->openAPINullablesSetToNull, 'partial_reference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('partial_reference', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-
-        if ((count($metadata) > 100)) {
-            throw new \InvalidArgumentException('invalid value for $metadata when calling OrderResponse., number of items must be less than or equal to 100.');
-        }
-        $this->container['metadata'] = $metadata;
+        $this->container['partial_reference'] = $partial_reference;
 
         return $this;
     }
 
     /**
-     * Gets object
+     * Gets payments_info
      *
-     * @return string|null
+     * @return array<string,mixed>|null
      */
-    public function getObject()
+    public function getPaymentsInfo()
     {
-        return $this->container['object'];
+        return $this->container['payments_info'];
     }
 
     /**
-     * Sets object
+     * Sets payments_info
      *
-     * @param string|null $object String representing the object’s type. Objects of the same type share the same value.
+     * @param array<string,mixed>|null $payments_info Additional payment information (when available). Structure may vary.
      *
      * @return self
      */
-    public function setObject($object)
+    public function setPaymentsInfo($payments_info)
     {
-        if (is_null($object)) {
-            throw new \InvalidArgumentException('non-nullable object cannot be null');
+        if (is_null($payments_info)) {
+            array_push($this->openAPINullablesSetToNull, 'payments_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('payments_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['object'] = $object;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_status
-     *
-     * @return string|null
-     */
-    public function getPaymentStatus()
-    {
-        return $this->container['payment_status'];
-    }
-
-    /**
-     * Sets payment_status
-     *
-     * @param string|null $payment_status The payment status of the order.
-     *
-     * @return self
-     */
-    public function setPaymentStatus($payment_status)
-    {
-        if (is_null($payment_status)) {
-            throw new \InvalidArgumentException('non-nullable payment_status cannot be null');
-        }
-        $this->container['payment_status'] = $payment_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets processing_mode
-     *
-     * @return string|null
-     */
-    public function getProcessingMode()
-    {
-        return $this->container['processing_mode'];
-    }
-
-    /**
-     * Sets processing_mode
-     *
-     * @param string|null $processing_mode Indicates the processing mode for the order, either ecommerce, recurrent or validation.
-     *
-     * @return self
-     */
-    public function setProcessingMode($processing_mode)
-    {
-        if (is_null($processing_mode)) {
-            throw new \InvalidArgumentException('non-nullable processing_mode cannot be null');
-        }
-        $this->container['processing_mode'] = $processing_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_contact
-     *
-     * @return \DigitalFemsa\Model\OrderResponseShippingContact|null
-     */
-    public function getShippingContact()
-    {
-        return $this->container['shipping_contact'];
-    }
-
-    /**
-     * Sets shipping_contact
-     *
-     * @param \DigitalFemsa\Model\OrderResponseShippingContact|null $shipping_contact shipping_contact
-     *
-     * @return self
-     */
-    public function setShippingContact($shipping_contact)
-    {
-        if (is_null($shipping_contact)) {
-            throw new \InvalidArgumentException('non-nullable shipping_contact cannot be null');
-        }
-        $this->container['shipping_contact'] = $shipping_contact;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return int|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param int|null $updated_at The time at which the object was last updated in seconds since the Unix epoch
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
+        $this->container['payments_info'] = $payments_info;
 
         return $this;
     }

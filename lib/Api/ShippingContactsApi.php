@@ -132,10 +132,10 @@ class ShippingContactsApi
     /**
      * Operation createCustomerShippingContacts
      *
-     * Create a shipping contacts
+     * Create a shipping contact
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts requested field for customer shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts Request body for creating or updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerShippingContacts'] to see the possible values for this operation
@@ -153,10 +153,10 @@ class ShippingContactsApi
     /**
      * Operation createCustomerShippingContactsWithHttpInfo
      *
-     * Create a shipping contacts
+     * Create a shipping contact
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts requested field for customer shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts Request body for creating or updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerShippingContacts'] to see the possible values for this operation
@@ -420,10 +420,10 @@ class ShippingContactsApi
     /**
      * Operation createCustomerShippingContactsAsync
      *
-     * Create a shipping contacts
+     * Create a shipping contact
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts requested field for customer shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts Request body for creating or updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerShippingContacts'] to see the possible values for this operation
@@ -444,10 +444,10 @@ class ShippingContactsApi
     /**
      * Operation createCustomerShippingContactsAsyncWithHttpInfo
      *
-     * Create a shipping contacts
+     * Create a shipping contact
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts requested field for customer shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts Request body for creating or updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerShippingContacts'] to see the possible values for this operation
@@ -500,7 +500,7 @@ class ShippingContactsApi
      * Create request for operation 'createCustomerShippingContacts'
      *
      * @param  string $id Identifier of the resource (required)
-     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts requested field for customer shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerShippingContacts $customer_shipping_contacts Request body for creating or updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerShippingContacts'] to see the possible values for this operation
@@ -1125,7 +1125,7 @@ class ShippingContactsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts requested field for customer update shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts Request body for updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerShippingContacts'] to see the possible values for this operation
@@ -1147,7 +1147,7 @@ class ShippingContactsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts requested field for customer update shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts Request body for updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerShippingContacts'] to see the possible values for this operation
@@ -1415,7 +1415,7 @@ class ShippingContactsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts requested field for customer update shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts Request body for updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerShippingContacts'] to see the possible values for this operation
@@ -1440,7 +1440,7 @@ class ShippingContactsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts requested field for customer update shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts Request body for updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerShippingContacts'] to see the possible values for this operation
@@ -1494,7 +1494,7 @@ class ShippingContactsApi
      *
      * @param  string $id Identifier of the resource (required)
      * @param  string $shipping_contacts_id identifier (required)
-     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts requested field for customer update shippings contacts (required)
+     * @param  \DigitalFemsa\Model\CustomerUpdateShippingContacts $customer_update_shipping_contacts Request body for updating a customer shipping contact. (required)
      * @param  string $accept_language Use for knowing which language to use (optional, default to 'es')
      * @param  string $x_child_company_id In the case of a holding company, the company id of the child company to which will process the request. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomerShippingContacts'] to see the possible values for this operation

@@ -7,7 +7,7 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 | [**ordersCreateDiscountLine()**](DiscountsApi.md#ordersCreateDiscountLine) | **POST** /orders/{id}/discount_lines | Create Discount |
 | [**ordersDeleteDiscountLines()**](DiscountsApi.md#ordersDeleteDiscountLines) | **DELETE** /orders/{id}/discount_lines/{discount_lines_id} | Delete Discount |
 | [**ordersGetDiscountLine()**](DiscountsApi.md#ordersGetDiscountLine) | **GET** /orders/{id}/discount_lines/{discount_lines_id} | Get Discount |
-| [**ordersGetDiscountLines()**](DiscountsApi.md#ordersGetDiscountLines) | **GET** /orders/{id}/discount_lines | Get a List of Discount |
+| [**ordersGetDiscountLines()**](DiscountsApi.md#ordersGetDiscountLines) | **GET** /orders/{id}/discount_lines | Get a List of Discounts |
 | [**ordersUpdateDiscountLines()**](DiscountsApi.md#ordersUpdateDiscountLines) | **PUT** /orders/{id}/discount_lines/{discount_lines_id} | Update Discount |
 
 
@@ -19,7 +19,7 @@ ordersCreateDiscountLine($id, $order_discount_lines_request, $accept_language, $
 
 Create Discount
 
-Create discount lines for an existing orden
+Create discount lines for an existing order
 
 ### Example
 
@@ -85,7 +85,7 @@ ordersDeleteDiscountLines($id, $discount_lines_id, $accept_language, $x_child_co
 
 Delete Discount
 
-Delete an existing discount lines for an existing orden
+Delete an existing discount line for an existing order
 
 ### Example
 
@@ -151,7 +151,7 @@ ordersGetDiscountLine($id, $discount_lines_id, $accept_language, $x_child_compan
 
 Get Discount
 
-Get an existing discount lines for an existing orden
+Get an existing discount line for an existing order
 
 ### Example
 
@@ -215,9 +215,9 @@ try {
 ordersGetDiscountLines($id, $accept_language, $x_child_company_id, $limit, $search, $next, $previous): \DigitalFemsa\Model\GetOrderDiscountLinesResponse
 ```
 
-Get a List of Discount
+Get a List of Discounts
 
-Get discount lines for an existing orden
+Get discount lines for an existing order
 
 ### Example
 
@@ -289,7 +289,7 @@ ordersUpdateDiscountLines($id, $discount_lines_id, $update_order_discount_lines_
 
 Update Discount
 
-Update an existing discount lines for an existing orden
+Update an existing discount line for an existing order
 
 ### Example
 

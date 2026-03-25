@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * BalanceResponse Class Doc Comment
  *
  * @category Class
- * @description balance model
+ * @description Company balance summary.  Monetary fields are returned as arrays of amounts grouped by currency (see &#x60;balance_common_field&#x60; items).
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -367,7 +367,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets available
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $available The balance's available
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $available Amounts currently available, grouped by currency.
      *
      * @return self
      */
@@ -448,7 +448,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gateway
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $gateway The balance's gateway
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $gateway Gateway balance amounts, grouped by currency.
      *
      * @return self
      */
@@ -475,7 +475,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets pending
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $pending The balance's pending
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $pending Amounts pending settlement, grouped by currency.
      *
      * @return self
      */
@@ -502,7 +502,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets retained
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $retained The balance's retained
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $retained Amounts currently retained, grouped by currency.
      *
      * @return self
      */
@@ -529,7 +529,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets retention_amount
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $retention_amount The balance's retention amount
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $retention_amount Retention amount applied, grouped by currency.
      *
      * @return self
      */
@@ -556,7 +556,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets target_collateral_amount
      *
-     * @param object|null $target_collateral_amount The balance's target collateral amount
+     * @param object|null $target_collateral_amount Target collateral amount, grouped by currency.
      *
      * @return self
      */
@@ -583,7 +583,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets target_retention_amount
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $target_retention_amount The balance's target retention amount
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $target_retention_amount Target retention amount, grouped by currency.
      *
      * @return self
      */
@@ -610,7 +610,7 @@ class BalanceResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets temporarily_retained
      *
-     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $temporarily_retained The balance's temporarily retained
+     * @param \DigitalFemsa\Model\BalanceCommonField[]|null $temporarily_retained Amounts temporarily retained
      *
      * @return self
      */

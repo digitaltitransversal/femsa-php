@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * OrderResponseCharges Class Doc Comment
  *
  * @category Class
- * @description The charges associated with the order
+ * @description List preview of charges created for the order. Charges are only created when included in the request or created later through payment flows. This field can be &#x60;null&#x60; depending on the response context.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

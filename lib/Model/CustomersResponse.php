@@ -459,7 +459,7 @@ class CustomersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \DigitalFemsa\Model\CustomerResponse[]|null $data data
+     * @param \DigitalFemsa\Model\CustomerResponse[]|null $data Customers
      *
      * @return self
      */

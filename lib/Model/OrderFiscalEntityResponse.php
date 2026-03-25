@@ -36,7 +36,7 @@ use \DigitalFemsa\ObjectSerializer;
  * OrderFiscalEntityResponse Class Doc Comment
  *
  * @category Class
- * @description Fiscal entity of the order, Currently it is a purely informative field
+ * @description Fiscal entity information associated with the order. This field can be &#x60;null&#x60;.
  * @package  DigitalFemsa
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

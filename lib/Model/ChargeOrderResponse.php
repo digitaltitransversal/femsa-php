@@ -59,7 +59,7 @@ class ChargeOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'amount' => 'int',
-        'channel' => '\DigitalFemsa\Model\ChargeResponseChannel',
+        'channel' => '\DigitalFemsa\Model\ChargeOrderResponseChannel',
         'created_at' => 'int',
         'currency' => 'string',
         'customer_id' => 'string',
@@ -439,7 +439,7 @@ class ChargeOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets channel
      *
-     * @return \DigitalFemsa\Model\ChargeResponseChannel|null
+     * @return \DigitalFemsa\Model\ChargeOrderResponseChannel|null
      */
     public function getChannel()
     {
@@ -449,7 +449,7 @@ class ChargeOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets channel
      *
-     * @param \DigitalFemsa\Model\ChargeResponseChannel|null $channel channel
+     * @param \DigitalFemsa\Model\ChargeOrderResponseChannel|null $channel channel
      *
      * @return self
      */

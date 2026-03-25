@@ -4,18 +4,20 @@ All URIs are relative to https://api.digitalfemsa.io, except if the operation de
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getCharges()**](ChargesApi.md#getCharges) | **GET** /charges | Get A List of Charges |
-| [**ordersCreateCharge()**](ChargesApi.md#ordersCreateCharge) | **POST** /orders/{id}/charges | Create charge |
+| [**getCharges()**](ChargesApi.md#getCharges) | **GET** /charges | List charges |
+| [**ordersCreateCharge()**](ChargesApi.md#ordersCreateCharge) | **POST** /orders/{id}/charges | Create a charge for an order |
 | [**updateCharge()**](ChargesApi.md#updateCharge) | **PUT** /charges/{id} | Update a charge |
 
 
 ## `getCharges()`
 
 ```php
-getCharges($accept_language, $x_child_company_id, $limit, $search, $next, $previous): \DigitalFemsa\Model\GetChargesResponse
+getCharges($accept_language, $x_child_company_id, $limit, $next, $previous, $search): \DigitalFemsa\Model\GetChargesResponse
 ```
 
-Get A List of Charges
+List charges
+
+Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (`limit`, `next_page`, `previous_page`) to navigate through results. Use `search` to filter charges (for example by id or reference).
 
 ### Example
 
@@ -37,12 +39,12 @@ $apiInstance = new DigitalFemsa\Api\ChargesApi(
 $accept_language = es; // string | Use for knowing which language to use
 $x_child_company_id = 6441b6376b60c3a638da80af; // string | In the case of a holding company, the company id of the child company to which will process the request.
 $limit = 20; // int | The numbers of items to return, the maximum value is 250
-$search = 'search_example'; // string | General order search, e.g. by mail, reference etc.
 $next = 'next_example'; // string | next page
 $previous = 'previous_example'; // string | previous page
+$search = 'search_example'; // string | General order search, e.g. by mail, reference etc.
 
 try {
-    $result = $apiInstance->getCharges($accept_language, $x_child_company_id, $limit, $search, $next, $previous);
+    $result = $apiInstance->getCharges($accept_language, $x_child_company_id, $limit, $next, $previous, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChargesApi->getCharges: ', $e->getMessage(), PHP_EOL;
@@ -56,9 +58,9 @@ try {
 | **accept_language** | **string**| Use for knowing which language to use | [optional] [default to &#39;es&#39;] |
 | **x_child_company_id** | **string**| In the case of a holding company, the company id of the child company to which will process the request. | [optional] |
 | **limit** | **int**| The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
-| **search** | **string**| General order search, e.g. by mail, reference etc. | [optional] |
 | **next** | **string**| next page | [optional] |
 | **previous** | **string**| previous page | [optional] |
+| **search** | **string**| General order search, e.g. by mail, reference etc. | [optional] |
 
 ### Return type
 
@@ -83,9 +85,9 @@ try {
 ordersCreateCharge($id, $charge_request, $accept_language, $x_child_company_id): \DigitalFemsa\Model\ChargeOrderResponse
 ```
 
-Create charge
+Create a charge for an order
 
-Create charge for an existing orden
+Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter `id`. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**.
 
 ### Example
 
@@ -150,6 +152,8 @@ updateCharge($id, $charge_update_request, $accept_language, $x_child_company_id)
 ```
 
 Update a charge
+
+Updates an existing charge. Only `reference_id` can be updated.
 
 ### Example
 

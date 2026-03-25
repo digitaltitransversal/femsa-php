@@ -235,6 +235,19 @@ class ApiKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const ROLE__PRIVATE = 'private';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRoleAllowableValues()
+    {
+        return [
+            self::ROLE__PRIVATE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -285,6 +298,15 @@ class ApiKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['role'] === null) {
             $invalidProperties[] = "'role' can't be null";
         }
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'role', must be one of '%s'",
+                $this->container['role'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -313,7 +335,7 @@ class ApiKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string|null $description A name or brief explanation of what this api key is used for
+     * @param string|null $description A name or brief explanation of what this API key is used for.
      *
      * @return self
      */
@@ -340,7 +362,7 @@ class ApiKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets role
      *
-     * @param string $role role
+     * @param string $role Defines the type of API key to create. Only \"private\" is supported for creation. A \"public\" API key already exists by default per company/environment.
      *
      * @return self
      */
@@ -348,6 +370,16 @@ class ApiKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($role)) {
             throw new \InvalidArgumentException('non-nullable role cannot be null');
+        }
+        $allowedValues = $this->getRoleAllowableValues();
+        if (!in_array($role, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'role', must be one of '%s'",
+                    $role,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['role'] = $role;
 
