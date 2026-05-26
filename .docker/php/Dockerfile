@@ -15,11 +15,6 @@ RUN addgroup -g 1000 appuser && \
 
 USER appuser
 
-RUN addgroup -g 1000 appuser && \
-    adduser -D -u 1000 -G appuser appuser
-
-USER appuser
-
 RUN composer global require phpunit/phpunit ~9
 
 RUN echo 'alias phpunit="./vendor/bin/phpunit"' >> ~/.bashrc
