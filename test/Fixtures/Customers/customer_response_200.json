@@ -1,0 +1,25 @@
+{
+  "id": "cus_2tYENskzTi6gkMBrj",
+  "object": "customer",
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+5215555555555",
+  "corporate": false,
+  "created_at": 1679500800,
+  "updated_at": 1679500800,
+  "livemode": false,
+  "default_payment_source_id": null,
+  "default_shipping_contact_id": null,
+  "payment_sources": {
+    "object": "list",
+    "has_more": false,
+    "total": 0,
+    "data": []
+  },
+  "shipping_contacts": {
+    "object": "list",
+    "has_more": false,
+    "total": 0,
+    "data": []
+  }
+}

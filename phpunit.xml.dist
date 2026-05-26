@@ -1,16 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="./vendor/autoload.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">./lib/Api</directory>
-    </include>
-  </coverage>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="./vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false"
+         defaultTestSuite="core"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd">
   <testsuites>
-    <testsuite name="tests">
-      <directory>./test/Api</directory>
+    <testsuite name="default">
+      <file>./test/ConfigurationTest.php</file>
+      <file>./test/ApiExceptionTest.php</file>
+      <file>./test/Api/CustomersApiMockTest.php</file>
+    </testsuite>
+    <testsuite name="unit">
+      <directory>./test</directory>
+      <exclude>./test/Api</exclude>
+      <exclude>./test/Model</exclude>
+      <exclude>./test/Fixtures</exclude>
+      <exclude>./test/Mocks</exclude>
+    </testsuite>
+    <testsuite name="core">
+      <file>./test/ConfigurationTest.php</file>
+      <file>./test/HeaderSelectorTest.php</file>
+      <file>./test/ObjectSerializerTest.php</file>
+      <file>./test/ApiExceptionTest.php</file>
+    </testsuite>
+    <testsuite name="api">
+      <file>./test/Api/CustomersApiMockTest.php</file>
+    </testsuite>
+    <testsuite name="api-integration">
+      <file>./test/Api/CustomersApiTest.php</file>
+      <file>./test/Api/OrdersApiTest.php</file>
+    </testsuite>
+    <testsuite name="model">
+      <directory>./test/Model</directory>
     </testsuite>
   </testsuites>
+  <filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">./lib</directory>
+      <exclude>
+        <directory>./lib/Model</directory>
+      </exclude>
+    </whitelist>
+  </filter>
+  <logging>
+    <log type="coverage-html" target="./coverage/html"/>
+    <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+  </logging>
   <php>
     <ini name="error_reporting" value="E_ALL"/>
+    <ini name="display_errors" value="1"/>
+    <ini name="display_startup_errors" value="1"/>
   </php>
 </phpunit>
