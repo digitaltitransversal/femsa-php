@@ -1,4 +1,4 @@
-FROM php:8.0-cli-alpine
+FROM php:8.3-cli-alpine
 
 RUN apk add --no-cache $PHPIZE_DEPS \
 	libxml2-dev \
@@ -9,6 +9,11 @@ RUN apk add --no-cache $PHPIZE_DEPS \
 	&& docker-php-ext-enable xdebug
 
 COPY --from=composer:2.5.1 /usr/bin/composer /usr/bin/composer
+
+RUN addgroup -g 1000 appuser && \
+    adduser -D -u 1000 -G appuser appuser
+
+USER appuser
 
 RUN composer global require phpunit/phpunit ~9
 
