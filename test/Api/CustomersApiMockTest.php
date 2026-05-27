@@ -178,7 +178,7 @@ class CustomersApiMockTest extends TestCase
         $result = $this->api->getCustomers('es');
 
         $this->assertIsObject($result);
-        $this->assertObjectHasProperty('data', $result);
+        $this->assertObjectHasAttribute('data', $result);
     }
 
     /**
@@ -226,7 +226,7 @@ class CustomersApiMockTest extends TestCase
         $result = $this->api->deleteCustomerById('cus_123456', 'es');
 
         $this->assertIsObject($result);
-        $this->assertTrue($result->getDeleted());
+        $this->assertTrue(property_exists($result, 'deleted') && $result->deleted);
     }
 
     /**
