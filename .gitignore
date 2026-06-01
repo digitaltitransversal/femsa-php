@@ -12,8 +12,9 @@ build/*
 
 # composer.lock should be committed to lock dependency versions
 
-# Ignore PHPUnit coverage file
+# Ignore PHPUnit coverage files and reports
 clover.xml
+coverage/
 
 # Ignore IDE's configuration files
 .idea

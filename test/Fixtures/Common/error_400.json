@@ -1,0 +1,13 @@
+{
+  "error": {
+    "message": "Invalid request parameters",
+    "code": "invalid_request",
+    "status": 400,
+    "details": [
+      {
+        "field": "email",
+        "message": "Email is required"
+      }
+    ]
+  }
+}
