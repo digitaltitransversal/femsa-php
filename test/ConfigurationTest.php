@@ -21,7 +21,7 @@ class ConfigurationTest extends TestCase
         
         $this->assertInstanceOf(Configuration::class, $config);
         $this->assertEquals('https://api.digitalfemsa.io', $config->getHost());
-        $this->assertEquals('Femsa/v2 PhpBindings/1.1.0', $config->getUserAgent());
+        $this->assertEquals('Femsa/v2 PhpBindings/1.2.0', $config->getUserAgent());
         $this->assertFalse($config->getDebug());
     }
 
