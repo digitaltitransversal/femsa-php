@@ -154,6 +154,42 @@ class OrdersApiTest extends TestCase
     }
 
     /**
+     * Test case for createOrderWithCheckoutAndRedirectionTime
+     *
+     * Create order with checkout and redirection_time parameter.
+     *
+     */
+    public function testCreateOrderWithCheckoutAndRedirectionTime()
+    {
+        $accept_language = 'es';
+        $rq = new OrderRequest([
+            'currency' => 'MXN',
+            'customer_info' => [
+               'customer_id' => 'cus_2tKcHxhTz7xU5SymF'
+            ],
+            'line_items' => [
+                [
+                    'name' => 'Box of Cohiba S1s',
+                    'unit_price' => 20000,
+                    'quantity' => 1
+                ]
+            ],
+            'checkout' => [
+                'type' => 'HostedPayment',
+                'allowed_payment_methods' => ['cash', 'card'],
+                'success_url' => 'https://example.com/success',
+                'failure_url' => 'https://example.com/failure',
+                'redirection_time' => 15
+            ]
+        ]);
+        $result = self::$apiInstance->createOrder($rq, $accept_language);
+
+        $this->assertNotEmpty($result, 'expected not empty result');
+        $this->assertEquals('MXN', $result->getCurrency(), 'expected currency to be MXN');
+        $this->assertNotNull($result->getCheckout(), 'expected checkout to be present');
+    }
+
+    /**
      * Test case for getOrderById
      *
      * Get Order.
