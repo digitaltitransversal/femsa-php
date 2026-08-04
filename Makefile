@@ -8,7 +8,7 @@ php:
 	rm -rf lib/Api && \
 	docker run --rm \
 	-v ${PWD}:/local openapitools/openapi-generator-cli:v7.5.0 generate \
-		-i https://raw.githubusercontent.com/digitaltitransversal/openapi/feature/BOPR-2819-checkout-param/_build/api.yaml \
+		-i https://raw.githubusercontent.com/digitalfemsa/openapi/main/_build/api.yaml \
 		-g php \
 		-o /local \
 		-c /local/config-php.json \
