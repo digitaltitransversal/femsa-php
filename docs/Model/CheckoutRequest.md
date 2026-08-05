@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **on_demand_enabled** | **bool** |  | [optional]
 **success_url** | **string** | Redirection url back to the site in case of successful payment, applies only to HostedPayment | [optional]
 **type** | **string** | This field represents the type of checkout | [optional]
+**redirection_time** | **int** | Number of seconds to wait before redirecting to the success or failure url | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
