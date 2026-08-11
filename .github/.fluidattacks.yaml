@@ -1,0 +1,14 @@
+language: EN
+strictness_threshold: medium
+ss:
+  include:
+    - .
+sca:
+  include:
+    - .
+sast:
+  include:
+    - .
+dast:
+  urls:
+    - url: your_api_endpoint
