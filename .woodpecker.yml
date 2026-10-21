@@ -25,8 +25,15 @@ steps:
       build_args:
         - GP_TOKEN
         - GP_USER
-    secrets: [GP_TOKEN, GP_USER, aws_access_key_id, aws_secret_access_key]
     environment:
+      GP_TOKEN:
+        from_secret: GP_TOKEN
+      GP_USER:
+        from_secret: GP_USER
+      aws_access_key_id:
+        from_secret: aws_access_key_id
+      aws_secret_access_key:
+        from_secret: aws_secret_access_key
       DOCKER_BUILDKIT: "1"
   - name: unit test
     image: 348781328318.dkr.ecr.us-east-1.amazonaws.com/${CI_REPO}:${CI_PIPELINE_NUMBER}
@@ -46,5 +53,3 @@ services:
       - mockoon-cli start --data https://raw.githubusercontent.com/digitalfemsa/openapi/main/mocks/femsa.json -p 3000
     ports:
       - 3000
-
-
